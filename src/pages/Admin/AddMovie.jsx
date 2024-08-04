@@ -27,7 +27,7 @@ const AdminPanel = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
         const seanceArray = seance.split(',').map(s => s.trim());
 
         try {

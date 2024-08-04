@@ -4,9 +4,11 @@
     gap: 20px; 
 }
 .movie-title{
-    position: absolute;
-    bottom: 3rem ;
-    width: 200%;
+    position:fixed;
+    bottom: 36rem ;
+    width: auto;
+    left: 1.5rem;
+    display: inline-block;
 }
 .movie-image {
     width: 300px; /* Fotoğrafın genişliği */
@@ -56,7 +58,7 @@ li {
     transition: all 0.3s ease-in-out;
     position: absolute;
     top:40rem;
-    right: 10%;
+    right: 4%;
 
 }
 .movie-buy-ticket:hover{
@@ -74,5 +76,5 @@ li {
 .trailer-embed{
     position: absolute;
     top: 40%;
-    left: 53.5%;
+    left: 60%;
 }
