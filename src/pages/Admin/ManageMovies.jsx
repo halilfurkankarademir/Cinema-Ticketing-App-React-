@@ -146,7 +146,9 @@ const AdminPanel = () => {
                                                 deleteMovie(movie.id, false)
                                             }
                                         ></i>
+                                        <Link to={`/edit-movie/${movie.id}`}><i class="bi bi-pencil-square"></i></Link>
                                     </td>
+                                    
                                 </tr>
                             ))}
                         </tbody>
@@ -193,6 +195,7 @@ const AdminPanel = () => {
                                             }
                                         ></i>
                                     </td>
+                                    
                                 </tr>
                             ))}
                         </tbody>

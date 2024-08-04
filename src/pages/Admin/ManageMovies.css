@@ -49,7 +49,7 @@
     position: relative;
     font-size: 1.5rem;
     transition: all 0.3s ease-in-out;
-    left: 1.2rem;
+    left: 3rem;
 }
 
 .bi-trash:hover{
@@ -67,4 +67,11 @@
 .add-movie-button .upcoming-button{
     position: relative;
     right: 10rem;
+}
+
+.bi-pencil-square{
+    position: relative;
+    right: 1rem;
+    color: black;
+    font-size: 1.3rem;
 }
