@@ -3,17 +3,16 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Seat from "../components/Seat";
 import Navbar from "../components/Navbar";
 import Footer from "./footer/Footer";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 import "./SelectSeat.css";
 
 const SeatSelection = () => {
-    
     const location = useLocation();
     const navigate = useNavigate();
     const { movieName, showTime } = location.state || {};
     const [seats, setSeats] = useState([]);
     const [selectedSeats, setSelectedSeats] = useState([]);
-    const [ticketType, setTicketType] = useState('');
+    const [ticketType, setTicketType] = useState("");
     const [ticketCount, setTicketCount] = useState(0);
     const [auditorium, setSAuditorium] = useState(0);
     const date = new Date().toDateString();
@@ -107,20 +106,21 @@ const SeatSelection = () => {
                 { number: "E14", isReserved: false },
                 { number: "E15", isReserved: false },
             ];
-            var randNo = Math.floor(Math.random() * 10)+1;
+            var randNo = Math.floor(Math.random() * 10) + 1;
             setSAuditorium(randNo);
             // Random Reserved Seats For Each Movie
-            const getRandomIndex = (length) => Math.floor(Math.random() * length);
+            const getRandomIndex = (length) =>
+                Math.floor(Math.random() * length);
             const randomTimes = Math.floor(Math.random() * 10);
             for (let i = 0; i < randomTimes; i++) {
                 const randomIndex = getRandomIndex(allSeats.length);
-                if (allSeats[randomIndex]) { 
+                if (allSeats[randomIndex]) {
                     allSeats[randomIndex].isReserved = true;
                 }
             }
             setSeats(allSeats);
         };
-        
+
         initializeSeats();
     }, []);
 
@@ -130,13 +130,20 @@ const SeatSelection = () => {
                 ? prevSelectedSeats.filter((seat) => seat !== seatNumber)
                 : [...prevSelectedSeats, seatNumber]
         );
-        setTicketCount(selectedSeats.length+1);
+        setTicketCount(selectedSeats.length + 1);
     };
 
     const handlePayment = (e) => {
-        if (selectedSeats.length > 0 && ticketType !=='') {
-            navigate('/payment', {
-                state: { movieName, showTime, ticketType,ticketCount,auditorium ,selectedSeats},
+        if (selectedSeats.length > 0 && ticketType !== "") {
+            navigate("/payment", {
+                state: {
+                    movieName,
+                    showTime,
+                    ticketType,
+                    ticketCount,
+                    auditorium,
+                    selectedSeats,
+                },
             });
         } else {
             toast.error("Please select seat and ticket type.");
@@ -150,7 +157,11 @@ const SeatSelection = () => {
             <Navbar />
             <div className="container-fluid selectSeatAll">
                 <div className="film-details">
-                    <h5>Movie Name: <b>{movieName}</b> Date: <b>{date}</b> Showtime: <b>{showTime}</b> Auditorium: <b>{auditorium}</b></h5>
+                    <h5>
+                        Movie Name: <b>{movieName}</b> Date: <b>{date}</b>{" "}
+                        Showtime: <b>{showTime}</b> Auditorium:{" "}
+                        <b>{auditorium}</b>
+                    </h5>
                 </div>
                 <br />
                 <h4>Choose Seat</h4>
@@ -172,9 +183,15 @@ const SeatSelection = () => {
                     ))}
                 </div>
                 <div className="scene">Scene</div>
-                <div className="selectedSeat" title="Selected">S</div>
-                <div className="emptySeat" title="Empty">E</div>
-                <div className="reservedSeat" title="Reserved">R</div>
+                <div className="selectedSeat" title="Selected">
+                    S
+                </div>
+                <div className="emptySeat" title="Empty">
+                    E
+                </div>
+                <div className="reservedSeat" title="Reserved">
+                    R
+                </div>
                 <div>
                     <br />
                     <br />
@@ -189,8 +206,11 @@ const SeatSelection = () => {
                             <p>You didn't select a seat yet.</p>
                         )}
                     </div>
-                    <select className="select-ticket-type" onChange={(e)=> setTicketType(e.target.value)}>
-                        <option value=''>Select Ticket Type</option>
+                    <select
+                        className="select-ticket-type"
+                        onChange={(e) => setTicketType(e.target.value)}
+                    >
+                        <option value="">Select Ticket Type</option>
                         <option value="Adult">Adult: 15$</option>
                         <option value="Student">Student: 10$</option>
                     </select>

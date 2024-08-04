@@ -25,7 +25,7 @@ const HomePage = () => {
         });
 
         gsap.to(".pre-loader", 2, {
-            top: "-100%",
+            top:"-100%",
             ease: "power4.inOut",
             delay: 2,
         });

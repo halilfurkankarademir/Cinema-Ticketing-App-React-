@@ -9,7 +9,7 @@ const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
     const [sessions, setSessions] = useState([]);
     const [selectedSession, setSelectedSession] = useState("");
-    const { id } = useParams();
+    const { id } = useParams(); // ID string olarak alınıyor
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -18,16 +18,23 @@ const MovieDetail = () => {
                 const moviesCollection = collection(firestore, "movies");
                 const movieSnapshot = await getDocs(moviesCollection);
                 const movieList = movieSnapshot.docs.map((doc) => ({
-                    id: doc.id,
+                    id: doc.id, // Firestore'dan alınan ID string olarak
                     ...doc.data(),
                 }));
-                const selectedMovie = movieList.find(
-                    (movie) => movie.id === id
-                );
-                setMovie(selectedMovie);
+                console.log(movieList.id);
 
-                if (selectedMovie && selectedMovie.seances) {
-                    setSessions(selectedMovie.seances);
+                console.log("Movie List:", movieList); // Debugging için
+                const selectedMovie = movieList.find(
+                    (movie) => movie.id === id // ID karşılaştırması
+                );
+
+                if (selectedMovie) {
+                    setMovie(selectedMovie);
+                    if (selectedMovie.seances) {
+                        setSessions(selectedMovie.seances);
+                    }
+                } else {
+                    console.log("No matching movie found with ID:", id);
                 }
             } catch (error) {
                 console.error("Error fetching movie: ", error);
@@ -43,17 +50,14 @@ const MovieDetail = () => {
 
     const handleBuyTicket = () => {
         if (selectedSession) {
-            console.log("Navigating to:", `/select-seat/${id}`, {
-                state: { movieName: movie.title, showTime: selectedSession },
-            });
-            navigate(`/select-seat/${id}`, {
+            navigate(`/select-seat/${id}/${selectedSession}`, {
                 state: { movieName: movie.title, showTime: selectedSession },
             });
         } else {
             toast.error("Please select a session");
         }
     };
-    
+
     if (!movie) {
         return <p>Loading...</p>;
     }
@@ -96,20 +100,20 @@ const MovieDetail = () => {
                         <h5>Release Date</h5>
                         <p>{movie.date}</p>
                     </section>
-                    <div class="embed-responsive embed-responsive-16by9 trailer-embed">
+                    <div className="embed-responsive embed-responsive-16by9 trailer-embed">
                         <iframe
                             width="560"
                             height="315"
                             src={movie.trailer}
                             title="YouTube video player"
-                            frameborder="0"
+                            frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allowFullScreen
                         ></iframe>
                     </div>
                     <button type="button" className="movie-buy-ticket" onClick={handleBuyTicket}>
-                            Buy Ticket
+                        Buy Ticket
                     </button>
                 </div>
             )}

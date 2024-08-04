@@ -9,7 +9,9 @@ import './AddMovie.css';
 const AdminPanel = () => {
     const { currentUser, userLoggedIn } = useAuth();
     const navigate = useNavigate();
-    document.title = "CineWave | Add Vision Movies"
+    document.title = "CineWave | Add Vision Movies";
+    
+
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [seance, setSeance] = useState(''); 
@@ -31,18 +33,20 @@ const AdminPanel = () => {
         const seanceArray = seance.split(',').map(s => s.trim());
 
         try {
-            await addDoc(collection(firestore, "movies"), {
-                title: title,
-                description: description,
-                seances: seanceArray, 
+            const docRef = await addDoc(collection(firestore, "movies"), {
+                title,
+                description,
+                seances: seanceArray,
                 imageUrl: image,
-                duration: duration,
-                cast: cast,
-                type: type,
-                date: date, 
-                trailer: trailer,
-                createdAt: new Date() 
+                duration,
+                cast,
+                type,
+                date,
+                trailer,
+                createdAt: new Date(),
+                reservedSeats:false,
             });
+
             toast.success('Movie Added');
             setTitle('');
             setDescription('');
@@ -55,6 +59,7 @@ const AdminPanel = () => {
             setTrailer('');
         } catch (e) {
             console.error("Error adding document: ", e);
+            toast.error('Failed to add movie');
         }
     };
 

@@ -1,20 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useCollectionData } from "react-firebase-hooks/firestore";
 import Navbar from "../../components/Navbar";
 import Footer from "../footer/Footer";
-import { firestore, collection, addDoc, doc, setDoc, getDoc, updateDoc, increment } from "../../firebase/firebase";
+import {
+    firestore,
+    collection,
+    addDoc,
+    doc,
+    setDoc,
+    getDoc,
+    updateDoc,
+    increment,
+    query,
+    where,
+} from "../../firebase/firebase";
 import "./Payment.css";
+import { toast, Toaster } from "react-hot-toast";
+import { getDocs } from "firebase/firestore/lite";
 
 const Payment = () => {
     const date = new Date().toDateString();
     const location = useLocation();
     const navigate = useNavigate();
-    const [orderNo, setOrderNo] = useState('');
+    const [orderNo, setOrderNo] = useState("");
     const [totalRevenue, setTotalRevenue] = useState(0);
     const [totalSoldTickets, setTotalSoldTickets] = useState(0);
+    const [movieId, setMovieId] = useState("");
 
-    const { movieId, movieName, showTime, ticketType, ticketCount, auditorium, selectedSeats } =
-        location.state || {};
+    const {
+        movieName,
+        showTime,
+        ticketType,
+        ticketCount,
+        auditorium,
+        selectedSeats,
+    } = location.state || {};
 
     const calculateTotalPrice = (ticketCount, ticketType) => {
         if (ticketType.toLowerCase() === "adult") {
@@ -24,15 +45,32 @@ const Payment = () => {
         }
     };
 
+    const movieRef = collection(firestore, 'movies');
+    const movieQuery = query(movieRef, where("title", "==", movieName));
+    const [movies, loading, error] = useCollectionData(movieQuery, { idField: 'id' });
+
+    useEffect(() => {
+        if (!loading && !error && movies) {
+            // Film verilerini işleyip id'yi al
+            if (movies.length > 0) {
+                setMovieId(movies[0].id);
+                console.log("Movie ID:", movies[0].id);
+            } else {
+                console.log("No movies found.");
+            }
+        }
+    }, [movies, loading, error]);
+
+
     useEffect(() => {
         setOrderNo(generateOrderNumber());
-        fetchTotalRevenue(); 
-        fetchTotalSoldTickets(); 
+        fetchTotalRevenue();
+        fetchTotalSoldTickets();
     }, []);
 
     const fetchTotalRevenue = async () => {
         try {
-            const docRef = doc(firestore, "datas", "totalRevenueDocId"); 
+            const docRef = doc(firestore, "datas", "totalRevenueDocId");
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
@@ -47,7 +85,7 @@ const Payment = () => {
 
     const fetchTotalSoldTickets = async () => {
         try {
-            const docRef = doc(firestore, "datas", "totalSoldTicketsDocId"); 
+            const docRef = doc(firestore, "datas", "totalSoldTicketsDocId");
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
@@ -63,9 +101,15 @@ const Payment = () => {
     const updateData = async () => {
         try {
             const docRef = doc(firestore, "datas", "totalRevenueDocId");
-            await setDoc(docRef, {
-                totalRevenue: increment(calculateTotalPrice(ticketCount, ticketType)),
-            }, { merge: true });
+            await setDoc(
+                docRef,
+                {
+                    totalRevenue: increment(
+                        calculateTotalPrice(ticketCount, ticketType)
+                    ),
+                },
+                { merge: true }
+            );
         } catch (e) {
             console.error("Error updating document: ", e);
         }
@@ -85,20 +129,24 @@ const Payment = () => {
     const updateTotalSoldTickets = async () => {
         try {
             const docRef = doc(firestore, "datas", "totalSoldTicketsDocId");
-            await setDoc(docRef, {
-                totalSoldTicketCount: increment(ticketCount),
-            }, { merge: true });
+            await setDoc(
+                docRef,
+                {
+                    totalSoldTicketCount: increment(ticketCount),
+                },
+                { merge: true }
+            );
         } catch (e) {
             console.error("Error updating total sold tickets: ", e);
         }
     };
 
     const handleComplete = async (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
-        await updateData(); 
-        await updateSoldTicketCount(); 
-        await updateTotalSoldTickets(); 
+        await updateData();
+        await updateSoldTicketCount();
+        await updateTotalSoldTickets();
 
         navigate("/paymentcomplete", {
             state: {
@@ -108,10 +156,25 @@ const Payment = () => {
                 ticketCount,
                 auditorium,
                 orderNo,
-                selectedSeats
+                selectedSeats,
             },
         });
     };
+
+    const reserveSeats = async (movieId, selectedSeats) => {
+        try {
+            const movieDocRef = doc(firestore, "movies", movieId);
+
+            await updateDoc(movieDocRef, {
+                reservedSeats: selectedSeats,
+            });
+
+            console.log("Seats reserved successfully.");
+        } catch (error) {
+            console.error("Error reserving seats: ", error);
+        }
+    };
+
 
     const generateOrderNumber = () => {
         const now = new Date();
@@ -122,6 +185,7 @@ const Payment = () => {
 
     return (
         <div>
+            <Toaster position="top-center"></Toaster>
             <Navbar />
             <div className="container-fluid payment-container">
                 <main>
@@ -368,5 +432,4 @@ const Payment = () => {
         </div>
     );
 };
-
 export default Payment;

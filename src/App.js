@@ -30,7 +30,7 @@ const Wrapper = () => {
                         <Route path="/vision" element={<Vision />} />
                         <Route path="/soon" element={<ComingSoon />} />
                         <Route path="/contact" element={<Contact />} />
-                        <Route path="/select-seat/:id" element={<SelectSeat />} />
+                        <Route path="/select-seat/:id/:time" element={<SelectSeat />} />
                         <Route path="/movie/:id" element={<MovieDetail />} />
                         <Route path="/payment" element={<Payment />} />
                         <Route path="/paymentcomplete" element={<PaymentComplete />} />
