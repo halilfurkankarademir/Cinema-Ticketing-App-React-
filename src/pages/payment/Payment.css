@@ -1,0 +1,55 @@
+.payment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    bottom: 5rem;
+    height: 30vh;
+}
+
+.payment-container main {
+    width: 100%;
+    max-width: 1200px; 
+}
+
+.card, .form-check, .input-group {
+    margin: 0 auto; 
+}
+
+
+.payment-container .row {
+    justify-content: center; 
+}
+
+.col-md-5, .col-md-7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.exp-date{
+    position: relative;
+    right: 12.7rem;
+}
+.exp-date input{
+    width: 24rem;
+}
+.cvv input{
+    width: 24rem;
+}
+.compelete-button{
+    position: relative;
+    width: 23rem;
+    left: 52rem;
+    bottom: 5rem;
+    border: none;
+    outline: none;
+}
+.compelete-button:hover{
+    background-color: #0095FF;
+}
+.ticket-details{
+    position: relative;
+    top: 3rem; 
+}

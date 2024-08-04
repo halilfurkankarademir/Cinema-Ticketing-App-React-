@@ -1,0 +1,70 @@
+.admin-panel {
+    padding: 20px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    right: 2rem;
+    bottom: 2rem;
+}
+
+.admin-panel h1{
+    letter-spacing: -3px;
+}
+
+.sign-out-button {
+    margin-bottom: 20px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    left: 87.5rem;
+}
+
+.sign-out-button:hover {
+    background-color: #c9302c;
+}
+
+.add-movie-button {
+    margin-bottom: 20px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 25px;
+    position: relative;
+    left: 58.5%;
+}
+
+.add-movie-button:hover {
+    background-color: #4cae4c;
+}
+
+
+.bi-trash{
+    position: relative;
+    font-size: 1.5rem;
+    transition: all 0.3s ease-in-out;
+    left: 1.2rem;
+}
+
+.bi-trash:hover{
+    transform: scale(1.5);
+    color: #ee0909;
+}
+
+.admin-panel h1{
+    font-size: 3rem;
+    font-weight: 600;
+    position: relative;
+    top: 3rem;
+    left: 2.5rem;
+}
+.add-movie-button .upcoming-button{
+    position: relative;
+    right: 10rem;
+}

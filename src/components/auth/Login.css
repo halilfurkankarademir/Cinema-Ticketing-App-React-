@@ -1,0 +1,146 @@
+/* Login.css */
+
+/* Main container for the login page */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+}
+
+/* Wrapper for the login form */
+.login-wrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header text */
+.login-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Welcome back text */
+.login-header h3 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Form styles */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form label */
+.login-form-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+/* Form input */
+.login-form-input {
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+    width: 360px;
+}
+
+.login-form-input:focus {
+    border-color: #007bff;
+}
+
+/* Error message */
+.login-error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Submit button */
+.login-submit-button {
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-submit-button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+}
+
+.login-submit-button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+/* Link to sign up */
+.login-signup-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* OR separator */
+.login-separator {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.login-separator div {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.login-separator span {
+    padding: 0 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Google sign-in button */
+.login-google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-google-button svg {
+    margin-right: 10px;
+}
+
+.login-google-button:hover {
+    background-color: #f0f0f0;
+}

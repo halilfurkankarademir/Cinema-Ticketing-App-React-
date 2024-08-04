@@ -1,0 +1,85 @@
+@media only screen and (max-width: 600px){
+.card{
+    background-color: #FF007A;
+    color: whitesmoke;
+    width: 12rem !important;
+    font-size: 0.7rem;
+    outline: none;
+    border: none;
+    position: relative;
+    top: 2rem;
+    left: 2rem;
+    margin-bottom: 1.5rem; 
+    overflow: hidden;
+    cursor: pointer;
+}
+.card:hover  .card-img-top{
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+.card-title{
+    font-size: 1rem;
+}
+
+.btn-light{
+    position: relative;
+    font-weight: 500;
+    font-size: 0.6rem;
+    left: 50%;
+    
+}
+
+.card-img-top{
+    width: auto;
+    height: 10rem;
+    object-fit: cover;
+    transition: all 0.2s ease-in-out;
+}
+.viewMovie{
+    display: none;
+}
+
+}
+@media only screen and (min-width: 768px){
+.card{
+    background-color: #FF007A;
+    color: whitesmoke;
+    width: 18rem !important;
+    font-size: 0.7rem;
+    outline: none;
+    border: none;
+    position: relative;
+    top: 2rem;
+    right: 1rem;
+    margin-bottom: 4rem !important; 
+    overflow: hidden;
+    cursor: pointer;
+}
+.card:hover  .card-img-top{
+    transform: scale(1.05);
+    opacity: 0.5;
+}
+.card-title{
+    font-size: 1rem;
+}
+
+.card-img-top{
+    width: auto;
+    height: 50vh;
+    object-fit: cover;
+    transition: all 0.2s ease-in-out;
+}
+.viewMovie{
+    position: absolute;
+    top: 11rem;
+    left: 7.5rem;
+    font-weight: 400;
+    font-size: 1rem;
+    color: whitesmoke;
+    display: none;
+}
+.card:hover .viewMovie{
+    display: block;
+}
+
+}

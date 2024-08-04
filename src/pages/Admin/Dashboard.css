@@ -1,0 +1,52 @@
+.chart-card{
+    width: 20%;
+    height: 10rem;
+    position: relative;
+    background-color: rgb(232, 232, 232);
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem;
+    bottom: 1rem;
+    transition: all .3s ease-in-out;
+}
+
+.chart-card h1{
+    position: relative;
+    bottom: 1rem;
+}
+
+.chart-card:hover{
+    transform: scale(1.05);
+    background-color: rgb(255, 50, 152);
+}
+.bi-bank{
+    position: relative;
+    left: 21rem;
+    bottom: 2rem;
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+.bi-ticket{
+    position: relative;
+    left: 21rem;
+    bottom: 2rem;
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+
+.bi-film{
+    position: relative;
+    left: 21rem;
+    bottom: 2rem;
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+.changeCarousel{
+    position: relative;
+    width: 97.5%;
+    left: 1rem;
+    background-color: rgb(232, 232, 232) !important;
+}
+.save-button{
+    margin-top: 1rem;
+}

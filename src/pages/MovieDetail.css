@@ -1,0 +1,78 @@
+.movie-detail {
+    display: flex; 
+    padding: 20px;
+    gap: 20px; 
+}
+.movie-title{
+    position: absolute;
+    bottom: 3rem ;
+    width: 200%;
+}
+.movie-image {
+    width: 300px; /* Fotoğrafın genişliği */
+    height: auto;
+}
+
+.movie-info {
+    flex: 1; /* Kalan alanı kaplar */
+}
+
+.movie-desc {
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.movie-desc h5 {
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.movie-buy-ticket{
+    background-color: #121212;
+    width: 10vw;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top:40rem;
+    right: 10%;
+
+}
+.movie-buy-ticket:hover{
+    background-color: #FF007A;
+}
+
+.selectionSeances{
+    background-color: #121212;
+    width: 12vw;
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 5px;
+}
+.trailer-embed{
+    position: absolute;
+    top: 40%;
+    left: 53.5%;
+}

@@ -1,0 +1,84 @@
+.scene{
+    position: relative;
+    width: 30%;
+    height: 0.2rem;
+    top: 1rem;
+    left: 33rem;
+    background-color: #4b4b4b;
+}
+
+.selectSeatAll{
+    width: 100%;
+    height: 25vh;
+    position: relative;
+    text-align: center;
+    align-items: center;
+}
+
+li{
+    list-style: none;
+}
+
+.selected-seats-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+    left: 30.5%;
+    bottom: 2.3rem;
+}
+
+.buyTicket{
+    background-color: #121212;
+    outline: none;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    bottom: 1rem;
+}
+.buyTicket:hover{
+    background-color: #FF007A;
+}
+.selectedSeat{
+    background-color: #0095FF;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+    left: 49rem;
+    top: 3rem;
+    border-radius: 5px;
+    color: white;
+}
+.reservedSeat{
+    background-color: #FF007A;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+    left: 46rem;
+    border-radius: 5px;
+    color: white;
+}
+.emptySeat{
+    background-color: #828282;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+    left: 43rem;
+    top: 1.5rem;
+    border-radius: 5px;
+    color: white;
+}
+
+.select-ticket-type{
+    background-color: #121212;
+    outline: none;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    bottom: 1rem;
+    margin-right: 1rem;
+}
