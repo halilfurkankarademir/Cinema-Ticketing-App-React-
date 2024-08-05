@@ -1,0 +1,27 @@
+.rate-section{
+    width: 50%;
+    height: 20vh;
+}
+
+.bi-star{
+    position: relative;
+    top: 8rem;
+    left: 1rem;
+    margin-right: 0.5rem;
+    z-index: 0;
+    font-size: 1.5rem;
+}
+.bi-star-fill{
+    margin-right: 0.5rem;
+    color: goldenrod;
+    position: relative;
+    right: 9rem;
+    top: 8rem;
+    z-index: 10;
+    font-size: 1.5rem;
+    display: none;
+}
+
+#textAreaRating{
+    height: 25vh;
+}

@@ -10,6 +10,7 @@ import SelectSeat from "./pages/SelectSeat"
 import Payment from "./pages/payment/Payment";
 import PaymentComplete from "./pages/payment/PaymentComplete";
 import MovieDetail from "./pages/MovieDetail";
+import RateMovie from "./pages/rate/RateMovie";
 import Login from "./components/auth/Login";
 import Dashboard from "./pages/Admin/Dashboard";
 import ManageMovies from "./pages/Admin/ManageMovies"
@@ -32,6 +33,7 @@ const Wrapper = () => {
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/select-seat/:id/:time" element={<SelectSeat />} />
                         <Route path="/movie/:id" element={<MovieDetail />} />
+                        <Route path="/rate/" element={<RateMovie />} />
                         <Route path="/payment" element={<Payment />} />
                         <Route path="/paymentcomplete" element={<PaymentComplete />} />
                         <Route path="/login" element={<Login />} />
