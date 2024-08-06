@@ -83,7 +83,7 @@ const MovieDetail = () => {
         fetchComments();
         fetchMovie();
         avgRating();
-    }, [id,comments]);
+    }, [comments]);
 
     const handleSessionChange = (event) => {
         setSelectedSession(event.target.value);
