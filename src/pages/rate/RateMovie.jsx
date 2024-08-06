@@ -12,7 +12,7 @@ const RateMovie = () => {
     const [movie, setMovie] = useState(null);
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
-    const [comments, setComments] = useState([]); // Yorumlar için state ekleniyor
+    const [comments, setComments] = useState([]); 
 
     useEffect(() => {
         const ids = [
@@ -66,12 +66,12 @@ const RateMovie = () => {
 
                 console.log("Comment List:", commentList);
 
-                // Filmi yorumlar arasında bulup filtreleme
+                
                 const selectedMovieComments = commentList.filter(
                     (comment) => comment.movieId === id 
                 );
 
-                setComments(selectedMovieComments); // Yorumlar state'e kaydediliyor
+                setComments(selectedMovieComments); 
                 
             } catch (error) {
                 console.error("Error fetching comments: ", error);
@@ -103,7 +103,7 @@ const RateMovie = () => {
                     movieId: movie.id
                 });
                 toast.success('Comment added.');
-
+                setComment('');
                 setComments([...comments, { id: docRef.id, title: movie.title, rating: rating, comment: comment, movieId: movie.id }]);
             } else {
                 toast.error('Comment cannot be empty!');
@@ -154,11 +154,14 @@ const RateMovie = () => {
                     <p>Choose rating.</p>
                     <br />
                     <label htmlFor="comment">Your comment</label>
-                    <textarea name="comment" id="textAreaRating" className="form-control mt-2" onChange={(e) => setComment(e.target.value)}></textarea>
+                    <textarea name="comment" id="textAreaRating" className="form-control mt-2" 
+                    onChange={(e) => setComment(e.target.value)}
+                    value={comment}
+                    ></textarea>
                     <button type="submit" className="btn btn-dark mt-4" onClick={addComment}>Add rating</button>
                 </div>
                 <div className="container-fluid d-flex flex-column form-container mt-5">
-                    <h5 className="text-center">Comments for <b>{movie.title}</b></h5>
+                    <h5 className="text-center">Comments</h5>
                     {comments.length > 0 ? (
                         comments.map((cmt) => (
                             <div key={cmt.id} className="comment mt-3">
