@@ -168,8 +168,7 @@ const SeatSelection = () => {
                 <div className="film-details">
                     <h5>
                         Movie Name: <b>{movieName}</b> Date: <b>{date}</b>{" "}
-                        Showtime: <b>{showTime}</b> Auditorium:{" "}
-                        <b>{auditorium}</b>
+                        Showtime: <b>{showTime}</b> 
                     </h5>
                 </div>
                 <br />

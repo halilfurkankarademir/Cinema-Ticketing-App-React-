@@ -27,6 +27,9 @@ const Payment = () => {
     const [totalRevenue, setTotalRevenue] = useState(0);
     const [totalSoldTickets, setTotalSoldTickets] = useState(0);
     const [movieId, setMovieId] = useState("");
+    const [firstname,setFirstName] = useState('');
+    const [lastname,setLastName] = useState('');
+    const [email,setEmail] = useState('');
 
     const {
         movieName,
@@ -145,6 +148,14 @@ const Payment = () => {
     const handleComplete = async (e) => {
         e.preventDefault();
 
+
+        const form = e.target.closest('form');
+        if (form.checkValidity() === false) {
+        e.stopPropagation();
+        form.classList.add('was-validated');
+        return;
+    }
+
         await updateData();
         await updateSoldTicketCount();
         await updateTotalSoldTickets();
@@ -163,14 +174,14 @@ const Payment = () => {
         });
     };
 
-
-
     const reserveSeats = async (movieName,showtime,seats) => {
         try {
             const seatRef = await addDoc(collection(firestore, 'reservations'), {
                 seats :seats,
                 movieName: movieName,
-                showTime: showTime
+                showTime: showTime,
+                name : firstname + " " + lastname,
+                email : email
             });
         } catch (error) {
             console.error("Error reserving seats: ", error);
@@ -252,7 +263,7 @@ const Payment = () => {
                         </div>
 
                         <div className="col-md-7 col-lg-8">
-                            <form className="needs-validation" noValidate>
+                            <form className="needs-validation">
                                 <div className="row g-3">
                                     <div className="col-sm-6">
                                         <label
@@ -267,6 +278,7 @@ const Payment = () => {
                                             id="firstName"
                                             placeholder=""
                                             required
+                                            onChange={(e)=>setFirstName(e.target.value)}
                                         />
                                         <div className="invalid-feedback">
                                             Valid first name is required.
@@ -286,6 +298,7 @@ const Payment = () => {
                                             id="lastName"
                                             placeholder=""
                                             required
+                                            onChange={(e)=>setLastName(e.target.value)}
                                         />
                                         <div className="invalid-feedback">
                                             Valid last name is required.
@@ -307,6 +320,8 @@ const Payment = () => {
                                             className="form-control"
                                             id="email"
                                             placeholder="you@example.com"
+                                            required
+                                            onChange={(e)=>setEmail(e.target.value)}
                                         />
                                         <div className="invalid-feedback">
                                             Please enter a valid email address
@@ -314,24 +329,6 @@ const Payment = () => {
                                         </div>
                                     </div>
 
-                                    <div className="col-12">
-                                        <label
-                                            htmlFor="address"
-                                            className="form-label"
-                                        >
-                                            Address
-                                        </label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="address"
-                                            placeholder="1234 Main St"
-                                            required
-                                        />
-                                        <div className="invalid-feedback">
-                                            Please enter your shipping address.
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <hr className="my-4" />
@@ -349,7 +346,7 @@ const Payment = () => {
                                             className="form-control"
                                             id="cc-name"
                                             placeholder=""
-                                            required
+                                            
                                         />
                                         <small className="text-muted">
                                             Full name as displayed on card
@@ -371,7 +368,7 @@ const Payment = () => {
                                             className="form-control"
                                             id="cc-number"
                                             placeholder=""
-                                            required
+                                            
                                         />
                                         <div className="invalid-feedback">
                                             Credit card number is required
@@ -390,7 +387,7 @@ const Payment = () => {
                                             className="form-control"
                                             id="cc-expiration"
                                             placeholder=""
-                                            required
+                                           
                                         />
                                         <div className="invalid-feedback">
                                             Expiration date required
@@ -409,7 +406,7 @@ const Payment = () => {
                                             className="form-control"
                                             id="cc-cvv"
                                             placeholder=""
-                                            required
+                                          
                                         />
                                         <div className="invalid-feedback">
                                             Security code required

@@ -32,6 +32,9 @@ const Navbar = () => {
                 <Link to="/admin/manage">
                     Manage Movies
                 </Link>
+                <Link to="/admin/reservations">
+                    Reservations
+                </Link>
                 <button onClick={signOut} className="btn btn-light signOutButton">Sign Out</button>
             </div>
         </div>

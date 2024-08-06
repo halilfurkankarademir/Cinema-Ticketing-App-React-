@@ -14,6 +14,7 @@ import RateMovie from "./pages/rate/RateMovie";
 import Login from "./components/auth/Login";
 import Dashboard from "./pages/Admin/Dashboard";
 import ManageMovies from "./pages/Admin/ManageMovies"
+import ManageRes from "./pages/Admin/managereservations/ManageRes";
 import AddMovie from "./pages/Admin/AddMovie";
 import EditMovie from "./pages/Admin/EditMovie";
 import Upcoming from "./pages/Admin/Upcoming";
@@ -40,6 +41,7 @@ const Wrapper = () => {
                         <Route path="/admin" element={<Dashboard />} />
                         <Route path="/admin/addmovie" element={<AddMovie />} />
                         <Route path="/admin/manage" element={<ManageMovies />} />
+                        <Route path="/admin/reservations" element={<ManageRes />} />
                         <Route path="/admin/upcoming" element={<Upcoming />} />
                         <Route path="/edit-movie/:id" element={<EditMovie />} />
                     </Routes>

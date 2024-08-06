@@ -5,7 +5,7 @@
     padding: 20px;
     position: relative;
     bottom: 5rem;
-    height: 30vh;
+    height: auto;
 }
 
 .payment-container main {

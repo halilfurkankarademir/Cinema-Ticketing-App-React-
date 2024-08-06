@@ -9,7 +9,7 @@
 
 .selectSeatAll{
     width: 100%;
-    height: 25vh;
+    height: auto;
     position: relative;
     text-align: center;
     align-items: center;
@@ -35,8 +35,9 @@ li{
     color: white;
     padding: 10px;
     border-radius: 10px;
-    position: relative;
-    bottom: 1rem;
+    position: absolute;
+    top: 34rem;
+    left: 48.5rem;
 }
 .buyTicket:hover{
     background-color: #FF007A;
@@ -78,7 +79,8 @@ li{
     color: white;
     padding: 10px;
     border-radius: 10px;
-    position: relative;
-    bottom: 1rem;
+    position: absolute;
+    top: 34rem;
+    left: 35rem;    
     margin-right: 1rem;
 }
