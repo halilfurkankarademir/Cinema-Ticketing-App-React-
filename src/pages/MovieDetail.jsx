@@ -15,7 +15,7 @@ const MovieDetail = () => {
     const navigate = useNavigate();
     
     
-    
+    document.title = "CineWave | Movie Details";
 
     const avgRating = () => {
         let totalRating = 0;
