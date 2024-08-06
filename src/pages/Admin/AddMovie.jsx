@@ -68,8 +68,9 @@ const AdminPanel = () => {
     }
 
     return (
-        <div className="addMovie-panel">
-            <AdminNav></AdminNav>
+        <>
+        <AdminNav></AdminNav>
+        <div className="addMovie-panel">  
             <Toaster position="top-center"></Toaster>
             <div className="form-container">
                 <h2>Add Movie</h2>
@@ -160,6 +161,7 @@ const AdminPanel = () => {
                 </form>
             </div>
         </div>
+        </>
     );
 };
 

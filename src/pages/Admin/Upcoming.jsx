@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AdminNav from "./AdminNav";
 import { useAuth } from "../../context/auth";
 import { doSignOut } from "../../firebase/auth";
 import { useNavigate, Navigate } from "react-router-dom";
@@ -63,6 +64,8 @@ const AdminPanel = () => {
     }
 
     return (
+        <>
+        <AdminNav></AdminNav>
         <div className="addMovie-panel">
             <Toaster position="top-center"></Toaster>
             <div className="form-container">
@@ -154,6 +157,7 @@ const AdminPanel = () => {
                 </form>
             </div>
         </div>
+        </>
     );
 };
 

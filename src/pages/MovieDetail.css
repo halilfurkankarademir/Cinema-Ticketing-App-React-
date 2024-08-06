@@ -4,21 +4,22 @@
     gap: 20px; 
     position: relative;
     bottom: 2rem;
-    width: 90%;
-    left: 4rem;
+    width: 100%;
+    left: 0rem;
 }
 .movie-title{
     position:relative;
     bottom: 1rem ;
     width: auto;
-    left: 5.5rem;
+    left: 1rem;
     display: inline-block;
     z-index: 50;
 }
 .movie-image {
-    width: 25%; 
-    height: 25%;
+    width: 20%; 
+    height: 20%;
     object-fit: cover;
+    margin-right: 2rem;
 }
 
 .movie-info {
@@ -28,6 +29,7 @@
 .movie-desc {
     font-size: 1.1rem;
     font-weight: 400;
+    width: 100%;
 }
 
 .movie-desc h5 {
@@ -55,7 +57,7 @@ li {
 
 .movie-buy-ticket{
     background-color: #121212;
-    width: 10vw;
+    width: 15%;
     height: 5vh;
     color: white;
     outline: none;
@@ -64,8 +66,8 @@ li {
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
     position: relative;
-    top:28.2rem;
-    right: 60%;
+    top:30rem;
+    right: 67%;
 
 }
 .movie-buy-ticket:hover{
@@ -81,9 +83,9 @@ li {
     padding: 5px;
 }
 .trailer-embed{
-    position: relative;
-    top: 10rem;
-    left: 20%;
+    position: absolute;
+    top: 12rem;
+    left: 55%;
 }
 .rate-button{
     outline: none;
