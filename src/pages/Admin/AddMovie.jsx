@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AdminNav from "./AdminNav";
 import { useAuth } from "../../context/auth";
 import { doSignOut } from "../../firebase/auth";
 import { useNavigate, Navigate } from "react-router-dom";
@@ -43,8 +44,7 @@ const AdminPanel = () => {
                 type,
                 date,
                 trailer,
-                createdAt: new Date(),
-                reservedSeats:false,
+                createdAt: new Date()
             });
 
             toast.success('Movie Added');
@@ -69,6 +69,7 @@ const AdminPanel = () => {
 
     return (
         <div className="addMovie-panel">
+            <AdminNav></AdminNav>
             <Toaster position="top-center"></Toaster>
             <div className="form-container">
                 <h2>Add Movie</h2>

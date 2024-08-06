@@ -47,11 +47,11 @@ const PaymentComplete = () => {
         doc.text(`${ticketCount} x ${ticketType} Ticket`, 14, 80);
 
         doc.barcode(orderNo, {
-            x: 14,
-            y: 90,
+            x: 10,
+            y: 100,
             width: 150,
             height: 50,
-            fontSize: 20,
+            fontSize: 40,
             textAlign: "center",
         });
 

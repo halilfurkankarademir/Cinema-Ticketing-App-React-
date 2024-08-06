@@ -37,7 +37,6 @@ const Payment = () => {
         selectedSeats,
     } = location.state || {};
 
-    console.log(selectedSeats);
 
     const calculateTotalPrice = (ticketCount, ticketType) => {
         if (ticketType.toLowerCase() === "adult") {
@@ -149,7 +148,7 @@ const Payment = () => {
         await updateData();
         await updateSoldTicketCount();
         await updateTotalSoldTickets();
-        await reserveSeats(movieId,selectedSeats);
+        reserveSeats(movieName,showTime,selectedSeats);
 
         navigate("/paymentcomplete", {
             state: {
@@ -164,11 +163,14 @@ const Payment = () => {
         });
     };
 
-    const reserveSeats = async (movieId, selectedSeats) => {
+
+
+    const reserveSeats = async (movieName,showtime,seats) => {
         try {
             const seatRef = await addDoc(collection(firestore, 'reservations'), {
-                seats : selectedSeats,
-                movieId: movieId
+                seats :seats,
+                movieName: movieName,
+                showTime: showTime
             });
         } catch (error) {
             console.error("Error reserving seats: ", error);
