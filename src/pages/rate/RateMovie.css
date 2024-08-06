@@ -1,6 +1,6 @@
 .rate-section{
     width: 50%;
-    height: 20vh;
+    height: auto;
 }
 
 .bi-star{
@@ -19,9 +19,31 @@
     top: 8rem;
     z-index: 10;
     font-size: 1.5rem;
-    display: none;
 }
 
 #textAreaRating{
     height: 25vh;
+}
+
+.commentstarfill{
+    position: relative;
+    left: 10rem;
+    bottom: 5rem !important;
+}
+
+.commentstar{
+    position: relative;
+    left: 10rem;  
+}
+.ratingstarsposition{
+    position: relative;
+    bottom: 8rem;
+    right: 10rem;
+}
+
+.comment{
+    background-color: #fff;
+    border: 1px solid rgb(133, 133, 133);
+    padding: 1rem;
+    border-radius: 5px;
 }

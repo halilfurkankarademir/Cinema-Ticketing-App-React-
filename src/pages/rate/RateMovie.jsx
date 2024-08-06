@@ -5,13 +5,14 @@ import "./RateMovie.css";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { firestore } from "../../firebase/firebase";
 import { useParams } from "react-router-dom";
-import {toast,Toaster} from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 
 const RateMovie = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
+    const [comments, setComments] = useState([]); // Yorumlar için state ekleniyor
 
     useEffect(() => {
         const ids = [
@@ -54,7 +55,31 @@ const RateMovie = () => {
             }
         };
 
+        const fetchComments = async () => {
+            try {
+                const commentsCollection = collection(firestore, "ratings");
+                const commentSnapshot = await getDocs(commentsCollection);
+                const commentList = commentSnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+
+                console.log("Comment List:", commentList);
+
+                // Filmi yorumlar arasında bulup filtreleme
+                const selectedMovieComments = commentList.filter(
+                    (comment) => comment.movieId === id 
+                );
+
+                setComments(selectedMovieComments); // Yorumlar state'e kaydediliyor
+                
+            } catch (error) {
+                console.error("Error fetching comments: ", error);
+            }
+        };
+
         fetchMovie();
+        fetchComments();
     }, [rating, id]);
 
     const setStarCount = (number) => {
@@ -70,22 +95,35 @@ const RateMovie = () => {
         }
 
         try {
-            if(comment){
-            const docRef = await addDoc(collection(firestore, 'ratings'), {
-                title: movie.title,
-                rating: rating,
-                comment: comment,
-                movieId: movie.id
-            });
-            toast.success('Comment added.');
-        }
-            else{
+            if (comment) {
+                const docRef = await addDoc(collection(firestore, 'ratings'), {
+                    title: movie.title,
+                    rating: rating,
+                    comment: comment,
+                    movieId: movie.id
+                });
+                toast.success('Comment added.');
+
+                setComments([...comments, { id: docRef.id, title: movie.title, rating: rating, comment: comment, movieId: movie.id }]);
+            } else {
                 toast.error('Comment cannot be empty!');
             }
-            
         } catch (err) {
             toast.error("Comment couldn't add!");
         }
+    };
+
+    const renderStars = (rating) =>{
+        return(
+            <div className="stars">
+            {[...Array(5)].map((_, index) => (
+                <i
+                    key={index}
+                    className={index < rating ? "bi bi-star-fill commentstarfill" : "bi bi-star commentstar"}
+                ></i>
+            ))}
+        </div>
+        );
     };
 
     return (
@@ -97,7 +135,7 @@ const RateMovie = () => {
                     {[...Array(5)].map((_, index) => (
                         <i
                             key={index}
-                            className="bi bi-star staricon"
+                            className="bi bi-star"
                             onClick={() => setStarCount(index + 1)}
                             id={`star${index + 1}`}
                         ></i>
@@ -105,7 +143,7 @@ const RateMovie = () => {
                     {[...Array(5)].map((_, index) => (
                         <i
                             key={index}
-                            className="bi bi-star-fill staricon"
+                            className="bi bi-star-fill"
                             onClick={() => setStarCount(index + 1)}
                             id={`fillstar${index + 1}`}
                         ></i>
@@ -118,6 +156,21 @@ const RateMovie = () => {
                     <label htmlFor="comment">Your comment</label>
                     <textarea name="comment" id="textAreaRating" className="form-control mt-2" onChange={(e) => setComment(e.target.value)}></textarea>
                     <button type="submit" className="btn btn-dark mt-4" onClick={addComment}>Add rating</button>
+                </div>
+                <div className="container-fluid d-flex flex-column form-container mt-5">
+                    <h5 className="text-center">Comments for <b>{movie.title}</b></h5>
+                    {comments.length > 0 ? (
+                        comments.map((cmt) => (
+                            <div key={cmt.id} className="comment mt-3">
+                                <div className="ratingstarsposition">
+                                    {renderStars(cmt.rating)}
+                                </div>
+                                <p><strong>Comment:</strong> {cmt.comment}</p>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No comments yet.</p>
+                    )}
                 </div>
             </div>
             <Footer />
