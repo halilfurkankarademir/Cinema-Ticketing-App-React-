@@ -14,6 +14,8 @@ const RateMovie = () => {
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]); 
 
+    document.title = "CineWave | Rate"
+
     useEffect(() => {
         const ids = [
             "fillstar1",
