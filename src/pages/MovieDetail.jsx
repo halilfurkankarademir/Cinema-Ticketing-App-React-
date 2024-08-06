@@ -113,8 +113,10 @@ const MovieDetail = () => {
             <Navbar />
             {movie && (
                 <div className="movie-detail">
-                    <h1 style={{ fontSize: "1.5rem" }} className="movie-title">
+                    <h1 style={{ fontSize: "1.5rem" }} className="movie-title d-flex">
                         {movie.title}
+                        &emsp;
+                        <i className="bi bi-star-half"></i>{ratingMovie}
                     </h1>
                     <img
                         src={movie.imageUrl}
@@ -122,9 +124,6 @@ const MovieDetail = () => {
                         className="movie-image"
                     />
                     <section className="movie-desc">
-                        <div className="ratingDetail">
-                            <p><b>{`Rating: ${ratingMovie} | ${comments.length} comments. `}</b></p>
-                        </div>
                         <h5>Description</h5>
                         <p>{movie.description}</p>
                         <h5>Sessions</h5>
@@ -142,7 +141,7 @@ const MovieDetail = () => {
                         </select>
                         <h5>Duration</h5>
                         <p>{movie.duration}</p>
-                        <h5>Cast</h5>
+                        <h5>Starring</h5>
                         <p>{movie.cast}</p>
                         <h5>Type</h5>
                         <p>{movie.type}</p>
