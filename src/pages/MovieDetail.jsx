@@ -9,7 +9,7 @@ const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
     const [sessions, setSessions] = useState([]);
     const [selectedSession, setSelectedSession] = useState("");
-    const { id } = useParams(); // ID string olarak alınıyor
+    const { id } = useParams(); 
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -18,14 +18,14 @@ const MovieDetail = () => {
                 const moviesCollection = collection(firestore, "movies");
                 const movieSnapshot = await getDocs(moviesCollection);
                 const movieList = movieSnapshot.docs.map((doc) => ({
-                    id: doc.id, // Firestore'dan alınan ID string olarak
+                    id: doc.id, 
                     ...doc.data(),
                 }));
                 console.log(movieList.id);
 
-                console.log("Movie List:", movieList); // Debugging için
+                console.log("Movie List:", movieList); 
                 const selectedMovie = movieList.find(
-                    (movie) => movie.id === id // ID karşılaştırması
+                    (movie) => movie.id === id 
                 );
 
                 if (selectedMovie) {
@@ -62,6 +62,10 @@ const MovieDetail = () => {
         return <p>Loading...</p>;
     }
 
+    const redicertRate = () =>{
+        navigate(`/rate/${id}`);
+    }
+
     return (
         <div>
             <Navbar />
@@ -78,7 +82,7 @@ const MovieDetail = () => {
                     <section className="movie-desc">
                         <h5>Description</h5>
                         <p>{movie.description}</p>
-                        <h5>Seances</h5>
+                        <h5>Sessions</h5>
                         <select
                             value={selectedSession}
                             onChange={handleSessionChange}
@@ -99,6 +103,7 @@ const MovieDetail = () => {
                         <p>{movie.type}</p>
                         <h5>Release Date</h5>
                         <p>{movie.date}</p>
+                        <button type="button" className="btn btn-dark rate-button" onClick={()=>redicertRate()}>Rate Movie</button>
                     </section>
                     <div className="embed-responsive embed-responsive-16by9 trailer-embed">
                         <iframe

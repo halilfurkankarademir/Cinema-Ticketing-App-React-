@@ -78,3 +78,7 @@ li {
     top: 40%;
     left: 60%;
 }
+
+.rate-button:hover{
+    background-color: #FF007A;
+}
