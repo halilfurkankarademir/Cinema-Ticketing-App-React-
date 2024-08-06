@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "./footer/Footer";
 import toast, { Toaster } from "react-hot-toast";
 import "./SelectSeat.css";
-import { collection, doc, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { firestore } from "../firebase/firebase";
 
 const SeatSelection = () => {
@@ -22,8 +22,10 @@ const SeatSelection = () => {
 
     useEffect(() => {
         const fetchReservations = async () => {
+            if (!movieName || !showTime) return;
+
             const resRef = collection(firestore, "reservations");
-            const q = query(resRef, where("movieName", "==", movieName),where("showTime" , "==", showTime));
+            const q = query(resRef, where("movieName", "==", movieName), where("showTime", "==", showTime));
             const qSnapshot = await getDocs(q);
             const reserved = [];
             qSnapshot.forEach((doc) => {
@@ -31,10 +33,14 @@ const SeatSelection = () => {
             });
             setReservedSeats(reserved);
         };
+        var randNo = Math.floor(Math.random() * 10) + 1;
+        setAuditorium(randNo);
+        fetchReservations();
+    }, [movieName, showTime]);
 
+    useEffect(() => {
         const initializeSeats = () => {
             const allSeats = [
-                // A sırası
                 { number: "A1", isReserved: false },
                 { number: "A2", isReserved: false },
                 { number: "A3", isReserved: false },
@@ -51,7 +57,6 @@ const SeatSelection = () => {
                 { number: "A14", isReserved: false },
                 { number: "A15", isReserved: false },
 
-                // B sırası
                 { number: "B1", isReserved: false },
                 { number: "B2", isReserved: false },
                 { number: "B3", isReserved: false },
@@ -68,7 +73,6 @@ const SeatSelection = () => {
                 { number: "B14", isReserved: false },
                 { number: "B15", isReserved: false },
 
-                // C sırası
                 { number: "C1", isReserved: false },
                 { number: "C2", isReserved: false },
                 { number: "C3", isReserved: false },
@@ -85,7 +89,6 @@ const SeatSelection = () => {
                 { number: "C14", isReserved: false },
                 { number: "C15", isReserved: false },
 
-                // D sırası
                 { number: "D1", isReserved: false },
                 { number: "D2", isReserved: false },
                 { number: "D3", isReserved: false },
@@ -102,7 +105,6 @@ const SeatSelection = () => {
                 { number: "D14", isReserved: false },
                 { number: "D15", isReserved: false },
 
-                // E sırası
                 { number: "E1", isReserved: false },
                 { number: "E2", isReserved: false },
                 { number: "E3", isReserved: false },
@@ -120,9 +122,6 @@ const SeatSelection = () => {
                 { number: "E15", isReserved: false },
             ];
 
-            
-
-            // Set isReserved to true for seats in reservedSeats
             const updatedSeats = allSeats.map(seat => {
                 if (reservedSeats.includes(seat.number)) {
                     seat.isReserved = true;
@@ -133,10 +132,8 @@ const SeatSelection = () => {
             setSeats(updatedSeats);
         };
 
-        fetchReservations().then(initializeSeats);
-    }, [movieName, reservedSeats]);
-
-
+        initializeSeats();
+    }, [reservedSeats]);
 
     const handleSeatClick = (seatNumber) => {
         setSelectedSeats((prevSelectedSeats) =>
@@ -147,7 +144,7 @@ const SeatSelection = () => {
         setTicketCount(selectedSeats.length + 1);
     };
 
-    const handlePayment = (e) => {
+    const handlePayment = () => {
         if (selectedSeats.length > 0 && ticketType !== "") {
             navigate("/payment", {
                 state: {
