@@ -7,10 +7,28 @@ import "./MovieDetail.css";
 
 const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
+    const [comments,setComments] = useState([]);
+    const [ratingMovie,setRatingMovie] = useState(0);
     const [sessions, setSessions] = useState([]);
     const [selectedSession, setSelectedSession] = useState("");
     const { id } = useParams(); 
     const navigate = useNavigate();
+    
+    
+    
+
+    const avgRating = () => {
+        let totalRating = 0;
+        let numberOfRatings = comments.length;
+
+        comments.forEach((cmt) => {
+            totalRating += cmt.rating;
+        });
+
+        const averageRating = numberOfRatings > 0 ? totalRating / numberOfRatings : 0;
+        setRatingMovie(averageRating.toFixed(2)); 
+    };
+   
 
     useEffect(() => {
         const fetchMovie = async () => {
@@ -40,9 +58,32 @@ const MovieDetail = () => {
                 console.error("Error fetching movie: ", error);
             }
         };
+        const fetchComments = async () => {
+            try {
+                const commentsCollection = collection(firestore, "ratings");
+                const commentSnapshot = await getDocs(commentsCollection);
+                const commentList = commentSnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
 
+                console.log("Comment List:", commentList);
+
+                
+                const selectedMovieComments = commentList.filter(
+                    (comment) => comment.movieId === id 
+                );
+
+                setComments(selectedMovieComments); 
+                
+            } catch (error) {
+                console.error("Error fetching comments: ", error);
+            }
+        };
+        fetchComments();
         fetchMovie();
-    }, [id]);
+        avgRating();
+    }, [id,comments]);
 
     const handleSessionChange = (event) => {
         setSelectedSession(event.target.value);
@@ -66,6 +107,7 @@ const MovieDetail = () => {
         navigate(`/rate/${id}`);
     }
 
+
     return (
         <div>
             <Navbar />
@@ -80,6 +122,9 @@ const MovieDetail = () => {
                         className="movie-image"
                     />
                     <section className="movie-desc">
+                        <div className="ratingDetail">
+                            <p><b>{`Rating: ${ratingMovie} | ${comments.length} comments. `}</b></p>
+                        </div>
                         <h5>Description</h5>
                         <p>{movie.description}</p>
                         <h5>Sessions</h5>
@@ -103,7 +148,7 @@ const MovieDetail = () => {
                         <p>{movie.type}</p>
                         <h5>Release Date</h5>
                         <p>{movie.date}</p>
-                        <button type="button" className="btn btn-dark rate-button" onClick={()=>redicertRate()}>Rate Movie</button>
+                        <button type="button" className="btn btn-dark rate-button" onClick={()=>redicertRate()}>Comments</button>
                     </section>
                     <div className="embed-responsive embed-responsive-16by9 trailer-embed">
                         <iframe

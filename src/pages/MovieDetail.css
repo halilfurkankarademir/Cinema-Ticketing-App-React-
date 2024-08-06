@@ -78,7 +78,14 @@ li {
     top: 40%;
     left: 60%;
 }
-
+.rate-button{
+    outline: none;
+    border: none;
+}
 .rate-button:hover{
     background-color: #FF007A;
+}
+.ratingDetail{
+    position: fixed;
+    left: 78rem;
 }
