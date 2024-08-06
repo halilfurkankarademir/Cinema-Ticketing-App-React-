@@ -11,7 +11,7 @@ import { firestore } from "../firebase/firebase";
 const SeatSelection = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const { movieName, showTime } = location.state || {};
+    const { movieName, showTime, img } = location.state || {};
     const [seats, setSeats] = useState([]);
     const [reservedSeats, setReservedSeats] = useState([]);
     const [selectedSeats, setSelectedSeats] = useState([]);
@@ -159,16 +159,17 @@ const SeatSelection = () => {
         } else {
             toast.error("Please select seat and ticket type.");
         }
-    };
+    };    
 
     return (
         <div>
             <Navbar />
             <div className="container-fluid selectSeatAll">
+                
                 <div className="film-details">
                     <h5>
-                        Movie Name: <b>{movieName}</b> Date: <b>{date}</b>{" "}
-                        Showtime: <b>{showTime}</b> 
+                        Movie Name: <b style={{color:"#FF007A"}}>{movieName}</b> Date: <b style={{color:"#FF007A"}}>{date}</b>{" "}
+                        Showtime: <b style={{color:"#FF007A"}}>{showTime}</b> 
                     </h5>
                 </div>
                 <br />
@@ -187,6 +188,7 @@ const SeatSelection = () => {
                             isReserved={seat.isReserved}
                             isSelected={selectedSeats.includes(seat.number)}
                             onSeatClick={() => handleSeatClick(seat.number)}
+
                         />
                     ))}
                 </div>

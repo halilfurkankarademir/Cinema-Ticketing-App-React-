@@ -97,7 +97,7 @@ const MovieDetail = () => {
     const handleBuyTicket = () => {
         if (selectedSession) {
             navigate(`/select-seat/${id}/${selectedSession}`, {
-                state: { movieName: movie.title, showTime: selectedSession },
+                state: { movieName: movie.title, showTime: selectedSession , img:movie.imageUrl},
             });
         } else {
             toast.error("Please select a session");

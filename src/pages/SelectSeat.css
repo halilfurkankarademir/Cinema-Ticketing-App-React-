@@ -13,6 +13,7 @@
     position: relative;
     text-align: center;
     align-items: center;
+    bottom: 1.5rem;
 }
 
 li{
@@ -83,4 +84,11 @@ li{
     top: 34rem;
     left: 35rem;    
     margin-right: 1rem;
+}
+.movie-image2{
+    position: absolute;
+    width: 15%;
+    top: 5rem;
+    right: 75rem;
+    height: auto;
 }

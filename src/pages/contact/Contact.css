@@ -4,3 +4,18 @@
     position: relative;
     top: 1rem;
 }
+.contactForm h1{
+    color: #000;
+}
+.contactForm label{
+    color: #000;
+}
+
+.btn-dark{
+    outline: none;
+    border: none;
+}
+
+.btn-dark:hover{
+    background-color: #FF007A;
+}

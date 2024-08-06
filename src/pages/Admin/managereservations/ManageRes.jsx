@@ -60,8 +60,8 @@ const ManageRes = () => {
                     <table className="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">Movie Title</th>
-                                <th scope="col">User</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Movie</th>
                                 <th scope="col">Seats</th>
                                 <th scope="col">Show Time</th>
                             </tr>
@@ -69,8 +69,8 @@ const ManageRes = () => {
                         <tbody>
                             {reservations.map((reservation) => (
                                 <tr key={reservation.id}>
-                                    <td>{reservation.movieName}</td>
                                     <td>{reservation.name}</td>
+                                    <td>{reservation.movieName}</td>
                                     <td>{reservation.seats.join(", ")}</td>
                                     <td>{reservation.showTime}</td>
                                 </tr>

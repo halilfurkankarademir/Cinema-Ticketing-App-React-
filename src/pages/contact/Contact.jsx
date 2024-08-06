@@ -13,7 +13,7 @@ const Contact = () => {
             <form action="" className='form-container w-100'>
                 <h1>Contact Us &nbsp; <i class="bi bi-telephone-fill"></i></h1>
                 <label htmlFor="full-name">Full Name</label>
-                <input type="text" name='full-name' className='form-control'/>
+                <input type="text" name='full-name' className='form-control text-dark'/>
                 <label htmlFor="email">Email</label>
                 <input type="email" name='email' className='form-control'/>
                 <label htmlFor="message">Your Message</label>

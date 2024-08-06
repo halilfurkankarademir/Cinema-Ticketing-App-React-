@@ -12,8 +12,8 @@ html,body{
   display: flex;
   height: 100vh;
   width: 100%;
-  background-color: #d6d6d6 !important;
-  color: #121212 !important;
+  background-image: linear-gradient(to right top, #313335, #2f3338, #2d343a, #2b343d, #29353f);
+  color: #ffffff !important;
   overflow-x: hidden;
 }
 

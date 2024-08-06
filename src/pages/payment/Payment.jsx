@@ -311,7 +311,7 @@ const Payment = () => {
                                             className="form-label"
                                         >
                                             Email{" "}
-                                            <span className="text-muted">
+                                            <span className="">
                                                 (Optional)
                                             </span>
                                         </label>
@@ -348,7 +348,7 @@ const Payment = () => {
                                             placeholder=""
                                             
                                         />
-                                        <small className="text-muted">
+                                        <small className="">
                                             Full name as displayed on card
                                         </small>
                                         <div className="invalid-feedback">
