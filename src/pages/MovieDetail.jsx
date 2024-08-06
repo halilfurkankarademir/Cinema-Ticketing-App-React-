@@ -116,7 +116,7 @@ const MovieDetail = () => {
                     <h1 style={{ fontSize: "1.5rem" }} className="movie-title d-flex">
                         {movie.title}
                         &emsp;
-                        <i className="bi bi-star-half"></i>{ratingMovie}
+                        <i className="bi bi-star-half" onClick={redicertRate}>{` ${ratingMovie}`}</i>
                     </h1>
                 <div className="movie-detail">
                     
@@ -149,12 +149,12 @@ const MovieDetail = () => {
                         <p>{movie.type}</p>
                         <h5>Release Date</h5>
                         <p>{movie.date}</p>
-                        <button type="button" className="btn btn-dark rate-button" onClick={()=>redicertRate()}>Comments</button>
+                        {/* <button type="button" className="btn rate-button" onClick={()=>redicertRate()}>Comments</button> */}
                     </section>
                     <div className="embed-responsive embed-responsive-16by9 trailer-embed">
                         <iframe
                             width="560"
-                            height="315"
+                            height="320"
                             src={movie.trailer}
                             title="YouTube video player"
                             frameBorder="0"

@@ -56,15 +56,16 @@ li {
 .movie-buy-ticket{
     background-color: #121212;
     width: 10vw;
+    height: 5vh;
     color: white;
     outline: none;
     border: none;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 0px;
+    border-radius: 5px;
     transition: all 0.3s ease-in-out;
-    position: absolute;
-    top:40rem;
-    right: 4%;
+    position: relative;
+    top:28.2rem;
+    right: 60%;
 
 }
 .movie-buy-ticket:hover{
@@ -80,13 +81,15 @@ li {
     padding: 5px;
 }
 .trailer-embed{
-    position: absolute;
-    top: 40%;
-    left: 60%;
+    position: relative;
+    top: 10rem;
+    left: 20%;
 }
 .rate-button{
     outline: none;
     border: none;
+    position: relative;
+    bottom: 10rem;
 }
 .rate-button:hover{
     background-color: #FF007A;
@@ -102,4 +105,5 @@ li {
     margin-right: 0.5rem;
     font-size: 1.5rem;
     color: goldenrod;
+    cursor: pointer;
 }
