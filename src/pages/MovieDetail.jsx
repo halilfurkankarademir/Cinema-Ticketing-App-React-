@@ -30,6 +30,7 @@ const MovieDetail = () => {
     };
    
 
+
     useEffect(() => {
         const fetchMovie = async () => {
             try {
@@ -82,8 +83,8 @@ const MovieDetail = () => {
         };
         fetchComments();
         fetchMovie();
-        avgRating();
-    }, [comments]);
+        
+    }, [id]);
 
     const handleSessionChange = (event) => {
         setSelectedSession(event.target.value);
