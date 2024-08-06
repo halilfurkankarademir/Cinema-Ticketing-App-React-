@@ -2,17 +2,23 @@
     display: flex; 
     padding: 20px;
     gap: 20px; 
+    position: relative;
+    bottom: 2rem;
+    width: 90%;
+    left: 4rem;
 }
 .movie-title{
-    position:fixed;
-    bottom: 36rem ;
+    position:relative;
+    bottom: 1rem ;
     width: auto;
-    left: 1.5rem;
+    left: 5.5rem;
     display: inline-block;
+    z-index: 50;
 }
 .movie-image {
-    width: 300px; /* Fotoğrafın genişliği */
-    height: auto;
+    width: 25%; 
+    height: 25%;
+    object-fit: cover;
 }
 
 .movie-info {
@@ -86,7 +92,7 @@ li {
     background-color: #FF007A;
 }
 .ratingDetail{
-    position: fixed;
+    position: absolute;
     left: 8rem;
     font-weight: 500;
     bottom: 35.4rem;

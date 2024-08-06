@@ -112,12 +112,14 @@ const MovieDetail = () => {
         <div>
             <Navbar />
             {movie && (
-                <div className="movie-detail">
+                <div>
                     <h1 style={{ fontSize: "1.5rem" }} className="movie-title d-flex">
                         {movie.title}
                         &emsp;
                         <i className="bi bi-star-half"></i>{ratingMovie}
                     </h1>
+                <div className="movie-detail">
+                    
                     <img
                         src={movie.imageUrl}
                         alt={movie.title}
@@ -164,6 +166,7 @@ const MovieDetail = () => {
                     <button type="button" className="movie-buy-ticket" onClick={handleBuyTicket}>
                         Buy Ticket
                     </button>
+                </div>
                 </div>
             )}
             <Toaster position="top-center"></Toaster>
