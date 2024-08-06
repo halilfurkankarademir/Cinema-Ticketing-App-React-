@@ -21,7 +21,7 @@ const Contact = () => {
                 <br />
                 <button type='button' className='btn btn-dark' onClick={()=>toast.success('Your message has been sent!')}>Send Message</button>
                 <Toaster
-                position="bottom-right"
+                position="top-center"
                 reverseOrder={true}
                 />
             </form>
