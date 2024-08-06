@@ -84,7 +84,11 @@ const MovieDetail = () => {
         fetchComments();
         fetchMovie();
         
-    }, [id]);
+    }, []);
+
+    useEffect(()=>{
+        avgRating();   
+    },[comments])
 
     const handleSessionChange = (event) => {
         setSelectedSession(event.target.value);
