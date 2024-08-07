@@ -4,7 +4,7 @@
     height: 0.2rem;
     top: 1rem;
     left: 33rem;
-    background-color: #4b4b4b;
+    background-color: #a682ff;
 }
 
 .selectSeatAll{
@@ -76,7 +76,7 @@ li{
 .seatInfoIcons{
     position: relative;
     left: 35rem;
-    top: 4rem;
+    top: 0rem;
 
 }
 .select-ticket-type{
@@ -90,13 +90,6 @@ li{
     top: 34rem;
     left: 35rem;    
     margin-right: 1rem;
-}
-.movie-image2{
-    position: absolute;
-    width: 15%;
-    top: 5rem;
-    right: 75rem;
-    height: auto;
 }
 
 .custom-datepicker {
@@ -113,7 +106,7 @@ li{
     margin-top: 0.5rem;
   }
   .custom-datepicker::placeholder{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
   }
   
   .select-date-time {

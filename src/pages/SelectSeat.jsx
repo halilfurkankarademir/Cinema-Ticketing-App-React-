@@ -151,7 +151,7 @@ const SeatSelection = () => {
     };
 
     const handlePayment = () => {
-        if (selectedSeats.length > 0 && ticketType !== "") {
+        if (selectedSeats.length > 0) {
             navigate("/payment", {
                 state: {
                     movieName,
@@ -163,7 +163,7 @@ const SeatSelection = () => {
                 },
             });
         } else {
-            toast.error("Please select seat and ticket type.");
+            toast.error("Please select seat.");
         }
     };
 
@@ -225,7 +225,9 @@ const SeatSelection = () => {
                         />
                     ))}
                 </div>
-                <div className="scene">Scene</div>
+                <div className="scene"></div>
+                <br />
+                <p>Scene</p>
                 <div className="container-fluid d-flex seatInfoIcons">
                     <div className="selectedSeat" title="Selected"></div>
                     <p>Selected</p>
