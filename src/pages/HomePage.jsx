@@ -65,14 +65,11 @@ const HomePage = () => {
                 </div>
                 <br />
                 <br />
-                <br />
-                <br />
-                <br />
                 <div className="container-fluid secondSection">
                     <h3>Vision Movies</h3>
                     <div className="row">
                         {movies.map((movie) => (
-                            <div className="col-md-4" key={movie.id}>
+                            <div className="col-md-4 cardHomepage" key={movie.id}>
                                 <Card
                                     title={movie.title}
                                     desc={movie.description}

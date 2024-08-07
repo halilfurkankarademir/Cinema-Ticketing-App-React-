@@ -66,12 +66,12 @@ li {
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
     position: relative;
-    top:30rem;
+    top:25.5rem;
     right: 67%;
 
 }
 .movie-buy-ticket:hover{
-    background-color: #FF007A;
+    background-color: #715aff;
 }
 
 .selectionSeances{

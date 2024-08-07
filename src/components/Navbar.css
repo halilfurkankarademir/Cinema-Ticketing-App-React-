@@ -2,7 +2,7 @@
 .navbar{
     position: relative;
     right: 0rem;
-    background-color:#1d1d1d !important;
+    background-color:#212529 !important;
     z-index: 8;
     bottom: 1rem;
     color: whitesmoke;
@@ -60,7 +60,7 @@
 .navbar{
     position: relative;
     right: 0rem;
-    background-color:#1d1d1d !important;
+    background-color:#212529 !important;
     z-index: 8;
     bottom: 1rem;
     color: whitesmoke;
@@ -97,7 +97,7 @@
     transition: all 0.3s ease-in-out;
 }
 .Navmenu a:hover{
-    color: #FF007A;
+    color: #FF3999;
 }
 .bi-person-fill{
     position: relative;

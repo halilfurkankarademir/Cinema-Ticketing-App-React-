@@ -37,7 +37,7 @@ const Navbar = () => {
                     Homepage
                 </Link>
                 <Link to="/vision">
-                    Vision Films
+                    Vision Movies
                 </Link>
                 <Link to="/soon">
                     Coming Soon
@@ -69,7 +69,7 @@ const Navbar = () => {
                     Homepage
                 </Link>
                 <Link to="/vision" onClick={handleLinkClick}>
-                    Vision Films
+                    Vision Movies
                 </Link>
                 <Link to="/soon" onClick={handleLinkClick}>
                     Coming Soon

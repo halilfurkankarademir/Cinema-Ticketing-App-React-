@@ -41,7 +41,7 @@ li{
     left: 48.5rem;
 }
 .buyTicket:hover{
-    background-color: #FF007A;
+    background-color: #FF3999;
 }
 .selectedSeat{
     background-color: #0095FF;
@@ -54,7 +54,7 @@ li{
     color: white;
 }
 .reservedSeat{
-    background-color: #FF007A;
+    background-color: #FF3999;
     width: 1.5rem;
     height: 1.5rem;
     position: relative;

@@ -21,11 +21,11 @@
 @media only screen and (min-width: 768px){
 .hero-slider {
     position: relative;
-    width: 100%;
-    top: 2rem;
-    right: rem;
+    width: 130%;
+    /* top: 2rem; */
+    right: 12rem;
     overflow: hidden;
-    height: 80vh;
+    height: 90vh;
     z-index: -5;
     opacity: 1;
     border-radius: 10px;

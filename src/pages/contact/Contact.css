@@ -2,20 +2,28 @@
     width: 50%;
     height: auto;
     position: relative;
-    top: 1rem;
+    top: 3rem;
 }
 .contactForm h1{
-    color: #000;
+    color: #55c1ff;
 }
 .contactForm label{
-    color: #000;
+    color: #ffffff;
 }
 
 .btn-dark{
     outline: none;
     border: none;
+    background-color: #55c1ff;
+    color: black;
+    font-weight: 500;
 }
 
 .btn-dark:hover{
-    background-color: #FF007A;
+    background-color: #FF3999;
+    color: black;
+}
+.bi-telephone-fill{
+    position: relative;
+    left: 28rem;
 }

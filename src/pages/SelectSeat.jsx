@@ -168,8 +168,7 @@ const SeatSelection = () => {
                 
                 <div className="film-details">
                     <h5>
-                        Movie Name: <b style={{color:"#FF007A"}}>{movieName}</b> Date: <b style={{color:"#FF007A"}}>{date}</b>{" "}
-                        Showtime: <b style={{color:"#FF007A"}}>{showTime}</b> 
+                        Movie Name: <b style={{color:"#55c1ff"}}>{movieName}</b>
                     </h5>
                 </div>
                 <br />

@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 import { firestore, collection, getDocs } from "../firebase/firebase";
 import { useParams, useNavigate } from "react-router-dom";
 import "./MovieDetail.css";
 
 const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
-    const [comments,setComments] = useState([]);
-    const [ratingMovie,setRatingMovie] = useState(0);
+    const [comments, setComments] = useState([]);
+    const [ratingMovie, setRatingMovie] = useState(0);
     const [sessions, setSessions] = useState([]);
     const [selectedSession, setSelectedSession] = useState("");
-    const { id } = useParams(); 
+    const { id } = useParams();
     const navigate = useNavigate();
-    
-    
+
     document.title = "CineWave | Movie Details";
 
     const avgRating = () => {
@@ -25,11 +24,10 @@ const MovieDetail = () => {
             totalRating += cmt.rating;
         });
 
-        const averageRating = numberOfRatings > 0 ? totalRating / numberOfRatings : 0;
-        setRatingMovie(averageRating.toFixed(2)); 
+        const averageRating =
+            numberOfRatings > 0 ? totalRating / numberOfRatings : 0;
+        setRatingMovie(averageRating.toFixed(2));
     };
-   
-
 
     useEffect(() => {
         const fetchMovie = async () => {
@@ -37,14 +35,14 @@ const MovieDetail = () => {
                 const moviesCollection = collection(firestore, "movies");
                 const movieSnapshot = await getDocs(moviesCollection);
                 const movieList = movieSnapshot.docs.map((doc) => ({
-                    id: doc.id, 
+                    id: doc.id,
                     ...doc.data(),
                 }));
                 console.log(movieList.id);
 
-                console.log("Movie List:", movieList); 
+                console.log("Movie List:", movieList);
                 const selectedMovie = movieList.find(
-                    (movie) => movie.id === id 
+                    (movie) => movie.id === id
                 );
 
                 if (selectedMovie) {
@@ -70,70 +68,73 @@ const MovieDetail = () => {
 
                 console.log("Comment List:", commentList);
 
-                
                 const selectedMovieComments = commentList.filter(
-                    (comment) => comment.movieId === id 
+                    (comment) => comment.movieId === id
                 );
 
-                setComments(selectedMovieComments); 
-                
+                setComments(selectedMovieComments);
             } catch (error) {
                 console.error("Error fetching comments: ", error);
             }
         };
         fetchComments();
         fetchMovie();
-        
     }, []);
 
-    useEffect(()=>{
-        avgRating();   
-    },[comments])
+    useEffect(() => {
+        avgRating();
+    }, [comments]);
 
     const handleSessionChange = (event) => {
         setSelectedSession(event.target.value);
     };
 
     const handleBuyTicket = () => {
-        if (selectedSession) {
-            navigate(`/select-seat/${id}/${selectedSession}`, {
-                state: { movieName: movie.title, showTime: selectedSession , img:movie.imageUrl},
-            });
-        } else {
-            toast.error("Please select a session");
-        }
+        navigate(`/select-seat/${id}`, {
+            state: {
+                movieName: movie.title,
+                showTime: selectedSession,
+                img: movie.imageUrl,
+            },
+        });
     };
 
     if (!movie) {
         return <p>Loading...</p>;
     }
 
-    const redicertRate = () =>{
+    const redicertRate = () => {
         navigate(`/rate/${id}`);
-    }
-
+    };
 
     return (
         <div>
             <Navbar />
             {movie && (
                 <div>
-                    <h1 style={{ fontSize: "1.5rem" }} className="movie-title d-flex">
+                    <h1
+                        style={{ fontSize: "1.5rem" }}
+                        className="movie-title d-flex"
+                    >
                         {movie.title}
                         &emsp;
-                        <i className="bi bi-star-half" onClick={redicertRate}>{` ${ratingMovie}`}</i>
+                        <i
+                            className="bi bi-star-half"
+                            onClick={redicertRate}
+                        >{` ${ratingMovie}`}</i>
                     </h1>
-                <div className="movie-detail">
-                    
-                    <img
-                        src={movie.imageUrl}
-                        alt={movie.title}
-                        className="movie-image"
-                    />
-                    <section className="movie-desc">
-                        <h5>Description</h5>
-                        <p>{movie.description}</p>
-                        <h5>Sessions</h5>
+                    <div className="movie-detail">
+                        <img
+                            src={movie.imageUrl}
+                            alt={movie.title}
+                            className="movie-image"
+                        />
+                        <section className="movie-desc">
+                            <h5 style={{ color: "#a682ff" }}>Description</h5>
+                            <p style={{ fontWeight: "300" }}>
+                                {movie.description}
+                            </p>
+                            {/* <h5>Sessions</h5>
                         <select
                             value={selectedSession}
                             onChange={handleSessionChange}
@@ -145,33 +146,39 @@ const MovieDetail = () => {
                                     {session}
                                 </option>
                             ))}
-                        </select>
-                        <h5>Duration</h5>
-                        <p>{movie.duration}</p>
-                        <h5>Starring</h5>
-                        <p>{movie.cast}</p>
-                        <h5>Type</h5>
-                        <p>{movie.type}</p>
-                        <h5>Release Date</h5>
-                        <p>{movie.date}</p>
-                        {/* <button type="button" className="btn rate-button" onClick={()=>redicertRate()}>Comments</button> */}
-                    </section>
-                    <div className="embed-responsive embed-responsive-16by9 trailer-embed">
-                        <iframe
-                            width="560"
-                            height="320"
-                            src={movie.trailer}
-                            title="YouTube video player"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerPolicy="strict-origin-when-cross-origin"
-                            allowFullScreen
-                        ></iframe>
+                        </select> */}
+                            <h5 style={{ color: "#a682ff" }}>Duration</h5>
+                            <p style={{ fontWeight: "300" }}>
+                                {movie.duration}
+                            </p>
+                            <h5 style={{ color: "#a682ff" }}>Starring</h5>
+                            <p style={{ fontWeight: "300" }}>{movie.cast}</p>
+                            <h5 style={{ color: "#a682ff" }}>Type</h5>
+                            <p style={{ fontWeight: "300" }}>{movie.type}</p>
+                            <h5 style={{ color: "#a682ff" }}>Release Date</h5>
+                            <p style={{ fontWeight: "300" }}>{movie.date}</p>
+                            {/* <button type="button" className="btn rate-button" onClick={()=>redicertRate()}>Comments</button> */}
+                        </section>
+                        <div className="embed-responsive embed-responsive-16by9 trailer-embed">
+                            <iframe
+                                width="560"
+                                height="320"
+                                src={movie.trailer}
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerPolicy="strict-origin-when-cross-origin"
+                                allowFullScreen
+                            ></iframe>
+                        </div>
+                        <button
+                            type="button"
+                            className="movie-buy-ticket"
+                            onClick={handleBuyTicket}
+                        >
+                            Buy Ticket
+                        </button>
                     </div>
-                    <button type="button" className="movie-buy-ticket" onClick={handleBuyTicket}>
-                        Buy Ticket
-                    </button>
-                </div>
                 </div>
             )}
             <Toaster position="top-center"></Toaster>
