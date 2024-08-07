@@ -31,7 +31,7 @@ li{
 }
 
 .buyTicket{
-    background-color: #FF3999;
+    background-color: #0095FF;
     outline: none;
     border: none;
     color: white;
@@ -39,11 +39,12 @@ li{
     border-radius: 10px;
     position: absolute;
     top: 23rem;
-    left: 2rem;
-    width: 15vw;
+    left: 4.5rem;
+    width: 10vw;
+    font-size: 1rem;
 }
 .buyTicket:hover{
-    background-color: #0095FF;
+    background-color: #a682ff;
     color: #121212;
 }
 .selectedSeat{
@@ -99,6 +100,7 @@ li{
     border: none;
     cursor: pointer;
     width: 60%;
+    height: 2rem;
     text-align: center;
     border-radius: 8px;
     padding: 10px;
@@ -115,4 +117,18 @@ li{
     top: 25rem;
     width: 20%;
     height: 60vh;
+  }
+
+  .custom-select{
+    background-color: #FF3999;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 52%;
+    height: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
   }

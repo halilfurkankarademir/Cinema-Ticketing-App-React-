@@ -39,9 +39,7 @@
   .slick-dots{
     display: none !important;
   }
-  .hero-slider:hover{
-    filter: brightness(80%);
-  }
+
 }
 
 

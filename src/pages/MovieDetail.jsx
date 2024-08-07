@@ -85,10 +85,6 @@ const MovieDetail = () => {
         avgRating();
     }, [comments]);
 
-    const handleSessionChange = (event) => {
-        setSelectedSession(event.target.value);
-    };
-
     const handleBuyTicket = () => {
         navigate(`/select-seat/${id}`, {
             state: {
@@ -134,19 +130,6 @@ const MovieDetail = () => {
                             <p style={{ fontWeight: "300" }}>
                                 {movie.description}
                             </p>
-                            {/* <h5>Sessions</h5>
-                        <select
-                            value={selectedSession}
-                            onChange={handleSessionChange}
-                            className="selectionSeances"
-                        >
-                            <option value="">Select a session</option>
-                            {sessions.map((session, index) => (
-                                <option key={index} value={session}>
-                                    {session}
-                                </option>
-                            ))}
-                        </select> */}
                             <h5 style={{ color: "#a682ff" }}>Duration</h5>
                             <p style={{ fontWeight: "300" }}>
                                 {movie.duration}
@@ -157,7 +140,7 @@ const MovieDetail = () => {
                             <p style={{ fontWeight: "300" }}>{movie.type}</p>
                             <h5 style={{ color: "#a682ff" }}>Release Date</h5>
                             <p style={{ fontWeight: "300" }}>{movie.date}</p>
-                            {/* <button type="button" className="btn rate-button" onClick={()=>redicertRate()}>Comments</button> */}
+            
                         </section>
                         <div className="embed-responsive embed-responsive-16by9 trailer-embed">
                             <iframe

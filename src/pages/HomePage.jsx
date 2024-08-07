@@ -59,7 +59,7 @@ const HomePage = () => {
                             See films
                         </button>
                     </Link>
-                    <Link to="/vision" title="Popular!">
+                    <Link to="/vision">
                         <BgSliderMobile />
                     </Link>
                 </div>

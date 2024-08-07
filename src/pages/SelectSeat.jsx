@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Seat from "../components/Seat";
 import Navbar from "../components/Navbar";
 import Footer from "./footer/Footer";
@@ -19,8 +19,9 @@ const SeatSelection = () => {
     const [selectedSeats, setSelectedSeats] = useState([]);
     const [ticketType, setTicketType] = useState("");
     const [ticketCount, setTicketCount] = useState(0);
-    const [auditorium, setAuditorium] = useState(0);
+    const [sessions, setSessions] = useState([]);
     const date = new Date().toDateString();
+    const { id } = useParams();
 
     useEffect(() => {
         const fetchReservations = async () => {
@@ -39,10 +40,36 @@ const SeatSelection = () => {
             });
             setReservedSeats(reserved);
         };
-        var randNo = Math.floor(Math.random() * 10) + 1;
-        setAuditorium(randNo);
         fetchReservations();
     }, [movieName, showTime]);
+
+    useEffect(() => {
+        const fetchMovie = async () => {
+            try {
+                const moviesCollection = collection(firestore, "movies");
+                const movieSnapshot = await getDocs(moviesCollection);
+                const movieList = movieSnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                console.log("Movie List:", movieList);
+                const selectedMovie = movieList.find(
+                    (movie) => movie.id === id
+                );
+
+                if (selectedMovie) {
+                    if (selectedMovie.seances) {
+                        setSessions(selectedMovie.seances);
+                    }
+                } else {
+                    console.log("No matching movie found with ID:", id);
+                }
+            } catch (error) {
+                console.error("Error fetching movie: ", error);
+            }
+        };
+        fetchMovie();
+    }, [movieName]);
 
     useEffect(() => {
         const initializeSeats = () => {
@@ -158,7 +185,6 @@ const SeatSelection = () => {
                     showTime,
                     ticketType,
                     ticketCount,
-                    auditorium,
                     selectedSeats,
                 },
             });
@@ -190,24 +216,24 @@ const SeatSelection = () => {
                         placeholderText="Pick date"
                     />
                     <h6>Session</h6>
-
-                    {/* <div className="selected-seats-container">
-                        {selectedSeats.length > 0 ? (
-                            selectedSeats.map((seat) => (
-                                <div className="selected-seat" key={seat}>
-                                    {seat}
-                                </div>
-                            ))
-                        ) : (
-                            <p>You didn't select a seat yet.</p>
-                        )}
-                    </div> */}
+                    <select className="custom-select">
+                        {sessions.map((session, index) => (
+                            <option key={index} value={session}>
+                                {session}
+                            </option>
+                        ))}
+                    </select>
+                    <h6>Seats</h6>
+                    <div className="d-flex justify-content-center">
+                        {selectedSeats.map((seat, index) => (
+                            <p key={index} style={{fontWeight:'500' , color:'#FF3999'}}>{`${seat}`}&nbsp;</p>
+                        ))}
+                    </div>
                     <button className="buyTicket" onClick={handlePayment}>
-                        Continue to Payment
+                        Continue
                     </button>
                 </div>
                 <br />
-                {/* <p>Choose Seat</p> */}
                 <div
                     style={{
                         display: "flex",
