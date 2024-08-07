@@ -2,8 +2,8 @@
     width: 20%;
     height: 10rem;
     position: relative;
-    background-color: rgb(232, 232, 232);
-    color: black;
+    background-color: #171a1d;
+    color:  #55c1ff;
     padding: 1rem;
     border-radius: 10px;
     margin: 1rem;
@@ -18,7 +18,8 @@
 
 .chart-card:hover{
     transform: scale(1.05);
-    background-color: rgb(255, 50, 152);
+    background-color: #715aff;
+    color: #171a1d;
 }
 .bi-bank{
     position: relative;
@@ -46,8 +47,8 @@
     position: relative;
     width: 97.5%;
     left: 1rem;
-    background-color: rgb(232, 232, 232) !important;
-    color: black;
+    background-color: #171a1d !important;
+    color:  #55c1ff;
 }
 .save-button{
     margin-top: 1rem;

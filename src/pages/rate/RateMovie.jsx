@@ -151,22 +151,22 @@ const RateMovie = () => {
                         ></i>
                     ))}
                 </div>
-                <div className="form-container d-flex flex-column">
+                <div className="form-container d-flex flex-column rateForm">
                     <h1 className="text-center">{movie ? movie.title : "..."}</h1>
                     <p>Choose rating.</p>
                     <br />
                     <label htmlFor="comment">Your comment</label>
-                    <textarea name="comment" id="textAreaRating" className="form-control mt-2" 
+                    <textarea name="comment" id="textAreaRating" className="form-control mt-2 bg-dark" 
                     onChange={(e) => setComment(e.target.value)}
                     value={comment}
                     ></textarea>
                     <button type="submit" className="btn btn-dark mt-4" onClick={addComment}>Add rating</button>
                 </div>
-                <div className="container-fluid d-flex flex-column form-container mt-5">
+                <div className="container-fluid d-flex flex-column form-container mt-5 commentsForm">
                     <h5 className="text-center">Comments</h5>
                     {comments.length > 0 ? (
                         comments.map((cmt) => (
-                            <div key={cmt.id} className="comment mt-3">
+                            <div key={cmt.id} className="comment mt-3 bg-dark">
                                 <div className="ratingstarsposition">
                                     {renderStars(cmt.rating)}
                                 </div>

@@ -7,6 +7,8 @@ import toast, { Toaster } from "react-hot-toast";
 import "./SelectSeat.css";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { firestore } from "../firebase/firebase";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const SeatSelection = () => {
     const location = useLocation();
@@ -25,7 +27,11 @@ const SeatSelection = () => {
             if (!movieName || !showTime) return;
 
             const resRef = collection(firestore, "reservations");
-            const q = query(resRef, where("movieName", "==", movieName), where("showTime", "==", showTime));
+            const q = query(
+                resRef,
+                where("movieName", "==", movieName),
+                where("showTime", "==", showTime)
+            );
             const qSnapshot = await getDocs(q);
             const reserved = [];
             qSnapshot.forEach((doc) => {
@@ -122,7 +128,7 @@ const SeatSelection = () => {
                 { number: "E15", isReserved: false },
             ];
 
-            const updatedSeats = allSeats.map(seat => {
+            const updatedSeats = allSeats.map((seat) => {
                 if (reservedSeats.includes(seat.number)) {
                     seat.isReserved = true;
                 }
@@ -159,19 +165,34 @@ const SeatSelection = () => {
         } else {
             toast.error("Please select seat and ticket type.");
         }
-    };    
+    };
+
+    const [selectedDate, setSelectedDate] = useState(null);
+
+    const handleDateChange = (date) => {
+      setSelectedDate(date);
+    };
 
     return (
         <div>
             <Navbar />
             <div className="container-fluid selectSeatAll">
-                
+                <div className="select-date-time container-fluid form-container bg-dark">
+                    <h6>Date</h6>
+                    <DatePicker
+                        selected={selectedDate}
+                        onChange={handleDateChange}
+                        dateFormat="yyyy/MM/dd"
+                        className="custom-datepicker"
+                    />
+                    <h6>Session</h6>
+                </div>
                 <div className="film-details">
                     <h5>
-                        Movie Name: <b style={{color:"#55c1ff"}}>{movieName}</b>
+                        Movie Name:{" "}
+                        <b style={{ color: "#55c1ff" }}>{movieName}</b>
                     </h5>
                 </div>
-                <br />
                 <h4>Choose Seat</h4>
                 <div
                     style={{
@@ -187,7 +208,6 @@ const SeatSelection = () => {
                             isReserved={seat.isReserved}
                             isSelected={selectedSeats.includes(seat.number)}
                             onSeatClick={() => handleSeatClick(seat.number)}
-
                         />
                     ))}
                 </div>
@@ -215,14 +235,6 @@ const SeatSelection = () => {
                             <p>You didn't select a seat yet.</p>
                         )}
                     </div>
-                    <select
-                        className="select-ticket-type"
-                        onChange={(e) => setTicketType(e.target.value)}
-                    >
-                        <option value="">Select Ticket Type</option>
-                        <option value="Adult">Adult: 15$</option>
-                        <option value="Student">Student: 10$</option>
-                    </select>
                     <button className="buyTicket" onClick={handlePayment}>
                         Continue to Payment
                     </button>

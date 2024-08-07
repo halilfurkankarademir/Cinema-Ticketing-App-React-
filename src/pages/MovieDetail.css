@@ -103,9 +103,11 @@ li {
     bottom: 35.4rem;
 }
 
-.bi-star-half{
+.bi-emoji-heart-eyes{
     margin-right: 0.5rem;
     font-size: 1.5rem;
-    color: goldenrod;
+    color: #55c1ff;
     cursor: pointer;
+    position: relative;
+    left: 65rem;
 }

@@ -13,7 +13,7 @@
     position: relative;
     text-align: center;
     align-items: center;
-    bottom: 1.5rem;
+    bottom: 22rem;
 }
 
 li{
@@ -30,18 +30,19 @@ li{
 }
 
 .buyTicket{
-    background-color: #121212;
+    background-color: #FF3999;
     outline: none;
     border: none;
     color: white;
     padding: 10px;
     border-radius: 10px;
     position: absolute;
-    top: 34rem;
-    left: 48.5rem;
+    top: 44rem;
+    left: 9.5rem;
 }
 .buyTicket:hover{
-    background-color: #FF3999;
+    background-color: #0095FF;
+    color: #121212;
 }
 .selectedSeat{
     background-color: #0095FF;
@@ -92,3 +93,23 @@ li{
     right: 75rem;
     height: auto;
 }
+
+.custom-datepicker {
+    background-color: #FF3999;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 60%;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .select-date-time {
+    position: relative;
+    right: 32rem;
+    top: 25rem;
+    width: 20%;
+    height: 50vh;
+  }

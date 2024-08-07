@@ -91,7 +91,7 @@ const Dashboard = () => {
                                 <input
                                     type="text"
                                     name={`img${index}`}
-                                    className="form-control"
+                                    className="form-control bg-dark"
                                     value={img}
                                     onChange={e => handleImageChange(index, e.target.value)}
                                     required

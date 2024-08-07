@@ -119,7 +119,7 @@ const MovieDetail = () => {
                         {movie.title}
                         &emsp;
                         <i
-                            className="bi bi-star-half"
+                            className="bi bi-emoji-heart-eyes"
                             onClick={redicertRate}
                         >{` ${ratingMovie}`}</i>
                     </h1>

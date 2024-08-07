@@ -11,6 +11,7 @@
     margin-right: 0.5rem;
     z-index: 0;
     font-size: 1.5rem;
+    color: #55c1ff;
 }
 .bi-star-fill{
     margin-right: 0.5rem;
@@ -47,4 +48,13 @@
     border: 1px solid rgb(133, 133, 133);
     padding: 1rem;
     border-radius: 5px;
+}
+
+.rateForm{
+    background-color: #171a1d !important;
+    color: #55c1ff;
+}
+.commentsForm{
+    background-color: #171a1d !important;
+    color: #55c1ff;
 }

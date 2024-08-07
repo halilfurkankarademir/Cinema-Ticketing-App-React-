@@ -102,6 +102,9 @@
         position: relative;
         right: 4rem !important;
     }
-    
+    .homepage-container .secondSection h3{
+        position: relative;
+        right: 2rem;
+    }
 
 }
