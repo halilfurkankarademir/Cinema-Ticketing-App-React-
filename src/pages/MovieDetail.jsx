@@ -109,7 +109,7 @@ const MovieDetail = () => {
                         {movie.title}
                         &emsp;
                         <i
-                            className="bi bi-emoji-heart-eyes"
+                            className="bi bi-heart-fill"
                             onClick={redicertRate}
                         >{` ${ratingMovie}`}</i>
                     </h1>
@@ -120,8 +120,8 @@ const MovieDetail = () => {
                             className="movie-image"
                         />
                         <section className="movie-desc">
-                            <h5 style={{ color: "#a682ff" }}>Description</h5>
-                            <p style={{ fontWeight: "300" }}>
+                            <h5 style={{ color: "#a682ff"}}>Description</h5>
+                            <p style={{ fontWeight: "300", }}>
                                 {movie.description}
                             </p>
                             <h5 style={{ color: "#a682ff" }}>Duration</h5>
@@ -138,8 +138,8 @@ const MovieDetail = () => {
                         </section>
                         <div className="embed-responsive embed-responsive-16by9 trailer-embed">
                             <iframe
-                                width="560"
-                                height="320"
+                                width="420"
+                                height="240"
                                 src={movie.trailer}
                                 title="YouTube video player"
                                 frameBorder="0"
