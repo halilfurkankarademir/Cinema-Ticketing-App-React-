@@ -13,11 +13,11 @@ import "react-datepicker/dist/react-datepicker.css";
 const SeatSelection = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const { movieName, showTime } = location.state || {};
+    const {movieName} = location.state || {};
     const [seats, setSeats] = useState([]);
     const [reservedSeats, setReservedSeats] = useState([]);
     const [selectedSeats, setSelectedSeats] = useState([]);
-    const [ticketType, setTicketType] = useState("");
+    const [showTime, setShowTime] = useState("");
     const [ticketCount, setTicketCount] = useState(0);
     const [sessions, setSessions] = useState([]);
     const date = new Date().toDateString();
@@ -183,7 +183,6 @@ const SeatSelection = () => {
                 state: {
                     movieName,
                     showTime,
-                    ticketType,
                     ticketCount,
                     selectedSeats,
                 },
@@ -197,6 +196,10 @@ const SeatSelection = () => {
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
+    };
+
+    const handleSessionChange = (event) => {
+        setShowTime(event.target.value);
     };
 
     return (
@@ -216,7 +219,8 @@ const SeatSelection = () => {
                         placeholderText="Pick date"
                     />
                     <h6>Session</h6>
-                    <select className="custom-select">
+                    <select className="custom-select" onChange={handleSessionChange}>
+                        <option value="default">Select</option>
                         {sessions.map((session, index) => (
                             <option key={index} value={session}>
                                 {session}
@@ -225,10 +229,23 @@ const SeatSelection = () => {
                     </select>
                     <h6>Seats</h6>
                     <div className="d-flex justify-content-center">
-                        {selectedSeats.map((seat, index) => (
-                            <p key={index} style={{fontWeight:'500' , color:'#FF3999'}}>{`${seat}`}&nbsp;</p>
-                        ))}
+                        {selectedSeats.length>0 ?
+                            selectedSeats.map((seat, index) => (
+                                <p
+                                    key={index}
+                                    style={{
+                                        fontWeight: "500",
+                                        color: "#FF3999",
+                                    }}
+                                >
+                                    {`${seat}`}&nbsp;
+                                </p>
+                            )):(<p style={{fontWeight:'500' , color:'#FF3999'}}>No seat selected yet.</p>)}
                     </div>
+                    <h6>Ticket Fee</h6>
+                    <p style={{ fontWeight: "500", color: "#FF3999" }}>
+                        $10 per person
+                    </p>
                     <button className="buyTicket" onClick={handlePayment}>
                         Continue
                     </button>

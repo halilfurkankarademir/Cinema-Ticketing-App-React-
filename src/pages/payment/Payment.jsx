@@ -42,11 +42,7 @@ const Payment = () => {
 
 
     const calculateTotalPrice = (ticketCount, ticketType) => {
-        if (ticketType.toLowerCase() === "adult") {
-            return 15 * ticketCount;
-        } else {
-            return 10 * ticketCount;
-        }
+        return 10*ticketCount
     };
 
     const movieRef = collection(firestore, 'movies');
@@ -230,17 +226,9 @@ const Payment = () => {
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between lh-sm">
                                     <div>
-                                        <h6 className="my-0">Auditorium</h6>
-                                        <small className="text-muted">
-                                            {auditorium}
-                                        </small>
-                                    </div>
-                                </li>
-                                <li className="list-group-item d-flex justify-content-between lh-sm">
-                                    <div>
                                         <h6 className="my-0">Ticket Count</h6>
                                         <small className="text-muted">
-                                            {`${ticketCount} x ${ticketType}`}
+                                            {`${ticketCount}`}
                                         </small>
                                     </div>
                                 </li>

@@ -8,9 +8,7 @@ import "./MovieDetail.css";
 const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
     const [comments, setComments] = useState([]);
-    const [ratingMovie, setRatingMovie] = useState(0);
-    const [sessions, setSessions] = useState([]);
-    const [selectedSession, setSelectedSession] = useState("");
+    const [ratingMovie, setRatingMovie] = useState(0);    
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -47,9 +45,6 @@ const MovieDetail = () => {
 
                 if (selectedMovie) {
                     setMovie(selectedMovie);
-                    if (selectedMovie.seances) {
-                        setSessions(selectedMovie.seances);
-                    }
                 } else {
                     console.log("No matching movie found with ID:", id);
                 }
@@ -89,7 +84,6 @@ const MovieDetail = () => {
         navigate(`/select-seat/${id}`, {
             state: {
                 movieName: movie.title,
-                showTime: selectedSession,
                 img: movie.imageUrl,
             },
         });

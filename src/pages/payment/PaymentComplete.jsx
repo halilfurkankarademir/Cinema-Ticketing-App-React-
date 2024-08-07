@@ -42,13 +42,12 @@ const PaymentComplete = () => {
         doc.text(`Order Number: ${orderNo}`, 14, 30);
         doc.text(`Movie Name: ${movieName}`, 14, 40);
         doc.text(`Showtime: ${date} | ${showTime}`, 14, 50);
-        doc.text(`Auditorium: ${auditorium}`, 14, 60);
-        doc.text(`Seats: ${selectedSeats}`, 14, 70);
-        doc.text(`${ticketCount} x ${ticketType} Ticket`, 14, 80);
+        doc.text(`Seats: ${selectedSeats}`, 14, 60);
+        doc.text(`${ticketCount} x Ticket`, 14, 70);
 
         doc.barcode(orderNo, {
             x: 10,
-            y: 100,
+            y: 90,
             width: 150,
             height: 50,
             fontSize: 40,
@@ -89,12 +88,6 @@ const PaymentComplete = () => {
                     </li>
                     <li className="list-group-item d-flex justify-content-between lh-sm">
                         <div>
-                            <h6 className="my-0">Auditorium</h6>
-                            <small className="text-muted">{auditorium}</small>
-                        </div>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between lh-sm">
-                        <div>
                             <h6 className="my-0">Seats</h6>
                             <small className="text-muted">{`${selectedSeats}`}</small>
                         </div>
@@ -103,7 +96,7 @@ const PaymentComplete = () => {
                         <div>
                             <h6 className="my-0">Ticket Count</h6>
                             <small className="text-muted">
-                                {`${ticketCount} x ${ticketType}`}
+                                {`${ticketCount}`}
                             </small>
                         </div>
                     </li>
