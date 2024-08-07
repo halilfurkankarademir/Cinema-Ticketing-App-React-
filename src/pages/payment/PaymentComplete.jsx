@@ -11,7 +11,7 @@ import "./PaymentComplete.css";
 const PaymentComplete = () => {
     const date = new Date().toDateString();
     const location = useLocation();
-    const { movieName, showTime, ticketType, ticketCount, auditorium, orderNo ,selectedSeats} =
+    const { movieName, showTime, ticketType, ticketCount, auditorium, orderNo ,selectedSeats, firstname , lastname} =
         location.state || {};
 
     const toastShownRef = useRef(false);
@@ -40,10 +40,10 @@ const PaymentComplete = () => {
         doc.setFont("courier", "italic");
         doc.setFontSize(12);
         doc.text(`Order Number: ${orderNo}`, 14, 30);
-        doc.text(`Movie Name: ${movieName}`, 14, 40);
-        doc.text(`Showtime: ${date} | ${showTime}`, 14, 50);
-        doc.text(`Seats: ${selectedSeats}`, 14, 60);
-        doc.text(`${ticketCount} x Ticket`, 14, 70);
+        doc.text(`Name: ${firstname} ${lastname}`, 14, 40);
+        doc.text(`Movie Name: ${movieName}`, 14, 50);
+        doc.text(`Showtime: ${date} | ${showTime}`, 14, 60);
+        doc.text(`Seats: ${selectedSeats}`, 14, 70);
 
         doc.barcode(orderNo, {
             x: 10,
@@ -76,6 +76,12 @@ const PaymentComplete = () => {
                     </li>
                     <li className="list-group-item d-flex justify-content-between lh-sm">
                         <div>
+                            <h6 className="my-0">Name</h6>
+                            <small className="text-muted">{`${firstname} ${lastname}`}</small>
+                        </div>
+                    </li>
+                    <li className="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
                             <h6 className="my-0">Movie Name</h6>
                             <small className="text-muted">{movieName}</small>
                         </div>
@@ -90,14 +96,6 @@ const PaymentComplete = () => {
                         <div>
                             <h6 className="my-0">Seats</h6>
                             <small className="text-muted">{`${selectedSeats}`}</small>
-                        </div>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between lh-sm">
-                        <div>
-                            <h6 className="my-0">Ticket Count</h6>
-                            <small className="text-muted">
-                                {`${ticketCount}`}
-                            </small>
                         </div>
                     </li>
                 </ul>

@@ -38,7 +38,11 @@ const Payment = () => {
         ticketCount,
         auditorium,
         selectedSeats,
+        selectedDate
     } = location.state || {};
+
+
+    const formattedDate = selectedDate ? new Date(selectedDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
 
 
     const calculateTotalPrice = (ticketCount, ticketType) => {
@@ -155,7 +159,7 @@ const Payment = () => {
         await updateData();
         await updateSoldTicketCount();
         await updateTotalSoldTickets();
-        reserveSeats(movieName,showTime,selectedSeats);
+        reserveSeats(movieName,showTime,selectedSeats,formattedDate);
 
         navigate("/paymentcomplete", {
             state: {
@@ -166,18 +170,22 @@ const Payment = () => {
                 auditorium,
                 orderNo,
                 selectedSeats,
+                firstname,
+                lastname
             },
         });
     };
 
-    const reserveSeats = async (movieName,showtime,seats) => {
+
+    const reserveSeats = async (movieName,showtime,seats,date) => {
         try {
             const seatRef = await addDoc(collection(firestore, 'reservations'), {
                 seats :seats,
                 movieName: movieName,
                 showTime: showTime,
                 name : firstname + " " + lastname,
-                email : email
+                email : email,
+                date : date
             });
         } catch (error) {
             console.error("Error reserving seats: ", error);
@@ -220,7 +228,7 @@ const Payment = () => {
                                     <div>
                                         <h6 className="my-0">Showtime</h6>
                                         <small className="text-muted">
-                                            {`${date} | ${showTime}`}
+                                            {`${formattedDate} | ${showTime}`}
                                         </small>
                                     </div>
                                 </li>

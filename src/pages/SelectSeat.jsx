@@ -18,6 +18,8 @@ const SeatSelection = () => {
     const [reservedSeats, setReservedSeats] = useState([]);
     const [selectedSeats, setSelectedSeats] = useState([]);
     const [showTime, setShowTime] = useState("");
+    const [formattedDate, setFormattedDate] = useState('');
+    const [selectedDate, setSelectedDate] = useState(null);
     const [ticketCount, setTicketCount] = useState(0);
     const [sessions, setSessions] = useState([]);
     const date = new Date().toDateString();
@@ -31,7 +33,8 @@ const SeatSelection = () => {
             const q = query(
                 resRef,
                 where("movieName", "==", movieName),
-                where("showTime", "==", showTime)
+                where("showTime", "==", showTime),
+                where("date", "==", formattedDate),
             );
             const qSnapshot = await getDocs(q);
             const reserved = [];
@@ -70,6 +73,12 @@ const SeatSelection = () => {
         };
         fetchMovie();
     }, [movieName]);
+
+    useEffect(()=>{
+        const formatted = selectedDate ? new Date(selectedDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+        setFormattedDate(formatted);
+    },[selectedDate])
+
 
     useEffect(() => {
         const initializeSeats = () => {
@@ -185,6 +194,7 @@ const SeatSelection = () => {
                     showTime,
                     ticketCount,
                     selectedSeats,
+                    selectedDate
                 },
             });
         } else {
@@ -192,7 +202,7 @@ const SeatSelection = () => {
         }
     };
 
-    const [selectedDate, setSelectedDate] = useState(null);
+    
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
@@ -214,7 +224,7 @@ const SeatSelection = () => {
                     <DatePicker
                         selected={selectedDate}
                         onChange={handleDateChange}
-                        dateFormat="MM/dd"
+                         dateFormat="MMM d, yyyy"
                         className="custom-datepicker"
                         placeholderText="Pick date"
                     />
@@ -251,6 +261,7 @@ const SeatSelection = () => {
                     </button>
                 </div>
                 <br />
+                <h5>Choose seat</h5>
                 <div
                     style={{
                         display: "flex",
