@@ -108,7 +108,7 @@ const AdminPanel = () => {
                 </Link>
                 <div className="container-fluid secondSection">
                     <h3>Manage Movies</h3>
-                    <table className="table table-striped">
+                    <table className="table table-responsive-lg">
                         <thead>
                             <tr>
                                 <th scope="col">Title</th>

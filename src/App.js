@@ -18,6 +18,7 @@ import ManageRes from "./pages/Admin/managereservations/ManageRes";
 import AddMovie from "./pages/Admin/AddMovie";
 import EditMovie from "./pages/Admin/EditMovie";
 import Upcoming from "./pages/Admin/Upcoming";
+import Footer from "./pages/footer/Footer";
 import { AuthProvider } from "./context/auth";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Contact from "./pages/contact/Contact";
