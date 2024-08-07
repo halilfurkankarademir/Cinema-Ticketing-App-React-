@@ -187,7 +187,7 @@ const SeatSelection = () => {
     };
 
     const handlePayment = () => {
-        if (selectedSeats.length > 0) {
+        if (selectedSeats.length > 0 && showTime !=="" && selectedDate !== null) {
             navigate("/payment", {
                 state: {
                     movieName,
@@ -198,11 +198,9 @@ const SeatSelection = () => {
                 },
             });
         } else {
-            toast.error("Please select seat.");
+            toast.error("Please select seat , date and session.");
         }
     };
-
-    
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
@@ -226,11 +224,11 @@ const SeatSelection = () => {
                         onChange={handleDateChange}
                          dateFormat="MMM d, yyyy"
                         className="custom-datepicker"
-                        placeholderText="Pick date"
+                        placeholderText="Select"
                     />
                     <h6>Session</h6>
                     <select className="custom-select" onChange={handleSessionChange}>
-                        <option value="default">Select</option>
+                        <option value="">Select</option>
                         {sessions.map((session, index) => (
                             <option key={index} value={session}>
                                 {session}
