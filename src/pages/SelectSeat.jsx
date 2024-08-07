@@ -13,7 +13,7 @@ import "react-datepicker/dist/react-datepicker.css";
 const SeatSelection = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const { movieName, showTime, img } = location.state || {};
+    const { movieName, showTime } = location.state || {};
     const [seats, setSeats] = useState([]);
     const [reservedSeats, setReservedSeats] = useState([]);
     const [selectedSeats, setSelectedSeats] = useState([]);
@@ -170,7 +170,7 @@ const SeatSelection = () => {
     const [selectedDate, setSelectedDate] = useState(null);
 
     const handleDateChange = (date) => {
-      setSelectedDate(date);
+        setSelectedDate(date);
     };
 
     return (
@@ -178,22 +178,36 @@ const SeatSelection = () => {
             <Navbar />
             <div className="container-fluid selectSeatAll">
                 <div className="select-date-time container-fluid form-container bg-dark">
+                    <h5>
+                        <p style={{ color: "#55c1ff" }}>{movieName}</p>
+                    </h5>
                     <h6>Date</h6>
                     <DatePicker
                         selected={selectedDate}
                         onChange={handleDateChange}
-                        dateFormat="yyyy/MM/dd"
+                        dateFormat="MM/dd"
                         className="custom-datepicker"
+                        placeholderText="Pick date"
                     />
                     <h6>Session</h6>
+
+                    {/* <div className="selected-seats-container">
+                        {selectedSeats.length > 0 ? (
+                            selectedSeats.map((seat) => (
+                                <div className="selected-seat" key={seat}>
+                                    {seat}
+                                </div>
+                            ))
+                        ) : (
+                            <p>You didn't select a seat yet.</p>
+                        )}
+                    </div> */}
+                    <button className="buyTicket" onClick={handlePayment}>
+                        Continue to Payment
+                    </button>
                 </div>
-                <div className="film-details">
-                    <h5>
-                        Movie Name:{" "}
-                        <b style={{ color: "#55c1ff" }}>{movieName}</b>
-                    </h5>
-                </div>
-                <h4>Choose Seat</h4>
+                <br />
+                {/* <p>Choose Seat</p> */}
                 <div
                     style={{
                         display: "flex",
@@ -212,32 +226,13 @@ const SeatSelection = () => {
                     ))}
                 </div>
                 <div className="scene">Scene</div>
-                <div className="selectedSeat" title="Selected">
-                    S
-                </div>
-                <div className="emptySeat" title="Empty">
-                    E
-                </div>
-                <div className="reservedSeat" title="Reserved">
-                    R
-                </div>
-                <div>
-                    <br />
-                    <br />
-                    <div className="selected-seats-container">
-                        {selectedSeats.length > 0 ? (
-                            selectedSeats.map((seat) => (
-                                <div className="selected-seat" key={seat}>
-                                    {seat}
-                                </div>
-                            ))
-                        ) : (
-                            <p>You didn't select a seat yet.</p>
-                        )}
-                    </div>
-                    <button className="buyTicket" onClick={handlePayment}>
-                        Continue to Payment
-                    </button>
+                <div className="container-fluid d-flex seatInfoIcons">
+                    <div className="selectedSeat" title="Selected"></div>
+                    <p>Selected</p>
+                    <div className="emptySeat" title="Empty"></div>
+                    <p>Empty</p>
+                    <div className="reservedSeat" title="Reserved"></div>
+                    <p>Reserved</p>
                 </div>
             </div>
             <Toaster position="top-center"></Toaster>

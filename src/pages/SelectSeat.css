@@ -13,7 +13,8 @@
     position: relative;
     text-align: center;
     align-items: center;
-    bottom: 22rem;
+    bottom: 25rem;
+    right: 15rem;
 }
 
 li{
@@ -37,8 +38,9 @@ li{
     padding: 10px;
     border-radius: 10px;
     position: absolute;
-    top: 44rem;
-    left: 9.5rem;
+    top: 23rem;
+    left: 2rem;
+    width: 15vw;
 }
 .buyTicket:hover{
     background-color: #0095FF;
@@ -48,32 +50,35 @@ li{
     background-color: #0095FF;
     width: 1.5rem;
     height: 1.5rem;
-    position: relative;
-    left: 49rem;
-    top: 3rem;
     border-radius: 5px;
     color: white;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 .reservedSeat{
     background-color: #FF3999;
     width: 1.5rem;
     height: 1.5rem;
-    position: relative;
-    left: 46rem;
     border-radius: 5px;
     color: white;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 .emptySeat{
-    background-color: #828282;
+    background-color: #9e9d9c;
     width: 1.5rem;
     height: 1.5rem;
-    position: relative;
-    left: 43rem;
-    top: 1.5rem;
     border-radius: 5px;
     color: white;
+    margin-right: 10px;
+    margin-left: 10px;
 }
+.seatInfoIcons{
+    position: relative;
+    left: 35rem;
+    top: 4rem;
 
+}
 .select-ticket-type{
     background-color: #121212;
     outline: none;
@@ -104,12 +109,17 @@ li{
     text-align: center;
     border-radius: 8px;
     padding: 10px;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+  }
+  .custom-datepicker::placeholder{
+    color: rgb(0, 0, 0);
   }
   
   .select-date-time {
     position: relative;
-    right: 32rem;
+    left: 45rem;
     top: 25rem;
     width: 20%;
-    height: 50vh;
+    height: 60vh;
   }
