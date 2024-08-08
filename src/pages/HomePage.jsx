@@ -12,6 +12,7 @@ import "./HomePage.css";
 
 const HomePage = () => {
     const [movies, setMovies] = useState([]);
+    const [upcoming, setUpcoming] = useState([]);
 
     const settings = {
         infinite: true,
@@ -56,8 +57,22 @@ const HomePage = () => {
                 console.error("Error fetching movies: ", error);
             }
         };
+        const fetchUpcomingMovies = async () => {
+            try {
+                const upcomingMoviesCollection = collection(firestore, "upcoming");
+                const upcomingMovieSnapshot = await getDocs(upcomingMoviesCollection);
+                const upcomingMovieList = upcomingMovieSnapshot.docs.map((doc) => ({
+                    ...doc.data(),
+                    id: doc.id,
+                }));
+                setUpcoming(upcomingMovieList);
+            } catch (error) {
+                console.error("Error fetching movies: ", error);
+            }
+        };
 
         document.title = "CineWave | Homepage";
+        fetchUpcomingMovies();
         fetchMovies();
     }, []);
 
@@ -86,6 +101,20 @@ const HomePage = () => {
                                 desc={movie.description}
                                 img={movie.imageUrl}
                                 movieId={movie.id}
+                            />
+                        </div>
+                    ))}
+                </Slider>
+                <br /> <br /> <br />
+                <h2>Upcoming Movies</h2>
+                <Slider {...settings}>
+                    {upcoming.map((upcoming) => (
+                        <div className="card-slide" key={upcoming.id}>
+                            <Card
+                                title={upcoming.title}
+                                desc={upcoming.description}
+                                img={upcoming.imageUrl}
+                                movieId={upcoming.id}
                             />
                         </div>
                     ))}

@@ -80,3 +80,12 @@
 .bi-pencil-square:hover{
     color: #4cae4c;
 }
+
+.btnAddMovie{
+    position: relative;
+    left: 72rem;
+}
+.btnAddUpcomingMovie{
+    position: relative;
+    left: 74.5rem;
+}

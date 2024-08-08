@@ -95,6 +95,12 @@ const AdminPanel = () => {
             <AdminNav></AdminNav>
             <div className="admin-panel">
                 <Toaster position="top-center"></Toaster>
+                <Link to="/admin/addmovie" className="btn btn-light btnAddMovie">
+                    Add Movie
+                </Link>
+                <Link to="/admin/upcoming" className="btn btn-light btnAddUpcomingMovie">
+                    Add Upcoming Movie
+                </Link>
                 <div className="container-fluid secondSection">
                     <h3>Manage Movies</h3>
                     <table className="table table-responsive-lg">
