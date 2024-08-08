@@ -132,3 +132,10 @@ li{
     margin-bottom: 1rem;
     margin-top: 0.5rem;
   }
+
+  .bg-img{
+    position: absolute;
+    opacity: 0.1;
+    filter: blur(0.9px);
+    width: 50rem;
+  }

@@ -211,44 +211,44 @@ const Payment = () => {
                     </div>
 
                     <div className="row g-5">
-                        <div className="col-md-5 col-lg-4 order-md-last ticket-details">
-                            <h4 className="d-flex justify-content-between align-items-center mb-3">
+                        <div className="col-md-5 col-lg-4 order-md-last ticket-details" >
+                            <h4 className="d-flex justify-content-between align-items-center mb-3 ">
                                 <span className="text">Ticket Details</span>
                             </h4>
-                            <ul className="list-group mb-3 w-100">
-                                <li className="list-group-item d-flex justify-content-between lh-sm">
+                            <ul className="list-group mb-3 w-100" >
+                                <li className="list-group-item d-flex justify-content-between lh-sm bg-dark" style={{color:'#0095FF'}}>
                                     <div>
                                         <h6 className="my-0">Movie Name</h6>
-                                        <small className="text-muted">
+                                        <small className="bg-dark">
                                             {movieName}
                                         </small>
                                     </div>
                                 </li>
-                                <li className="list-group-item d-flex justify-content-between lh-sm">
+                                <li className="list-group-item d-flex justify-content-between lh-sm bg-dark" style={{color:'#0095FF'}}>
                                     <div>
                                         <h6 className="my-0">Showtime</h6>
-                                        <small className="text-muted">
+                                        <small className="bg-dark text-white">
                                             {`${formattedDate} | ${showTime}`}
                                         </small>
                                     </div>
                                 </li>
-                                <li className="list-group-item d-flex justify-content-between lh-sm">
+                                <li className="list-group-item d-flex justify-content-between lh-sm bg-dark" style={{color:'#0095FF'}}>
                                     <div>
                                         <h6 className="my-0">Ticket Count</h6>
-                                        <small className="text-muted">
+                                        <small className="">
                                             {`${ticketCount}`}
                                         </small>
                                     </div>
                                 </li>
-                                <li className="list-group-item d-flex justify-content-between lh-sm">
+                                <li className="list-group-item d-flex justify-content-between lh-sm bg-dark" style={{color:'#0095FF'}}>
                                     <div>
                                         <h6 className="my-0">Seats</h6>
-                                        <small className="text-muted">
+                                        <small className="">
                                             {`${selectedSeats}`}
                                         </small>
                                     </div>
                                 </li>
-                                <li className="list-group-item d-flex justify-content-between">
+                                <li className="list-group-item d-flex justify-content-between bg-dark " style={{color:'#0095FF'}}>
                                     <span>Total (USD)</span>
                                     <b>{`$${calculateTotalPrice(
                                         ticketCount,
@@ -270,7 +270,7 @@ const Payment = () => {
                                         </label>
                                         <input
                                             type="text"
-                                            className="form-control"
+                                            className="form-control bg-dark text-white border-0"
                                             id="firstName"
                                             placeholder=""
                                             required
@@ -290,7 +290,7 @@ const Payment = () => {
                                         </label>
                                         <input
                                             type="text"
-                                            className="form-control"
+                                            className="form-control bg-dark text-white border-0"
                                             id="lastName"
                                             placeholder=""
                                             required
@@ -313,7 +313,7 @@ const Payment = () => {
                                         </label>
                                         <input
                                             type="email"
-                                            className="form-control"
+                                            className="form-control bg-dark text-white border-0"
                                             id="email"
                                             placeholder="you@example.com"
                                             required
@@ -339,7 +339,7 @@ const Payment = () => {
                                         </label>
                                         <input
                                             type="text"
-                                            className="form-control"
+                                            className="form-control bg-dark text-white border-0"
                                             id="cc-name"
                                             placeholder=""
                                             
@@ -361,7 +361,7 @@ const Payment = () => {
                                         </label>
                                         <input
                                             type="text"
-                                            className="form-control"
+                                            className="form-control bg-dark text-white border-0"
                                             id="cc-number"
                                             placeholder=""
                                             
@@ -380,7 +380,7 @@ const Payment = () => {
                                         </label>
                                         <input
                                             type="text"
-                                            className="form-control"
+                                            className="form-control bg-dark text-white border-0"
                                             id="cc-expiration"
                                             placeholder=""
                                            
@@ -399,7 +399,7 @@ const Payment = () => {
                                         </label>
                                         <input
                                             type="text"
-                                            className="form-control"
+                                            className="form-control bg-dark text-white border-0"
                                             id="cc-cvv"
                                             placeholder=""
                                           

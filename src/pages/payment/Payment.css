@@ -45,6 +45,7 @@
     bottom: 5rem;
     border: none;
     outline: none;
+    background-color:#0095FF !important ;
 }
 .compelete-button:hover{
     background-color: #0095FF;

@@ -67,35 +67,35 @@ const PaymentComplete = () => {
                 <h4 className="d-flex justify-content-between align-items-center mb-3">
                     <span className="text">Ticket Details</span>
                 </h4>
-                <ul className="list-group mb-3 w-100">
-                    <li className="list-group-item d-flex justify-content-between lh-sm">
+                <ul className="list-group mb-3 w-100 ">
+                    <li className="list-group-item d-flex justify-content-between lh-sm bg-dark text-white">
                         <div>
-                            <h6 className="my-0">Order Number</h6>
-                            <small className="text-muted">{orderNo}</small>
+                            <h6 className="my-0" style={{color:'#0095FF'}}>Order Number</h6>
+                            <small className="">{orderNo}</small>
                         </div>
                     </li>
-                    <li className="list-group-item d-flex justify-content-between lh-sm">
+                    <li className="list-group-item d-flex justify-content-between lh-sm bg-dark text-white">
                         <div>
-                            <h6 className="my-0">Name</h6>
-                            <small className="text-muted">{`${firstname} ${lastname}`}</small>
+                            <h6 className="my-0" style={{color:'#0095FF'}}>Name</h6>
+                            <small className="">{`${firstname} ${lastname}`}</small>
                         </div>
                     </li>
-                    <li className="list-group-item d-flex justify-content-between lh-sm">
+                    <li className="list-group-item d-flex justify-content-between lh-sm bg-dark text-white">
                         <div>
-                            <h6 className="my-0">Movie Name</h6>
-                            <small className="text-muted">{movieName}</small>
+                            <h6 className="my-0" style={{color:'#0095FF'}}>Movie Name</h6>
+                            <small className="">{movieName}</small>
                         </div>
                     </li>
-                    <li className="list-group-item d-flex justify-content-between lh-sm">
+                    <li className="list-group-item d-flex justify-content-between lh-sm bg-dark text-white">
                         <div>
-                            <h6 className="my-0">Showtime</h6>
-                            <small className="text-muted">{`${date} | ${showTime}`}</small>
+                            <h6 className="my-0" style={{color:'#0095FF'}}>Showtime</h6>
+                            <small className="">{`${date} | ${showTime}`}</small>
                         </div>
                     </li>
-                    <li className="list-group-item d-flex justify-content-between lh-sm">
+                    <li className="list-group-item d-flex justify-content-between lh-sm bg-dark text-white">
                         <div>
-                            <h6 className="my-0">Seats</h6>
-                            <small className="text-muted">{`${selectedSeats}`}</small>
+                            <h6 className="my-0" style={{color:'#0095FF'}}>Seats</h6>
+                            <small className="">{`${selectedSeats}`}</small>
                         </div>
                     </li>
                 </ul>

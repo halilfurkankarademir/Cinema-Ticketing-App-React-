@@ -13,7 +13,7 @@ import "react-datepicker/dist/react-datepicker.css";
 const SeatSelection = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const {movieName} = location.state || {};
+    const {movieName,img} = location.state || {};
     const [seats, setSeats] = useState([]);
     const [reservedSeats, setReservedSeats] = useState([]);
     const [selectedSeats, setSelectedSeats] = useState([]);

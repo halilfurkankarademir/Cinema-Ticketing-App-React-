@@ -95,58 +95,47 @@ const AdminPanel = () => {
             <AdminNav></AdminNav>
             <div className="admin-panel">
                 <Toaster position="top-center"></Toaster>
-                <button onClick={signOut} className="sign-out-button">
-                    Sign Out
-                </button>
-                <Link to="/admin/addmovie">
-                    <button className="add-movie-button">Add New Movie</button>
-                </Link>
-                <Link to="/admin/upcoming">
-                    <button className="add-movie-button upcoming-button">
-                        Add Upcoming Movie
-                    </button>
-                </Link>
                 <div className="container-fluid secondSection">
                     <h3>Manage Movies</h3>
                     <table className="table table-responsive-lg">
                         <thead>
                             <tr>
-                                <th scope="col">Title</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Seances</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Duration</th>
-                                <th scope="col">Cast</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Actions</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Title</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Description</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Seances</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Image</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Duration</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Cast</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Type</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Date</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {movies.map((movie) => (
                                 <tr key={movie.id}>
-                                    <td>{movie.title}</td>
-                                    <td>{movie.description}</td>
-                                    <td>{movie.seances.join(", ")}</td>
-                                    <td>
+                                    <td className="bg-dark text-white">{movie.title}</td>
+                                    <td className="bg-dark text-white">{movie.description}</td>
+                                    <td className="bg-dark text-white">{movie.seances.join(", ")}</td>
+                                    <td className="bg-dark text-white">
                                         <img
                                             src={movie.imageUrl}
                                             alt={movie.title}
                                             className="movie-image"
                                         />
                                     </td>
-                                    <td>{movie.duration}</td>
-                                    <td>{movie.cast}</td>
-                                    <td>{movie.type}</td>
-                                    <td>{movie.date}</td>
-                                    <td>
+                                    <td className="bg-dark text-white">{movie.duration}</td>
+                                    <td className="bg-dark text-white">{movie.cast}</td>
+                                    <td className="bg-dark text-white">{movie.type}</td>
+                                    <td className="bg-dark text-white">{movie.date}</td>
+                                    <td className="bg-dark text-white">
                                         <i
                                             className="bi bi-trash"
                                             onClick={() =>
                                                 deleteMovie(movie.id, false)
                                             }
                                         ></i>
-                                        <Link to={`/edit-movie/${movie.id}`}><i class="bi bi-pencil-square"></i></Link>
+                                        <Link to={`/edit-movie/${movie.id}`}><i class="bi bi-pencil-square text-white"></i></Link>
                                     </td>
                                     
                                 </tr>
@@ -159,35 +148,35 @@ const AdminPanel = () => {
                     <table className="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">Title</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Seances</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Duration</th>
-                                <th scope="col">Cast</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Actions</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Title</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Description</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Seances</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Image</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Duration</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Cast</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Type</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Date</th>
+                                <th scope="col" className="bg-dark " style={{color:'#0095FF'}}>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {upcomingMovies.map((movie) => (
                                 <tr key={movie.id}>
-                                    <td>{movie.title}</td>
-                                    <td>{movie.description}</td>
-                                    <td>{movie.seances.join(", ")}</td>
-                                    <td>
+                                    <td className="bg-dark text-white">{movie.title}</td>
+                                    <td className="bg-dark text-white">{movie.description}</td>
+                                    <td className="bg-dark text-white">{movie.seances.join(", ")}</td>
+                                    <td className="bg-dark text-white">
                                         <img
                                             src={movie.imageUrl}
                                             alt={movie.title}
                                             className="movie-image"
                                         />
                                     </td>
-                                    <td>{movie.duration}</td>
-                                    <td>{movie.cast}</td>
-                                    <td>{movie.type}</td>
-                                    <td>{movie.date}</td>
-                                    <td>
+                                    <td className="bg-dark text-white">{movie.duration}</td>
+                                    <td className="bg-dark text-white">{movie.cast}</td>
+                                    <td className="bg-dark text-white">{movie.type}</td>
+                                    <td className="bg-dark text-white">{movie.date}</td>
+                                    <td className="bg-dark text-white">
                                         <i
                                             className="bi bi-trash"
                                             onClick={() =>
