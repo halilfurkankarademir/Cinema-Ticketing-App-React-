@@ -32,6 +32,9 @@ const Navbar = () => {
                 <Link to="/admin/manage">
                     Manage Movies
                 </Link>
+                <Link to="/admin/managecomments">
+                    Comments
+                </Link>
                 <Link to="/admin/reservations">
                     Reservations
                 </Link>

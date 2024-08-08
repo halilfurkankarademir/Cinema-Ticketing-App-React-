@@ -18,6 +18,7 @@ import ManageRes from "./pages/Admin/managereservations/ManageRes";
 import AddMovie from "./pages/Admin/AddMovie";
 import EditMovie from "./pages/Admin/EditMovie";
 import Upcoming from "./pages/Admin/Upcoming";
+import ManageComments from "./pages/Admin/managecomments/ManageComments";
 import Footer from "./pages/footer/Footer";
 import { AuthProvider } from "./context/auth";
 import { HashRouter, Route, Routes } from "react-router-dom";
@@ -42,6 +43,7 @@ const Wrapper = () => {
                         <Route path="/admin" element={<Dashboard />} />
                         <Route path="/admin/addmovie" element={<AddMovie />} />
                         <Route path="/admin/manage" element={<ManageMovies />} />
+                        <Route path="/admin/managecomments" element={<ManageComments />} />
                         <Route path="/admin/reservations" element={<ManageRes />} />
                         <Route path="/admin/upcoming" element={<Upcoming />} />
                         <Route path="/edit-movie/:id" element={<EditMovie />} />
