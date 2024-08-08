@@ -9,7 +9,7 @@ import gsap from "gsap";
 import { firestore, collection, getDocs } from "../firebase/firebase";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
-import CardPng from "../assets/card.png"
+import Popcorn from "../assets/popcorn.png"
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -129,9 +129,9 @@ const HomePage = () => {
                     <h2 style={{color:'#55C1FF'}}>Campaigns %</h2>
                     <br />
                    <div className="form-container bg-dark campaignForm">
-                    <h4>Get 10% off with CineWave Card!</h4>
+                    <h4>Get 10% off with CineWave Card at the buffet!</h4>
                     <p style={{color:'lightgray'}}>Great news for movie lovers! Enjoy more of your favorite films with our special offer. Purchase your snacks using a cinema card and receive a 10% discount on your total purchase at the buffet!</p>
-                    <img src={CardPng} alt="" style={{width:'22rem',marginLeft:'2rem'} } className="cardpng"/>
+                    <img src={Popcorn} alt="" style={{width:'25rem',marginLeft:'2rem'} } className="cardpng"/>
                    </div>
                 </div>
 

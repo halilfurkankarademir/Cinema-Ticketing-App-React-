@@ -107,18 +107,17 @@
         right: 2rem;
     }
     .campaignForm{
-        height: 60vh;
+        height: 70vh;
         padding: 3rem !important;
     }
     .cardpng{
         position: relative;
         left: 25rem;
-        top: 3rem;
         transition: all 0.5s ease-in-out;
     }
     .cardpng:hover{
-       filter: brightness(1.3);
        transform: skew(1deg);
+       transform: scale(1.05);
        filter: drop-shadow(10px 0px 10px #202020);
     }
 }
