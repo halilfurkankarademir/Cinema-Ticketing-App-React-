@@ -7,10 +7,22 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { firestore, collection, getDocs } from "../firebase/firebase";
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
 import "./HomePage.css";
 
 const HomePage = () => {
     const [movies, setMovies] = useState([]);
+    
+    const settings = {
+        infinite: false,
+        speed: 800,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        pauseOnHover: false,
+    };
+    
     useGSAP(() => {
         gsap.from(".text", 0.8, {
             y: 40,
@@ -53,6 +65,7 @@ const HomePage = () => {
         <div>
             <Navbar />
             <div className="container homepage-container">
+                
                 <div className="homepage-content">
                     <Link to="/vision">
                         <button className="learnMore" id="buttonHomepage">
@@ -65,6 +78,7 @@ const HomePage = () => {
                 </div>
                 <br />
                 <br />
+                <Slider {...settings}>
                 <div className="container-fluid secondSection">
                     <h3>Vision Movies</h3>
                     <div className="row">
@@ -80,6 +94,7 @@ const HomePage = () => {
                         ))}
                     </div>
                 </div>
+                </Slider>
                 <div className="pre-loader">
                     <div className="content">
                         <div className="text">
