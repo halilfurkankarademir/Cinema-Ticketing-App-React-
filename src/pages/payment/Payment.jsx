@@ -307,9 +307,7 @@ const Payment = () => {
                                             className="form-label"
                                         >
                                             Email{" "}
-                                            <span className="">
-                                                (Optional)
-                                            </span>
+                                            
                                         </label>
                                         <input
                                             type="email"

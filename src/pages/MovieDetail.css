@@ -11,7 +11,7 @@
     position:relative;
     bottom: 1rem ;
     width: auto;
-    left: 1rem;
+    left: 1.5rem;
     display: inline-block;
     z-index: 50;
 }
@@ -56,10 +56,10 @@ li {
 }
 
 .movie-buy-ticket{
-    background-color: #FF007A;
+    background-color: #55C1FF;
     width: 15%;
     height: 5vh;
-    color: white;
+    color: rgb(0, 0, 0);
     outline: none;
     border: none;
     padding: 0px;

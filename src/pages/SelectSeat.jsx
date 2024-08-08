@@ -10,6 +10,7 @@ import { firestore } from "../firebase/firebase";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+
 const SeatSelection = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -22,7 +23,7 @@ const SeatSelection = () => {
     const [selectedDate, setSelectedDate] = useState(null);
     const [ticketCount, setTicketCount] = useState(0);
     const [sessions, setSessions] = useState([]);
-    const date = new Date().toDateString();
+    const currentDate = new Date().toDateString();
     const { id } = useParams();
 
     useEffect(() => {
@@ -44,7 +45,7 @@ const SeatSelection = () => {
             setReservedSeats(reserved);
         };
         fetchReservations();
-    }, [movieName, showTime]);
+    }, [movieName, showTime,formattedDate]);
 
     useEffect(() => {
         const fetchMovie = async () => {
@@ -178,12 +179,13 @@ const SeatSelection = () => {
     }, [reservedSeats]);
 
     const handleSeatClick = (seatNumber) => {
-        setSelectedSeats((prevSelectedSeats) =>
-            prevSelectedSeats.includes(seatNumber)
+        setSelectedSeats((prevSelectedSeats) => {
+            const newSelectedSeats = prevSelectedSeats.includes(seatNumber)
                 ? prevSelectedSeats.filter((seat) => seat !== seatNumber)
-                : [...prevSelectedSeats, seatNumber]
-        );
-        setTicketCount(selectedSeats.length + 1);
+                : [...prevSelectedSeats, seatNumber];
+            setTicketCount(newSelectedSeats.length);
+            return newSelectedSeats;
+        });
     };
 
     const handlePayment = () => {
@@ -203,12 +205,18 @@ const SeatSelection = () => {
     };
 
     const handleDateChange = (date) => {
+        if(date>=currentDate){
+            alert('Doğru')
+        }
+        console.log(currentDate);
         setSelectedDate(date);
     };
 
     const handleSessionChange = (event) => {
         setShowTime(event.target.value);
     };
+
+  
 
     return (
         <div>
@@ -222,9 +230,10 @@ const SeatSelection = () => {
                     <DatePicker
                         selected={selectedDate}
                         onChange={handleDateChange}
-                         dateFormat="MMM d, yyyy"
+                        dateFormat="MMM d, yyyy"
                         className="custom-datepicker"
                         placeholderText="Select"
+                        minDate={new Date()}
                     />
                     <h6>Session</h6>
                     <select className="custom-select" onChange={handleSessionChange}>
@@ -250,9 +259,12 @@ const SeatSelection = () => {
                                 </p>
                             )):(<p style={{fontWeight:'500' , color:'#FF3999'}}>No seat selected yet.</p>)}
                     </div>
-                    <h6>Ticket Fee</h6>
+                    <h6>Total Fee</h6>
                     <p style={{ fontWeight: "500", color: "#FF3999" }}>
-                        $10 per person
+                        ${
+                            ticketCount>0 ? 10*ticketCount : 0
+                        }
+
                     </p>
                     <button className="buyTicket" onClick={handlePayment}>
                         Continue

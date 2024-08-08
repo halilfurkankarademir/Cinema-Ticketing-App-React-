@@ -156,7 +156,7 @@ const RateMovie = () => {
                     <p>Choose rating.</p>
                     <br />
                     <label htmlFor="comment">Your comment</label>
-                    <textarea name="comment" id="textAreaRating" className="form-control mt-2 bg-dark" 
+                    <textarea name="comment" id="textAreaRating" className="form-control mt-2 bg-dark border-0" 
                     onChange={(e) => setComment(e.target.value)}
                     value={comment}
                     ></textarea>
@@ -166,7 +166,7 @@ const RateMovie = () => {
                     <h5 className="text-center">Comments</h5>
                     {comments.length > 0 ? (
                         comments.map((cmt) => (
-                            <div key={cmt.id} className="comment mt-3 bg-dark">
+                            <div key={cmt.id} className="comment mt-3 bg-dark border-0">
                                 <div className="ratingstarsposition">
                                     {renderStars(cmt.rating)}
                                 </div>
