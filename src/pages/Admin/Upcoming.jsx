@@ -68,7 +68,7 @@ const AdminPanel = () => {
         <AdminNav></AdminNav>
         <div className="addMovie-panel">
             <Toaster position="top-center"></Toaster>
-            <div className="form-container bg-dark text-white">
+            <div className="form-container bg-dark text-white addMovieForm">
                 <h2 style={{color:'#0095FF'}}>Add Upcoming Movie</h2>
                 <form onSubmit={handleSubmit} className="movie-form">
                     <div className="form-group">
@@ -79,7 +79,7 @@ const AdminPanel = () => {
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             required
-                            className="bg-dark text-white"
+                            className="bg-dark text-white border-0"
                         />
                     </div>
                     <div className="form-group">
@@ -89,7 +89,7 @@ const AdminPanel = () => {
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                             required
-                            className="bg-dark text-white"
+                            className="bg-dark text-white border-0"
                         />
                     </div>
                     <div className="form-group">
@@ -99,7 +99,7 @@ const AdminPanel = () => {
                             type="text"
                             value={image}
                             onChange={(e) => setImage(e.target.value)}
-                            className="bg-dark text-white"
+                            className="bg-dark text-white border-0"
                         />
                     </div>
                     <div className="form-group">
@@ -109,7 +109,7 @@ const AdminPanel = () => {
                             type="text"
                             value={seance}
                             onChange={(e) => setSeance(e.target.value)}
-                            className="bg-dark text-white"
+                            className="bg-dark text-white border-0"
                         />
                     </div>
                     <div className="form-group">
@@ -119,7 +119,7 @@ const AdminPanel = () => {
                             type="text"
                             value={duration}
                             onChange={(e) => setDuration(e.target.value)}
-                            className="bg-dark text-white"
+                            className="bg-dark text-white border-0"
                         />
                     </div>
                     <div className="form-group">
@@ -129,7 +129,7 @@ const AdminPanel = () => {
                             type="text"
                             value={cast}
                             onChange={(e) => setCast(e.target.value)}
-                            className="bg-dark text-white"
+                            className="bg-dark text-white border-0"
                         />
                     </div>
                     <div className="form-group">
@@ -139,7 +139,7 @@ const AdminPanel = () => {
                             type="text"
                             value={type}
                             onChange={(e) => setType(e.target.value)}
-                            className="bg-dark text-white"
+                            className="bg-dark text-white border-0"
                         />
                     </div>
                     <div className="form-group">
@@ -149,7 +149,7 @@ const AdminPanel = () => {
                             type="date"
                             value={date}
                             onChange={(e) => setDate(e.target.value)}
-                            className="bg-dark text-white"
+                            className="bg-dark text-white border-0"
                         />
                     </div>
                     <div className="form-group">
@@ -159,7 +159,7 @@ const AdminPanel = () => {
                             type="text"
                             value={trailer}
                             onChange={(e) => setTrailer(e.target.value)}
-                            className="bg-dark text-white"
+                            className="bg-dark text-white border-0"
                         />
                     </div>
                     <button type="submit" className="btn btn-dark">Add Movie</button>

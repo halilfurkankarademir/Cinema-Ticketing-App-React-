@@ -56,3 +56,7 @@
 .submit-button:hover {
     background-color: #0056b3;
 }
+
+.addMovieForm{
+    background-color: #171a1d !important;
+}

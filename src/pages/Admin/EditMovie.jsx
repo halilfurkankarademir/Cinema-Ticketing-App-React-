@@ -69,8 +69,8 @@ const EditMovie = () => {
   return (
     <div className="editMovie-container">
          <Toaster position="top-center"></Toaster>
-      <h2>Edit Movie</h2>
-      <form onSubmit={handleUpdate} className="movie-form">
+      <form onSubmit={handleUpdate} className="movie-form addMovieForm">
+        <h2>Edit Movie</h2>
         <div className="form-group">
           <label htmlFor="title">Movie Title:</label>
           <input
