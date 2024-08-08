@@ -81,5 +81,7 @@
 .card:hover .viewMovie{
     display: block;
 }
-
+.comingCard{
+    background-color: #FF007A;
+}
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../footer/Footer'
-import Card from '../../components/Card'
+import CardComing from "../../components/cardcoming/CardComing"
 import { firestore, collection, getDocs } from "../../firebase/firebase";
 import { useEffect, useState } from 'react';
 import './ComingSoon.css'
@@ -35,11 +35,12 @@ const ComingSoon = () => {
                 <div className="row">
                     {movies.map((movie) => (
                         <div className="col-md-3" key={movie.id}>
-                            <Card
+                            <CardComing
                                 title={movie.title}
                                 desc={movie.description}
                                 img={movie.imageUrl}
                                 movieId={movie.id} 
+                                date={movie.date} 
                             />
                         </div>
                     ))}
