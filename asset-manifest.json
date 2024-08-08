@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/cinewave/static/css/main.959b4eb3.css",
-    "main.js": "/cinewave/static/js/main.140e1e42.js",
-    "static/js/239.afb30b24.chunk.js": "/cinewave/static/js/239.afb30b24.chunk.js",
-    "static/js/213.ce2f534f.chunk.js": "/cinewave/static/js/213.ce2f534f.chunk.js",
-    "static/js/732.83b5ff10.chunk.js": "/cinewave/static/js/732.83b5ff10.chunk.js",
-    "static/js/453.9d6bfdeb.chunk.js": "/cinewave/static/js/453.9d6bfdeb.chunk.js",
-    "static/media/card.png": "/cinewave/static/media/card.6a3bedddc87ddf457226.png",
-    "static/media/bootstrap-icons.woff?": "/cinewave/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
-    "static/media/bootstrap-icons.woff2?": "/cinewave/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
-    "static/media/slick.svg": "/cinewave/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/cinewave/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/cinewave/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/cinewave/static/media/slick.295183786cd8a1389865.woff",
-    "index.html": "/cinewave/index.html",
-    "main.959b4eb3.css.map": "/cinewave/static/css/main.959b4eb3.css.map",
-    "main.140e1e42.js.map": "/cinewave/static/js/main.140e1e42.js.map",
-    "239.afb30b24.chunk.js.map": "/cinewave/static/js/239.afb30b24.chunk.js.map",
-    "213.ce2f534f.chunk.js.map": "/cinewave/static/js/213.ce2f534f.chunk.js.map",
-    "732.83b5ff10.chunk.js.map": "/cinewave/static/js/732.83b5ff10.chunk.js.map",
-    "453.9d6bfdeb.chunk.js.map": "/cinewave/static/js/453.9d6bfdeb.chunk.js.map"
+    "main.css": "/cinewaveApp/static/css/main.191d1ce8.css",
+    "main.js": "/cinewaveApp/static/js/main.e3da6941.js",
+    "static/js/239.afb30b24.chunk.js": "/cinewaveApp/static/js/239.afb30b24.chunk.js",
+    "static/js/213.ce2f534f.chunk.js": "/cinewaveApp/static/js/213.ce2f534f.chunk.js",
+    "static/js/732.83b5ff10.chunk.js": "/cinewaveApp/static/js/732.83b5ff10.chunk.js",
+    "static/js/453.9d6bfdeb.chunk.js": "/cinewaveApp/static/js/453.9d6bfdeb.chunk.js",
+    "static/media/card.png": "/cinewaveApp/static/media/card.6a3bedddc87ddf457226.png",
+    "static/media/bootstrap-icons.woff?": "/cinewaveApp/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/cinewaveApp/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
+    "static/media/slick.svg": "/cinewaveApp/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/cinewaveApp/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/cinewaveApp/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/cinewaveApp/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/cinewaveApp/index.html",
+    "main.191d1ce8.css.map": "/cinewaveApp/static/css/main.191d1ce8.css.map",
+    "main.e3da6941.js.map": "/cinewaveApp/static/js/main.e3da6941.js.map",
+    "239.afb30b24.chunk.js.map": "/cinewaveApp/static/js/239.afb30b24.chunk.js.map",
+    "213.ce2f534f.chunk.js.map": "/cinewaveApp/static/js/213.ce2f534f.chunk.js.map",
+    "732.83b5ff10.chunk.js.map": "/cinewaveApp/static/js/732.83b5ff10.chunk.js.map",
+    "453.9d6bfdeb.chunk.js.map": "/cinewaveApp/static/js/453.9d6bfdeb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.959b4eb3.css",
-    "static/js/main.140e1e42.js"
+    "static/css/main.191d1ce8.css",
+    "static/js/main.e3da6941.js"
   ]
 }
