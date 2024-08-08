@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Card from "../components/Card";
+import CardComing from "../components/cardcoming/CardComing"
 import Footer from "./footer/Footer";
 import BgSliderMobile from "../components/BgSlider";
 import { useGSAP } from "@gsap/react";
@@ -8,6 +9,7 @@ import gsap from "gsap";
 import { firestore, collection, getDocs } from "../firebase/firebase";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import CardPng from "../assets/card.png"
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -16,7 +18,7 @@ const HomePage = () => {
 
     const settings = {
         infinite: true,
-        speed: 800,
+        speed: 1000,
         slidesToShow: 3, 
         slidesToScroll: 1,
         pauseOnHover: false,
@@ -110,15 +112,27 @@ const HomePage = () => {
                 <Slider {...settings}>
                     {upcoming.map((upcoming) => (
                         <div className="card-slide" key={upcoming.id}>
-                            <Card
+                            <CardComing
                                 title={upcoming.title}
                                 desc={upcoming.description}
                                 img={upcoming.imageUrl}
                                 movieId={upcoming.id}
+                                date = {upcoming.date}
                             />
                         </div>
                     ))}
                 </Slider>
+
+                <div className="container-fluid">
+                    <h2 style={{color:'#55C1FF'}}>Campaigns %</h2>
+                    <br />
+                   <div className="form-container bg-dark campaignForm">
+                    <h4>Get 10% off with CineWave Card!</h4>
+                    <p style={{color:'lightgray'}}>Great news for movie lovers! Enjoy more of your favorite films with our special offer. Purchase your tickets using a cinema card and receive a 10% discount on your total purchase!</p>
+                    <img src={CardPng} alt="" style={{width:'22rem',marginLeft:'2rem'} } className="cardpng"/>
+                   </div>
+                </div>
+
                 <div className="pre-loader">
                     <div className="content">
                         <div className="text">

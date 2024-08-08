@@ -107,7 +107,7 @@ const MovieDetail = () => {
                         className="movie-title d-flex"
                     >
                         {movie.title}
-                        &emsp; &emsp; &emsp;
+                        &emsp; &emsp; 
                         <i
                             className="bi bi-heart-fill"
                             onClick={redicertRate}

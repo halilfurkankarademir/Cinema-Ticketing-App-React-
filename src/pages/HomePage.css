@@ -45,7 +45,7 @@
     
     .homepage-container {
         width: 100%;
-        height: 100rem;
+        height: auto;
         background-size: cover;
         background-position: center;
         position: relative;
@@ -106,5 +106,17 @@
         position: relative;
         right: 2rem;
     }
-    
+    .campaignForm{
+        height: 60vh;
+        padding: 3rem !important;
+    }
+    .cardpng{
+        position: relative;
+        left: 25rem;
+        top: 3rem;
+        transition: all 0.5s ease-in-out;
+    }
+    .cardpng:hover{
+       filter: brightness(1.3);
+    }
 }
