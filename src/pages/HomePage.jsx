@@ -106,7 +106,7 @@ const HomePage = () => {
                     ))}
                 </Slider>
                 <br /> <br />
-                <h2 style={{color:'#55C1FF'}}>Upcoming Movies <i class="bi bi-hourglass-split"></i></h2>
+                <h2 style={{color:'#55C1FF'}}>Coming Soon <i class="bi bi-hourglass-split"></i></h2>
                 <Slider {...settings}>
                     {upcoming.map((upcoming) => (
                         <div className="card-slide" key={upcoming.id}>
