@@ -10,14 +10,14 @@ const Contact = () => {
     <div>
         <Navbar></Navbar>
         <div className='container-fluid contactForm'>
-            <form action="" className='form-container w-100 bg-dark'>
+            <form action="" className='form-container w-100' style={{backgroundColor: "#171a1d"}}>
                 <h1>Contact Us &nbsp; <i class="bi bi-telephone-fill"></i></h1>
                 <label htmlFor="full-name">Full Name</label>
-                <input type="text" name='full-name' className='form-control text-white bg-dark'/>
+                <input type="text" name='full-name' className='form-control text-white bg-dark border-0'/>
                 <label htmlFor="email">Email</label>
-                <input type="email" name='email' className='form-control bg-dark'/>
+                <input type="email" name='email' className='form-control bg-dark border-0'/>
                 <label htmlFor="message">Your Message</label>
-                <textarea name="message" id="" className='form-control bg-dark' rows="5"></textarea>
+                <textarea name="message" id="" className='form-control bg-dark border-0' rows="5"></textarea>
                 <br />
                 <button type='button' className='btn btn-dark' onClick={()=>toast.success('Your message has been sent!')}>Send Message</button>
                 <Toaster
