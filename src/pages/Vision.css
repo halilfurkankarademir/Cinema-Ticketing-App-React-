@@ -11,5 +11,8 @@
 }
 .secondSection{
     position: relative;
+}
+.secondSection h3{
+    position: relative;
     left: 2rem;
 }
