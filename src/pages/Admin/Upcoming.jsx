@@ -150,6 +150,7 @@ const AdminPanel = () => {
                             value={date}
                             onChange={(e) => setDate(e.target.value)}
                             className="bg-dark text-white border-0"
+                            style={{colorScheme:'dark'}}
                         />
                     </div>
                     <div className="form-group">
