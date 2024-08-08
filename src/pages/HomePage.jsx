@@ -77,6 +77,7 @@ const HomePage = () => {
                 </div>
                 <br />
                 <br />
+                <h2>Vision Movies</h2>
                 <Slider {...settings}>
                     {movies.map((movie) => (
                         <div className="card-slide" key={movie.id}>
