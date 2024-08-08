@@ -8,7 +8,7 @@ import "./MovieDetail.css";
 const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
     const [comments, setComments] = useState([]);
-    const [ratingMovie, setRatingMovie] = useState(0);    
+    const [ratingMovie, setRatingMovie] = useState(0);
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -107,12 +107,13 @@ const MovieDetail = () => {
                         className="movie-title d-flex"
                     >
                         {movie.title}
-                        &emsp; &emsp; 
+                    </h1>
+                    <div className="ratingsIcon">
                         <i
                             className="bi bi-heart-fill"
                             onClick={redicertRate}
                         >{` ${ratingMovie}`}</i>
-                    </h1>
+                    </div>
                     <div className="movie-detail">
                         <img
                             src={movie.imageUrl}
@@ -120,8 +121,8 @@ const MovieDetail = () => {
                             className="movie-image"
                         />
                         <section className="movie-desc">
-                            <h5 style={{ color: "#a682ff"}}>Description</h5>
-                            <p style={{ fontWeight: "300", }}>
+                            <h5 style={{ color: "#a682ff" }}>Description</h5>
+                            <p style={{ fontWeight: "300" }}>
                                 {movie.description}
                             </p>
                             <h5 style={{ color: "#a682ff" }}>Duration</h5>
@@ -134,7 +135,6 @@ const MovieDetail = () => {
                             <p style={{ fontWeight: "300" }}>{movie.type}</p>
                             <h5 style={{ color: "#a682ff" }}>Release Date</h5>
                             <p style={{ fontWeight: "300" }}>{movie.date}</p>
-            
                         </section>
                         <div className="embed-responsive embed-responsive-16by9 trailer-embed">
                             <iframe

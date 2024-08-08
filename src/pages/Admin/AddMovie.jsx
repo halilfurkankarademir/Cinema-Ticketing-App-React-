@@ -23,6 +23,8 @@ const AdminPanel = () => {
     const [date, setDate] = useState('');
     const [trailer, setTrailer] = useState('');
 
+
+    
     function signOut() {
         doSignOut();
         navigate('/');

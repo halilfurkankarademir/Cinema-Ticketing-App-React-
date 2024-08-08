@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Card.css";
 
-const Card = ({ title, desc, img, movieId }) => {
+const Card = ({ title, desc, img, movieId , type}) => {
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -14,7 +14,8 @@ const Card = ({ title, desc, img, movieId }) => {
             <img src={img} className="card-img-top" alt={title} />
             <div className="card-body">
                 <p className='viewMovie'>View Movie</p>
-                <h5 className="card-title">{title}</h5>
+                <h3 className="card-title" >{title}</h3>
+                <p>{type}</p>
             </div>
         </div>
     );

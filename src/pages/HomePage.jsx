@@ -103,6 +103,7 @@ const HomePage = () => {
                                 desc={movie.description}
                                 img={movie.imageUrl}
                                 movieId={movie.id}
+                                type = {movie.type}
                             />
                         </div>
                     ))}
@@ -118,6 +119,7 @@ const HomePage = () => {
                                 img={upcoming.imageUrl}
                                 movieId={upcoming.id}
                                 date = {upcoming.date}
+                                
                             />
                         </div>
                     ))}
@@ -128,7 +130,7 @@ const HomePage = () => {
                     <br />
                    <div className="form-container bg-dark campaignForm">
                     <h4>Get 10% off with CineWave Card!</h4>
-                    <p style={{color:'lightgray'}}>Great news for movie lovers! Enjoy more of your favorite films with our special offer. Purchase your tickets using a cinema card and receive a 10% discount on your total purchase!</p>
+                    <p style={{color:'lightgray'}}>Great news for movie lovers! Enjoy more of your favorite films with our special offer. Purchase your snacks using a cinema card and receive a 10% discount on your total purchase at the buffet!</p>
                     <img src={CardPng} alt="" style={{width:'22rem',marginLeft:'2rem'} } className="cardpng"/>
                    </div>
                 </div>
