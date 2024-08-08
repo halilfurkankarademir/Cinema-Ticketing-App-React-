@@ -156,7 +156,7 @@ const RateMovie = () => {
                     <p>Choose rating.</p>
                     <br />
                     <label htmlFor="comment">Your comment</label>
-                    <textarea name="comment" id="textAreaRating" className="form-control mt-2 bg-dark border-0" 
+                    <textarea name="comment" id="textAreaRating" className="form-control mt-2 bg-dark border-0 text-white" 
                     onChange={(e) => setComment(e.target.value)}
                     value={comment}
                     ></textarea>
