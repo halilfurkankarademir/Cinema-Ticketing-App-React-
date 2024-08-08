@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { firestore, doc, getDoc, updateDoc } from "../../firebase/firebase";
 import toast, { Toaster } from 'react-hot-toast';
+import AdminNav from "./AdminNav";
 import './EditMovie.css';
 
 const EditMovie = () => {
@@ -67,10 +68,12 @@ const EditMovie = () => {
   };
 
   return (
+    <>
+    <AdminNav></AdminNav>
     <div className="editMovie-container">
          <Toaster position="top-center"></Toaster>
-      <form onSubmit={handleUpdate} className="movie-form addMovieForm">
-        <h2>Edit Movie</h2>
+      <form onSubmit={handleUpdate} className="edit-movie-form addMovieForm">
+        <h2 style={{color:'#55C1FF'}}>Edit Movie</h2>
         <div className="form-group">
           <label htmlFor="title">Movie Title:</label>
           <input
@@ -79,6 +82,7 @@ const EditMovie = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
+            className="bg-dark border-0 text-white"
           />
         </div>
         <div className="form-group">
@@ -88,6 +92,7 @@ const EditMovie = () => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
+            className="bg-dark border-0 text-white"
           />
         </div>
         <div className="form-group">
@@ -97,6 +102,7 @@ const EditMovie = () => {
             type="text"
             value={image}
             onChange={(e) => setImage(e.target.value)}
+            className="bg-dark border-0 text-white"
           />
         </div>
         <div className="form-group">
@@ -106,6 +112,7 @@ const EditMovie = () => {
             type="text"
             value={seance}
             onChange={(e) => setSeance(e.target.value)}
+            className="bg-dark border-0 text-white"
           />
         </div>
         <div className="form-group">
@@ -115,6 +122,7 @@ const EditMovie = () => {
             type="text"
             value={duration}
             onChange={(e) => setDuration(e.target.value)}
+            className="bg-dark border-0 text-white"
           />
         </div>
         <div className="form-group">
@@ -124,6 +132,7 @@ const EditMovie = () => {
             type="text"
             value={cast}
             onChange={(e) => setCast(e.target.value)}
+            className="bg-dark border-0 text-white"
           />
         </div>
         <div className="form-group">
@@ -133,6 +142,7 @@ const EditMovie = () => {
             type="text"
             value={type}
             onChange={(e) => setType(e.target.value)}
+            className="bg-dark border-0 text-white"
           />
         </div>
         <div className="form-group">
@@ -142,6 +152,7 @@ const EditMovie = () => {
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
+            className="bg-dark border-0 text-white"
           />
         </div>
         <div className="form-group">
@@ -151,11 +162,13 @@ const EditMovie = () => {
             type="text"
             value={trailer}
             onChange={(e) => setTrailer(e.target.value)}
+            className="bg-dark border-0 text-white"
           />
         </div>
         <button type="submit" className="btn btn-dark">Update Movie</button>
       </form>
     </div>
+    </>
   );
 };
 

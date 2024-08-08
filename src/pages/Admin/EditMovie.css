@@ -15,9 +15,11 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.movie-form {
+.edit-movie-form {
     display: flex;
     flex-direction: column;
+    padding: 2rem;
+    border-radius: 8px;
 }
 
 .form-group {
