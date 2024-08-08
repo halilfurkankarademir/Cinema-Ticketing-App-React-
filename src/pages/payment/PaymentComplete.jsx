@@ -61,7 +61,7 @@ const PaymentComplete = () => {
         <div>
             <Navbar></Navbar>
             <div className="container-fluid payment-complete-page">
-                <h1 className="d-flex align-items-center mb-3">
+                <h1 className="d-flex align-items-center mb-3" style={{color:'#55C1FF'}}>
                     Payment Complete &nbsp; <i className="bi bi-bag-check"></i>
                 </h1>
                 <h4 className="d-flex justify-content-between align-items-center mb-3">

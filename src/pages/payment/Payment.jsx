@@ -207,7 +207,7 @@ const Payment = () => {
             <div className="container-fluid payment-container">
                 <main>
                     <div className="py-5">
-                        <h2>Payment</h2>
+                        <h2 style={{color:'#55C1FF'}}>Payment&nbsp; <i class="bi bi-credit-card"></i></h2>
                     </div>
 
                     <div className="row g-5">
