@@ -38,7 +38,7 @@ li{
     padding: 10px;
     border-radius: 10px;
     position: absolute;
-    top: 23rem;
+    top: 20.5rem;
     left: 4.5rem;
     width: 10vw;
     font-size: 1rem;
@@ -116,7 +116,7 @@ li{
     left: 45rem;
     top: 27rem;
     width: 20%;
-    height: 60vh;
+    height: 55vh;
   }
 
   .custom-select{

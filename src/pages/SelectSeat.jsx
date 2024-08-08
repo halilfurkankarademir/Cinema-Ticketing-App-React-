@@ -223,9 +223,6 @@ const SeatSelection = () => {
             <Navbar />
             <div className="container-fluid selectSeatAll">
                 <div className="select-date-time container-fluid form-container bg-dark">
-                    <h5>
-                        <p style={{ color: "#55c1ff" }}>{movieName}</p>
-                    </h5>
                     <h6>Date</h6>
                     <DatePicker
                         selected={selectedDate}
@@ -270,6 +267,9 @@ const SeatSelection = () => {
                         Continue
                     </button>
                 </div>
+                <h5>
+                    <p style={{ color: "#55c1ff" , fontSize:'2rem'}}>{movieName}</p>
+                </h5>
                 <br />
                 <h5>Choose seat</h5>
                 <div

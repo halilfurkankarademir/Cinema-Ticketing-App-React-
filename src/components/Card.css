@@ -54,6 +54,7 @@
     margin-bottom: 4rem !important; 
     overflow: hidden;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 .card:hover  .card-img-top{
     transform: scale(1.05);
@@ -80,6 +81,10 @@
 }
 .card:hover .viewMovie{
     display: block;
+}
+
+.card:hover{
+    transform: translateY(-10px);
 }
 
 }

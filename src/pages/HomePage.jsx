@@ -19,10 +19,12 @@ const HomePage = () => {
     const settings = {
         infinite: true,
         speed: 1000,
-        slidesToShow: 3, 
+        slidesToShow: 4, 
         slidesToScroll: 1,
         pauseOnHover: false,
         arrows: true, 
+        autoplay : true,
+        autoplaySpeed : 10000
     };
 
     useGSAP(() => {
