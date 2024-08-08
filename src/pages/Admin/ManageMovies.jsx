@@ -101,7 +101,7 @@ const AdminPanel = () => {
                 <Link to="/admin/upcoming" className="btn btn-light btnAddUpcomingMovie">
                     Add Upcoming Movie
                 </Link>
-                <div className="container-fluid secondSection">
+                <div className="container-fluid secondSectionManageMovies">
                     <h3>Manage Movies</h3>
                     <table className="table table-responsive-lg">
                         <thead>
@@ -149,7 +149,7 @@ const AdminPanel = () => {
                         </tbody>
                     </table>
                 </div>
-                <div className="container-fluid secondSection">
+                <div className="container-fluid secondSectionManageMovies">
                     <h3>Upcoming Movies</h3>
                     <table className="table table-striped">
                         <thead>

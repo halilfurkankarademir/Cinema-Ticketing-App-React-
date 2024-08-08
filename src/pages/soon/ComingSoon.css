@@ -2,3 +2,8 @@
     width: 100%;
     height: auto;
 }
+.secondSectionUpcoming h3{
+    position: relative;
+    left: 2rem;
+    color: #55C1FF;
+}

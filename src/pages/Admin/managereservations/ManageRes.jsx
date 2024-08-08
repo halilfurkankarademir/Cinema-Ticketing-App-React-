@@ -55,7 +55,7 @@ const ManageRes = () => {
             <AdminNav></AdminNav>
             <div className="admin-panel">
                 <Toaster position="top-center"></Toaster>
-                <div className="container-fluid secondSection">
+                <div className="container-fluid secondSectionReservations">
                     <h3>Reservations</h3>
                     <table className="table table-striped">
                         <thead>

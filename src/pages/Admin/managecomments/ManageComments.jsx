@@ -66,7 +66,7 @@ const ManageComments = () => {
             <AdminNav></AdminNav>
             <div className="admin-panel">
                 <Toaster position="top-center"></Toaster>
-                <div className="container-fluid secondSection">
+                <div className="container-fluid secondSectionComments">
                     <h3>Comments</h3>
                     <table className="table table-striped">
                         <thead>

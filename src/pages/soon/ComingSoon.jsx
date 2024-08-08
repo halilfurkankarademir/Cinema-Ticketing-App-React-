@@ -30,8 +30,8 @@ const ComingSoon = () => {
     <div>
         <div>
             <Navbar />
-            <div className="container-fluid secondSection">
-                <h3>Upcoming Movies</h3>
+            <div className="container-fluid secondSectionUpcoming">
+                <h3>Upcoming Movies <i class="bi bi-hourglass-split"></i></h3>
                 <div className="row">
                     {movies.map((movie) => (
                         <div className="col-md-3" key={movie.id}>

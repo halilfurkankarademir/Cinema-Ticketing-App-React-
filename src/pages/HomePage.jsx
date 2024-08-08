@@ -83,7 +83,7 @@ const HomePage = () => {
                 <div className="homepage-content">
                     <Link to="/vision">
                         <button className="learnMore" id="buttonHomepage">
-                            See films
+                            See films <i class="bi bi-emoji-heart-eyes-fill"></i>
                         </button>
                     </Link>
                     <Link to="/vision">
@@ -92,7 +92,7 @@ const HomePage = () => {
                 </div>
                 <br />
                 <br />
-                <h2>Vision Movies</h2>
+                <h2 style={{color:'#55C1FF'}}>Vision Movies <i class="bi bi-stars"></i> </h2>
                 <Slider {...settings}>
                     {movies.map((movie) => (
                         <div className="card-slide" key={movie.id}>
@@ -106,7 +106,7 @@ const HomePage = () => {
                     ))}
                 </Slider>
                 <br /> <br /> <br />
-                <h2>Upcoming Movies</h2>
+                <h2 style={{color:'#55C1FF'}}>Upcoming Movies <i class="bi bi-hourglass-split"></i></h2>
                 <Slider {...settings}>
                     {upcoming.map((upcoming) => (
                         <div className="card-slide" key={upcoming.id}>

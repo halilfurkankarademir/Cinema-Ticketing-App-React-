@@ -26,8 +26,8 @@ const OnLive = () => {
     return (
         <div>
             <Navbar />
-            <div className="container-fluid secondSection">
-                <h3>Vision Movies</h3>
+            <div className="container-fluid secondSectionVision">
+                <h3>Vision Movies <i class="bi bi-stars"></i></h3>
                 <div className="row">
                     {movies.map((movie) => (
                         <div className="col-md-3" key={movie.id}>
