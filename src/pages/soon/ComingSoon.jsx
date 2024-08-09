@@ -30,6 +30,7 @@ const ComingSoon = () => {
     <div>
         <div>
             <Navbar />
+            <br /> <br /> <br /> <br /> <br /> <br />
             <div className="container-fluid secondSectionUpcoming">
                 <h3><i className="bi bi-hourglass-split"></i> Upcoming Movies </h3>
                 <div className="row">

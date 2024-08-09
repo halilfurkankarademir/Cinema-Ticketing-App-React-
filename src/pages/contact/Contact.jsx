@@ -9,6 +9,7 @@ const Contact = () => {
   return (
     <div>
         <Navbar></Navbar>
+        <br /> <br /> <br /> <br /> <br /> <br />
         <div className='container-fluid contactForm'>
             <form action="" className='form-container w-100' style={{backgroundColor: "#171a1d"}}>
                 <h1>Contact Us &nbsp; <i className="bi bi-telephone-fill"></i></h1>

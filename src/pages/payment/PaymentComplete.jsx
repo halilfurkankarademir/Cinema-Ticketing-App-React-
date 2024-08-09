@@ -35,6 +35,7 @@ const PaymentComplete = () => {
     return (
         <div>
             <Navbar />
+            <br /> <br /> <br /> <br /> <br /> <br />
             <div className="container-fluid payment-complete-page">
                 <h1
                     className="d-flex align-items-center mb-3"
