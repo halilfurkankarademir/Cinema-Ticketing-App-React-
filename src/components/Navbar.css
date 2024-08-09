@@ -58,11 +58,12 @@
 }
 @media only screen and (min-width: 768px){
 .navbar{
-    position: relative;
+    position: fixed;
     right: 0rem;
+    width: 100vw;
     background-color:#171a1d !important;
     z-index: 8;
-    bottom: 1rem;
+    bottom: 40rem;
     color: whitesmoke;
 }
 .brand h2{
@@ -82,10 +83,10 @@
     display:none;
 }
 .Navmenu{
-    position: relative;
+    position: fixed;
     display: flex;
-    bottom: 5rem;
-    left: 28rem;
+    bottom: 41.5rem;
+    left: 26rem;
     z-index: 11;
 }
 .Navmenu a{

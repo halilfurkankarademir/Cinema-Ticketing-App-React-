@@ -22,7 +22,7 @@
 .hero-slider {
     position: relative;
     width: 130%;
-    /* bottom: 6rem; */
+    top: 9rem;
     right: 12rem;
     overflow: hidden;
     height: 90vh;

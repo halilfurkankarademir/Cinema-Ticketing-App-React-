@@ -96,6 +96,10 @@ const HomePage = () => {
                 </div>
                 <br />
                 <br />
+                <br />
+                <br />
+                <br />
+                <br /> <br /> <br />
                 <h2 style={{color:'#55C1FF'}}><i className="bi bi-stars"></i> Vision Movies</h2>
                 <Slider {...settings}>
                     {movies.map((movie) => (
@@ -128,7 +132,7 @@ const HomePage = () => {
                 </Slider>
 
                 <div className="container-fluid">
-                    <h2 style={{color:'#55C1FF'}}>🏷️ Campaigns </h2>
+                    <h2 style={{color:'#55C1FF'}}><i className="bi bi-tag"></i> Campaigns </h2>
                     <br />
                    <div className="form-container bg-dark campaignForm">
                     <h4>Get 10% off with CineWave Card at the buffet!</h4>
