@@ -20,6 +20,7 @@ const Seat = ({ seatNumber, isReserved, isSelected, onSeatClick }) => {
       onClick={() => !isReserved && onSeatClick(seatNumber)}
       className='container seatDesign'
     >
+      
       {seatNumber}
     </div>
   );

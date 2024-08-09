@@ -1,10 +1,10 @@
-.seatDesign{
-    width: 10%;
-    height: 10vh;
-    position: relative;
-    left: 28rem;
+    .seatDesign{
+        width: 10%;
+        height: 10vh;
+        position: relative;
+        left: 28rem;
 
-}
-.seatDesign:hover{
-    background-color: #0095FF !important;
-}
+    }
+    .seatDesign:hover{
+        background-color: #0095FF !important;
+    }
