@@ -112,8 +112,8 @@ li {
     left: 64rem;
 }
 .ratingsIcon{
-    position: absolute;
+    position: relative;
     z-index: 50;
-    left: 19rem;
-    bottom: 35rem;
+    left: 20rem;
+    bottom: 3rem;
 }
