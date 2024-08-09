@@ -64,6 +64,7 @@ const ManageComments = () => {
     return (
         <div>
             <AdminNav></AdminNav>
+            <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
             <div className="admin-panel">
                 <Toaster position="top-center"></Toaster>
                 <div className="container-fluid secondSectionComments">

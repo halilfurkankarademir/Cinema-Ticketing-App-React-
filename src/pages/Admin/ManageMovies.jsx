@@ -93,6 +93,7 @@ const AdminPanel = () => {
     return (
         <div>
             <AdminNav></AdminNav>
+            <br /> <br /> <br /> <br /> <br /> <br />
             <div className="admin-panel">
                 <Toaster position="top-center"></Toaster>
                 <Link to="/admin/addmovie" className="btn btn-light btnAddMovie">

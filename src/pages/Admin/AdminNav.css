@@ -1,5 +1,5 @@
 .NavmenuAdmin{
-    position: relative;
+    position: fixed;
     display: flex;
     top: 2.4rem;
     left: 12rem;
