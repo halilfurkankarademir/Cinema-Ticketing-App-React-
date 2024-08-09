@@ -114,7 +114,7 @@ const Dashboard = () => {
                             <div key={index}>
                                 <label htmlFor={`img${index}`}>
                                     Image {index + 1} URL{" "}
-                                    <i class="bi bi-link-45deg"></i>
+                                    <i className="bi bi-link-45deg"></i>
                                 </label>
                                 <input
                                     type="text"

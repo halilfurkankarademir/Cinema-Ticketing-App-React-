@@ -11,7 +11,7 @@ const Contact = () => {
         <Navbar></Navbar>
         <div className='container-fluid contactForm'>
             <form action="" className='form-container w-100' style={{backgroundColor: "#171a1d"}}>
-                <h1>Contact Us &nbsp; <i class="bi bi-telephone-fill"></i></h1>
+                <h1>Contact Us &nbsp; <i className="bi bi-telephone-fill"></i></h1>
                 <label htmlFor="full-name">Full Name</label>
                 <input type="text" name='full-name' className='form-control text-white bg-dark border-0'/>
                 <label htmlFor="email">Email</label>

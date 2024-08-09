@@ -37,7 +37,7 @@ const OnLive = () => {
                         color: "#55C1FF",
                     }}
                 >
-                    Vision Movies <i class="bi bi-stars"></i>
+                    Vision Movies <i className="bi bi-stars"></i>
                 </h3>
                 <div className="row">
                     {movies.map((movie) => (
