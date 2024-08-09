@@ -1,7 +1,7 @@
 .NavmenuAdmin{
     position: relative;
     display: flex;
-    bottom: 4.7rem;
+    top: 2.4rem;
     left: 12rem;
     z-index: 11;
 }
