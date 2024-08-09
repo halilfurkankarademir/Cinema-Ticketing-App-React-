@@ -19,16 +19,19 @@ import AddMovie from "./pages/Admin/AddMovie";
 import EditMovie from "./pages/Admin/EditMovie";
 import Upcoming from "./pages/Admin/Upcoming";
 import ManageComments from "./pages/Admin/managecomments/ManageComments";
-import Footer from "./pages/footer/Footer";
 import { AuthProvider } from "./context/auth";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Contact from "./pages/contact/Contact";
+import ScrollToTop from "./components/ScrollToTop"
 
 
 const Wrapper = () => {
+    
+
     return (
         <AuthProvider>
                 <HashRouter>
+                    <ScrollToTop/>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/vision" element={<Vision />} />

@@ -8,7 +8,13 @@ import "./Vision.css";
 const OnLive = () => {
     const [movies, setMovies] = useState([]);
 
+    window.onload = function() {
+        window.scrollTo(0, 0);
+    };
+
+
     useEffect(() => {
+
         const fetchMovies = async () => {
             try {
                 const moviesCollection = collection(firestore, "movies");

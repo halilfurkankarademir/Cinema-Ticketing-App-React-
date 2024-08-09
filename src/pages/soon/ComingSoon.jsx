@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../footer/Footer'
 import CardComing from "../../components/cardcoming/CardComing"
+import { ScrollRestoration } from 'react-router-dom'
 import { firestore, collection, getDocs } from "../../firebase/firebase";
 import { useEffect, useState } from 'react';
 import './ComingSoon.css'
@@ -9,6 +10,11 @@ import './ComingSoon.css'
 const ComingSoon = () => {
     
     const [movies, setMovies] = useState([]);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
 
     useEffect(() => {
         const fetchMovies = async () => {
