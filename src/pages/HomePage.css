@@ -45,7 +45,7 @@
     
     .homepage-container {
         width: 100%;
-        height: auto;
+        height: 300vh;
         background-size: cover;
         background-position: center;
         position: relative;
@@ -59,7 +59,7 @@
 
     .learnMore {
         position: relative;
-        width: 10vw;
+        width: 15vw;
         padding: 0.3rem;
         right: 1rem;
         background-color: #715aff;

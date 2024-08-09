@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { useAuth } from "../context/auth";
 import { doSignOut } from "../firebase/auth";
@@ -8,6 +8,8 @@ const Navbar = () => {
     const [toggleSidebar, setToggleSidebar] = useState(false);
 
     const { currentUser, userLoggedIn } = useAuth();
+
+    const navigate = useNavigate();
 
     const showMenu = (e) => {
         e.preventDefault();
@@ -22,10 +24,14 @@ const Navbar = () => {
         await doSignOut();
     };
 
+    const redicert = () =>{
+        navigate('/');
+    }
+
     return (
         <div>
             <div className="navbar bg-transparent">
-                <div className="brand">
+                <div className="brand" onClick={redicert}>
                     <h2>CineWave</h2>
                 </div>
                 <i className="bi bi-list" onClick={showMenu}></i>

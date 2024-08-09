@@ -87,7 +87,7 @@ const HomePage = () => {
                 <div className="homepage-content">
                     <Link to="/vision">
                         <button className="learnMore" id="buttonHomepage">
-                            See films <i className="bi bi-emoji-heart-eyes-fill"></i>
+                            Explore movies <i className="bi bi-emoji-heart-eyes-fill"></i>
                         </button>
                     </Link>
                     <Link to="/vision">
@@ -96,7 +96,7 @@ const HomePage = () => {
                 </div>
                 <br />
                 <br />
-                <h2 style={{color:'#55C1FF'}}>Vision Movies <i className="bi bi-stars"></i> </h2>
+                <h2 style={{color:'#55C1FF'}}><i className="bi bi-stars"></i> Vision Movies</h2>
                 <Slider {...settings}>
                     {movies.map((movie) => (
                         <div className="card-slide" key={movie.id}>
@@ -111,7 +111,7 @@ const HomePage = () => {
                     ))}
                 </Slider>
                 <br /> <br />
-                <h2 style={{color:'#55C1FF'}}>Coming Soon <i className="bi bi-hourglass-split"></i></h2>
+                <h2 style={{color:'#55C1FF'}}><i className="bi bi-hourglass-split"></i> Coming Soon </h2>
                 <Slider {...settings}>
                     {upcoming.map((upcoming) => (
                         <div className="card-slide" key={upcoming.id}>
@@ -128,7 +128,7 @@ const HomePage = () => {
                 </Slider>
 
                 <div className="container-fluid">
-                    <h2 style={{color:'#55C1FF'}}>Campaigns %</h2>
+                    <h2 style={{color:'#55C1FF'}}>🏷️ Campaigns </h2>
                     <br />
                    <div className="form-container bg-dark campaignForm">
                     <h4>Get 10% off with CineWave Card at the buffet!</h4>

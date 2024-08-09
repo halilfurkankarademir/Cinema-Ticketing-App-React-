@@ -107,8 +107,7 @@ const Dashboard = () => {
                     </div>
                     <form action="" className="form-container changeCarousel">
                         <p>
-                            Change homepage carousel images.(All url's should
-                            not be empty!)
+                            Change homepage carousel images.(All url's should be filled!)
                         </p>
                         {images.map((img, index) => (
                             <div key={index}>

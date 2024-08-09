@@ -1,12 +1,11 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-import QRCode from "react-qr-code";
-import jsPDF from "jspdf";
-import "jspdf-barcode";
 import Navbar from "../../components/Navbar";
 import Footer from "../footer/Footer";
+import QRCode from "react-qr-code";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import TicketPDF from "../../components/TicketPdf"; 
 import "./PaymentComplete.css";
 
 const PaymentComplete = () => {
@@ -33,47 +32,15 @@ const PaymentComplete = () => {
         }
     }, []);
 
-    const generatePDF = () => {
-        const doc = new jsPDF();
-
-        doc.setFont("helvetica", "bold");
-
-        doc.setFontSize(32);
-        doc.text("CineWave", 14, 10);
-
-        doc.setFont("helvetica", "normal");
-        doc.setFontSize(18);
-        doc.text("Ticket Details", 14, 22);
-
-        doc.setFont("courier", "italic");
-        doc.setFontSize(12);
-        doc.text(`Order Number: ${orderNo}`, 14, 30);
-        doc.text(`Name: ${firstname} ${lastname}`, 14, 40);
-        doc.text(`Movie Name: ${movieName}`, 14, 50);
-        doc.text(`Showtime: ${date} | ${showTime}`, 14, 60);
-        doc.text(`Seats: ${selectedSeats}`, 14, 70);
-
-        doc.barcode(orderNo, {
-            x: 10,
-            y: 90,
-            width: 150,
-            height: 50,
-            fontSize: 40,
-            textAlign: "center",
-        });
-
-        doc.save("ticket_details.pdf");
-    };
-
     return (
         <div>
-            <Navbar></Navbar>
+            <Navbar />
             <div className="container-fluid payment-complete-page">
                 <h1
                     className="d-flex align-items-center mb-3"
                     style={{ color: "#55C1FF" }}
                 >
-                    Payment Complete &nbsp; <i className="bi bi-bag-check"></i>
+                    Payment Completed &nbsp; <i className="bi bi-bag-check"></i>
                 </h1>
                 <h4 className="d-flex justify-content-between align-items-center mb-3">
                     <span className="text">Ticket Details</span>
@@ -141,9 +108,25 @@ const PaymentComplete = () => {
                         </div>
                     </li>
                 </ul>
-                <button className="btn btn-dark e-ticket" onClick={generatePDF}>
-                    Download E-Ticket
-                </button>
+                <PDFDownloadLink
+                    document={
+                        <TicketPDF
+                            orderNo={orderNo}
+                            firstname={firstname}
+                            lastname={lastname}
+                            movieName={movieName}
+                            showTime={showTime}
+                            date={date}
+                            selectedSeats={selectedSeats}
+                        />
+                    }
+                    fileName="ticket_details.pdf"
+                    className="btn btn-dark e-ticket"
+                >
+                    {({ loading }) =>
+                        loading ? "Generating PDF..." : "Download E-Ticket"
+                    }
+                </PDFDownloadLink>
                 <Link to="/">
                     <button className="btn btn-dark e-ticket">
                         Back to homepage
@@ -151,7 +134,7 @@ const PaymentComplete = () => {
                 </Link>
             </div>
             <Toaster position="top-center"></Toaster>
-            <Footer></Footer>
+            <Footer />
         </div>
     );
 };

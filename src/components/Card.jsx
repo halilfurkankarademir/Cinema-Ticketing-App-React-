@@ -13,7 +13,6 @@ const Card = ({ title, desc, img, movieId , type}) => {
         <div className="card" onClick={handleClick}>
             <img src={img} className="card-img-top" alt={title} />
             <div className="card-body">
-                <p className='viewMovie'>View Movie</p>
                 <h3 className="card-title" >{title}</h3>
                 <p>{type}</p>
             </div>

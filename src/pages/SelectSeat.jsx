@@ -189,7 +189,19 @@ const SeatSelection = () => {
     };
 
     const handlePayment = () => {
-        if (selectedSeats.length > 0 && showTime !=="" && selectedDate !== null) {
+        if (selectedSeats.length > 0 && showTime !== "" && selectedDate !== null) {
+            const now = new Date();
+            const selectedDateTime = new Date(selectedDate);
+    
+            const [hours, minutes] = showTime.split(":").map(Number);
+            selectedDateTime.setHours(hours);
+            selectedDateTime.setMinutes(minutes);
+    
+            if (selectedDateTime < now) {
+                toast.error("Selected time is in the past. Please choose a valid session.");
+                return;
+            }
+    
             navigate("/payment", {
                 state: {
                     movieName,
@@ -200,9 +212,10 @@ const SeatSelection = () => {
                 },
             });
         } else {
-            toast.error("Please select seat , date and session.");
+            toast.error("Please select seat, date, and session.");
         }
     };
+    
 
     const handleDateChange = (date) => {
         if(date>=currentDate){
