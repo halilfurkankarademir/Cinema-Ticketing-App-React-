@@ -176,3 +176,13 @@
     }
 
 }
+
+@media only screen and (min-width: 1200px){
+    .homepage-container{
+        height: 350vh;
+    }
+    .learnMore{
+        position: relative;
+        top: 55rem;
+    }
+}

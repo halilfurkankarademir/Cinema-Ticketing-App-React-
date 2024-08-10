@@ -116,3 +116,62 @@
 
 
 }
+
+@media only screen and (min-width: 1200px) {
+    .navbar{
+        position: fixed;
+        right: 0rem;
+        width: 100vw;
+        background-color:#171a1d !important;
+        z-index: 8;
+        bottom: 54rem;
+        color: whitesmoke;
+    }
+    .brand h2{
+        position: relative;
+        font-size: 1.5rem;
+        width: 8rem;
+        height: 4rem;
+        left: 3rem;
+        top: 1.3rem;
+        letter-spacing: -2px;
+        cursor: pointer;
+    }
+    .bi-list{
+       display: none;
+    }
+    .menu{
+        display:none;
+    }
+    .Navmenu{
+        position: fixed;
+        display: flex;
+        bottom: 55rem;
+        left: 40rem;
+        z-index: 11;
+    }
+    .Navmenu a{
+        justify-content: space-between;
+        margin-right: 5rem ;
+        color: whitesmoke;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    .Navmenu a:hover{
+        color: #FF3999;
+    }
+    .bi-person-fill{
+        position: relative;
+        left: 30rem;
+        font-size: 1.3rem;
+    }
+    .adminButton{
+        position: relative;
+        bottom: 0.3rem;
+        left: 15rem;
+        outline: none;
+        background: none;
+    }
+    
+}
