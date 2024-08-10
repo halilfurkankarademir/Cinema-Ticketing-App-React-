@@ -54,6 +54,7 @@ const OnLive = () => {
                                 desc={movie.description}
                                 img={movie.imageUrl}
                                 movieId={movie.id}
+                                type={movie.type}
                             />
                         </div>
                     ))}

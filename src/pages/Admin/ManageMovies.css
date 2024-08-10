@@ -85,11 +85,13 @@
     position: relative;
     left: 72rem;
     top: 2rem;
+    z-index: 1;
 }
 .btnAddUpcomingMovie{
     position: relative;
     left: 74.5rem;
     top: 2rem;
+    z-index: 1;
 }
 
 .secondSectionManageMovies{

@@ -72,6 +72,7 @@ const AdminPanel = () => {
     return (
         <>
         <AdminNav></AdminNav>
+        <br /> <br /> <br /> <br /> <br /> <br />
         <div className="addMovie-panel">  
             <Toaster position="top-center"></Toaster>
             <div className="form-container bg-dark text-white addMovieForm">

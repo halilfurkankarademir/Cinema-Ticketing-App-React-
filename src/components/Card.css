@@ -65,8 +65,8 @@
 }
 
 .card-img-top{
-    width: auto;
-    height: 50vh;
+    width: auto !important;
+    height: 25rem !important;
     object-fit: cover;
     transition: all 0.2s ease-in-out;
 }
