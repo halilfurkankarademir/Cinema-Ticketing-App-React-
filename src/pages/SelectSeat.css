@@ -15,7 +15,7 @@
     align-items: center;
     bottom: 25rem;
     right: 15rem;
-    margin-top: 10rem;
+    margin-top: 18rem;
 }
 
 li {
@@ -114,7 +114,7 @@ li {
 .select-date-time {
     position: relative;
     left: 45rem;
-    top: 27rem;
+    top: 20rem;
     width: 20%;
     height: 55vh;
 }
@@ -136,6 +136,11 @@ li {
 .seatsAll {
     position: relative;
     left: 28rem;
+}
+
+.titleSelect{
+    position: relative;
+    left: 0rem;
 }
 
 @media only screen and (max-width: 600px) {
