@@ -101,7 +101,7 @@ const MovieDetail = () => {
         <div>
             <Navbar />
             {movie && (
-                <div>
+                <div className="movieDetailSection container-fluid">
                     <h1
                         style={{ fontSize: "1.5rem" }}
                         className="movie-title d-flex"

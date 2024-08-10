@@ -88,6 +88,7 @@
     bottom: 3rem;
 }
 
+
 /* Orta ekranlar için (600px - 768px) */
 @media only screen and (max-width: 768px) {
     .movie-detail {
@@ -165,6 +166,7 @@
         width: 80%; /* Görsel boyutunu artır */
         height: auto;
         margin: 0 auto;
+        margin-bottom: 5rem;
     }
 
     .movie-buy-ticket {
@@ -178,6 +180,8 @@
         top: 1rem;
         left: 0;
         margin: 0 auto;
+        position: relative;
+    
     }
 
     .rate-button {
@@ -194,11 +198,18 @@
     .bi-heart-fill {
         left: 0;
         text-align: center;
+        top: 38rem !important;
+        position: relative;
     }
 
     .ratingsIcon {
         left: 0;
         bottom: 0.5rem;
         text-align: center;
+    }
+
+    .movieDetailSection{
+        position: relative;
+        margin-top: -9rem;
     }
 }
