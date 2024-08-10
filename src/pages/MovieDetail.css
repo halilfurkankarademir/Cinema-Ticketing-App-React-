@@ -153,6 +153,8 @@
         flex-direction: column;
         padding: 5px;
         gap: 5px;
+        position: relative;
+        left: -5px;
     }
 
     .movie-title {

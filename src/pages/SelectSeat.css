@@ -144,12 +144,15 @@ li {
 }
 
 @media only screen and (max-width: 600px) {
+    .selectSeatAll{
+        position: relative;
+        bottom: 30rem;
+    }
     .seatsAll {
         position: relative;
         left: 14.2rem;
         bottom: 10rem;
         width: 110% !important;
-    
     }
     .scene {
         position: relative;
@@ -201,7 +204,12 @@ li {
     .seatInfoIcons{
         position: relative;
         left: 15rem;
-        top: -11rem !important;
+        top: -6rem !important;
+    }
+    .chooseSeat{
+        position: relative;
+        left: 15rem;
+        top: -10rem;
     }
     
 }

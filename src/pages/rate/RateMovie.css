@@ -1,60 +1,97 @@
-.rate-section{
+/* General styles for larger screens remain unchanged */
+
+.rate-section {
     width: 50%;
     height: auto;
     color: #000;
 }
 
-.bi-star{
+.bi-star {
     position: relative;
-    top: 8rem;
+    top: 8.5rem;
     left: 1rem;
     margin-right: 0.5rem;
     z-index: 0;
     font-size: 1.5rem;
     color: #55c1ff;
 }
-.bi-star-fill{
+
+.bi-star-fill {
     margin-right: 0.5rem;
     color: goldenrod;
     position: relative;
     right: 9rem;
-    top: 8rem;
-    z-index: 10;
+    top: 8.5rem;
+    z-index: 1;
     font-size: 1.5rem;
 }
 
-#textAreaRating{
+#textAreaRating {
     height: 25vh;
 }
 
-.commentstarfill{
+.commentstarfill {
     position: relative;
     left: 10rem;
     bottom: 5rem !important;
 }
 
-.commentstar{
+.commentstar {
     position: relative;
     left: 10rem;  
 }
-.ratingstarsposition{
+
+.ratingstarsposition {
     position: relative;
     bottom: 8rem;
     right: 10rem;
 }
 
-.comment{
+.comment {
     background-color: #fff;
     border: 1px solid rgb(133, 133, 133);
     padding: 1rem;
     border-radius: 5px;
 }
 
-.rateForm{
+.rateForm, .commentsForm {
     background-color: #171a1d !important;
     color: #55c1ff;
+    margin-bottom: 5rem;
 }
-.commentsForm{
-    background-color: #171a1d !important;
-    color: #55c1ff;
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+    .rate-section {
+        width: 100%;
+        position: relative; 
+        bottom: 7rem;
+    }
+
+    .bi-star{
+        top: 7.5rem; /* Adjust positioning */
+        left: 1rem;
+        right: 0;
+        font-size: 1.2rem; /* Slightly smaller font size */
+    }
+    .bi-star-fill{
+        top: 7.5rem; /* Adjust positioning */
+        left: -7.5rem;
+        right: 0;
+        font-size: 1.2rem; /* Slightly smaller font size */
+    }
+
+    .commentstarfill, .commentstar {
+        left: 1rem;
+        bottom: 1rem;
+    }
+
+    .ratingstarsposition {
+        bottom: 7.5rem;
+        right: 1rem;
+    }
+
+    #textAreaRating {
+        height: 20vh; /* Adjust height for smaller screens */
+    }
 }
