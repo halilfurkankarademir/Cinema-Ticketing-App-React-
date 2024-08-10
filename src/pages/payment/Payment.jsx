@@ -343,9 +343,6 @@ const Payment = () => {
                                             placeholder=""
                                             
                                         />
-                                        <small className="">
-                                            Full name as displayed on card
-                                        </small>
                                         <div className="invalid-feedback">
                                             Name on card is required
                                         </div>

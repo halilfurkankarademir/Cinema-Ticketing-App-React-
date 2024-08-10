@@ -17,7 +17,6 @@
     margin: 0 auto; 
 }
 
-
 .payment-container .row {
     justify-content: center; 
 }
@@ -28,32 +27,57 @@
     align-items: center; 
 }
 
-.exp-date{
+.exp-date {
     position: relative;
     right: 12.7rem;
 }
-.exp-date input{
+.exp-date input {
     width: 24rem;
 }
-.cvv input{
+.cvv input {
     width: 24rem;
 }
-.compelete-button{
+
+.compelete-button {
     position: relative;
     width: 23rem;
     left: 52rem;
     bottom: 5rem;
     border: none;
     outline: none;
-    background-color:#0095FF !important ;
+    background-color: #0095FF !important;
 }
-.compelete-button:hover{
+.compelete-button:hover {
     background-color: #0095FF;
 }
-.ticket-details{
+
+.ticket-details {
     position: relative;
     top: 3rem; 
 }
-small{
+small {
     color: white !important;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+    .exp-date {
+        position: relative;
+        right: 0; /* Sağa kaymayı kaldır */
+    }
+    .exp-date input, .cvv input {
+        width: 100%; /* Genişlikleri tam genişlik yap */
+    }
+    .compelete-button {
+        width: 100%; /* Butonun genişliği tam genişlik olsun */
+        left: 0; /* Soldan sıfırla */
+        bottom: 1rem; /* Butonu biraz yukarı al */
+    }
+    .ticket-details {
+        top: 0; /* Yukarı kaydırmayı kaldır */
+    }
+    .payment-container{
+        position: relative;
+        bottom: 11rem;
+    }
 }

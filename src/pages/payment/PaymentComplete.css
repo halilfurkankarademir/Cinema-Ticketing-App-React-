@@ -1,7 +1,8 @@
 .payment-complete-page{
     width: 50%;
-    height: 20vh;
+    height: 100vh;
 }
+
 .e-ticket{
     transition: all 0.3s ease-in-out;
     border: none;
@@ -10,5 +11,20 @@
 }
 .e-ticket:hover{
     background-color: #0095FF;
-   
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+    .payment-complete-page {
+        width: 100%; /* Genişliği küçük ekranlarda artır */
+        height: auto; /* Yüksekliği otomatik olarak ayarla */
+        position: relative;
+        bottom: 8rem;
+    }
+    
+    .e-ticket {
+        width: 100%; /* E-ticket butonunu tam genişlik yap */
+        margin-right: 0; /* Margin'i kaldır */
+        margin-bottom: 1rem; /* Alt boşluk ekle */
+    }
 }
