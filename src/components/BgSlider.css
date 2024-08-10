@@ -2,7 +2,7 @@
     .hero-slider {
         position: relative;
         width: 200%;
-        top: 2.7rem;
+        top: 1rem;
         right: 10.5rem;
         /* overflow: hidden; */
         height: 100vh;
@@ -16,6 +16,9 @@
     }
     .slick-dots {
         display: none !important;
+    }
+    .slide-text{
+        display: none;
     }
 }
 @media only screen and (min-width: 768px) {

@@ -6,6 +6,7 @@
     z-index: 8;
     bottom: 1rem;
     color: whitesmoke;
+    width: 105vw;
 }
 .brand h2{
     position: relative;
@@ -13,7 +14,7 @@
     width: 8rem;
     height: 4rem;
     left: 1.5rem;
-    top: 1.8rem;
+    top: 1rem;
     letter-spacing: -2px;
 }
 .bi-list{
@@ -21,7 +22,7 @@
     color: whitesmoke;
     font-size: 2rem;
     top: 0.4rem;
-    right: 1.5rem;
+    right: 3rem;
     transition:  all 0.3s ease-in-out;
     display: flex;
 }
@@ -41,7 +42,7 @@
 }
 .menu a{
     text-decoration: none;
-    color: #121212;
+    color: #ffffff;
     padding: 3%;
     position: relative;
     bottom: 3rem;

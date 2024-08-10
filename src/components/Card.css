@@ -1,6 +1,6 @@
 @media only screen and (max-width: 600px){
 .card{
-    background-color: #FF007A;
+    background-color: #715aff !important;
     color: whitesmoke;
     width: 12rem !important;
     font-size: 0.7rem;
@@ -13,10 +13,7 @@
     overflow: hidden;
     cursor: pointer;
 }
-.card:hover  .card-img-top{
-    transform: scale(1.05);
-    opacity: 0.8;
-}
+
 .card-title{
     font-size: 1rem;
 }

@@ -115,6 +115,7 @@ const HomePage = () => {
                 <br />
                 <br />
                 <br />
+                <div className="container-fluid visionSection"> 
                 <h2 style={{ color: "#55C1FF" }}>
                     <i className="bi bi-stars"></i> Vision Movies{" "}
                     <span className="seeAll" onClick={redirectVision}>See all ➤</span>{" "}
@@ -132,7 +133,9 @@ const HomePage = () => {
                         </div>
                     ))}
                 </Slider>
+                </div>
                 <br /> <br />
+                <div className="container-fluid comingSection">
                 <h2 style={{ color: "#55C1FF" }}>
                     <i className="bi bi-hourglass-split"></i> Coming Soon{" "}
                     <span className="seeAll" onClick={redirectComing}>See all ➤</span>{" "}
@@ -150,7 +153,8 @@ const HomePage = () => {
                         </div>
                     ))}
                 </Slider>
-                <div className="container-fluid">
+                </div>
+                <div className="container-fluid campaignSection">
                     <h2 style={{ color: "#55C1FF" }}>
                         <i className="bi bi-tag"></i> Campaigns{" "}
                     </h2>
