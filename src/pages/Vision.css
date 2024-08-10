@@ -1,53 +1,58 @@
 /* Büyük ekranlar için (768px üstü) */
 .onLive {
     display: flex;
+    flex-direction: column; /* Dikey hizalama */
+    align-items: center; /* Yatayda ortalama */
+    justify-content: center; /* Dikeyde ortalama */
     height: auto;
     width: 100%;
     margin-bottom: 10rem;
+    text-align: center; /* İçerik ortalama */
 }
 
 .headText {
     position: relative;
     font-size: 1rem;
-    left: 0.8rem;
+    left: 0;
+    margin-bottom: 1rem; /* Alt boşluk ekleme */
 }
 
 .secondSectionVision {
     position: relative;
+    margin: 0 auto; /* Ortalamak için */
+    margin-top: 10rem;
 }
 
 /* Orta ekranlar için (600px - 768px) */
 @media only screen and (max-width: 768px) {
     .onLive {
-        flex-direction: column; /* Flex yönünü değiştirerek dikey hizalama */
-        margin-bottom: 5rem; /* Alt marjı küçültme */
+        margin-bottom: 5rem;
     }
 
     .headText {
-        font-size: 0.9rem; /* Font boyutunu küçültme */
-        left: 0.5rem; /* Sol boşluğu küçültme */
+        font-size: 0.9rem;
+        left: 0;
     }
 
     .secondSectionVision {
-        margin-top: 2rem; /* İkinci bölümü ayırmak için üst boşluk */
+        margin-top: 2rem;
+        margin-left: 0; /* Ortalamak için */
     }
 }
 
 /* Küçük ekranlar için (600px altı) */
 @media only screen and (max-width: 600px) {
     .onLive {
-        margin-bottom: 3rem; /* Alt marjı daha da küçültme */
+        margin-bottom: 3rem;
     }
 
     .headText {
-        font-size: 0.8rem; /* Daha küçük font boyutu */
-        left: 0.3rem; /* Sol boşluğu daha da küçültme */
+        font-size: 0.8rem;
+        left: 0;
     }
 
     .secondSectionVision {
-        position: relative;
-        bottom: 8rem;
-        right: 1rem;
-        margin-top: 1rem; /* Üst boşluk küçültme */
+        margin-top: 1rem;
+        margin-left: 0;
     }
 }

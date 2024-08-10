@@ -1,10 +1,11 @@
 /* Büyük ekranlar için (768px üstü) */
 .contactForm {
     width: 50%;
-    height: auto;
+    height: 100vh;
     position: relative;
     top: 3rem;
     margin: 0 auto; /* Ortalamak için */
+    margin-top: 10rem;
 }
 
 .contactForm h1 {
@@ -36,8 +37,11 @@
 
 @media only screen and (max-width: 768px) {
     .contactForm {
+        position: relative;
+        margin-bottom: 10rem;
         width: 70%;
         top: 2rem;
+        margin-top: 0;
     }
 
     .bi-telephone-fill {
@@ -50,9 +54,9 @@
     .contactForm {
         position: relative;
         width: 90%;
-        bottom: 10rem ;
-        height: 100vh;
-        
+        height: 80vh;
+        margin-bottom: 10rem;
+        margin-top: 0;
     }
 
     .bi-telephone-fill {
