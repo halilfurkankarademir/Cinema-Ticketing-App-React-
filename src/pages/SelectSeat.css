@@ -1,4 +1,4 @@
-.scene{
+.scene {
     position: relative;
     width: 30%;
     height: 0.2rem;
@@ -7,17 +7,18 @@
     background-color: #a682ff;
 }
 
-.selectSeatAll{
+.selectSeatAll {
     width: 100%;
-    height: 100vh;
+    height: auto;
     position: relative;
     text-align: center;
     align-items: center;
     bottom: 25rem;
     right: 15rem;
+    margin-top: 10rem;
 }
 
-li{
+li {
     list-style: none;
 }
 
@@ -25,13 +26,13 @@ li{
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; 
+    gap: 10px;
     left: 50%;
     bottom: 2.3rem;
 }
 
-.buyTicket{
-    background-color: #0095FF;
+.buyTicket {
+    background-color: #0095ff;
     outline: none;
     border: none;
     color: white;
@@ -43,12 +44,12 @@ li{
     width: 10vw;
     font-size: 1rem;
 }
-.buyTicket:hover{
+.buyTicket:hover {
     background-color: #a682ff;
     color: #121212;
 }
-.selectedSeat{
-    background-color: #0095FF;
+.selectedSeat {
+    background-color: #0095ff;
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 5px;
@@ -56,8 +57,8 @@ li{
     margin-right: 10px;
     margin-left: 10px;
 }
-.reservedSeat{
-    background-color: #FF3999;
+.reservedSeat {
+    background-color: #ff3999;
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 5px;
@@ -65,7 +66,7 @@ li{
     margin-right: 10px;
     margin-left: 10px;
 }
-.emptySeat{
+.emptySeat {
     background-color: #9e9d9c;
     width: 1.5rem;
     height: 1.5rem;
@@ -74,13 +75,12 @@ li{
     margin-right: 10px;
     margin-left: 10px;
 }
-.seatInfoIcons{
+.seatInfoIcons {
     position: relative;
     left: 35rem;
     top: 0rem;
-
 }
-.select-ticket-type{
+.select-ticket-type {
     background-color: #121212;
     outline: none;
     border: none;
@@ -89,12 +89,12 @@ li{
     border-radius: 10px;
     position: absolute;
     top: 34rem;
-    left: 35rem;    
+    left: 35rem;
     margin-right: 1rem;
 }
 
 .custom-datepicker {
-    background-color: #FF3999;
+    background-color: #ff3999;
     color: white;
     outline: none;
     border: none;
@@ -106,21 +106,21 @@ li{
     padding: 10px;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
-  }
-  .custom-datepicker::placeholder{
+}
+.custom-datepicker::placeholder {
     color: rgb(255, 255, 255);
-  }
-  
-  .select-date-time {
+}
+
+.select-date-time {
     position: relative;
     left: 45rem;
     top: 27rem;
     width: 20%;
     height: 55vh;
-  }
+}
 
-  .custom-select{
-    background-color: #FF3999;
+.custom-select {
+    background-color: #ff3999;
     color: white;
     outline: none;
     border: none;
@@ -131,23 +131,72 @@ li{
     border-radius: 8px;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
-  }
+}
 
-  .bg-img{
-    position: absolute;
-    opacity: 0.1;
-    filter: blur(0.9px);
-    width: 50rem;
-  }
-
-  .seatsAll{
+.seatsAll {
     position: relative;
     left: 28rem;
-  }
+}
 
-  @media only screen and (max-width: 600px){
-    .seatsAll{
+@media only screen and (max-width: 600px) {
+    .seatsAll {
         position: relative;
-        left: 0rem;
-      }
-  }
+        left: 14.2rem;
+        bottom: 10rem;
+        width: 110% !important;
+    
+    }
+    .scene {
+        position: relative;
+        width: 70%;
+        height: 0.2rem;
+        top: -9rem;
+        left: 18rem;
+        background-color: #a682ff;
+    }
+    .select-date-time {
+        position: relative;
+        left: 15rem;
+        top: 40rem;
+        width: 70%;
+        height: 60vh;
+    }
+    .buyTicket {
+        background-color: #0095ff;
+        outline: none;
+        border: none;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        position: absolute;
+        top: 20.5rem;
+        left: 4.5rem;
+        width: 25vw;
+        font-size: 1rem;
+    }
+    .custom-datepicker {
+        background-color: #ff3999;
+        color: white;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        width: 52%;
+        height: 2rem;
+        text-align: center;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+    }
+    .titleSelect{
+        position: relative;
+        left: 15rem;
+        bottom: 8rem;
+    }
+    .seatInfoIcons{
+        position: relative;
+        left: 15rem;
+        top: -11rem !important;
+    }
+    
+}

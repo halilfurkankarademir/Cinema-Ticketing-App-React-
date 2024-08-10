@@ -7,7 +7,7 @@ const Seat = ({ seatNumber, isReserved, isSelected, onSeatClick }) => {
       onClick={() => !isReserved && onSeatClick(seatNumber)}
       className={`seatDesign ${isReserved ? 'reserved' : isSelected ? 'selected' : 'available'}`}
     >
-      {/* {seatNumber} */}
+      <span className='seatNumber'>{seatNumber}</span>
     </div>
   );
 };

@@ -234,7 +234,6 @@ const SeatSelection = () => {
     return (
         <div>
             <Navbar />
-            <br /> <br /> <br /> <br /> <br /> <br />
             <div className="container-fluid selectSeatAll">
                 <div className="select-date-time container-fluid form-container bg-dark">
                     <h6>Date</h6>
@@ -282,7 +281,7 @@ const SeatSelection = () => {
                     </button>
                 </div>
                 <h5>
-                    <p style={{ color: "#55c1ff" , fontSize:'2rem'}}>{movieName}</p>
+                    <p style={{ color: "#55c1ff" , fontSize:'2rem'}} className="titleSelect">{movieName}</p>
                 </h5>
                 <br />
                 <h5>Choose seat</h5>
