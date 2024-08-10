@@ -1,17 +1,21 @@
-.contactForm{
+/* Büyük ekranlar için (768px üstü) */
+.contactForm {
     width: 50%;
     height: auto;
     position: relative;
     top: 3rem;
+    margin: 0 auto; /* Ortalamak için */
 }
-.contactForm h1{
+
+.contactForm h1 {
     color: #55c1ff;
 }
-.contactForm label{
+
+.contactForm label {
     color: #ffffff;
 }
 
-.btn-dark{
+.btn-dark {
     outline: none;
     border: none;
     background-color: #55c1ff;
@@ -19,11 +23,39 @@
     font-weight: 500;
 }
 
-.btn-dark:hover{
+.btn-dark:hover {
     background-color: #FF3999;
     color: black;
 }
-.bi-telephone-fill{
+
+.bi-telephone-fill {
     position: relative;
     left: 28rem;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .contactForm {
+        width: 70%;
+        top: 2rem;
+    }
+
+    .bi-telephone-fill {
+        left: 20rem; 
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .contactForm {
+        position: relative;
+        width: 90%;
+        bottom: 10rem ;
+        height: 100vh;
+        
+    }
+
+    .bi-telephone-fill {
+        left: 10rem; 
+    }
 }

@@ -1,7 +1,7 @@
 @media only screen and (max-width: 600px) {
     .homepage-container {
         width: 100%;
-        height: 225vh;
+        height: 300vh;
         background-size: cover;
         background-position: center;
         position: relative;
@@ -66,18 +66,33 @@
     .campaignSection{
         position: relative;
         bottom: 4rem;
-        
+    }
+    .campaignSection p{
+        font-size: 0.8rem;
     }
     .cardpng{
         position: relative;
         width: 15rem !important;
     }
+    .slick-prev {
+        left: 10px; 
+        z-index: 1; 
+      }
+      
+      .slick-next {
+        right: 10px; 
+      }
+      
+      .slick-prev:before, 
+      .slick-next:before {
+        font-size: 24px; 
+      }
 }
 @media only screen and (min-width: 768px) {
     
     .homepage-container {
         width: 100%;
-        height: 325vh;
+        height: 400vh;
         background-size: cover;
         background-position: center;
         position: relative;
@@ -118,7 +133,7 @@
         width: 100%;
         height: 100vh;
         background: #121212;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         color: #d9d9d9;
