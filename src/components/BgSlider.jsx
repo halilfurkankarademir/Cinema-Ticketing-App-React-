@@ -37,11 +37,14 @@ const HeroSlider = () => {
     }, []);
 
     return (
-        <div className="hero-slider" id="slider">
-            <Slider {...settings}>
+        <div className="hero-slider" id="slider"> 
+            <Slider {...settings}>  
                 {images.map((imgUrl, index) => (
                     <div className="hero-slide" key={index}>
-                        <img src={imgUrl} alt={`Slide ${index + 1}`} />
+                        <h3 className="slide-text" style={{fontWeight:'600'}}>Inside Out 2</h3>
+                        <p className="slide-text" style={{fontWeight:'300'}}>Animation</p>
+                        <p className="slide-text" style={{fontWeight:'300'}}>1h 45m</p>
+                        <img src={imgUrl} alt={`Slide ${index + 1}`} /> 
                     </div>
                 ))}
             </Slider>
