@@ -286,12 +286,13 @@ const SeatSelection = () => {
                 </h5>
                 <br />
                 <h5>Choose seat</h5>
-                <div
+                <div 
                     style={{
                         display: "flex",
                         flexWrap: "wrap",
                         width: "600px",
                     }}
+                    className="seatsAll"
                 >
                     {seats.map((seat) => (
                         <Seat

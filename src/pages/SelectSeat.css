@@ -9,7 +9,7 @@
 
 .selectSeatAll{
     width: 100%;
-    height: 20vh;
+    height: 100vh;
     position: relative;
     text-align: center;
     align-items: center;
@@ -26,7 +26,7 @@ li{
     display: flex;
     flex-wrap: wrap;
     gap: 10px; 
-    left: 30.5%;
+    left: 50%;
     bottom: 2.3rem;
 }
 
@@ -138,4 +138,16 @@ li{
     opacity: 0.1;
     filter: blur(0.9px);
     width: 50rem;
+  }
+
+  .seatsAll{
+    position: relative;
+    left: 28rem;
+  }
+
+  @media only screen and (max-width: 600px){
+    .seatsAll{
+        position: relative;
+        left: 0rem;
+      }
   }

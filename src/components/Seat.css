@@ -1,10 +1,57 @@
-    .seatDesign{
-        width: 10%;
-        height: 10vh;
-        position: relative;
-        left: 28rem;
+/* Genel stil */
+.seatDesign {
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-block: 1rem;
+    cursor: pointer;
+}
 
+.seatDesign.available {
+    background-color: #9B9B9B;
+    color: #121212;
+}
+
+.seatDesign.selected {
+    background-color: #0095FF;
+    color: #121212;
+}
+
+.seatDesign.reserved {
+    background-color: #FF007A;
+    color: whitesmoke;
+    cursor: not-allowed;
+}
+
+/* Hover efekti */
+.seatDesign:hover:not(.reserved) {
+    background-color: #0095FF !important;
+}
+
+/* Büyük ekranlar için (768px üstü) */
+@media only screen and (min-width: 769px) {
+    .seatDesign {
+        width: 30px;
+        height: 30px;
     }
-    .seatDesign:hover{
-        background-color: #0095FF !important;
+}
+
+/* Orta ekranlar için (600px - 768px) */
+@media only screen and (max-width: 768px) {
+    .seatDesign {
+        width: 25px;
+        height: 25px;
     }
+}
+
+/* Küçük ekranlar için (600px altı) */
+@media only screen and (max-width: 600px) {
+    .seatDesign {
+        width: 15px;
+        height: 15px;
+    }
+}
