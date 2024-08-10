@@ -1,9 +1,49 @@
-.coming-container{
+/* Büyük ekranlar için (768px üstü) */
+.coming-container {
     width: 100%;
     height: auto;
+    display: flex;
+    justify-content: center; /* İçerik ortalama */
 }
-.secondSectionUpcoming h3{
+
+.secondSectionUpcoming{
+    margin-bottom: 10rem;
+}
+
+.secondSectionUpcoming h3 {
     position: relative;
     left: 2rem;
     color: #55C1FF;
+}
+
+/* Orta ekranlar için (600px - 768px) */
+@media only screen and (max-width: 768px) {
+    .coming-container {
+        justify-content: center; /* İçerik ortalama */
+    }
+
+    .secondSectionUpcoming{
+        position: relative;
+        right: 1rem;
+        bottom: 8rem;
+    }
+
+    .secondSectionUpcoming h3 {
+        left: 1rem; /* Sol boşluğu küçültme */
+        font-size: 1.2rem; /* Yazı boyutunu küçültme */
+        text-align: center; /* Metin ortalama */
+    }
+}
+
+/* Küçük ekranlar için (600px altı) */
+@media only screen and (max-width: 600px) {
+    .coming-container {
+        justify-content: center; /* İçerik ortalama */
+    }
+
+    .secondSectionUpcoming h3 {
+        left: 0.5rem; /* Sol boşluğu daha da küçültme */
+        font-size: 1rem; /* Yazı boyutunu daha da küçültme */
+        text-align: center; /* Metin ortalama */
+    }
 }

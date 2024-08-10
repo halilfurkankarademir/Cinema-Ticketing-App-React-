@@ -39,7 +39,7 @@ const OnLive = () => {
                 <h3
                     style={{
                         position: "relative",
-                        left: "2rem",
+                        left: "1rem",
                         color: "#55C1FF",
                     }}
                 >
