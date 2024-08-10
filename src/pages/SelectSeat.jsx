@@ -284,7 +284,7 @@ const SeatSelection = () => {
                     <p style={{ color: "#55c1ff" , fontSize:'2rem'}} className="titleSelect">{movieName}</p>
                 </h5>
                 <br />
-                <h5>Choose seat</h5>
+                <h5 style={{position:'relative', right:'12rem',bottom:'9rem'}}>Choose seat</h5>
                 <div 
                     style={{
                         display: "flex",
@@ -303,9 +303,9 @@ const SeatSelection = () => {
                         />
                     ))}
                 </div>
-                <div className="scene"></div>
+                <div className="scene"><p className="pt-3">Scene</p></div>
                 <br />
-                <p>Scene</p>
+                
                 <div className="container-fluid d-flex seatInfoIcons">
                     <div className="selectedSeat" title="Selected"></div>
                     <p>Selected</p>

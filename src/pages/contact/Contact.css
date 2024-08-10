@@ -1,7 +1,7 @@
 /* Büyük ekranlar için (768px üstü) */
 .contactForm {
     width: 50%;
-    height: 100vh;
+    height: 80vh;
     position: relative;
     top: 3rem;
     margin: 0 auto; /* Ortalamak için */
@@ -31,7 +31,7 @@
 
 .bi-telephone-fill {
     position: relative;
-    left: 28rem;
+    left: 35rem;
 }
 
 

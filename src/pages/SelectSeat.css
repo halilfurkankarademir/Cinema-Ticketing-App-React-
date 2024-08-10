@@ -200,3 +200,24 @@ li {
     }
     
 }
+@media only screen and (min-width: 1200px){
+   .titleSelect{
+    position: relative;
+    right: 12rem;
+    bottom: 8rem;
+   }
+   .seatsAll{
+    position: relative;
+    bottom: 8rem;
+   }
+   .scene{
+    position: relative;
+    top: -100px;
+    left: 510px;
+    width: 30rem;
+   }
+   .seatInfoIcons{
+    position: relative;
+    top: -50px;
+}
+}

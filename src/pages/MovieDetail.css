@@ -6,7 +6,7 @@
     position: relative;
     bottom: 2rem;
     width: 100%;
-    left: 0rem;
+    left: 2rem;
     margin-top: 10rem;
 }
 
@@ -14,7 +14,7 @@
     position: relative;
     top: 10rem;
     width: auto;
-    left: 1.5rem;
+    left: 3.5rem;
     display: inline-block;
     z-index: 50;
 }
@@ -212,5 +212,14 @@
     .movieDetailSection{
         position: relative;
         margin-top: -9rem;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    .bi-heart-fill {
+        left: 65rem;
+        text-align: center;
+        top: 11rem !important;
+        position: relative;
     }
 }
