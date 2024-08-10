@@ -17,6 +17,7 @@ const HeroSlider = () => {
         autoplay: true,
         autoplaySpeed: 6000,
         pauseOnHover: false,
+        
     };
 
     useEffect(() => {

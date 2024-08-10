@@ -57,9 +57,15 @@
         position: relative;
         bottom: 7rem;   
     }
+    .comingSection span{
+        font-size: 0.8rem;
+        position: relative;
+        left: 3rem;
+
+    }
     .campaignSection{
         position: relative;
-        bottom: 7rem;
+        bottom: 4rem;
         
     }
     .cardpng{

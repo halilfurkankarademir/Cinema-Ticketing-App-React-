@@ -10,6 +10,7 @@
     top: 2rem;
     left: 2rem;
     margin-bottom: 1.5rem; 
+    margin-right: 6rem !important;
     overflow: hidden;
     cursor: pointer;
 }
