@@ -115,8 +115,6 @@ const HomePage = () => {
                 <br />
                 <br />
                 <br />
-                <br />
-                <br /> <br /> <br />
                 <h2 style={{ color: "#55C1FF" }}>
                     <i className="bi bi-stars"></i> Vision Movies{" "}
                     <span className="seeAll" onClick={redirectVision}>See all ➤</span>{" "}
