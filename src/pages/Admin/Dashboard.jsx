@@ -16,39 +16,46 @@ const Dashboard = () => {
     const [totalSoldTickets, setTotalSoldTickets] = useState(0);
     const [visionMovieCount, setVisionMovieCount] = useState(0);
     const [images, setImages] = useState(["", "", ""]);
+    const [titles, setTitles] = useState(["", "", ""]);
+    const [types, setTypes] = useState(["", "", ""]);
+    const [durations, setDurations] = useState(["", "", ""]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const revenueDocRef = doc(
-                    firestore,
-                    "datas",
-                    "totalRevenueDocId"
-                );
+                const revenueDocRef = doc(firestore, "datas", "totalRevenueDocId");
                 const revenueSnap = await getDoc(revenueDocRef);
                 if (revenueSnap.exists()) {
                     setTotalRevenue(revenueSnap.data().totalRevenue || 0);
                 }
 
-                const ticketsDocRef = doc(
-                    firestore,
-                    "datas",
-                    "totalSoldTicketsDocId"
-                );
+                const ticketsDocRef = doc(firestore, "datas", "totalSoldTicketsDocId");
                 const ticketsSnap = await getDoc(ticketsDocRef);
                 if (ticketsSnap.exists()) {
-                    setTotalSoldTickets(
-                        ticketsSnap.data().totalSoldTicketCount || 0
-                    );
+                    setTotalSoldTickets(ticketsSnap.data().totalSoldTicketCount || 0);
                 }
 
                 const moviesCollectionRef = collection(firestore, "movies");
                 const moviesSnap = await getDocs(moviesCollectionRef);
                 setVisionMovieCount(moviesSnap.size || 0);
+
+                // Fetch carousel data
+                const carouselDocRef = doc(firestore, "carouselimages", "carouselDocId");
+                const carouselSnap = await getDoc(carouselDocRef);
+                if (carouselSnap.exists()) {
+                    const data = carouselSnap.data();
+                    setImages(data.imgUrls || ["", "", ""]);
+                    setTitles(data.titles || ["", "", ""]);
+                    setTypes(data.types || ["", "", ""]);
+                    setDurations(data.durations || ["", "", ""]);
+                } else {
+                    console.error("No carousel document found!");
+                }
             } catch (error) {
                 console.error("Error fetching data: ", error);
             }
         };
+
         document.title = "CineWave | Admin";
         fetchData();
     }, []);
@@ -56,18 +63,24 @@ const Dashboard = () => {
     const addCarousel = async (e) => {
         e.preventDefault();
         const customId = "carouselDocId";
-        if (images[0] !== "" && images[1] !== "" && images[2] !== "") {
+        if (images.every(img => img !== "") &&
+            titles.every(title => title !== "") &&
+            types.every(type => type !== "") &&
+            durations.every(duration => duration !== "")) {
             try {
                 const docRef = doc(firestore, "carouselimages", customId);
                 await setDoc(docRef, {
                     imgUrls: images,
+                    titles: titles,
+                    types: types,
+                    durations: durations
                 });
                 toast.success("Carousel images updated successfully!");
             } catch (error) {
                 console.error("Error adding images to Firestore: ", error);
             }
         } else {
-            toast.error("Fill all the Url's");
+            toast.error("Fill all fields");
         }
     };
 
@@ -75,6 +88,24 @@ const Dashboard = () => {
         const newImages = [...images];
         newImages[index] = value;
         setImages(newImages);
+    };
+
+    const handleTitleChange = (index, value) => {
+        const newTitles = [...titles];
+        newTitles[index] = value;
+        setTitles(newTitles);
+    };
+
+    const handleTypeChange = (index, value) => {
+        const newTypes = [...types];
+        newTypes[index] = value;
+        setTypes(newTypes);
+    };
+
+    const handleDurationChange = (index, value) => {
+        const newDurations = [...durations];
+        newDurations[index] = value;
+        setDurations(newDurations);
     };
 
     return (
@@ -108,7 +139,7 @@ const Dashboard = () => {
                     </div>
                     <form action="" className="form-container changeCarousel">
                         <p>
-                            Change homepage carousel images.(All url's should be filled!)
+                            Change homepage carousel images. (All fields should be filled!)
                         </p>
                         {images.map((img, index) => (
                             <div key={index}>
@@ -123,6 +154,45 @@ const Dashboard = () => {
                                     value={img}
                                     onChange={(e) =>
                                         handleImageChange(index, e.target.value)
+                                    }
+                                    required
+                                />
+                                <label htmlFor={`title${index}`}>
+                                    Image {index + 1} Title{" "}
+                                </label>
+                                <input
+                                    type="text"
+                                    name={`title${index}`}
+                                    className="form-control bg-dark border-0 text-white"
+                                    value={titles[index]}
+                                    onChange={(e) =>
+                                        handleTitleChange(index, e.target.value)
+                                    }
+                                    required
+                                />
+                                <label htmlFor={`type${index}`}>
+                                    Image {index + 1} Type{" "}
+                                </label>
+                                <input
+                                    type="text"
+                                    name={`type${index}`}
+                                    className="form-control bg-dark border-0 text-white"
+                                    value={types[index]}
+                                    onChange={(e) =>
+                                        handleTypeChange(index, e.target.value)
+                                    }
+                                    required
+                                />
+                                <label htmlFor={`duration${index}`}>
+                                    Image {index + 1} Duration{" "}
+                                </label>
+                                <input
+                                    type="text"
+                                    name={`duration${index}`}
+                                    className="form-control bg-dark border-0 text-white"
+                                    value={durations[index]}
+                                    onChange={(e) =>
+                                        handleDurationChange(index, e.target.value)
                                     }
                                     required
                                 />

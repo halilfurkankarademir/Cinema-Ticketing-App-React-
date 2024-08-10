@@ -5,6 +5,9 @@ import "./BgSlider.css";
 
 const HeroSlider = () => {
     const [images, setImages] = useState([]);
+    const [titles, setTitles] = useState([]);
+    const [types, setTypes] = useState([]);
+    const [durations, setDurations] = useState([]);
 
     const settings = {
         infinite: true,
@@ -24,6 +27,9 @@ const HeroSlider = () => {
                 if (imgSnap.exists()) {
                     const data = imgSnap.data();
                     setImages(data.imgUrls || []);
+                    setTitles(data.titles || []);
+                    setTypes(data.types || []);
+                    setDurations(data.durations || []);
                 } else {
                     console.error("No such document!");
                 }
@@ -41,9 +47,9 @@ const HeroSlider = () => {
             <Slider {...settings}>  
                 {images.map((imgUrl, index) => (
                     <div className="hero-slide" key={index}>
-                        <h3 className="slide-text" style={{fontWeight:'600'}}>Inside Out 2</h3>
-                        <p className="slide-text" style={{fontWeight:'300'}}>Animation</p>
-                        <p className="slide-text" style={{fontWeight:'300'}}>1h 45m</p>
+                        <h3 className="slide-text" style={{fontWeight:'600'}}>{titles[index]}</h3>
+                        <p className="slide-text" style={{fontWeight:'300'}}>{types[index]}</p>
+                        <p className="slide-text" style={{fontWeight:'300'}}>{durations[index]}</p>
                         <img src={imgUrl} alt={`Slide ${index + 1}`} /> 
                     </div>
                 ))}
