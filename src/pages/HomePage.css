@@ -120,4 +120,12 @@
        transform: scale(1.05);
        filter: drop-shadow(10px 0px 10px #202020);
     }
+    .seeAll{
+        position: relative;
+        font-size: 1rem;
+        left: 60rem;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
 }
