@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="footer-container">
+    <footer className="footer-container p-5">
         <p className="footer-text">A web-app by Halil Furkan Karademir | All rights reserved &copy; {new Date().getFullYear()}</p>
         <div className='footer-logos'>
         <Link to='https://www.instagram.com/halilfurkankarademir/'><i className="bi bi-instagram"></i></Link>

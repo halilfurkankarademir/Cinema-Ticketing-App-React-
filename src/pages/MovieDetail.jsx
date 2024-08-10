@@ -100,7 +100,6 @@ const MovieDetail = () => {
     return (
         <div>
             <Navbar />
-            <br /> <br /> <br /> <br /> <br /> <br />
             {movie && (
                 <div>
                     <h1

@@ -64,7 +64,7 @@
     width: 100vw;
     background-color:#171a1d !important;
     z-index: 8;
-    bottom: 40rem;
+    bottom: 40.6rem;
     color: whitesmoke;
 }
 .brand h2{
@@ -73,7 +73,7 @@
     width: 8rem;
     height: 4rem;
     left: 3rem;
-    top: 1rem;
+    top: 1.3rem;
     letter-spacing: -2px;
     cursor: pointer;
 }
@@ -86,7 +86,7 @@
 .Navmenu{
     position: fixed;
     display: flex;
-    bottom: 41.5rem;
+    bottom: 42rem;
     left: 26rem;
     z-index: 11;
 }
