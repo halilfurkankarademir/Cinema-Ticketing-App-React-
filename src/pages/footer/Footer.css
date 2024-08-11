@@ -47,6 +47,7 @@
 @media only screen and (max-width: 600px) {
     .footer-container {
         height: 8rem;
+        width: 110%;
     }
     .footer-container p{
         font-size: 0.5rem;

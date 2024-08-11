@@ -26,7 +26,7 @@ li {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 0.6rem;
     left: 50%;
     bottom: 2.3rem;
 }
@@ -36,8 +36,8 @@ li {
     outline: none;
     border: none;
     color: white;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 0.6rem;
+    border-radius: 0.6rem;
     position: absolute;
     top: 20.5rem;
     left: 4.5rem;
@@ -52,45 +52,33 @@ li {
     background-color: #0095ff;
     width: 1.5rem;
     height: 1.5rem;
-    border-radius: 5px;
+    border-radius: 0.3rem;
     color: white;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 0.6rem;
+    margin-left: 0.6rem;
 }
 .reservedSeat {
     background-color: #ff3999;
     width: 1.5rem;
     height: 1.5rem;
-    border-radius: 5px;
+    border-radius: 0.3rem;
     color: white;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 0.6rem;
+    margin-left: 0.6rem;
 }
 .emptySeat {
     background-color: #9e9d9c;
     width: 1.5rem;
     height: 1.5rem;
-    border-radius: 5px;
+    border-radius: 0.3rem;
     color: white;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 0.6rem;
+    margin-left: 0.6rem;
 }
 .seatInfoIcons {
     position: relative;
     left: 35rem;
     top: 0rem;
-}
-.select-ticket-type {
-    background-color: #121212;
-    outline: none;
-    border: none;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    position: absolute;
-    top: 34rem;
-    left: 35rem;
-    margin-right: 1rem;
 }
 
 .custom-datepicker {
@@ -102,8 +90,8 @@ li {
     width: 60%;
     height: 2rem;
     text-align: center;
-    border-radius: 8px;
-    padding: 10px;
+    border-radius: 0.5rem;
+    padding: 0.6rem;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
 }
@@ -128,7 +116,7 @@ li {
     width: 52%;
     height: 2rem;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
 }
@@ -146,11 +134,11 @@ li {
 @media only screen and (max-width: 600px) {
     .selectSeatAll{
         position: relative;
-        bottom: 30rem;
+        bottom: 32rem;
     }
     .seatsAll {
         position: relative;
-        left: 14.2rem;
+        left: 15.3rem;
         bottom: 10rem;
         width: 110% !important;
     }
@@ -159,13 +147,13 @@ li {
         width: 70%;
         height: 0.2rem;
         top: -9rem;
-        left: 18rem;
+        left: 19.5rem;
         background-color: #a682ff;
     }
     .select-date-time {
         position: relative;
-        left: 15rem;
-        top: 40rem;
+        left: 16rem;
+        top: 45rem;
         width: 70%;
         height: 60vh;
     }
@@ -174,8 +162,8 @@ li {
         outline: none;
         border: none;
         color: white;
-        padding: 10px;
-        border-radius: 10px;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
         position: absolute;
         top: 20.5rem;
         left: 4.5rem;
@@ -191,25 +179,61 @@ li {
         width: 52%;
         height: 2rem;
         text-align: center;
-        border-radius: 8px;
-        padding: 10px;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
         margin-bottom: 1rem;
         margin-top: 0.5rem;
     }
     .titleSelect{
         position: relative;
-        left: 15rem;
+        left: 16rem;
         bottom: 8rem;
     }
     .seatInfoIcons{
         position: relative;
-        left: 15rem;
+        left: 17.5rem;
         top: -6rem !important;
     }
     .chooseSeat{
         position: relative;
-        left: 15rem;
+        left: 16rem;
         top: -10rem;
+    }
+    .selectedSeat {
+        background-color: #0095ff;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 0.3rem;
+        color: white;
+        margin-right: 0.6rem;
+        margin-left: 0.6rem;
+    }
+    .selectP{
+        font-size: 0.8rem;
+    }
+    .emptyP{
+        font-size: 0.8rem;
+    }
+    .reservedP{
+        font-size: 0.8rem;
+    }
+    .reservedSeat {
+        background-color: #ff3999;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 0.3rem;
+        color: white;
+        margin-right: 0.6rem;
+        margin-left: 0.6rem;
+    }
+    .emptySeat {
+        background-color: #9e9d9c;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 0.3rem;
+        color: white;
+        margin-right: 0.6rem;
+        margin-left: 0.6rem;
     }
     
 }
@@ -225,12 +249,12 @@ li {
    }
    .scene{
     position: relative;
-    top: -100px;
-    left: 510px;
+    top: -6.25rem;
+    left: 32rem;
     width: 30rem;
    }
    .seatInfoIcons{
     position: relative;
-    top: -50px;
+    top: -3.125rem;
 }
 }

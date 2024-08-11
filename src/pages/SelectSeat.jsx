@@ -308,11 +308,11 @@ const SeatSelection = () => {
                 
                 <div className="container-fluid d-flex seatInfoIcons">
                     <div className="selectedSeat" title="Selected"></div>
-                    <p>Selected</p>
+                    <p className="selectP">Selected</p>
                     <div className="emptySeat" title="Empty"></div>
-                    <p>Empty</p>
+                    <p className="emptyP">Empty</p>
                     <div className="reservedSeat" title="Reserved"></div>
-                    <p>Reserved</p>
+                    <p className="reservedP">Reserved</p>
                 </div>
             </div>
             <Toaster position="top-center"></Toaster>
