@@ -17,6 +17,7 @@ const AdminPanel = () => {
     const [description, setDescription] = useState('');
     const [seance, setSeance] = useState(''); 
     const [image, setImage] = useState('');
+    const [highImage, setHighImage] = useState('');
     const [duration, setDuration] = useState('');
     const [cast, setCast] = useState('');
     const [type, setType] = useState('');
@@ -41,6 +42,7 @@ const AdminPanel = () => {
                 description,
                 seances: seanceArray,
                 imageUrl: image,
+                highImageUrl: highImage,
                 duration,
                 cast,
                 type,
@@ -59,6 +61,7 @@ const AdminPanel = () => {
             setType('');
             setDate('');
             setTrailer('');
+            setHighImage('');
         } catch (e) {
             console.error("Error adding document: ", e);
             toast.error('Failed to add movie');
@@ -106,6 +109,16 @@ const AdminPanel = () => {
                             type="text"
                             value={image}
                             onChange={(e) => setImage(e.target.value)}
+                            className="bg-dark text-white border-0 "
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="image">High Quality Photo URL:</label>
+                        <input
+                            id="image"
+                            type="text"
+                            value={highImage}
+                            onChange={(e) => setHighImage(e.target.value)}
                             className="bg-dark text-white border-0 "
                         />
                     </div>

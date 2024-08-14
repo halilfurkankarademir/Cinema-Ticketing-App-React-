@@ -4,7 +4,7 @@
     padding: 20px;
     gap: 20px; 
     position: relative;
-    bottom: 2rem;
+    bottom: 20rem;
     width: 100%;
     left: 2rem;
     margin-top: 10rem;
@@ -35,6 +35,15 @@
     font-weight: 400;
     width: 100%;
 }
+.movie-desc2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    width: 25%;
+    z-index: 1;
+    position: relative;
+    top: 10rem;
+    left: 3.7rem;
+}
 
 .movie-buy-ticket {
     background-color: #55C1FF;
@@ -49,6 +58,7 @@
     position: relative;
     top: 25.5rem;
     right: 67%;
+    z-index: 2;
 }
 
 .trailer-embed {
@@ -77,17 +87,29 @@
     color: #FF007A;
     cursor: pointer;
     position: relative;
-    left: 64rem;
-    top: 10.5rem;
+    left: 0rem !important;
 }
 
 .ratingsIcon {
     position: relative;
     z-index: 50;
-    left: 20rem;
-    bottom: 3rem;
+    left: 0rem;
+    bottom: 10rem;
 }
-
+.highQualityImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 105%;
+    position: relative;
+    bottom: 24rem;
+    right: 2rem;
+    opacity: 0.5;
+    object-fit: cover;
+    height: 110vh;
+    
+  }
+  
 
 /* Orta ekranlar için (600px - 768px) */
 @media only screen and (max-width: 768px) {

@@ -12,6 +12,7 @@ const EditMovie = () => {
     const [description, setDescription] = useState("");
     const [seance, setSeance] = useState("");
     const [image, setImage] = useState("");
+    const [highImg, setHighImg] = useState("");
     const [duration, setDuration] = useState("");
     const [cast, setCast] = useState("");
     const [type, setType] = useState("");
@@ -29,6 +30,7 @@ const EditMovie = () => {
                     setDescription(movieData.description);
                     setSeance(movieData.seances.join(", "));
                     setImage(movieData.imageUrl);
+                    setHighImg(movieData.HighImageUrl);
                     setDuration(movieData.duration);
                     setCast(movieData.cast);
                     setType(movieData.type);
@@ -53,6 +55,7 @@ const EditMovie = () => {
                 description,
                 seances: seanceArray,
                 imageUrl: image,
+                highImageUrl: highImg,
                 duration,
                 cast,
                 type,
@@ -103,6 +106,16 @@ const EditMovie = () => {
                             type="text"
                             value={image}
                             onChange={(e) => setImage(e.target.value)}
+                            className="bg-dark border-0 text-white"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="image">High Quality Photo URL:</label>
+                        <input
+                            id="image"
+                            type="text"
+                            value={highImg}
+                            onChange={(e) => setHighImg(e.target.value)}
                             className="bg-dark border-0 text-white"
                         />
                     </div>

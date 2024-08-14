@@ -97,23 +97,50 @@ const MovieDetail = () => {
         navigate(`/rate/${id}`);
     };
 
+    const scrollDown = ()=>{
+        window.scrollTo(0,825)
+    }
+
     return (
         <div>
             <Navbar />
             {movie && (
                 <div className="movieDetailSection container-fluid">
-                    <h1
-                        style={{ fontSize: "1.5rem" }}
-                        className="movie-title d-flex"
-                    >
-                        {movie.title}
-                    </h1>
-                    <div className="ratingsIcon">
+                    <div>
+                        <h1
+                            style={{ fontSize: "2.5rem" , zIndex:'1'}}
+                            className="movie-title d-flex"
+                        >
+                            {movie.title}
+                        </h1>
+                        <section className="movie-desc2">
+                            <h5>Description</h5>
+                            <p style={{ fontWeight: "300" }}>
+                                {movie.description}
+                            </p>
+                            <h5>Duration</h5>
+                            <p style={{ fontWeight: "300" }}>
+                                {movie.duration}
+                            </p>
+                            <h5>Type</h5>
+                            <p style={{ fontWeight: "300" }}>{movie.type}</p>
+                            <button className="btn btn-dark" onClick={scrollDown}>See Details</button>
+                            <div className="ratingsIcon">
                         <i
                             className="bi bi-heart-fill"
                             onClick={redicertRate}
                         >{` ${ratingMovie}`}</i>
                     </div>
+                        </section>
+                        <img
+                            src={movie.highImageUrl}
+                            alt={movie.title}
+                            className="highQualityImg"
+                        />
+                        
+                    </div>
+                   
+                    <br /> <br /> <br /> <br />
                     <div className="movie-detail">
                         <img
                             src={movie.imageUrl}
