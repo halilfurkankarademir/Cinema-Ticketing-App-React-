@@ -36,7 +36,7 @@
     width: 100%;
 }
 .movie-desc2 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 400;
     width: 25%;
     z-index: 1;
@@ -93,8 +93,8 @@
 .ratingsIcon {
     position: relative;
     z-index: 50;
-    left: 0rem;
-    bottom: 10rem;
+    left: 80rem;
+    bottom: 40rem;
 }
 .highQualityImg {
     display: block;
@@ -102,10 +102,11 @@
     margin-right: auto;
     width: 105%;
     position: relative;
-    bottom: 24rem;
+    bottom: 27rem;
     right: 2rem;
     opacity: 0.5;
     object-fit: cover;
+    float: left;
     height: 110vh;
     
   }

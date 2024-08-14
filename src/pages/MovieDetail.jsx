@@ -124,7 +124,9 @@ const MovieDetail = () => {
                             </p>
                             <h5>Type</h5>
                             <p style={{ fontWeight: "300" }}>{movie.type}</p>
-                            <button className="btn btn-dark" onClick={scrollDown}>See Details</button>
+                            <h5>Starring</h5>
+                            <p style={{ fontWeight: "300" }}>{movie.cast}</p>
+                            <button className="btn btn-dark" onClick={handleBuyTicket}>Buy Ticket</button>
                             <div className="ratingsIcon">
                         <i
                             className="bi bi-heart-fill"
@@ -136,6 +138,7 @@ const MovieDetail = () => {
                             src={movie.highImageUrl}
                             alt={movie.title}
                             className="highQualityImg"
+                            style={{display:'block', objectPosition:'top'}}
                         />
                         
                     </div>
@@ -177,7 +180,7 @@ const MovieDetail = () => {
                         </div>
                         <button
                             type="button"
-                            className="movie-buy-ticket"
+                            className=""
                             onClick={handleBuyTicket}
                         >
                             Buy Ticket
