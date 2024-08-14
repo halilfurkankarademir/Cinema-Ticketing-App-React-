@@ -4,8 +4,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { firestore, collection, getDocs } from "../firebase/firebase";
 import { useParams, useNavigate } from "react-router-dom";
 import "./MovieDetail.css";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Footer from "./footer/Footer";
 
 const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
@@ -173,6 +173,7 @@ const MovieDetail = () => {
                 </div>
             )}
             <Toaster position="top-center"></Toaster>
+            <Footer></Footer>
         </div>
     );
 };
