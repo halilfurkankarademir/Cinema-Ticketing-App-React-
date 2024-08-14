@@ -4,6 +4,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { firestore, collection, getDocs } from "../firebase/firebase";
 import { useParams, useNavigate } from "react-router-dom";
 import "./MovieDetail.css";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
@@ -74,11 +76,21 @@ const MovieDetail = () => {
         };
         fetchComments();
         fetchMovie();
+        
     }, []);
 
     useEffect(() => {
         avgRating();
     }, [comments]);
+
+    useEffect(() => {
+        gsap.from(".highQualityImg", {
+            opacity: 0,
+            scale: 1.5,
+            ease: "power4.inOut",
+            duration: 3,
+        });
+    }, [movie]);
 
     const handleBuyTicket = () => {
         navigate(`/select-seat/${id}`, {
@@ -96,7 +108,6 @@ const MovieDetail = () => {
     const redicertRate = () => {
         navigate(`/rate/${id}`);
     };
-
 
     return (
         <div>
