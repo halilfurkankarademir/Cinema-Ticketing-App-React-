@@ -24,7 +24,7 @@
 @media only screen and (max-width: 600px) {
     .secondSectionVision {
         position: relative;
-        right: 0.5rem; /* Daha az sağa kaydırma */
+        right: 1rem; /* Daha az sağa kaydırma */
         bottom: 8rem; /* Daha az aşağı kaydırma */
         margin-bottom: 3rem; /* Alt boşluğu daha da küçültme */
         text-align: center; /* Metin ortalama */

@@ -201,8 +201,9 @@
     .bi-heart-fill {
         left: 0;
         text-align: center;
-        top: 38rem !important;
+        bottom: 100px !important;
         position: relative;
+        font-size: 1rem;
     }
 
     .ratingsIcon {

@@ -2,10 +2,10 @@
     .hero-slider {
         position: relative;
         width: 200%;
-        top: 1rem;
+        top: 2rem;
         right: 10.5rem;
         /* overflow: hidden; */
-        height: 100vh;
+        height: 100vh !important;
         z-index: -5;
         opacity: 1;
     }

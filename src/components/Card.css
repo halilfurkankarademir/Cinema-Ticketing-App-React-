@@ -3,6 +3,7 @@
     background-color: #715aff !important;
     color: whitesmoke;
     width: 12rem !important;
+    height: 20rem;
     font-size: 0.7rem;
     outline: none;
     border: none;
@@ -29,7 +30,7 @@
 
 .card-img-top{
     width: auto;
-    height: 10rem;
+    height: 14rem !important;
     object-fit: cover;
     transition: all 0.2s ease-in-out;
 }
