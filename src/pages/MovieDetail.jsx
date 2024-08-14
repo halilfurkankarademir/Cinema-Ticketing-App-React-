@@ -152,10 +152,9 @@ const MovieDetail = () => {
                             src={movie.highImageUrl}
                             alt={movie.title}
                             className="highQualityImg"
-                            style={{ display: "block", objectPosition: "top" }}
+                            style={{ display: "block", objectPosition: "1rem 2rem"  }}
                         />
                     </div>
-                    <br /> <br /> <br /> <br />
                 </div>
             )}
             <Toaster position="top-center"></Toaster>

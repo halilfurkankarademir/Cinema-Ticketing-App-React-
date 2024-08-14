@@ -47,6 +47,7 @@
     position: relative;
     bottom: 3rem;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 .menu a:hover{
     transform: scale(1.1);

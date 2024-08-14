@@ -1,14 +1,10 @@
 /* Büyük ekranlar için (768px üstü) */
 
-.movie-detail {
-    display: flex; 
-    padding: 20px;
-    gap: 20px; 
-    position: relative;
-    bottom: 20rem;
+.movieDetailSection{
     width: 100%;
-    left: 2rem;
-    margin-top: 10rem;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 .movie-title {
@@ -93,23 +89,25 @@
 }
 
 .ratingsIcon {
-    position: absolute;
+    position: fixed;
     z-index: 50;
-    left: 78rem;
-    bottom: 40rem;
+    left: 83rem;
+    bottom: 45rem;
     width: 40%;
+    background-color: #55C1FF !important;
+    cursor:  pointer !important;
 }
 .highQualityImg {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 105%;
-    position: relative;
-    bottom: 27rem;
-    right: 2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
     opacity: 0.4;
     object-fit: cover;
-    height: 110vh;
+    height: 100vh;
   }
   
 
