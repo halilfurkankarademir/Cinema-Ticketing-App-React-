@@ -72,16 +72,11 @@
     top: 10rem !;
 }
 
-.ratingDetail {
-    position: absolute;
-    left: 8rem;
-    font-weight: 500;
-    bottom: 35.4rem;
-}
+
 
 .bi-heart-fill {
     margin-right: 0.5rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: #dab917;
     cursor: pointer;
     position: relative;
@@ -96,12 +91,11 @@
 }
 
 .ratingsIcon {
-    position: fixed;
+    position: relative;
     z-index: 50;
-    left: 83rem;
-    bottom: 45rem;
+    left: 1rem;
+    bottom: 11.5rem;
     width: 40%;
-    background-color: #55C1FF !important;
     cursor:  pointer !important;
 }
 .highQualityImg {
@@ -116,7 +110,7 @@
     object-fit: cover;
     height: 100vh;
   }
-  
+
 
 /* Orta ekranlar için (600px - 768px) */
 @media only screen and (max-width: 768px) {

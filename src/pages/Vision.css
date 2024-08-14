@@ -23,10 +23,15 @@
 /* Küçük ekranlar için (600px altı) */
 @media only screen and (max-width: 600px) {
     .secondSectionVision {
+        display: flex;
+        justify-content: center; /* Yatayda ortalar */
+        align-items: center;     /* Dikeyde ortalar */
+        text-align: center;      /* Metni ortalar */
+        margin: 0 auto;          /* Otomatik kenar boşluğu */
+        width: 100%;             /* Tam genişlik */
+        flex-direction: column;
         position: relative;
-        right: 1rem; /* Daha az sağa kaydırma */
-        bottom: 8rem; /* Daha az aşağı kaydırma */
-        margin-bottom: 3rem; /* Alt boşluğu daha da küçültme */
-        text-align: center; /* Metin ortalama */
+        top: 0rem;
+        margin-bottom: 5rem;
     }
 }

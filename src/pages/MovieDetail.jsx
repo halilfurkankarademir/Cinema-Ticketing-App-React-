@@ -104,12 +104,21 @@ const MovieDetail = () => {
             {movie && (
                 <div className="movieDetailSection container-fluid">
                     <div>
-                        <h1
-                            style={{ fontSize: "2.5rem", zIndex: "1" }}
-                            className="movie-title d-flex"
-                        >
-                            {movie.title}
-                        </h1>
+                        <div className="movieDetailTitleSection">
+                            <h1
+                                style={{ fontSize: "2.5rem", zIndex: "1" }}
+                                className="movie-title d-flex"
+                            >
+                                {movie.title}
+                                <div className="ratingsIcon">
+                                <i
+                                    className="bi bi-heart-fill"
+                                    onClick={redicertRate}
+                                >{` ${ratingMovie}`}</i>
+                            </div>
+                            </h1>
+                           
+                        </div>
                         <section className="movie-desc2">
                             <h5>Description</h5>
                             <p style={{ fontWeight: "300" }}>
@@ -129,12 +138,7 @@ const MovieDetail = () => {
                             >
                                 Buy Ticket
                             </button>
-                            <div className="ratingsIcon">
-                                <i
-                                    className="bi bi-heart-fill"
-                                    onClick={redicertRate}
-                                >{` ${ratingMovie}`}</i>
-                            </div>
+                           
                         </section>
                         <div className="embed-responsive embed-responsive-16by9 trailer-embed">
                             <iframe
