@@ -140,10 +140,10 @@ const MovieDetail = () => {
                             </button>
                            
                         </section>
-                        <div className="embed-responsive embed-responsive-16by9 trailer-embed">
+                        <div className="embed-responsive embed-responsive-16by9 trailer-embed text-center">
                             <iframe
-                                width="420"
-                                height="240"
+                                width="1120"
+                                height="640"
                                 src={movie.trailer}
                                 title="YouTube video player"
                                 frameBorder="0"
@@ -155,7 +155,7 @@ const MovieDetail = () => {
                         <img
                             src={movie.highImageUrl}
                             alt={movie.title}
-                            className="highQualityImg"
+                            className="highQualityImg mb-5"
                             style={{ display: "block", objectPosition: "1rem 2rem"  }}
                         />
                     </div>

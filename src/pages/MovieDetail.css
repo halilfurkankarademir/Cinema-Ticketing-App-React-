@@ -2,7 +2,7 @@
 
 .movieDetailSection{
     width: 100%;
-    height: 100vh;
+    height: 200vh;
     margin: 0;
     padding: 0;
 }
@@ -35,7 +35,7 @@
 .movie-desc2 {
     font-size: 1rem;
     font-weight: 400;
-    width: 25%;
+    width: 30%;
     z-index: 1;
     position: relative;
     top: 10rem;
@@ -59,9 +59,9 @@
 }
 
 .trailer-embed {
-    position: absolute;
-    top: 20rem;
-    left: 65%;
+    position: relative;
+    top: 21rem;
+    margin-bottom: 100rem ;
     z-index: 1;
 }
 
