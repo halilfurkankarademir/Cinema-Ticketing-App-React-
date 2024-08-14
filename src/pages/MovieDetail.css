@@ -81,11 +81,18 @@
 
 .bi-heart-fill {
     margin-right: 0.5rem;
-    font-size: 1.5rem;
-    color: #FF007A;
+    font-size: 1rem;
+    color: #dab917;
     cursor: pointer;
     position: relative;
-    left: 0rem !important;
+    left: 1rem !important;
+    background-color: #171a1d;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+.bi-heart-fill:hover{
+    background-color: #FF007A;
 }
 
 .ratingsIcon {
