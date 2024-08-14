@@ -97,9 +97,6 @@ const MovieDetail = () => {
         navigate(`/rate/${id}`);
     };
 
-    const scrollDown = ()=>{
-        window.scrollTo(0,825)
-    }
 
     return (
         <div>
@@ -108,7 +105,7 @@ const MovieDetail = () => {
                 <div className="movieDetailSection container-fluid">
                     <div>
                         <h1
-                            style={{ fontSize: "2.5rem" , zIndex:'1'}}
+                            style={{ fontSize: "2.5rem", zIndex: "1" }}
                             className="movie-title d-flex"
                         >
                             {movie.title}
@@ -126,45 +123,18 @@ const MovieDetail = () => {
                             <p style={{ fontWeight: "300" }}>{movie.type}</p>
                             <h5>Starring</h5>
                             <p style={{ fontWeight: "300" }}>{movie.cast}</p>
-                            <button className="btn btn-dark" onClick={handleBuyTicket}>Buy Ticket</button>
+                            <button
+                                className="btn btn-dark"
+                                onClick={handleBuyTicket}
+                            >
+                                Buy Ticket
+                            </button>
                             <div className="ratingsIcon">
-                        <i
-                            className="bi bi-heart-fill"
-                            onClick={redicertRate}
-                        >{` ${ratingMovie}`}</i>
-                    </div>
-                        </section>
-                        <img
-                            src={movie.highImageUrl}
-                            alt={movie.title}
-                            className="highQualityImg"
-                            style={{display:'block', objectPosition:'top'}}
-                        />
-                        
-                    </div>
-                   
-                    <br /> <br /> <br /> <br />
-                    <div className="movie-detail">
-                        <img
-                            src={movie.imageUrl}
-                            alt={movie.title}
-                            className="movie-image"
-                        />
-                        <section className="movie-desc">
-                            <h5 style={{ color: "#a682ff" }}>Description</h5>
-                            <p style={{ fontWeight: "300" }}>
-                                {movie.description}
-                            </p>
-                            <h5 style={{ color: "#a682ff" }}>Duration</h5>
-                            <p style={{ fontWeight: "300" }}>
-                                {movie.duration}
-                            </p>
-                            <h5 style={{ color: "#a682ff" }}>Starring</h5>
-                            <p style={{ fontWeight: "300" }}>{movie.cast}</p>
-                            <h5 style={{ color: "#a682ff" }}>Type</h5>
-                            <p style={{ fontWeight: "300" }}>{movie.type}</p>
-                            <h5 style={{ color: "#a682ff" }}>Release Date</h5>
-                            <p style={{ fontWeight: "300" }}>{movie.date}</p>
+                                <i
+                                    className="bi bi-heart-fill"
+                                    onClick={redicertRate}
+                                >{` ${ratingMovie}`}</i>
+                            </div>
                         </section>
                         <div className="embed-responsive embed-responsive-16by9 trailer-embed">
                             <iframe
@@ -178,14 +148,14 @@ const MovieDetail = () => {
                                 allowFullScreen
                             ></iframe>
                         </div>
-                        <button
-                            type="button"
-                            className=""
-                            onClick={handleBuyTicket}
-                        >
-                            Buy Ticket
-                        </button>
+                        <img
+                            src={movie.highImageUrl}
+                            alt={movie.title}
+                            className="highQualityImg"
+                            style={{ display: "block", objectPosition: "top" }}
+                        />
                     </div>
+                    <br /> <br /> <br /> <br />
                 </div>
             )}
             <Toaster position="top-center"></Toaster>

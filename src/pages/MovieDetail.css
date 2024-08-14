@@ -1,4 +1,5 @@
 /* Büyük ekranlar için (768px üstü) */
+
 .movie-detail {
     display: flex; 
     padding: 20px;
@@ -63,8 +64,9 @@
 
 .trailer-embed {
     position: absolute;
-    top: 14rem;
+    top: 20rem;
     left: 65%;
+    z-index: 1;
 }
 
 .rate-button {
@@ -91,10 +93,11 @@
 }
 
 .ratingsIcon {
-    position: relative;
+    position: absolute;
     z-index: 50;
-    left: 80rem;
+    left: 78rem;
     bottom: 40rem;
+    width: 40%;
 }
 .highQualityImg {
     display: block;
@@ -104,11 +107,9 @@
     position: relative;
     bottom: 27rem;
     right: 2rem;
-    opacity: 0.5;
+    opacity: 0.4;
     object-fit: cover;
-    float: left;
     height: 110vh;
-    
   }
   
 
