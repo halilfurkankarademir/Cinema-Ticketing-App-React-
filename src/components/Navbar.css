@@ -104,7 +104,7 @@
 }
 .bi-person-fill{
     position: relative;
-    left: 18rem;
+    left: 20rem;
     font-size: 1.3rem;
 }
 .adminButton{
@@ -132,5 +132,9 @@
         position: fixed;
         top: 2.8rem;
         left: 30rem;
+    }
+    .Navmenu a{
+        position: relative;
+        right: 3rem;
     }
 }

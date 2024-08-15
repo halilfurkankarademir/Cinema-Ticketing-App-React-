@@ -85,9 +85,9 @@ const MovieDetail = () => {
     useEffect(() => {
         gsap.from(".highQualityImg", {
             opacity: 0,
-            scale: 1.5,
+            scale: 1.3,
             ease: "power4.inOut",
-            duration: 3,
+            duration: 2,
         });
     }, [movie]);
 
@@ -100,8 +100,6 @@ const MovieDetail = () => {
         });
     };
 
-    
-    
     if (!movie) {
         return <p>Loading...</p>;
     }
@@ -117,27 +115,23 @@ const MovieDetail = () => {
                 <div className="movieDetailSection container-fluid">
                     <div>
                         <section className="movie-desc2">
-                            <h2 style={{color:'#55c1ff'}}>{movie.title}</h2>
-                            
-                            <h5>Description</h5>
+                            <h2 style={{ color: "#55c1ff" }}>{movie.title}</h2>
+
                             <p style={{ fontWeight: "300" }}>
                                 {movie.description}
                             </p>
-                            <h5>Duration</h5>
                             <p style={{ fontWeight: "300" }}>
-                                {movie.duration}
+                            <i className="bi bi-clock-fill"></i> &nbsp; {movie.duration}
                             </p>
-                            <h5>Type</h5>
-                            <p style={{ fontWeight: "300" }}>{movie.type}</p>
-                            <h5>Starring</h5>
-                            <p style={{ fontWeight: "300" }}>{movie.cast}</p>
+                            <p style={{ fontWeight: "300" }}><i className="bi bi-camera-reels-fill"></i> &nbsp; {movie.type}</p>
+                            <p style={{ fontWeight: "300" }}><i className="bi bi-people-fill"></i>&nbsp; {movie.cast}</p>
+                            <p style={{ fontWeight: "300", cursor:'pointer' }} onClick={redicertRate}><i className="bi bi-star-half"></i>&nbsp; {ratingMovie}</p>
                             <button
                                 className="btn btn-dark buyTicketBtn"
                                 onClick={handleBuyTicket}
                             >
                                 Buy Ticket
                             </button>
-                           
                         </section>
                         <div className="embed-responsive embed-responsive-16by9 trailer-embed text-center">
                             <iframe
