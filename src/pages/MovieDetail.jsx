@@ -76,7 +76,6 @@ const MovieDetail = () => {
         };
         fetchComments();
         fetchMovie();
-        
     }, []);
 
     useEffect(() => {
@@ -101,6 +100,8 @@ const MovieDetail = () => {
         });
     };
 
+    
+    
     if (!movie) {
         return <p>Loading...</p>;
     }
@@ -115,22 +116,9 @@ const MovieDetail = () => {
             {movie && (
                 <div className="movieDetailSection container-fluid">
                     <div>
-                        <div className="movieDetailTitleSection">
-                            <h1
-                                style={{ fontSize: "2.5rem", zIndex: "1" }}
-                                className="movie-title d-flex"
-                            >
-                                {movie.title}
-                                <div className="ratingsIcon">
-                                <i
-                                    className="bi bi-heart-fill"
-                                    onClick={redicertRate}
-                                >{` ${ratingMovie}`}</i>
-                            </div>
-                            </h1>
-                           
-                        </div>
                         <section className="movie-desc2">
+                            <h2 style={{color:'#55c1ff'}}>{movie.title}</h2>
+                            
                             <h5>Description</h5>
                             <p style={{ fontWeight: "300" }}>
                                 {movie.description}
@@ -144,7 +132,7 @@ const MovieDetail = () => {
                             <h5>Starring</h5>
                             <p style={{ fontWeight: "300" }}>{movie.cast}</p>
                             <button
-                                className="btn btn-dark"
+                                className="btn btn-dark buyTicketBtn"
                                 onClick={handleBuyTicket}
                             >
                                 Buy Ticket
@@ -167,7 +155,10 @@ const MovieDetail = () => {
                             src={movie.highImageUrl}
                             alt={movie.title}
                             className="highQualityImg mb-5"
-                            style={{ display: "block", objectPosition: "1rem 2rem"  }}
+                            style={{
+                                display: "block",
+                                objectPosition: "1rem 2rem",
+                            }}
                         />
                     </div>
                 </div>

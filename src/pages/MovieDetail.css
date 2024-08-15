@@ -35,32 +35,29 @@
 .movie-desc2 {
     font-size: 1rem;
     font-weight: 400;
-    width: 40%;
+    width: 30%;
     z-index: 1;
     position: relative;
     top: 10rem;
     left: 3.7rem;
+    background-color: #171a1d;
+    border-radius: 10px;
+    padding: 1.5rem;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.45);
+      
 }
 
-.movie-buy-ticket {
-    background-color: #55C1FF;
-    width: 15%;
+
+.buyTicketBtn{
+    width: 40%;
     height: 5vh;
-    color: rgb(0, 0, 0);
-    outline: none;
-    border: none;
-    padding: 0px;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-    position: relative;
-    top: 25.5rem;
-    right: 67%;
-    z-index: 2;
+    font-weight: 600 !important;
 }
 
 .trailer-embed {
     position: relative;
-    top: 21rem;
+    top: 19rem;
     margin-bottom: 100rem ;
     z-index: 1;
 }
@@ -76,25 +73,21 @@
 
 .bi-heart-fill {
     margin-right: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: #dab917;
     cursor: pointer;
     position: relative;
-    left: 1rem !important;
-    background-color: #171a1d;
-    padding: 10px;
-    border-radius: 10px;
+    bottom: 0px !important;
+    left: 0 !important;
     transition: all 0.3s ease-in-out;
 }
-.bi-heart-fill:hover{
-    background-color: #FF007A;
-}
+
 
 .ratingsIcon {
     position: relative;
     z-index: 50;
     left: 1rem;
-    bottom: 11.5rem;
+    bottom: 100rem;
     width: 40%;
     cursor:  pointer !important;
 }
@@ -106,7 +99,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    opacity: 0.3;
+    opacity: 0.5;
     object-fit: cover;
     height: 100vh;
   }
@@ -238,14 +231,5 @@
     .movieDetailSection{
         position: relative;
         margin-top: -9rem;
-    }
-}
-
-@media only screen and (min-width: 1200px){
-    .bi-heart-fill {
-        left: 65rem;
-        text-align: center;
-        top: 11rem !important;
-        position: relative;
     }
 }
