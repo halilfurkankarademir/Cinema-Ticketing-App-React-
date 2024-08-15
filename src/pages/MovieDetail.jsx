@@ -25,8 +25,8 @@ const MovieDetail = () => {
         });
 
         const averageRating =
-            numberOfRatings > 0 ? totalRating / numberOfRatings : 0;
-        setRatingMovie(averageRating.toFixed(2));
+            numberOfRatings > 0 ? (totalRating / numberOfRatings).toString() : "No ratings yet";
+        setRatingMovie(averageRating);
     };
 
     useEffect(() => {
