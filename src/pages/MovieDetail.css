@@ -35,7 +35,8 @@
 .movie-desc2 {
     font-size: 1rem;
     font-weight: 400;
-    width: 30%;
+    width: 25%;
+    height: auto;
     z-index: 1;
     position: relative;
     top: 10rem;
