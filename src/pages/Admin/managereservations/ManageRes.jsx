@@ -72,12 +72,12 @@ const ManageRes = () => {
                     <table className="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Name</th>
-                                <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Movie</th>
-                                <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Seats</th>
-                                <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Date</th>
-                                <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Show Time</th>
-                                <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Actions</th>
+                                <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Name</th>
+                                <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Movie</th>
+                                <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Seats</th>
+                                <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Date</th>
+                                <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Show Time</th>
+                                <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Actions</th>
                             </tr>
                         </thead>
                         <tbody>

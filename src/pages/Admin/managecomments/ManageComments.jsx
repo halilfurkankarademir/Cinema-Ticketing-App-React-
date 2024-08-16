@@ -72,19 +72,19 @@ const ManageComments = () => {
                     <table className="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Movie</th>
-                                <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Rating</th>
-                                <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Comment</th>
-                                <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Actions</th>
+                                <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Movie</th>
+                                <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Rating</th>
+                                <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Comment</th>
+                                <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {comments.map((comment) => (
                                 <tr key={comment.id}>
-                                    <td className="bg-dark text-white">{comment.title}</td>
-                                    <td className="bg-dark text-white">{comment.rating}</td>
-                                    <td className="bg-dark text-white">{comment.comment}</td>
-                                    <td className="bg-dark text-white">
+                                    <td className="text-white"  style={{backgroundColor:'#171a1d'}}>{comment.title}</td>
+                                    <td className="text-white"  style={{backgroundColor:'#171a1d'}}>{comment.rating}</td>
+                                    <td className="text-white"  style={{backgroundColor:'#171a1d'}}>{comment.comment}</td>
+                                    <td className="text-white"  style={{backgroundColor:'#171a1d'}}>
                                         <button
                                             onClick={() => handleDelete(comment.id)}
                                             className="btn btn-danger"
