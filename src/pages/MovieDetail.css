@@ -103,7 +103,18 @@
     object-fit: cover;
     height: 105vh;
 }
-
+.trailer-section {
+    position: absolute;
+    justify-content: center;
+    top: -10rem;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.74);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.3px);
+    -webkit-backdrop-filter: blur(3.3px);
+    display: none;
+}
 /* Orta ekranlar için (600px - 768px) */
 @media only screen and (max-width: 768px) {
     .movie-detail {

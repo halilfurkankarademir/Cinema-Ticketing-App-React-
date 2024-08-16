@@ -116,7 +116,7 @@
         outline: none;
         cursor: pointer;
         top: 45rem;
-        left: 68rem;
+        left: 62rem;
         font-size: 1rem;
         font-weight: 600;
         transition: all 0.3s ease-in-out;
@@ -171,19 +171,10 @@
     .seeAll{
         position: relative;
         font-size: 1rem;
-        left: 60rem;
+        left: 57rem;
         font-weight: 400;
         cursor: pointer;
     }
 
 }
 
-/* @media only screen and (min-width: 1200px){
-    .homepage-container{
-        height: 350vh;
-    }
-    .learnMore{
-        position: relative;
-        top: 55rem;
-    }
-} */

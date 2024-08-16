@@ -106,6 +106,18 @@ const MovieDetail = () => {
         });
     };
 
+    const handleTrailer = () =>{
+        const trailer = document.getElementById('trailerSection');
+        trailer.style.display='flex';
+    }
+
+    const closeTrailer = (e) => {
+        if (e.target.id === 'trailerSection') {
+            const trailer = document.getElementById('trailerSection');
+            trailer.style.display = 'none';
+        }
+    }
+
     if (!movie) {
         return <p>Loading...</p>;
     }
@@ -120,6 +132,20 @@ const MovieDetail = () => {
             {movie && (
                 <div className="movieDetailSection container-fluid">
                     <div>
+                        <div className="trailer-section container-fluid" id="trailerSection" onClick={closeTrailer} style={{ display: 'none' }}>
+                            <div className="embed-responsive embed-responsive-16by9 trailer-embed text-center">
+                                <iframe
+                                    width="840"
+                                    height="480"
+                                    src={movie.trailer}
+                                    title="YouTube video player"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerPolicy="strict-origin-when-cross-origin"
+                                    allowFullScreen
+                                ></iframe>
+                            </div>
+                        </div>
                         <section className="movie-desc2">
                             
                             <h2 style={{ color: "#55c1ff" }}>{movie.title}</h2>
@@ -139,19 +165,14 @@ const MovieDetail = () => {
                             >
                                 Buy Ticket
                             </button>
+                            <button
+                                className="btn btn-dark buyTicketBtn"
+                                onClick={handleTrailer}
+                                style={{marginLeft:'1rem', width:'50%'}}
+                            >
+                                <i className="bi bi-play-circle-fill"></i> Watch Trailer
+                            </button>
                         </section>
-                        <div className="embed-responsive embed-responsive-16by9 trailer-embed text-center">
-                            <iframe
-                                width="1120"
-                                height="640"
-                                src={movie.trailer}
-                                title="YouTube video player"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerPolicy="strict-origin-when-cross-origin"
-                                allowFullScreen
-                            ></iframe>
-                        </div>
                         <img
                             src={movie.highImageUrl}
                             alt={movie.title}
