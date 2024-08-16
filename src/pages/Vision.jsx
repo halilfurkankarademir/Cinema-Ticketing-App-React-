@@ -39,8 +39,8 @@ const OnLive = () => {
                 <h3
                     style={{
                         position: "relative",
-                        left: "1rem",
-                        color: "#55C1FF",
+                        left: "2rem",
+                        
                     }}
                 >
                    <i className="bi bi-stars"></i> Vision Movies 

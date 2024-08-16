@@ -142,7 +142,7 @@ const HomePage = () => {
                 <br />
                 <br />
                 <div className="container-fluid visionSection"> 
-                <h2 style={{ color: "#55C1FF" }}>
+                <h2>
                     <i className="bi bi-stars"></i> Vision Movies{" "}
                     <span className="seeAll" onClick={redirectVision}>See all ➤</span>{" "}
                 </h2>
@@ -162,7 +162,7 @@ const HomePage = () => {
                 </div>
                 <br /> <br />
                 <div className="container-fluid comingSection">
-                <h2 style={{ color: "#55C1FF" }}>
+                <h2>
                     <i className="bi bi-hourglass-split"></i> Coming Soon{" "}
                     <span className="seeAll" onClick={redirectComing}>See all ➤</span>{" "}
                 </h2>
@@ -181,11 +181,11 @@ const HomePage = () => {
                 </Slider>
                 </div>
                 <div className="container-fluid campaignSection mt-5">
-                    <h2 style={{ color: "#55C1FF" }}>
+                    <h2>
                         <i className="bi bi-tag"></i> Campaigns{" "}
                     </h2>
                     <br />
-                    <div className="form-container bg-dark campaignForm">
+                    <div className="form-container campaignForm" style={{backgroundColor:'#171a1d'}}>
                         <h4>Get 10% off with CineWave Card at the buffet!</h4>
                         <p style={{ color: "lightgray" }}>
                             Great news for movie lovers! Enjoy more of your
