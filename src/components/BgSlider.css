@@ -25,10 +25,10 @@
     .hero-slider {
         position: relative;
         width: 130%;
-        top: 0rem;
+        top: -2rem;
         right: 12rem;
         overflow: hidden;
-        height: 120vh;
+        height: 125vh;
         z-index: -1;
         opacity: 1;
         border-radius: 10px;
@@ -36,7 +36,7 @@
     }
     .hero-slide img {
         width: 100%;
-        height: 100vh;
+        height: 105vh;
         object-fit: cover;
         object-position: 0% 0%;
     }
