@@ -13,7 +13,7 @@ const Card = ({ title, desc, img, movieId , type}) => {
         <div className="card" onClick={handleClick}>
             <img src={img} className="card-img-top" alt={title} />
             <div className="card-body">
-                <h3 className="card-title" >{title}</h3>
+                <h3 className="card-title" style={{fontWeight:'600'}} >{title}</h3>
                 <p>{type}</p>
             </div>
         </div>

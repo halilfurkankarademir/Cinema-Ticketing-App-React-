@@ -10,7 +10,7 @@ const Card = ({ title, img, date,type }) => {
         <div className="card comingCard">
             <img src={img} className="card-img-top" alt={title} />
             <div className="card-body">
-                <h5 className="card-title">{title}</h5>
+                <p className="card-title" style={{fontWeight:'600'}}>{title}</p>
                 <h6 className='vision-date' style={{fontSize:'0.8rem'}}><i className="bi bi-calendar-date"></i> {date}</h6>
                 <h6 className='vision-date' style={{fontSize:'0.8rem'}}>{type}</h6>
                 
