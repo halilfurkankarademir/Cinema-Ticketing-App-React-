@@ -1,7 +1,7 @@
 /* Büyük ekranlar için (768px üstü) */
 .contactForm {
     width: 50%;
-    height: 80vh;
+    height: 100vh;
     position: relative;
     top: 3rem;
     margin: 0 auto; /* Ortalamak için */
