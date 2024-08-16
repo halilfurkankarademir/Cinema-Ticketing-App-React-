@@ -113,7 +113,7 @@ const Dashboard = () => {
             <Toaster position="top-center"></Toaster>
             <AdminNav />
             <br /> <br /> <br /> <br /> <br /> <br />
-            <h1>&emsp; &emsp; &emsp; Admin Dashboard</h1>
+            <h1 style={{position:'relative', left:'7rem'}}>Admin Dashboard</h1>
             <div className="container mt-4">
                 <div className="row">
                     <div className="col chart-card">
