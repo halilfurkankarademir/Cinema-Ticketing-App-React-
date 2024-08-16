@@ -83,12 +83,12 @@ const ManageRes = () => {
                         <tbody>
                             {reservations.map((reservation) => (
                                 <tr key={reservation.id}>
-                                    <td className="bg-dark text-white">{reservation.name}</td>
-                                    <td className="bg-dark text-white">{reservation.movieName}</td>
-                                    <td className="bg-dark text-white">{reservation.seats.join(", ")}</td>
-                                    <td className="bg-dark text-white">{reservation.date}</td>
-                                    <td className="bg-dark text-white">{reservation.showTime}</td>
-                                    <td className="bg-dark text-white">
+                                    <td className="text-white"  style={{backgroundColor:'#171a1d'}}>{reservation.name}</td>
+                                    <td className="text-white"  style={{backgroundColor:'#171a1d'}}>{reservation.movieName}</td>
+                                    <td className="text-white"  style={{backgroundColor:'#171a1d'}}>{reservation.seats.join(", ")}</td>
+                                    <td className="text-white"  style={{backgroundColor:'#171a1d'}}>{reservation.date}</td>
+                                    <td className="text-white"  style={{backgroundColor:'#171a1d'}}>{reservation.showTime}</td>
+                                    <td className="text-white"  style={{backgroundColor:'#171a1d'}}>
                                         <button
                                             className="btn btn-danger"
                                             onClick={() => handleDelete(reservation.id)}
