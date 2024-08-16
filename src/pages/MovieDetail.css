@@ -1,6 +1,6 @@
 /* Büyük ekranlar için (768px üstü) */
 
-.movieDetailSection{
+.movieDetailSection {
     width: 100%;
     height: 200vh;
     margin: 0;
@@ -17,7 +17,7 @@
 }
 
 .movie-image {
-    width: 20%; 
+    width: 20%;
     height: 20%;
     object-fit: cover;
     margin-right: 2rem;
@@ -46,11 +46,13 @@
     padding: 1.5rem;
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.45);
-      
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.2px);
+    -webkit-backdrop-filter: blur(2.2px);
 }
 
-
-.buyTicketBtn{
+.buyTicketBtn {
     width: 40%;
     height: 5vh;
     font-weight: 600 !important;
@@ -59,7 +61,7 @@
 .trailer-embed {
     position: relative;
     top: 21rem;
-    margin-bottom: 100rem ;
+    margin-bottom: 100rem;
     z-index: 1;
 }
 
@@ -69,8 +71,6 @@
     position: relative;
     top: 10rem !;
 }
-
-
 
 .bi-heart-fill {
     margin-right: 0.5rem;
@@ -83,14 +83,13 @@
     transition: all 0.3s ease-in-out;
 }
 
-
 .ratingsIcon {
     position: relative;
     z-index: 50;
     left: 1rem;
     bottom: 100rem;
     width: 40%;
-    cursor:  pointer !important;
+    cursor: pointer !important;
 }
 .highQualityImg {
     display: block;
@@ -103,8 +102,7 @@
     opacity: 0.6;
     object-fit: cover;
     height: 100vh;
-  }
-
+}
 
 /* Orta ekranlar için (600px - 768px) */
 @media only screen and (max-width: 768px) {
@@ -201,7 +199,6 @@
         margin: 0 auto;
         position: relative;
         margin-bottom: 2rem;
-    
     }
 
     .rate-button {
@@ -229,7 +226,7 @@
         text-align: center;
     }
 
-    .movieDetailSection{
+    .movieDetailSection {
         position: relative;
         margin-top: -9rem;
     }

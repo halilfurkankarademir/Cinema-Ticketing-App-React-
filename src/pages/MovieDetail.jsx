@@ -88,6 +88,13 @@ const MovieDetail = () => {
             ease: "power4.inOut",
             duration: 2,
         });
+        gsap.from(".movie-desc2", {
+            opacity: 0,
+            y:50,
+            ease: "power4.inOut",
+            duration: 2,
+            delay:1,
+        });
     }, [movie]);
 
     const handleBuyTicket = () => {
