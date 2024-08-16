@@ -171,10 +171,10 @@ const HomePage = () => {
                         <div className="card-slide" key={upcoming.id}>
                             <CardComing
                                 title={upcoming.title}
-                                desc={upcoming.description}
                                 img={upcoming.imageUrl}
                                 movieId={upcoming.id}
                                 date={upcoming.date}
+                                type={upcoming.type}
                             />
                         </div>
                     ))}

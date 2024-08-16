@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Card.css";
 
-const Card = ({ title, desc, img, movieId, date }) => {
+const Card = ({ title, img, date,type }) => {
     const navigate = useNavigate();
 
 
@@ -12,6 +12,8 @@ const Card = ({ title, desc, img, movieId, date }) => {
             <div className="card-body">
                 <h5 className="card-title">{title}</h5>
                 <h6 className='vision-date' style={{fontSize:'0.8rem'}}><i className="bi bi-calendar-date"></i> {date}</h6>
+                <h6 className='vision-date' style={{fontSize:'0.8rem'}}>{type}</h6>
+                
             </div>
         </div>
     );
