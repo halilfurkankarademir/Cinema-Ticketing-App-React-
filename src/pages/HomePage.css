@@ -120,6 +120,7 @@
         font-size: 1rem;
         font-weight: 600;
         transition: all 0.3s ease-in-out;
+        opacity: 0;
     }
 
     .learnMore:hover{

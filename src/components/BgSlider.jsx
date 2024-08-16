@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { firestore, doc, getDoc } from "../firebase/firebase";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import "./BgSlider.css";
 
 const HeroSlider = () => {
@@ -19,6 +21,15 @@ const HeroSlider = () => {
         pauseOnHover: false,
         
     };
+    useGSAP(() => {
+        gsap.from(".hero-slider", {
+            opacity: 0,
+            scale:1.2,
+            ease: "power4.inOut",
+            duration: 2,
+        });
+    }, []);
+    
 
     useEffect(() => {
         const fetchImages = async () => {

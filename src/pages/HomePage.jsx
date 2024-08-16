@@ -55,25 +55,12 @@ const HomePage = () => {
           ]
     };
 
-    useGSAP(() => {
-        gsap.from(".text", 0.8, {
-            y: 40,
-            opacity: 0,
-            ease: "power2.inOut",
-            delay: 0.7,
-        });
-        gsap.from(".loader", 2, {
-            width: 0,
-            ease: "power4.inOut",
-            delay: 1,
-        });
-
-        gsap.to(".pre-loader", 2, {
-            top: "-100%",
-            ease: "power4.inOut",
-            delay: 2,
-        });
-    });
+    useEffect(() => {
+        gsap.fromTo(".learnMore", 
+            { opacity: 0 },  
+            { opacity: 1, ease: "power4.inOut", duration: 1 }  
+        );
+    }, []);
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -199,14 +186,6 @@ const HomePage = () => {
                             style={{ width: "25rem", marginLeft: "2rem" }}
                             className="cardpng"
                         />
-                    </div>
-                </div>
-                <div className="pre-loader">
-                    <div className="content">
-                        <div className="text">
-                            <h1>CineWave</h1>
-                        </div>
-                        <div className="loader"></div>
                     </div>
                 </div>
             </div>
