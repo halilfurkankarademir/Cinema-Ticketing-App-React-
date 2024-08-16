@@ -124,10 +124,6 @@ const HomePage = () => {
                         <BgSliderMobile />
                     </Link>
                 </div>
-                <br />
-                <br />
-                <br />
-                <br />
                 <div className="container-fluid visionSection"> 
                 <h2>
                     <i className="bi bi-stars"></i> Vision Movies{" "}
