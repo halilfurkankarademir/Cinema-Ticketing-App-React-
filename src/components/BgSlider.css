@@ -36,8 +36,9 @@
     }
     .hero-slide img {
         width: 100%;
-        height: auto;
+        height: 100vh;
         object-fit: cover;
+        object-position: 0% 0%;
     }
     .hero-slide::before {
         content: "";
