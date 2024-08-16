@@ -11,7 +11,7 @@ import {
 } from "../../../firebase/firebase";
 import toast, { Toaster } from "react-hot-toast";
 import AdminNav from "../AdminNav";
-import "./ManageRes.css"
+import "./ManageRes.css";
 
 const ManageRes = () => {
     const { currentUser, userLoggedIn } = useAuth();
@@ -41,6 +41,17 @@ const ManageRes = () => {
         }
     }, [userLoggedIn, navigate]);
 
+    const handleDelete = async (reservationId) => {
+        try {
+            await deleteDoc(doc(firestore, "reservations", reservationId));
+            setReservations(reservations.filter((res) => res.id !== reservationId));
+            toast.success("Reservation canceled successfully!");
+        } catch (error) {
+            console.error("Error deleting reservation: ", error);
+            toast.error("Failed to cancel reservation.");
+        }
+    };
+
     function signOut() {
         doSignOut();
         navigate("/");
@@ -64,8 +75,9 @@ const ManageRes = () => {
                                 <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Name</th>
                                 <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Movie</th>
                                 <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Seats</th>
-                                {/* <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Date</th> */}
+                                <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Date</th>
                                 <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Show Time</th>
+                                <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,8 +86,16 @@ const ManageRes = () => {
                                     <td className="bg-dark text-white">{reservation.name}</td>
                                     <td className="bg-dark text-white">{reservation.movieName}</td>
                                     <td className="bg-dark text-white">{reservation.seats.join(", ")}</td>
-                                    {/* <td className="bg-dark text-white">{reservation.date}</td>  */}
+                                    <td className="bg-dark text-white">{reservation.date}</td>
                                     <td className="bg-dark text-white">{reservation.showTime}</td>
+                                    <td className="bg-dark text-white">
+                                        <button
+                                            className="btn btn-danger"
+                                            onClick={() => handleDelete(reservation.id)}
+                                        >
+                                            Cancel
+                                        </button>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
