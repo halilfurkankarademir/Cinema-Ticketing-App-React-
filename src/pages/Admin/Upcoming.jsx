@@ -25,11 +25,17 @@ const AdminPanel = () => {
         e.preventDefault();
 
         try {
+            const formattedDate = new Date(date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+            });
+
             await addDoc(collection(firestore, "upcoming"), {
                 title: title,
                 imageUrl: image,
                 type: type,
-                date: date,
+                date: formattedDate,
             });
             toast.success("Movie Added");
             setTitle("");

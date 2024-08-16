@@ -156,11 +156,7 @@ const AdminPanel = () => {
                         <thead>
                             <tr>
                                 <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Title</th>
-                                <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Description</th>
-                                <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Seances</th>
                                 <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Image</th>
-                                <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Duration</th>
-                                <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Cast</th>
                                 <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Type</th>
                                 <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Date</th>
                                 <th scope="col"  style={{color:'#0095FF' ,backgroundColor:'#171a1d'}}>Actions</th>
@@ -170,8 +166,6 @@ const AdminPanel = () => {
                             {upcomingMovies.map((movie) => (
                                 <tr key={movie.id}>
                                     <td className="text-white" style={{backgroundColor:'#171a1d'}}>{movie.title}</td>
-                                    <td className="text-white" style={{backgroundColor:'#171a1d'}}>{movie.description}</td>
-                                    <td className="text-white" style={{backgroundColor:'#171a1d'}}>{movie.seances.join(", ")}</td>
                                     <td className="text-white" style={{backgroundColor:'#171a1d'}}>
                                         <img
                                             src={movie.imageUrl}
@@ -179,8 +173,6 @@ const AdminPanel = () => {
                                             className="movie-image"
                                         />
                                     </td>
-                                    <td className="text-white" style={{backgroundColor:'#171a1d'}}>{movie.duration}</td>
-                                    <td className="text-white" style={{backgroundColor:'#171a1d'}}>{movie.cast}</td>
                                     <td className="text-white" style={{backgroundColor:'#171a1d'}}>{movie.type}</td>
                                     <td className="text-white" style={{backgroundColor:'#171a1d'}}>{movie.date}</td>
                                     <td className="text-white" style={{backgroundColor:'#171a1d'}}>
