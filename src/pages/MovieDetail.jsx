@@ -185,8 +185,6 @@ const MovieDetail = () => {
                     </div>
                 </div>
             )}
-            
-            <Footer></Footer>
         </div>
     );
 };
