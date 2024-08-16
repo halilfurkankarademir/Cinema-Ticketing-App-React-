@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link,useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { useAuth } from "../context/auth";
 import { doSignOut } from "../firebase/auth";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Navbar = () => {
+    useGSAP(() => {
+        gsap.from(".Navmenu", {
+            y: -100,
+            ease: "power4.inOut",
+            duration: 2,
+        });
+        gsap.from(".navbarAll", {
+            y: -100,
+            ease: "power4.inOut",
+            duration: 2,
+        });
+    }, []);
+    
     const [toggleSidebar, setToggleSidebar] = useState(false);
 
     const { currentUser, userLoggedIn } = useAuth();
@@ -28,9 +43,12 @@ const Navbar = () => {
         navigate('/');
     }
 
+    
+
+
     return (
         <div>
-            <div className="navbar bg-transparent">
+            <div className="navbar bg-transparent navbarAll">
                 <div className="brand" onClick={redicert}>
                     <h2>CineWave</h2>
                 </div>
