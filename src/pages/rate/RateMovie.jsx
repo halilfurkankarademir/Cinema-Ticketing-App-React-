@@ -163,7 +163,7 @@ const RateMovie = () => {
                     ></textarea>
                     <button type="submit" className="btn btn-dark mt-4" onClick={addComment}>Add rating</button>
                 </div>
-                <div className="container-fluid d-flex flex-column form-container mt-5 commentsForm">
+                <div className="container-fluid d-flex flex-column form-container  commentsForm">
                     <h5 className="text-center">Comments</h5>
                     {comments.length > 0 ? (
                         comments.map((cmt) => (
