@@ -69,14 +69,15 @@
     color: whitesmoke;
 }
 .brand h2{
-    position: relative;
+    position: fixed;
     font-size: 1.5rem;
     width: 8rem;
     height: 4rem;
     left: 3rem;
-    top: 1.3rem;
+    top: 2.8rem;
     letter-spacing: -2px;
     cursor: pointer;
+
 }
 .bi-list{
    display: none;
