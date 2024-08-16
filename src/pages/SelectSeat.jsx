@@ -10,16 +10,15 @@ import { firestore } from "../firebase/firebase";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-
 const SeatSelection = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const {movieName,img} = location.state || {};
+    const { movieName, img } = location.state || {};
     const [seats, setSeats] = useState([]);
     const [reservedSeats, setReservedSeats] = useState([]);
     const [selectedSeats, setSelectedSeats] = useState([]);
     const [showTime, setShowTime] = useState("");
-    const [formattedDate, setFormattedDate] = useState('');
+    const [formattedDate, setFormattedDate] = useState("");
     const [selectedDate, setSelectedDate] = useState(null);
     const [ticketCount, setTicketCount] = useState(0);
     const [sessions, setSessions] = useState([]);
@@ -35,7 +34,7 @@ const SeatSelection = () => {
                 resRef,
                 where("movieName", "==", movieName),
                 where("showTime", "==", showTime),
-                where("date", "==", formattedDate),
+                where("date", "==", formattedDate)
             );
             const qSnapshot = await getDocs(q);
             const reserved = [];
@@ -45,7 +44,7 @@ const SeatSelection = () => {
             setReservedSeats(reserved);
         };
         fetchReservations();
-    }, [movieName, showTime,formattedDate]);
+    }, [movieName, showTime, formattedDate]);
 
     useEffect(() => {
         const fetchMovie = async () => {
@@ -75,11 +74,16 @@ const SeatSelection = () => {
         fetchMovie();
     }, [movieName]);
 
-    useEffect(()=>{
-        const formatted = selectedDate ? new Date(selectedDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+    useEffect(() => {
+        const formatted = selectedDate
+            ? new Date(selectedDate).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+              })
+            : "";
         setFormattedDate(formatted);
-    },[selectedDate])
-
+    }, [selectedDate]);
 
     useEffect(() => {
         const initializeSeats = () => {
@@ -179,52 +183,56 @@ const SeatSelection = () => {
     }, [reservedSeats]);
 
     const handleSeatClick = (seatNumber) => {
-        if(selectedDate!==null && showTime !== ''){
-        setSelectedSeats((prevSelectedSeats) => {
-            const newSelectedSeats = prevSelectedSeats.includes(seatNumber)
-                ? prevSelectedSeats.filter((seat) => seat !== seatNumber)
-                : [...prevSelectedSeats, seatNumber];
-            setTicketCount(newSelectedSeats.length);
-            return newSelectedSeats;
-        });
-         }
-         else{
-            toast.error('Select date and session first!')
-         }
+        if (selectedDate !== null && showTime !== "") {
+            setSelectedSeats((prevSelectedSeats) => {
+                const newSelectedSeats = prevSelectedSeats.includes(seatNumber)
+                    ? prevSelectedSeats.filter((seat) => seat !== seatNumber)
+                    : [...prevSelectedSeats, seatNumber];
+                setTicketCount(newSelectedSeats.length);
+                return newSelectedSeats;
+            });
+        } else {
+            toast.error("Select date and session first!");
+        }
     };
 
     const handlePayment = () => {
-        if (selectedSeats.length > 0 && showTime !== "" && selectedDate !== null) {
+        if (
+            selectedSeats.length > 0 &&
+            showTime !== "" &&
+            selectedDate !== null
+        ) {
             const now = new Date();
             const selectedDateTime = new Date(selectedDate);
-    
+
             const [hours, minutes] = showTime.split(":").map(Number);
             selectedDateTime.setHours(hours);
             selectedDateTime.setMinutes(minutes);
-    
+
             if (selectedDateTime < now) {
-                toast.error("Selected time is in the past. Please choose a valid session.");
+                toast.error(
+                    "Selected time is in the past. Please choose a valid session."
+                );
                 return;
             }
-    
+
             navigate("/payment", {
                 state: {
                     movieName,
                     showTime,
                     ticketCount,
                     selectedSeats,
-                    selectedDate
+                    selectedDate,
                 },
             });
         } else {
             toast.error("Please select seat, date, and session.");
         }
     };
-    
 
     const handleDateChange = (date) => {
-        if(date>=currentDate){
-            alert('Doğru')
+        if (date >= currentDate) {
+            alert("Doğru");
         }
         console.log(currentDate);
         setSelectedDate(date);
@@ -234,12 +242,10 @@ const SeatSelection = () => {
         setShowTime(event.target.value);
     };
 
-  
-
     return (
         <div>
             <Navbar />
-            <img src={img} alt="" className="highQualityImg2"/>
+            <img src={img} alt="" className="highQualityImg2" />
             <div className="container-fluid selectSeatAll">
                 <div className="select-date-time container-fluid form-container bg-dark">
                     <h6>Date</h6>
@@ -252,7 +258,10 @@ const SeatSelection = () => {
                         minDate={new Date()}
                     />
                     <h6>Session</h6>
-                    <select className="custom-select" onChange={handleSessionChange}>
+                    <select
+                        className="custom-select"
+                        onChange={handleSessionChange}
+                    >
                         <option value="">Select</option>
                         {sessions.map((session, index) => (
                             <option key={index} value={session}>
@@ -262,7 +271,7 @@ const SeatSelection = () => {
                     </select>
                     <h6>Seats</h6>
                     <div className="d-flex justify-content-center">
-                        {selectedSeats.length>0 ?
+                        {selectedSeats.length > 0 ? (
                             selectedSeats.map((seat, index) => (
                                 <p
                                     key={index}
@@ -273,25 +282,37 @@ const SeatSelection = () => {
                                 >
                                     {`${seat}`}&nbsp;
                                 </p>
-                            )):(<p style={{fontWeight:'500' , color:'#FF3999'}}>No seat selected yet.</p>)}
+                            ))
+                        ) : (
+                            <p style={{ fontWeight: "500", color: "#FF3999" }}>
+                                No seat selected yet.
+                            </p>
+                        )}
                     </div>
                     <h6>Total Fee</h6>
                     <p style={{ fontWeight: "500", color: "#FF3999" }}>
-                        ${
-                            ticketCount>0 ? 10*ticketCount : 0
-                        }
-
+                        ${ticketCount > 0 ? 10 * ticketCount : 0}
                     </p>
                     <button className="buyTicket" onClick={handlePayment}>
                         Continue
                     </button>
                 </div>
                 <h5>
-                    <p style={{ color: "#55c1ff" , fontSize:'2rem'}} className="titleSelect">{movieName}</p>
+                    <p
+                        style={{ color: "#55c1ff", fontSize: "2rem" }}
+                        className="titleSelect"
+                    >
+                        {movieName}
+                    </p>
                 </h5>
                 <br />
-                <h5 style={{position:'relative', right:'',bottom:'9rem'}} className="chooseSeat">Choose seat</h5>
-                <div 
+                <h5
+                    style={{ position: "relative", right: "", bottom: "9rem" }}
+                    className="chooseSeat"
+                >
+                    Choose seat
+                </h5>
+                <div
                     style={{
                         display: "flex",
                         flexWrap: "wrap",
@@ -309,9 +330,11 @@ const SeatSelection = () => {
                         />
                     ))}
                 </div>
-                <div className="scene"><p className="pt-3">Scene</p></div>
+                <div className="scene">
+                    <p className="pt-3">Scene</p>
+                </div>
                 <br />
-                
+
                 <div className="container-fluid d-flex seatInfoIcons">
                     <div className="selectedSeat" title="Selected"></div>
                     <p className="selectP">Selected</p>
