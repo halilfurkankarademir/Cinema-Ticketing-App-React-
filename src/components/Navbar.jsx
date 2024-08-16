@@ -57,7 +57,7 @@ const Navbar = () => {
                 {
                     userLoggedIn && (
                         <Link to='/admin' className="adminButton">
-                           <button className="btn btn-light">Admin</button>
+                           <i className="bi bi-gear-fill"></i>
                         </Link>
                     )
                 }
