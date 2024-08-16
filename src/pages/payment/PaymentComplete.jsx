@@ -9,18 +9,15 @@ import TicketPDF from "../../components/TicketPdf";
 import "./PaymentComplete.css";
 
 const PaymentComplete = () => {
-    const date = new Date().toDateString();
     const location = useLocation();
     const {
         movieName,
         showTime,
-        ticketType,
-        ticketCount,
-        auditorium,
         orderNo,
         selectedSeats,
         firstname,
         lastname,
+        formattedDate
     } = location.state || {};
 
     const toastShownRef = useRef(false);
@@ -31,6 +28,8 @@ const PaymentComplete = () => {
             toastShownRef.current = true;
         }
     }, []);
+
+    console.log(formattedDate);
 
     return (
         <div>
@@ -76,7 +75,7 @@ const PaymentComplete = () => {
                             <h6 className="my-0" style={{ color: "#0095FF" }}>
                                 Showtime
                             </h6>
-                            <small className="">{`${date} | ${showTime}`}</small>
+                            <small className="">{`${formattedDate} | ${showTime}`}</small>
                         </div>
                     </li>
                     <li className="list-group-item d-flex justify-content-between lh-sm bg-dark text-white">
@@ -103,7 +102,7 @@ const PaymentComplete = () => {
                                     maxWidth: "100%",
                                     width: "100%",
                                 }}
-                                value={`${orderNo}\n${firstname} ${lastname}\n${movieName}\n${date} | ${showTime}\n${selectedSeats}`}
+                                value={`${orderNo}\n${firstname} ${lastname}\n${movieName}\n${formattedDate} | ${showTime}\n${selectedSeats}`}
                                 viewBox={`0 0 256 256`}
                             />
                         </div>
@@ -117,7 +116,7 @@ const PaymentComplete = () => {
                             lastname={lastname}
                             movieName={movieName}
                             showTime={showTime}
-                            date={date}
+                            date={formattedDate}
                             selectedSeats={selectedSeats}
                         />
                     }

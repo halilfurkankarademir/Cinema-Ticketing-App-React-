@@ -234,6 +234,7 @@ const SeatSelection = () => {
     return (
         <div>
             <Navbar />
+            <img src={img} alt="" className="highQualityImg2"/>
             <div className="container-fluid selectSeatAll">
                 <div className="select-date-time container-fluid form-container bg-dark">
                     <h6>Date</h6>

@@ -171,7 +171,8 @@ const Payment = () => {
                 orderNo,
                 selectedSeats,
                 firstname,
-                lastname
+                lastname,
+                formattedDate
             },
         });
     };

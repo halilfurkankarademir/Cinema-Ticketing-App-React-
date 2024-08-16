@@ -95,7 +95,7 @@ const MovieDetail = () => {
         navigate(`/select-seat/${id}`, {
             state: {
                 movieName: movie.title,
-                img: movie.imageUrl,
+                img: movie.highImageUrl,
             },
         });
     };
@@ -115,6 +115,7 @@ const MovieDetail = () => {
                 <div className="movieDetailSection container-fluid">
                     <div>
                         <section className="movie-desc2">
+                            
                             <h2 style={{ color: "#55c1ff" }}>{movie.title}</h2>
 
                             <p style={{ fontWeight: "300" }}>

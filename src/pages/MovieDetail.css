@@ -58,7 +58,7 @@
 
 .trailer-embed {
     position: relative;
-    top: 19rem;
+    top: 21rem;
     margin-bottom: 100rem ;
     z-index: 1;
 }
@@ -100,7 +100,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    opacity: 0.5;
+    opacity: 0.6;
     object-fit: cover;
     height: 100vh;
   }

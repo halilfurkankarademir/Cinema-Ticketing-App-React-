@@ -9,11 +9,11 @@
 
 .selectSeatAll {
     width: 100%;
-    height: auto;
+    height: 70vh;
     position: relative;
     text-align: center;
     align-items: center;
-    bottom: 25rem;
+    bottom: 26rem;
     right: 15rem;
     margin-top: 18rem;
 }
@@ -105,6 +105,7 @@ li {
     top: 20rem;
     width: 20%;
     height: 55vh;
+    opacity: 0.8;
 }
 
 .custom-select {
@@ -130,6 +131,21 @@ li {
     position: relative;
     left: 0rem;
 }
+
+.highQualityImg2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 105%;
+    position: absolute;
+    top: 6rem;
+    right: 0;
+    opacity: 0.05;
+    filter: blur(1px);
+    object-fit: cover;
+    height: 100vh;
+  }
+
 
 @media only screen and (max-width: 600px) {
     .selectSeatAll{
