@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
-import toast, { Toaster } from "react-hot-toast";
 import { firestore, collection, getDocs } from "../firebase/firebase";
 import { useParams, useNavigate } from "react-router-dom";
 import "./MovieDetail.css";
@@ -158,7 +157,7 @@ const MovieDetail = () => {
                     </div>
                 </div>
             )}
-            <Toaster position="top-center"></Toaster>
+            
             <Footer></Footer>
         </div>
     );
