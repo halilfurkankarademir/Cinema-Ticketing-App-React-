@@ -138,12 +138,12 @@ li {
     margin-right: auto;
     width: 105%;
     position: absolute;
-    top: 6rem;
+    top: 0rem;
     right: 0;
     opacity: 0.05;
     filter: blur(1px);
     object-fit: cover;
-    height: 100vh;
+    height: 110vh;
   }
 
 
