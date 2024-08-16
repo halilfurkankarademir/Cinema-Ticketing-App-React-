@@ -22,7 +22,8 @@ const Dashboard = () => {
     const [types, setTypes] = useState(["", "", ""]);
     const [durations, setDurations] = useState(["", "", ""]);
     const navigate = useNavigate();
-    const {userLoggedIn} = useAuth();
+    const {userLoggedIn,currentUser} = useAuth();
+
 
    
 
@@ -45,7 +46,7 @@ const Dashboard = () => {
                 const moviesSnap = await getDocs(moviesCollectionRef);
                 setVisionMovieCount(moviesSnap.size || 0);
 
-                // Fetch carousel data
+              
                 const carouselDocRef = doc(firestore, "carouselimages", "carouselDocId");
                 const carouselSnap = await getDoc(carouselDocRef);
                 if (carouselSnap.exists()) {
