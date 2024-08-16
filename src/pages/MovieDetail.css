@@ -97,11 +97,11 @@
     margin-right: auto;
     width: 105%;
     position: absolute;
-    top: 0;
+    top: -2rem;
     right: 0;
     opacity: 0.6;
     object-fit: cover;
-    height: 100vh;
+    height: 105vh;
 }
 
 /* Orta ekranlar için (600px - 768px) */
