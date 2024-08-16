@@ -179,6 +179,7 @@ const SeatSelection = () => {
     }, [reservedSeats]);
 
     const handleSeatClick = (seatNumber) => {
+        if(selectedDate!==null && showTime !== ''){
         setSelectedSeats((prevSelectedSeats) => {
             const newSelectedSeats = prevSelectedSeats.includes(seatNumber)
                 ? prevSelectedSeats.filter((seat) => seat !== seatNumber)
@@ -186,6 +187,10 @@ const SeatSelection = () => {
             setTicketCount(newSelectedSeats.length);
             return newSelectedSeats;
         });
+         }
+         else{
+            toast.error('Select date and session first!')
+         }
     };
 
     const handlePayment = () => {

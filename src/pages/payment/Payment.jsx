@@ -186,7 +186,7 @@ const Payment = () => {
                 showTime: showtime,
                 name : firstname + " " + lastname,
                 email : email,
-                date : selectedDate
+                date : date
             });
         } catch (error) {
             console.error("Error reserving seats: ", error);
