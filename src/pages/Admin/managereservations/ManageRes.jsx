@@ -64,7 +64,7 @@ const ManageRes = () => {
                                 <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Name</th>
                                 <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Movie</th>
                                 <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Seats</th>
-                                <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Date</th>
+                                {/* <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Date</th> */}
                                 <th scope="col" className="bg-dark" style={{color:'#0095FF'}}>Show Time</th>
                             </tr>
                         </thead>
@@ -74,7 +74,7 @@ const ManageRes = () => {
                                     <td className="bg-dark text-white">{reservation.name}</td>
                                     <td className="bg-dark text-white">{reservation.movieName}</td>
                                     <td className="bg-dark text-white">{reservation.seats.join(", ")}</td>
-                                    <td className="bg-dark text-white">{reservation.date}</td>
+                                    {/* <td className="bg-dark text-white">{reservation.date}</td>  */}
                                     <td className="bg-dark text-white">{reservation.showTime}</td>
                                 </tr>
                             ))}

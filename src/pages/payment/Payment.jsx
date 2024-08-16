@@ -183,10 +183,10 @@ const Payment = () => {
             const seatRef = await addDoc(collection(firestore, 'reservations'), {
                 seats :seats,
                 movieName: movieName,
-                showTime: showTime,
+                showTime: showtime,
                 name : firstname + " " + lastname,
                 email : email,
-                date : date
+                date : selectedDate
             });
         } catch (error) {
             console.error("Error reserving seats: ", error);
