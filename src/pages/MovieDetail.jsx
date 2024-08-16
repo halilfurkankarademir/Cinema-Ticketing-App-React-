@@ -114,7 +114,10 @@ const MovieDetail = () => {
     const closeTrailer = (e) => {
         if (e.target.id === 'trailerSection') {
             const trailer = document.getElementById('trailerSection');
+            const iframe = trailer.querySelector('iframe');
             trailer.style.display = 'none';
+            iframe.src='';
+            iframe.src=movie.trailer;
         }
     }
 
