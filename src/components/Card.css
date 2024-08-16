@@ -2,16 +2,15 @@
 .card{
     background-color: #715aff !important;
     color: whitesmoke;
-    width: 12rem !important;
+    max-width: 15rem !important;
     height: 20rem;
-    font-size: 0.7rem;
     outline: none;
     border: none;
     position: relative;
     top: 2rem;
-    left: 2rem;
-    margin-bottom: 2rem !important; 
-    margin-right: 6rem !important;
+    left: 1rem !important;
+    margin-bottom: 2rem !important;
+    margin: 0;
     overflow: hidden;
     cursor: pointer;
 }

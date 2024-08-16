@@ -133,7 +133,7 @@
         width: 100%;
         height: 100vh;
         background: #121212;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         color: #d9d9d9;
@@ -156,6 +156,7 @@
     .campaignForm{
         height: 70vh;
         padding: 3rem !important;
+        margin-top: 1rem;
     }
     .cardpng{
         position: relative;

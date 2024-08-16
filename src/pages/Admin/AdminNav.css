@@ -6,6 +6,8 @@
     z-index: 11;
 }
 .NavmenuAdmin a{
+    position: relative;
+    top: 0.3rem;
     justify-content: space-between;
     margin-right: 2rem ;
     color: whitesmoke;
@@ -19,5 +21,4 @@
 .signOutButton{
     position: relative;
     left: 38rem;
-    bottom: 0.5rem;
 }

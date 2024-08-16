@@ -180,7 +180,7 @@ const HomePage = () => {
                     ))}
                 </Slider>
                 </div>
-                <div className="container-fluid campaignSection">
+                <div className="container-fluid campaignSection mt-5">
                     <h2 style={{ color: "#55C1FF" }}>
                         <i className="bi bi-tag"></i> Campaigns{" "}
                     </h2>
