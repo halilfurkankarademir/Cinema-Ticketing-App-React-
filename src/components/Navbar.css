@@ -134,11 +134,12 @@
     }
     .Navmenu {
         position: fixed;
-        top: 2.8rem;
+        top: 2.6rem;
         left: 30rem;
     }
     .Navmenu a {
         position: relative;
         right: 3rem;
+        
     }
 }
