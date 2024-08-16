@@ -30,7 +30,7 @@ const EditMovie = () => {
                     setDescription(movieData.description);
                     setSeance(movieData.seances.join(", "));
                     setImage(movieData.imageUrl);
-                    setHighImg(movieData.HighImageUrl);
+                    setHighImg(movieData.highImageUrl);
                     setDuration(movieData.duration);
                     setCast(movieData.cast);
                     setType(movieData.type);
