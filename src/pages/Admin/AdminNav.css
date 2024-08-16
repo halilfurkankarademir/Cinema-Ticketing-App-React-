@@ -1,24 +1,36 @@
-.NavmenuAdmin{
+.NavmenuAdmin {
     position: fixed;
     display: flex;
     top: 2.4rem;
     left: 12rem;
     z-index: 11;
 }
-.NavmenuAdmin a{
+.NavmenuAdmin a {
     position: relative;
-    top: 0.5rem;
+    top: 0.3rem;
+    left: 20rem;
     justify-content: space-between;
-    margin-right: 2rem ;
+    margin-right: 2rem;
     color: whitesmoke;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
-.NavmenuAdmin a:hover{
-    color: #FF007A;
+.NavmenuAdmin a:hover {
+    color: #ff007a;
 }
-.signOutButton{
+.signOutButton {
     position: relative;
-    left: 38rem;
+    left: 33rem;
+    bottom: 0.2rem;
+}
+.brandAdmin h2 {
+    position: relative;
+    font-size: 1.5rem;
+    width: 8rem;
+    height: 4rem !important;
+    left: 2rem;
+    top: 1rem;
+    letter-spacing: -2px;
+    cursor: pointer;
 }

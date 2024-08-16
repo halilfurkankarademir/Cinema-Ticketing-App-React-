@@ -9,7 +9,9 @@ import {
     setDoc,
 } from "../../firebase/firebase";
 import toast, { Toaster } from "react-hot-toast";
+import { useAuth } from "../../context/auth";
 import "./Dashboard.css";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
     const [totalRevenue, setTotalRevenue] = useState(0);
@@ -19,6 +21,10 @@ const Dashboard = () => {
     const [titles, setTitles] = useState(["", "", ""]);
     const [types, setTypes] = useState(["", "", ""]);
     const [durations, setDurations] = useState(["", "", ""]);
+    const navigate = useNavigate();
+    const {userLoggedIn} = useAuth();
+
+   
 
     useEffect(() => {
         const fetchData = async () => {
@@ -55,7 +61,9 @@ const Dashboard = () => {
                 console.error("Error fetching data: ", error);
             }
         };
-
+        if(!userLoggedIn){
+            navigate('/login')
+        }
         document.title = "CineWave | Admin";
         fetchData();
     }, []);
@@ -107,6 +115,8 @@ const Dashboard = () => {
         newDurations[index] = value;
         setDurations(newDurations);
     };
+
+
 
     return (
         <div>

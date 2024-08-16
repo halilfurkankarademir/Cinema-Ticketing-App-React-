@@ -19,7 +19,7 @@ const Navbar = () => {
     return (
         <div>
             <div className="navbar bg-transparent">
-                <div className="brand" onClick={logo}>
+                <div className="brandAdmin" onClick={logo}>
                     <h2>CineWave</h2>
                 </div>
             </div>
@@ -38,7 +38,7 @@ const Navbar = () => {
                 <Link to="/admin/reservations">
                     Reservations
                 </Link>
-                <button onClick={signOut} className="btn btn-light signOutButton">Sign Out</button>
+                <button onClick={signOut} className="btn btn-light signOutButton"><i class="bi bi-box-arrow-right"></i></button>
             </div>
         </div>
     );
