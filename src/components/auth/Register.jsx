@@ -17,6 +17,7 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [isRegistering, setIsRegistering] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [role, setRole] = useState('user');
     const { userLoggedIn } = useAuth();
 
     const createUserProfile = async (user) => {
@@ -25,6 +26,7 @@ const Register = () => {
 
         const userProfileData = {
             email: user.email,
+            role: role,
             createdAt: new Date(),
             // Diğer veriler
         };
@@ -42,7 +44,7 @@ const Register = () => {
                     const user = userCredential.user;
                     await createUserProfile(user);
                     toast.success('Registration successful!');
-                    navigate('/'); // Başarılı kayıt sonrası yönlendirme
+                    navigate('/');
                 } catch (error) {
                     toast.error('Registration failed. Please try again.');
                     console.error('Error registering new user:', error);
