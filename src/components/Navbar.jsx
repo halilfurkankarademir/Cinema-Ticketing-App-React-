@@ -69,7 +69,7 @@ const Navbar = () => {
                 <Link to="/contact">
                     Contact
                 </Link>
-                <Link to="/login">
+                <Link to="/profile">
                     <i className="bi bi-person-fill"></i>
                 </Link>
                 {
