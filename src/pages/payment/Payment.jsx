@@ -189,6 +189,7 @@ const Payment = () => {
         await updateSoldTicketCount();
         await updateTotalSoldTickets();
         reserveSeats(movieName,showTime,selectedSeats,formattedDate);
+        addTicketToUser(movieName,showTime,selectedSeats,formattedDate);
 
         navigate("/paymentcomplete", {
             state: {
@@ -217,6 +218,25 @@ const Payment = () => {
                 email : email,
                 date : date
             });
+        } catch (error) {
+            console.error("Error reserving seats: ", error);
+        }
+    };
+
+    const addTicketToUser = async (movieName, showtime, seats, date) => {
+        if (!currentUser) {
+            console.error("No current user found");
+            return;
+        }
+        
+        try {
+            const ticketRef = await addDoc(collection(firestore, 'users', currentUser.uid, 'tickets'), {
+                seats: seats,
+                movieName: movieName,
+                showTime: showtime,
+                date: date
+            });
+            console.log("Ticket added with ID:", ticketRef.id);
         } catch (error) {
             console.error("Error reserving seats: ", error);
         }
