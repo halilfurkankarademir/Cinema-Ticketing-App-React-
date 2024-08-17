@@ -39,7 +39,7 @@ const Login = () => {
             <main className="login-container">
                 <div className="login-wrapper">
                     <div className="login-header">
-                        <h3>Welcome Back</h3>
+                        <h3 style={{color:'#55c1ff'}}>Login</h3>
                     </div>
                     <form onSubmit={onSubmit} className="login-form">
                         <div>
@@ -50,7 +50,7 @@ const Login = () => {
                                 required
                                 value={email}
                                 onChange={(e) => { setEmail(e.target.value); }}
-                                className="login-form-input"
+                                className="login-form-input bg-dark text-white border-0"
                             />
                         </div>
                         <div>
@@ -61,7 +61,7 @@ const Login = () => {
                                 required
                                 value={password}
                                 onChange={(e) => { setPassword(e.target.value); }}
-                                className="login-form-input"
+                                className="login-form-input bg-dark text-white border-0"
                             />
                         </div>
                         {errorMessage && (
