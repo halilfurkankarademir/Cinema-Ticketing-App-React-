@@ -137,6 +137,7 @@ const HomePage = () => {
                                 img={movie.imageUrl}
                                 movieId={movie.id}
                                 type={movie.type}
+                                agelimit={movie.agelimit}
                             />
                         </div>
                     ))}

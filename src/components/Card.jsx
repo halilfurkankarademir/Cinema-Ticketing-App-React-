@@ -1,8 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { MdFamilyRestroom } from "react-icons/md";
 import "./Card.css";
 
-const Card = ({ title, desc, img, movieId , type}) => {
+const Card = ({ title, img, movieId , type}) => {
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -14,7 +15,7 @@ const Card = ({ title, desc, img, movieId , type}) => {
             <img src={img} className="card-img-top" alt={title} />
             <div className="card-body">
                 <h3 className="card-title" style={{fontWeight:'600'}} >{title}</h3>
-                <p>{type}</p>
+                <p><i class="bi bi-camera-reels-fill"></i> {type}</p>
             </div>
         </div>
     );
