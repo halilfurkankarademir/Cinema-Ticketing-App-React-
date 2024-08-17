@@ -5,3 +5,10 @@
     flex-direction: column;
     height: 100vh;
 }
+.profile-form{
+    width: 50%;
+    height: 60vh;
+}
+.profile-button{
+    margin-right: 2rem;
+}

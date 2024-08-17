@@ -10,6 +10,7 @@ import "./Profile.css";
 const Profile = () => {
     const { currentUser, userLoggedIn } = useAuth();
     const [name, setName] = useState("");
+    const [tel, setTel] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -30,6 +31,7 @@ const Profile = () => {
                 if (userDoc.exists()) {
                     const data = userDoc.data();
                     setName(data.fullname || "");
+                    setTel(data.tel || "");
                 } else {
                     console.error("No such document!");
                 }
@@ -74,6 +76,7 @@ const Profile = () => {
                 userDocRef,
                 {
                     fullname: name,
+                    tel:tel,
                 },
                 { merge: true }
             );
@@ -95,13 +98,15 @@ const Profile = () => {
         return null;
     }
 
+    console.log(tel);
+
     return (
         <div>
             <Navbar />
             <div className="container-fluid profile-page">
-                <form className="form-container" onSubmit={handleSubmit} style={{backgroundColor:'#171a1d'}}>
-                    <h4 className="text-center mb-4">Profile Settings</h4>
-                    <label htmlFor="name">Full Name</label>
+                <form className="form-container profile-form" onSubmit={handleSubmit} style={{backgroundColor:'#171a1d'}}>
+                    <h4 className="text-center mb-4" style={{color: "#55c1ff"}}> <i class="bi bi-person-badge"></i> Profile Settings</h4>
+                    <label htmlFor="name" className="mb-2">Full Name</label>
                     <input
                         type="text"
                         name="name"
@@ -109,7 +114,7 @@ const Profile = () => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email" className="mb-2">Email</label>
                     <input
                         type="text"
                         name="email"
@@ -117,22 +122,30 @@ const Profile = () => {
                         value={currentUser.email}
                         disabled
                     />
+                    <label htmlFor="phone" className="mb-2">Phone Number</label>
+                    <input
+                        type="tel"
+                        name="phone"
+                        className="form-control mb-4 bg-dark text-white border-0"
+                        value={tel}
+                        onChange={(e) => setTel(e.target.value)}
+                    />
                     <button
-                        className="btn btn-dark"
+                        className="btn btn-dark profile-button"
                         type="submit"
                         disabled={loading}
                     >
                         {loading ? "Saving..." : "Save Changes"}
                     </button>
                     <button
-                        className="btn btn-dark mt-2"
+                        className="btn btn-dark profile-button"
                         type="button"
                         onClick={handlePasswordReset}
                     >
                         Reset Password
                     </button>
                     <button
-                        className="btn btn-danger mt-2"
+                        className="btn btn-danger profile-button"
                         type="button"
                         onClick={signOutFunc}
                     >
