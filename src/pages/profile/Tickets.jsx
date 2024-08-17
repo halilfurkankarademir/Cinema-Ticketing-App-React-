@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import { useAuth } from '../../context/auth';
 import { firestore, collection, getDocs } from '../../firebase/firebase';
+import './Tickets.css'; 
 
 const Tickets = () => {
     const { currentUser } = useAuth();
@@ -31,22 +32,36 @@ const Tickets = () => {
     return (
         <div>
             <Navbar />
-            <div className='container-fluid'>
-                <h1>My Tickets</h1>
-                <ul>
-                    {tickets.length > 0 ? (
-                        tickets.map((ticket) => (
-                            <li key={ticket.id}>
-                                <p>Movie: {ticket.movieName}</p>
-                                <p>Showtime: {ticket.showTime}</p>
-                                <p>Seats: {ticket.seats.join(", ")}</p>
-                                <p>Date: {ticket.date}</p>
-                            </li>
-                        ))
-                    ) : (
-                        <p>No tickets available.</p>
-                    )}
-                </ul>
+            <div className='container-fluid justify-content-center align-content-center'>
+                <h3>My Tickets</h3>
+                <div className='table-responsive ticketTable'>
+                    <table className='table'>
+                        <thead>
+                            <tr>
+                                <th style={{backgroundColor:''}}>Movie</th>
+                                <th>Showtime</th>
+                                <th>Seats</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {tickets.length > 0 ? (
+                                tickets.map((ticket) => (
+                                    <tr key={ticket.id}>
+                                        <td>{ticket.movieName}</td>
+                                        <td>{ticket.showTime}</td>
+                                        <td>{ticket.seats.join(", ")}</td>
+                                        <td>{ticket.date}</td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan="4" className='text-center'>No tickets available.</td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );
