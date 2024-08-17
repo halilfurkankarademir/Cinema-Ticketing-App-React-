@@ -145,7 +145,7 @@ const Profile = () => {
                         Reset Password
                     </button>
                     <button
-                        className="btn btn-danger profile-button"
+                        className="btn btn-danger profile-button2"
                         type="button"
                         onClick={signOutFunc}
                     >
@@ -156,7 +156,7 @@ const Profile = () => {
             <Toaster
                 position="top-center"
                 reverseOrder={true}
-                />s
+            />
         </div>
     );
 };

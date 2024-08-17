@@ -74,7 +74,7 @@ const Navbar = () => {
                 </Link>
                 {
                     userLoggedIn && isAdmin && (
-                        <Link to='/admin' className="adminButton">
+                        <Link to='/admin' className="adminButton" title="Admin panel">
                            <i className="bi bi-gear-fill"></i>
                         </Link>
                     )

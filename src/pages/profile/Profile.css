@@ -6,9 +6,15 @@
     height: 100vh;
 }
 .profile-form{
+    margin-top: 5rem;
     width: 50%;
     height: 60vh;
 }
 .profile-button{
     margin-right: 2rem;
+    margin-top: 2rem;
+}
+.profile-button2{
+    margin-top: 2rem;
+    margin-left: 16.2rem;
 }
