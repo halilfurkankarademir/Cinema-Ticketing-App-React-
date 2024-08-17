@@ -8,7 +8,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import './AddMovie.css';
 
 const AdminPanel = () => {
-    const { currentUser, userLoggedIn } = useAuth();
+    const { currentUser, userLoggedIn,isAdmin } = useAuth();
     const navigate = useNavigate();
     document.title = "CineWave | Add Vision Movies";
     
@@ -74,7 +74,7 @@ const AdminPanel = () => {
         }
     };
 
-    if (!userLoggedIn) {
+    if (!userLoggedIn || !isAdmin) {
         return <Navigate to="/login" />;
     }
 

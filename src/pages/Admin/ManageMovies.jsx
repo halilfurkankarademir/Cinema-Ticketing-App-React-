@@ -14,7 +14,7 @@ import AdminNav from "./AdminNav";
 import "./ManageMovies.css";
 
 const AdminPanel = () => {
-    const { currentUser, userLoggedIn } = useAuth();
+    const { currentUser, userLoggedIn , isAdmin} = useAuth();
     const [movies, setMovies] = useState([]);
     const [upcomingMovies, setUpcomingMovies] = useState([]);
     const navigate = useNavigate();
@@ -86,7 +86,7 @@ const AdminPanel = () => {
         }
     };
 
-    if (!userLoggedIn) {
+    if (!userLoggedIn || !isAdmin) {
         return <Navigate to="/login" />;
     }
 

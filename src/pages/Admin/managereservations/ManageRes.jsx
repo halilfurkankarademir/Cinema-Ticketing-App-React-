@@ -14,12 +14,12 @@ import AdminNav from "../AdminNav";
 import "./ManageRes.css";
 
 const ManageRes = () => {
-    const { currentUser, userLoggedIn } = useAuth();
+    const { currentUser, userLoggedIn,isAdmin } = useAuth();
     const [reservations, setReservations] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!userLoggedIn) {
+        if (!userLoggedIn || !isAdmin) {
             navigate("/login");
         } else {
             const fetchReservations = async () => {

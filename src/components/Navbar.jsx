@@ -22,7 +22,7 @@ const Navbar = () => {
     
     const [toggleSidebar, setToggleSidebar] = useState(false);
 
-    const { currentUser, userLoggedIn } = useAuth();
+    const { currentUser, userLoggedIn, isAdmin } = useAuth();
 
     const navigate = useNavigate();
 
@@ -73,7 +73,7 @@ const Navbar = () => {
                     <i className="bi bi-person-fill"></i>
                 </Link>
                 {
-                    userLoggedIn && (
+                    userLoggedIn && isAdmin && (
                         <Link to='/admin' className="adminButton">
                            <i className="bi bi-gear-fill"></i>
                         </Link>

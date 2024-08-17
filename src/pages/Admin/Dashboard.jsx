@@ -23,43 +23,16 @@ const Dashboard = () => {
     const [durations, setDurations] = useState(["", "", ""]);
     const [role, setRole] = useState('');
     const navigate = useNavigate();
-    const { userLoggedIn, currentUser } = useAuth();
-
-    // Kullanıcı profili verilerini alma fonksiyonu
-    const getUserProfile = async (userId) => {
-        const db = firestore;
-        const userDocRef = doc(db, `users/${userId}`);
-        const userDoc = await getDoc(userDocRef);
-        
-        if (userDoc.exists()) {
-            return userDoc.data(); // Profil verilerini döndür
-        } else {
-            throw new Error('No such document!');
-        }
-    };
+    const { userLoggedIn, currentUser,isAdmin} = useAuth();
 
     useEffect(() => {
         const fetchData = async () => {
-            if (!userLoggedIn) {
+            if (!userLoggedIn || !isAdmin) {
                 navigate('/login');
                 return;
             }
-            if (currentUser) {
-                try {
-                    const profile = await getUserProfile(currentUser.uid);
-                    setRole(profile.role); // Kullanıcının rolünü ayarla
-                } catch (error) {
-                    console.error("Error fetching user profile: ", error);
-                    navigate('/login'); // Profil alınamazsa yönlendir
-                    return;
-                }
-            }
-            if (role !== 'admin') {
-                navigate('/'); // Yönetici değilse anasayfaya yönlendir
-                return;
-            }
 
-            // Diğer verileri al
+            
             try {
                 const revenueDocRef = doc(firestore, "datas", "totalRevenueDocId");
                 const revenueSnap = await getDoc(revenueDocRef);

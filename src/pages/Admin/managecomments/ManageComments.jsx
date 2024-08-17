@@ -14,12 +14,12 @@ import AdminNav from "../AdminNav";
 import "./ManageComments.css";
 
 const ManageComments = () => {
-    const { currentUser, userLoggedIn } = useAuth();
+    const { currentUser, userLoggedIn,isAdmin } = useAuth();
     const [comments, setComments] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!userLoggedIn) {
+        if (!userLoggedIn || !isAdmin) {
             navigate("/login");
         } else {
             const fetchComments = async () => {

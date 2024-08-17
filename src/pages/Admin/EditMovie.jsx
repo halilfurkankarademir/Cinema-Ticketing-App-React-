@@ -4,6 +4,7 @@ import { firestore, doc, getDoc, updateDoc } from "../../firebase/firebase";
 import toast, { Toaster } from "react-hot-toast";
 import AdminNav from "./AdminNav";
 import "./EditMovie.css";
+import { useAuth } from "../../context/auth";
 
 const EditMovie = () => {
     const { id } = useParams();
@@ -20,6 +21,12 @@ const EditMovie = () => {
     const [date, setDate] = useState("");
     const [agelimit,setAgeLimit] = useState('');
     const [trailer, setTrailer] = useState("");
+    const {userLoggedIn , isAdmin } = useAuth();
+
+    if (!userLoggedIn || !isAdmin) {
+        navigate("/login");
+    }
+
 
     useEffect(() => {
         const fetchMovie = async () => {
