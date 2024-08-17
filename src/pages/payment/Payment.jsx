@@ -78,7 +78,8 @@ const Payment = () => {
                 const userDoc = await getDoc(userDocRef);
                 if (userDoc.exists()) {
                     const data = userDoc.data();
-                    setName(data.fullname || "");
+                    setFirstName(data.firstname || "");
+                    setLastName(data.lastname || "");
                     setEmail(data.email || "");
                 } else {
                     console.error("No such document!");
@@ -303,6 +304,7 @@ const Payment = () => {
                                             className="form-control bg-dark text-white border-0"
                                             id="firstName"
                                             placeholder=""
+                                            value={firstname}
                                             required
                                             onChange={(e)=>setFirstName(e.target.value)}
                                         />
@@ -323,6 +325,7 @@ const Payment = () => {
                                             className="form-control bg-dark text-white border-0"
                                             id="lastName"
                                             placeholder=""
+                                            value={lastname}
                                             required
                                             onChange={(e)=>setLastName(e.target.value)}
                                         />
@@ -344,6 +347,7 @@ const Payment = () => {
                                             className="form-control bg-dark text-white border-0"
                                             id="email"
                                             placeholder="you@example.com"
+                                            value={email}
                                             required
                                             onChange={(e)=>setEmail(e.target.value)}
                                         />
