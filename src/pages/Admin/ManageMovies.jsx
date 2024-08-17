@@ -136,7 +136,7 @@ const AdminPanel = () => {
                                     <td className="text-white"  style={{backgroundColor:'#171a1d'}}>{movie.type}</td>
                                     <td className="text-white"  style={{backgroundColor:'#171a1d'}}>{movie.date}</td>
                                     <td className="text-white"  style={{backgroundColor:'#171a1d'}}>
-                                        <button className="btn btn-danger mb-4" onClick={deleteMovie}>Delete</button>
+                                        <button className="btn btn-danger mb-4" onClick={()=>deleteMovie(movie.id)}>Delete</button>
                                         <Link to={`/edit-movie/${movie.id}`}><button className="btn btn-dark" style={{width:'4.7rem'}}>Edit</button></Link>
                                     </td>
                                     
@@ -171,7 +171,7 @@ const AdminPanel = () => {
                                     <td className="text-white" style={{backgroundColor:'#171a1d'}}>{movie.type}</td>
                                     <td className="text-white" style={{backgroundColor:'#171a1d'}}>{movie.date}</td>
                                     <td className="text-white" style={{backgroundColor:'#171a1d'}}>
-                                        <button className="btn btn-danger" onClick={deleteMovie}>Delete</button>
+                                        <button className="btn btn-danger" onClick={()=>deleteMovie(movie.id)}>Delete</button>
                                     </td>
                                     
                                 </tr>
