@@ -25,7 +25,7 @@ const MovieDetail = () => {
         pauseOnHover: false,
         arrows: false,
         autoplay: true,
-        autoplaySpeed: 10000,
+        autoplaySpeed: 8000,
         responsive: [
             {
               breakpoint: 1024,
@@ -212,6 +212,12 @@ const MovieDetail = () => {
                             <p style={{ fontWeight: "300" }}>
                                 <i className="bi bi-people-fill"></i>&nbsp;{" "}
                                 {movie.cast}
+                            </p>
+                            <p
+                                style={{ fontWeight: "300", cursor: "pointer" }}
+                            >
+                                <i className="bi bi-translate"></i>&nbsp;{" "}
+                                {movie.languages}
                             </p>
                             <p
                                 style={{ fontWeight: "300", cursor: "pointer" }}

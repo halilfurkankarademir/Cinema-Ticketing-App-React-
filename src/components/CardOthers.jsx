@@ -10,11 +10,8 @@ const Card = ({ title, desc, img, movieId , type}) => {
     };
 
     return (
-        <div className="card" onClick={handleClick} style={{height:'50vh'}}>
-            <img src={img} className="card-img-top" alt={title} />
-            <div className="card-body">
-                <h3 className="card-title" style={{fontWeight:'600'}} >{title}</h3>
-            </div>
+        <div className="d-flex justify-content-center align-content-center" onClick={handleClick} style={{height:'40vh'}}>
+            <img src={img} className="image-card" alt={title} style={{width:'70%',height:'45vh', cursor:'pointer'}} />
         </div>
     );
 };

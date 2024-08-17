@@ -20,6 +20,7 @@ const AdminPanel = () => {
     const [highImage, setHighImage] = useState('');
     const [duration, setDuration] = useState('');
     const [cast, setCast] = useState('');
+    const [languages, setLanguages] = useState('');
     const [type, setType] = useState('');
     const [date, setDate] = useState('');
     const [trailer, setTrailer] = useState('');
@@ -46,6 +47,7 @@ const AdminPanel = () => {
                 duration,
                 cast,
                 type,
+                languages,
                 date,
                 trailer,
                 createdAt: new Date()
@@ -61,6 +63,7 @@ const AdminPanel = () => {
             setType('');
             setDate('');
             setTrailer('');
+            setLanguages('');
             setHighImage('');
         } catch (e) {
             console.error("Error adding document: ", e);
@@ -159,6 +162,16 @@ const AdminPanel = () => {
                             type="text"
                             value={type}
                             onChange={(e) => setType(e.target.value)}
+                            className="bg-dark text-white border-0"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="type">Languages:</label>
+                        <input
+                            id="type"
+                            type="text"
+                            value={languages}
+                            onChange={(e) => setLanguages(e.target.value)}
                             className="bg-dark text-white border-0"
                         />
                     </div>
