@@ -24,6 +24,7 @@ const Dashboard = () => {
     const navigate = useNavigate();
     const {userLoggedIn,currentUser} = useAuth();
 
+    console.log(currentUser);
 
    
 
