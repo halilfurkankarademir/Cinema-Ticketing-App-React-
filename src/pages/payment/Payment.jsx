@@ -18,12 +18,15 @@ import {
 import "./Payment.css";
 import { toast, Toaster } from "react-hot-toast";
 import { getDocs } from "firebase/firestore/lite";
+import { useAuth } from "../../context/auth";
 
 const Payment = () => {
+    const {currentUser} = useAuth();
     const date = new Date().toDateString();
     const location = useLocation();
     const navigate = useNavigate();
     const [orderNo, setOrderNo] = useState("");
+    const [name,setName] = useState('');
     const [totalRevenue, setTotalRevenue] = useState(0);
     const [totalSoldTickets, setTotalSoldTickets] = useState(0);
     const [movieId, setMovieId] = useState("");
@@ -64,6 +67,31 @@ const Payment = () => {
             }
         }
     }, [movies, loading, error]);
+
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            if (!currentUser) return;
+
+            try {
+                const userDocRef = doc(firestore, "users", currentUser.uid);
+                const userDoc = await getDoc(userDocRef);
+                if (userDoc.exists()) {
+                    const data = userDoc.data();
+                    setName(data.fullname || "");
+                    setEmail(data.email || "");
+                } else {
+                    console.error("No such document!");
+                }
+            } catch (error) {
+                console.error("Error fetching user data: ", error);
+            }
+        };
+
+        if (currentUser) {
+            fetchUserData();
+        }
+    }, [currentUser]);
 
 
     useEffect(() => {

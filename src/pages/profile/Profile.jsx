@@ -9,7 +9,8 @@ import "./Profile.css";
 
 const Profile = () => {
     const { currentUser, userLoggedIn } = useAuth();
-    const [name, setName] = useState("");
+    const [firstname, setFirstName] = useState("");
+    const [lastname, setLastName] = useState("");
     const [tel, setTel] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -30,7 +31,8 @@ const Profile = () => {
                 const userDoc = await getDoc(userDocRef);
                 if (userDoc.exists()) {
                     const data = userDoc.data();
-                    setName(data.fullname || "");
+                    setFirstName(data.firstname || "");
+                    setLastName(data.lastname || "");
                     setTel(data.tel || "");
                 } else {
                     console.error("No such document!");
@@ -75,7 +77,8 @@ const Profile = () => {
             await setDoc(
                 userDocRef,
                 {
-                    fullname: name,
+                    firstname: firstname,
+                    lastname: lastname,
                     tel:tel,
                 },
                 { merge: true }
@@ -106,13 +109,21 @@ const Profile = () => {
             <div className="container-fluid profile-page">
                 <form className="form-container profile-form" onSubmit={handleSubmit} style={{backgroundColor:'#171a1d'}}>
                     <h4 className="text-center mb-4" style={{color: "#55c1ff"}}> <i class="bi bi-person-badge"></i> Profile Settings</h4>
-                    <label htmlFor="name" className="mb-2">Full Name</label>
+                    <label htmlFor="name" className="mb-2">First Name</label>
                     <input
                         type="text"
                         name="name"
                         className="form-control mb-4 bg-dark text-white border-0"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        value={firstname}
+                        onChange={(e) => setFirstName(e.target.value)}
+                    />
+                    <label htmlFor="name" className="mb-2">Last Name</label>
+                    <input
+                        type="text"
+                        name="name"
+                        className="form-control mb-4 bg-dark text-white border-0"
+                        value={lastname}
+                        onChange={(e) => setLastName(e.target.value)}
                     />
                     <label htmlFor="email" className="mb-2">Email</label>
                     <input
