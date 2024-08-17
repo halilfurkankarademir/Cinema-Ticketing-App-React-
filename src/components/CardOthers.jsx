@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Card.css";
 
-const Card = ({ title, desc, img, movieId , type}) => {
+const Card = ({ title, img, movieId }) => {
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -10,8 +10,9 @@ const Card = ({ title, desc, img, movieId , type}) => {
     };
 
     return (
-        <div className="d-flex justify-content-center align-content-center text-center" onClick={handleClick} style={{height:'40vh'}}>
-            <img src={img} className="image-card text-center" alt={title} style={{width:'70%',height:'45vh', cursor:'pointer'}} />
+        <div className="card-container text-center" onClick={handleClick} style={{height:'40vh', cursor:'pointer'}}>
+            <img src={img} className="image-card" alt={title} style={{width:'100%', height:'80%'}} />
+            <p style={{marginTop: '1rem'}}>{title}</p>
         </div>
     );
 };

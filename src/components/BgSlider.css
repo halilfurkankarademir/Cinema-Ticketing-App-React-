@@ -24,9 +24,9 @@
 @media only screen and (min-width: 768px) {
     .hero-slider {
         position: relative;
-        width: 130%;
+        width: 135%;
         top: -2rem;
-        right: 12rem;
+        right: 13rem;
         overflow: hidden;
         height: 125vh;
         z-index: -1;

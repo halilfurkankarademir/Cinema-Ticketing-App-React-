@@ -140,7 +140,7 @@ li {
     position: absolute;
     top: 0rem;
     right: 0;
-    opacity: 0.05;
+    opacity: 0.1;
     filter: blur(1px);
     object-fit: cover;
     height: 110vh;

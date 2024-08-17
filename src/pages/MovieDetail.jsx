@@ -6,6 +6,8 @@ import "./MovieDetail.css";
 import gsap from "gsap";
 import CardOthers from "../components/CardOthers";
 import Slider from "react-slick";
+import { MdFamilyRestroom } from "react-icons/md";
+
 
 const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
@@ -218,6 +220,12 @@ const MovieDetail = () => {
                             >
                                 <i className="bi bi-translate"></i>&nbsp;{" "}
                                 {movie.languages}
+                            </p>
+                            <p
+                            >
+                                <MdFamilyRestroom />
+                                &nbsp;{" "}
+                                {movie.agelimit}
                             </p>
                             <p
                                 style={{ fontWeight: "300", cursor: "pointer" }}

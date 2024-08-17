@@ -18,6 +18,7 @@ const EditMovie = () => {
     const [type, setType] = useState("");
     const [languages, setLanguages] = useState("");
     const [date, setDate] = useState("");
+    const [agelimit,setAgeLimit] = useState('');
     const [trailer, setTrailer] = useState("");
 
     useEffect(() => {
@@ -38,6 +39,7 @@ const EditMovie = () => {
                     setLanguages(movieData.languages);
                     setDate(movieData.date);
                     setTrailer(movieData.trailer);
+                    setAgeLimit(movieData.agelimit);
                 }
             } catch (error) {
                 console.error("Error fetching movie: ", error);
@@ -63,6 +65,7 @@ const EditMovie = () => {
                 type,
                 date,
                 trailer,
+                agelimit
             });
             navigate("/admin/manage");
         } catch (error) {
@@ -168,6 +171,16 @@ const EditMovie = () => {
                             type="text"
                             value={languages}
                             onChange={(e) => setLanguages(e.target.value)}
+                            className="bg-dark border-0 text-white"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="type">Age Limit:</label>
+                        <input
+                            id="type"
+                            type="text"
+                            value={agelimit}
+                            onChange={(e) => setAgeLimit(e.target.value)}
                             className="bg-dark border-0 text-white"
                         />
                     </div>

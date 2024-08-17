@@ -84,5 +84,22 @@
 .card:hover{
     transform: translateY(-10px);
 }
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.image-card {
+    width: 50% !important;
+    height: 35vh !important;
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+}
+.image-card:hover{
+    transform: scale(1.1);
+}
 
 }

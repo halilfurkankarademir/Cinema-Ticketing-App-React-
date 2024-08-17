@@ -7,7 +7,7 @@
 }
 .NavmenuAdmin a {
     position: relative;
-    top: 0.3rem;
+    top: 1.2rem;
     left: 20rem;
     justify-content: space-between;
     margin-right: 2rem;
@@ -22,7 +22,7 @@
 .signOutButton {
     position: relative;
     left: 33rem;
-    bottom: 0.2rem;
+    top: 1rem;
 }
 .brandAdmin h2 {
     position: relative;
