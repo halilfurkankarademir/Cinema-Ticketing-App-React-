@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import { useAuth } from "../../context/auth";
 import { firestore, doc, setDoc, getDoc } from "../../firebase/firebase";
-import {
-    doPasswordChange,
-    doPasswordReset,
-    doSignOut,
-} from "../../firebase/auth";
+import { doPasswordChange, doPasswordReset, doSignOut } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 
@@ -26,7 +22,7 @@ const Profile = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             if (!currentUser) return;
-            
+
             try {
                 const userDocRef = doc(firestore, "users", currentUser.uid);
                 const userDoc = await getDoc(userDocRef);
@@ -47,6 +43,8 @@ const Profile = () => {
     }, [currentUser]);
 
     const handlePasswordReset = async () => {
+        if (!currentUser || !currentUser.email) return;
+
         try {
             await doPasswordReset(currentUser.email);
             alert("Password reset email sent!");
@@ -56,14 +54,22 @@ const Profile = () => {
         }
     };
 
-    const signOutFunc = () => {
-        doSignOut();
+    const signOutFunc = async () => {
+        try {
+            await doSignOut();
+            navigate('/');
+        } catch (error) {
+            console.error("Error signing out:", error);
+            alert("Error signing out.");
+        }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
         try {
+            if (!currentUser) return; // Check if currentUser is available
+            
             const userDocRef = doc(firestore, "users", currentUser.uid);
             await setDoc(
                 userDocRef,
@@ -85,6 +91,11 @@ const Profile = () => {
             setLoading(false);
         }
     };
+
+    // Conditionally render based on userLoggedIn
+    if (!userLoggedIn) {
+        return null; // Optionally you can return a loading state or some message
+    }
 
     return (
         <div>
@@ -129,7 +140,11 @@ const Profile = () => {
                     >
                         Reset Password
                     </button>
-                    <button className="btn btn-danger" onClick={signOutFunc}>
+                    <button
+                        className="btn btn-danger mt-2"
+                        type="button"
+                        onClick={signOutFunc}
+                    >
                         Sign out
                     </button>
                 </form>
