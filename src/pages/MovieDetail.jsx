@@ -30,7 +30,7 @@ const MovieDetail = () => {
             {
               breakpoint: 1024,
               settings: {
-                slidesToShow: 3,
+                slidesToShow: 1,
                 slidesToScroll: 3,
                 infinite: true,
                 dots: true
@@ -242,7 +242,7 @@ const MovieDetail = () => {
                             </button>
                         </section>
                         <section className="others-section">
-                            <h5 style={{ color: "#55c1ff" }}>Other Movies</h5>
+                            <h5 style={{ color: "#55c1ff", marginBottom:'1rem' }}><i class="bi bi-collection-play"></i>&nbsp; Now playing</h5>
                             <Slider {...settings}>
                                 {movies.map((movie) => (
                                     <div className="card-slide" key={movie.id}>
