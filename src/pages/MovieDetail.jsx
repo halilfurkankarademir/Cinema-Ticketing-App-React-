@@ -4,16 +4,56 @@ import { firestore, collection, getDocs } from "../firebase/firebase";
 import { useParams, useNavigate } from "react-router-dom";
 import "./MovieDetail.css";
 import gsap from "gsap";
-import Footer from "./footer/Footer";
+import CardOthers from "../components/CardOthers";
+import Slider from "react-slick";
 
 const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
+    const [movies, setMovies] = useState(null);
     const [comments, setComments] = useState([]);
     const [ratingMovie, setRatingMovie] = useState(0);
     const { id } = useParams();
     const navigate = useNavigate();
 
     document.title = "CineWave | Movie Details";
+
+    const settings = {
+        infinite: true,
+        speed: 1000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        pauseOnHover: false,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 10000,
+        responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                initialSlide: 2
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ]
+    };
+
 
     const avgRating = () => {
         let totalRating = 0;
@@ -24,11 +64,27 @@ const MovieDetail = () => {
         });
 
         const averageRating =
-            numberOfRatings > 0 ? (totalRating / numberOfRatings).toString() : "No ratings yet";
+            numberOfRatings > 0
+                ? (totalRating / numberOfRatings).toFixed(1)
+                : "No ratings yet";
         setRatingMovie(averageRating);
     };
 
     useEffect(() => {
+        const fetchMovies = async () => {
+            try {
+                const moviesCollection = collection(firestore, "movies");
+                const movieSnapshot = await getDocs(moviesCollection);
+                const movieList = movieSnapshot.docs.map((doc) => ({
+                    ...doc.data(),
+                    id: doc.id,
+                }));
+                setMovies(movieList);
+            } catch (error) {
+                console.error("Error fetching movies: ", error);
+            }
+        };
+        
         const fetchMovie = async () => {
             try {
                 const moviesCollection = collection(firestore, "movies");
@@ -37,7 +93,6 @@ const MovieDetail = () => {
                     id: doc.id,
                     ...doc.data(),
                 }));
-                console.log(movieList.id);
 
                 console.log("Movie List:", movieList);
                 const selectedMovie = movieList.find(
@@ -53,29 +108,9 @@ const MovieDetail = () => {
                 console.error("Error fetching movie: ", error);
             }
         };
-        const fetchComments = async () => {
-            try {
-                const commentsCollection = collection(firestore, "ratings");
-                const commentSnapshot = await getDocs(commentsCollection);
-                const commentList = commentSnapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }));
-
-                console.log("Comment List:", commentList);
-
-                const selectedMovieComments = commentList.filter(
-                    (comment) => comment.movieId === id
-                );
-
-                setComments(selectedMovieComments);
-            } catch (error) {
-                console.error("Error fetching comments: ", error);
-            }
-        };
-        fetchComments();
+        fetchMovies();
         fetchMovie();
-    }, []);
+    }, [id]);
 
     useEffect(() => {
         avgRating();
@@ -90,10 +125,17 @@ const MovieDetail = () => {
         });
         gsap.from(".movie-desc2", {
             opacity: 0,
-            y:50,
+            y: 50,
             ease: "power4.inOut",
             duration: 2,
-            delay:1,
+            delay: 1,
+        });
+        gsap.from(".others-section", {
+            opacity: 0,
+            y: 50,
+            ease: "power4.inOut",
+            duration: 2,
+            delay: 1,
         });
     }, [movie]);
 
@@ -106,20 +148,20 @@ const MovieDetail = () => {
         });
     };
 
-    const handleTrailer = () =>{
-        const trailer = document.getElementById('trailerSection');
-        trailer.style.display='flex';
-    }
+    const handleTrailer = () => {
+        const trailer = document.getElementById("trailerSection");
+        trailer.style.display = "flex";
+    };
 
     const closeTrailer = (e) => {
-        if (e.target.id === 'trailerSection') {
-            const trailer = document.getElementById('trailerSection');
-            const iframe = trailer.querySelector('iframe');
-            trailer.style.display = 'none';
-            iframe.src='';
-            iframe.src=movie.trailer;
+        if (e.target.id === "trailerSection") {
+            const trailer = document.getElementById("trailerSection");
+            const iframe = trailer.querySelector("iframe");
+            trailer.style.display = "none";
+            iframe.src = "";
+            iframe.src = movie.trailer;
         }
-    }
+    };
 
     if (!movie) {
         return <p>Loading...</p>;
@@ -134,8 +176,13 @@ const MovieDetail = () => {
             <Navbar />
             {movie && (
                 <div className="movieDetailSection container-fluid">
-                    <div>
-                        <div className="trailer-section container-fluid" id="trailerSection" onClick={closeTrailer} style={{ display: 'none' }}>
+                    <div className="d-flex">
+                        <div
+                            className="trailer-section container-fluid"
+                            id="trailerSection"
+                            onClick={closeTrailer}
+                            style={{ display: "none" }}
+                        >
                             <div className="embed-responsive embed-responsive-16by9 trailer-embed text-center">
                                 <iframe
                                     width="840"
@@ -150,18 +197,29 @@ const MovieDetail = () => {
                             </div>
                         </div>
                         <section className="movie-desc2">
-                            
                             <h2 style={{ color: "#55c1ff" }}>{movie.title}</h2>
-
                             <p style={{ fontWeight: "300" }}>
                                 {movie.description}
                             </p>
                             <p style={{ fontWeight: "300" }}>
-                            <i className="bi bi-clock-fill"></i> &nbsp; {movie.duration}
+                                <i className="bi bi-clock-fill"></i> &nbsp;{" "}
+                                {movie.duration}
                             </p>
-                            <p style={{ fontWeight: "300" }}><i className="bi bi-camera-reels-fill"></i> &nbsp; {movie.type}</p>
-                            <p style={{ fontWeight: "300" }}><i className="bi bi-people-fill"></i>&nbsp; {movie.cast}</p>
-                            <p style={{ fontWeight: "300", cursor:'pointer' }} onClick={redicertRate}><i className="bi bi-star-half"></i>&nbsp; {ratingMovie}</p>
+                            <p style={{ fontWeight: "300" }}>
+                                <i className="bi bi-camera-reels-fill"></i>{" "}
+                                &nbsp; {movie.type}
+                            </p>
+                            <p style={{ fontWeight: "300" }}>
+                                <i className="bi bi-people-fill"></i>&nbsp;{" "}
+                                {movie.cast}
+                            </p>
+                            <p
+                                style={{ fontWeight: "300", cursor: "pointer" }}
+                                onClick={redicertRate}
+                            >
+                                <i className="bi bi-star-half"></i>&nbsp;{" "}
+                                {ratingMovie}
+                            </p>
                             <button
                                 className="btn btn-dark buyTicketBtn"
                                 onClick={handleBuyTicket}
@@ -171,10 +229,27 @@ const MovieDetail = () => {
                             <button
                                 className="btn btn-dark buyTicketBtn"
                                 onClick={handleTrailer}
-                                style={{marginLeft:'1rem', width:'50%'}}
+                                style={{ marginLeft: "1rem", width: "50%" }}
                             >
-                                <i className="bi bi-play-circle-fill"></i> Watch Trailer
+                                <i className="bi bi-play-circle-fill"></i> Watch
+                                Trailer
                             </button>
+                        </section>
+                        <section className="others-section">
+                            <h5 style={{ color: "#55c1ff" }}>Other Movies</h5>
+                            <Slider {...settings}>
+                                {movies.map((movie) => (
+                                    <div className="card-slide" key={movie.id}>
+                                        <CardOthers
+                                            title={movie.title}
+                                            desc={movie.description}
+                                            img={movie.imageUrl}
+                                            movieId={movie.id}
+                                            type={movie.type}
+                                        />
+                                    </div>
+                                ))}
+                            </Slider>
                         </section>
                         <img
                             src={movie.highImageUrl}

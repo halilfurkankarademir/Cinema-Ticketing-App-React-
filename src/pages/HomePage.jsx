@@ -4,7 +4,6 @@ import Card from "../components/Card";
 import CardComing from "../components/cardcoming/CardComing";
 import Footer from "./footer/Footer";
 import BgSliderMobile from "../components/BgSlider";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { firestore, collection, getDocs } from "../firebase/firebase";
 import { Link, useNavigate } from "react-router-dom";

@@ -35,23 +35,42 @@
 .movie-desc2 {
     font-size: 1rem;
     font-weight: 400;
-    width: 25%;
+    width: 50%;
     height: auto;
     z-index: 1;
     position: relative;
-    top: 10rem;
-    left: 3.7rem;
+    top: 8rem;
+    left: 8.5rem;
     background-color: #171a1d;
     border-radius: 10px;
     padding: 1.5rem;
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(2.2px);
     -webkit-backdrop-filter: blur(2.2px);
 }
-
+.others-section{
+    font-size: 1rem;
+    font-weight: 400;
+    width: 25%;
+    height: auto;
+    z-index: 1;
+    position: relative;
+    top: 8rem;
+    left: 8.5rem;
+    background-color: #171a1d;
+    border-radius: 10px;
+    padding: 2.5rem;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.2px);
+    -webkit-backdrop-filter: blur(2.2px);
+    margin-left: 5%;
+}
 .buyTicketBtn {
     width: 40%;
     height: 5vh;
