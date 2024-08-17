@@ -63,6 +63,10 @@ const Login = () => {
                         >
                             {isSigningIn ? 'Signing In...' : 'Sign In'}
                         </button>
+                        <div className="register-signup-link">
+                            Don't you have an account? {' '}
+                            <Link to={'/register'} className="register-signup-link">Register</Link>
+                        </div>
                     </form>
                 </div>
             </main>
