@@ -10,8 +10,8 @@ import {
 } from "../../firebase/firebase";
 import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../../context/auth";
-import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
+import "./Dashboard.css";
 
 const Dashboard = () => {
     const [totalRevenue, setTotalRevenue] = useState(0);
@@ -21,15 +21,45 @@ const Dashboard = () => {
     const [titles, setTitles] = useState(["", "", ""]);
     const [types, setTypes] = useState(["", "", ""]);
     const [durations, setDurations] = useState(["", "", ""]);
+    const [role, setRole] = useState('');
     const navigate = useNavigate();
-    const {userLoggedIn,currentUser} = useAuth();
+    const { userLoggedIn, currentUser } = useAuth();
 
-    console.log(currentUser);
-
-   
+    // Kullanıcı profili verilerini alma fonksiyonu
+    const getUserProfile = async (userId) => {
+        const db = firestore;
+        const userDocRef = doc(db, `users/${userId}`);
+        const userDoc = await getDoc(userDocRef);
+        
+        if (userDoc.exists()) {
+            return userDoc.data(); // Profil verilerini döndür
+        } else {
+            throw new Error('No such document!');
+        }
+    };
 
     useEffect(() => {
         const fetchData = async () => {
+            if (!userLoggedIn) {
+                navigate('/login');
+                return;
+            }
+            if (currentUser) {
+                try {
+                    const profile = await getUserProfile(currentUser.uid);
+                    setRole(profile.role); // Kullanıcının rolünü ayarla
+                } catch (error) {
+                    console.error("Error fetching user profile: ", error);
+                    navigate('/login'); // Profil alınamazsa yönlendir
+                    return;
+                }
+            }
+            if (role !== 'admin') {
+                navigate('/'); // Yönetici değilse anasayfaya yönlendir
+                return;
+            }
+
+            // Diğer verileri al
             try {
                 const revenueDocRef = doc(firestore, "datas", "totalRevenueDocId");
                 const revenueSnap = await getDoc(revenueDocRef);
@@ -47,7 +77,6 @@ const Dashboard = () => {
                 const moviesSnap = await getDocs(moviesCollectionRef);
                 setVisionMovieCount(moviesSnap.size || 0);
 
-              
                 const carouselDocRef = doc(firestore, "carouselimages", "carouselDocId");
                 const carouselSnap = await getDoc(carouselDocRef);
                 if (carouselSnap.exists()) {
@@ -63,12 +92,10 @@ const Dashboard = () => {
                 console.error("Error fetching data: ", error);
             }
         };
-        if(!userLoggedIn){
-            navigate('/login')
-        }
+
         document.title = "CineWave | Admin";
         fetchData();
-    }, []);
+    }, [userLoggedIn, currentUser, role, navigate]);
 
     const addCarousel = async (e) => {
         e.preventDefault();
@@ -118,11 +145,9 @@ const Dashboard = () => {
         setDurations(newDurations);
     };
 
-
-
     return (
         <div>
-            <Toaster position="top-center"></Toaster>
+            <Toaster position="top-center" />
             <AdminNav />
             <br /> <br /> <br /> <br /> <br /> <br />
             <h1 style={{position:'relative', left:'8rem', fontSize:'150%'}}>Admin Dashboard</h1>

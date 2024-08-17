@@ -28,7 +28,6 @@ const Register = () => {
             email: user.email,
             role: role,
             createdAt: new Date(),
-            // Diğer veriler
         };
 
         await setDoc(userDocRef, userProfileData);
