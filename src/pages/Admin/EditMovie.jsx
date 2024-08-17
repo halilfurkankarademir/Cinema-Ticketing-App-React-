@@ -16,6 +16,7 @@ const EditMovie = () => {
     const [duration, setDuration] = useState("");
     const [cast, setCast] = useState("");
     const [type, setType] = useState("");
+    const [languages, setLanguages] = useState("");
     const [date, setDate] = useState("");
     const [trailer, setTrailer] = useState("");
 
@@ -34,6 +35,7 @@ const EditMovie = () => {
                     setDuration(movieData.duration);
                     setCast(movieData.cast);
                     setType(movieData.type);
+                    setLanguages(movieData.languages);
                     setDate(movieData.date);
                     setTrailer(movieData.trailer);
                 }
@@ -156,6 +158,16 @@ const EditMovie = () => {
                             type="text"
                             value={type}
                             onChange={(e) => setType(e.target.value)}
+                            className="bg-dark border-0 text-white"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="type">Languages:</label>
+                        <input
+                            id="type"
+                            type="text"
+                            value={languages}
+                            onChange={(e) => setLanguages(e.target.value)}
                             className="bg-dark border-0 text-white"
                         />
                     </div>
