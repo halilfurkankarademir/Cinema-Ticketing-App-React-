@@ -6,6 +6,7 @@ import { doPasswordChange, doPasswordReset, doSignOut } from "../../firebase/aut
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
 import "./Profile.css";
+import Tickets from "./Tickets";
 
 const Profile = () => {
     const { currentUser, userLoggedIn } = useAuth();
@@ -46,6 +47,11 @@ const Profile = () => {
             fetchUserData();
         }
     }, [currentUser]);
+
+    const redirectTickets = () =>{
+        navigate('/tickets');
+    }
+
 
     const handlePasswordReset = async () => {
         if (!currentUser || !currentUser.email) return;
@@ -154,6 +160,13 @@ const Profile = () => {
                         onClick={handlePasswordReset}
                     >
                         Reset Password
+                    </button>
+                    <button
+                        className="btn btn-dark profile-button"
+                        type="button"
+                        onClick={redirectTickets}
+                    >
+                        My Tickets
                     </button>
                     <button
                         className="btn btn-danger profile-button2"
