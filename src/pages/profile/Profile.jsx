@@ -4,6 +4,7 @@ import { useAuth } from "../../context/auth";
 import { firestore, doc, setDoc, getDoc } from "../../firebase/firebase";
 import { doPasswordChange, doPasswordReset, doSignOut } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 import "./Profile.css";
 
 const Profile = () => {
@@ -47,10 +48,9 @@ const Profile = () => {
 
         try {
             await doPasswordReset(currentUser.email);
-            alert("Password reset email sent!");
+            toast.success("Password reset email sent!");
         } catch (error) {
-            console.error("Error sending password reset email: ", error);
-            alert("Error sending password reset email.");
+            toast.error("Error sending password reset email.");
         }
     };
 
@@ -59,8 +59,7 @@ const Profile = () => {
             await doSignOut();
             navigate('/');
         } catch (error) {
-            console.error("Error signing out:", error);
-            alert("Error signing out.");
+            toast.error("Error signing out.");
         }
     };
 
@@ -68,7 +67,7 @@ const Profile = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            if (!currentUser) return; // Check if currentUser is available
+            if (!currentUser) return; 
             
             const userDocRef = doc(firestore, "users", currentUser.uid);
             await setDoc(
@@ -83,30 +82,30 @@ const Profile = () => {
                 await doPasswordChange(password);
             }
 
-            alert("Profile updated successfully!");
+            toast.success("Profile updated successfully!");
         } catch (error) {
-            console.error("Error updating profile:", error);
-            alert("Error updating profile.");
+            toast.error("Error updating profile.");
         } finally {
             setLoading(false);
         }
     };
 
-    // Conditionally render based on userLoggedIn
+   
     if (!userLoggedIn) {
-        return null; // Optionally you can return a loading state or some message
+        return null;
     }
 
     return (
         <div>
             <Navbar />
             <div className="container-fluid profile-page">
-                <form className="form" onSubmit={handleSubmit}>
+                <form className="form-container" onSubmit={handleSubmit} style={{backgroundColor:'#171a1d'}}>
+                    <h4 className="text-center mb-4">Profile Settings</h4>
                     <label htmlFor="name">Full Name</label>
                     <input
                         type="text"
                         name="name"
-                        className="form-control mb-4"
+                        className="form-control mb-4 bg-dark text-white border-0"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
@@ -114,17 +113,9 @@ const Profile = () => {
                     <input
                         type="text"
                         name="email"
-                        className="form-control mb-4"
+                        className="form-control mb-4 bg-dark text-white border-0"
                         value={currentUser.email}
                         disabled
-                    />
-                    <label htmlFor="pass">New Password</label>
-                    <input
-                        type="password"
-                        name="pass"
-                        className="form-control mb-4"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
                     />
                     <button
                         className="btn btn-dark"
@@ -149,6 +140,10 @@ const Profile = () => {
                     </button>
                 </form>
             </div>
+            <Toaster
+                position="top-center"
+                reverseOrder={true}
+                />s
         </div>
     );
 };
