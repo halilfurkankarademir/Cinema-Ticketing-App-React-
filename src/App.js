@@ -13,6 +13,7 @@ import PaymentComplete from "./pages/payment/PaymentComplete";
 import MovieDetail from "./pages/MovieDetail";
 import RateMovie from "./pages/rate/RateMovie";
 import Login from "./components/auth/Login";
+import Register from "../src/components/auth/Register";
 import Dashboard from "./pages/Admin/Dashboard";
 import ManageMovies from "./pages/Admin/ManageMovies";
 import ManageRes from "./pages/Admin/managereservations/ManageRes";
@@ -47,6 +48,7 @@ const Wrapper = () => {
                 <Route path="/payment" element={<Payment />} />
                 <Route path="/paymentcomplete" element={<PaymentComplete />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
                 <Route path="/admin" element={<Dashboard />} />
                 <Route path="/admin/addmovie" element={<AddMovie />} />
                 <Route path="/admin/manage" element={<ManageMovies />} />

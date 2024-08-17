@@ -22,17 +22,6 @@ const Login = () => {
         }
     };
 
-    const onGoogleSignIn = (e) => {
-        e.preventDefault();
-        if (!isSigningIn) {
-            setIsSigningIn(true);
-            doSignInWithGoogle().catch(err => {
-                setErrorMessage(err.message);
-                setIsSigningIn(false);
-            });
-        }
-    };
-
     return (
         <div>
             {userLoggedIn && (<Navigate to={'/'} replace={true} />)}
