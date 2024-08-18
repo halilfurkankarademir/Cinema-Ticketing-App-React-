@@ -40,7 +40,7 @@
     z-index: 1;
     position: relative;
     top: 10rem;
-    left: 32rem;
+    left: 8.5rem;
     background-color: #171a1d;
     border-radius: 10px;
     padding: 1.5rem;
@@ -59,7 +59,7 @@
     z-index: 1;
     position: relative;
     top: 10rem;
-    left: 15rem;
+    left: 8.5rem;
     background-color: #171a1d;
     border-radius: 10px;
     padding: 2rem;
@@ -216,14 +216,6 @@
     }
 
     .others-section {
-        width: 90%;
-        left: 50%;
-        top: 1rem;
-        transform: translateX(-50%);
-        padding: 1rem;
-        font-size: 0.9rem;
-        margin-left: 0;
-        margin-top: 1rem;
         display: none;
     }
 
@@ -257,5 +249,27 @@
     .trailer-button{
         width: 100%;
         margin-top: 1.5rem;
+    }
+    .trailer-embed {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio (divide 9 by 16 = 0.5625) */
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        background: #000;
+    }
+    
+    .trailer-embed .embed-responsive-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .trailer-embed iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
     }
 }
