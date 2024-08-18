@@ -183,10 +183,10 @@ const MovieDetail = () => {
                     movieName: movie.title,
                     movieImage: movie.imageUrl,
                 });
-                toast.success("Movie added to favorites successfully!");
+                toast.success("You liked that movie!");
             } else {
                 setIsFavorite(true);
-                toast.error("This movie is already in your favorites.");
+                toast.error("You've already liked that movie!");
             }
         } catch (error) {
             console.error("Error adding movie to favorites: ", error);
