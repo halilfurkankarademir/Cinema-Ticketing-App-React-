@@ -100,7 +100,13 @@ const WheelSpin = () => {
                         id: doc.id,
                     }));
                     setTickets(ticketsList);
-                    setIsAvailable(ticketsList.length % 5 === 0);
+                    if(tickets.length!==0){
+                        setIsAvailable(ticketsList.length % 5 === 0) ;
+                    }
+                    else{
+                        setIsAvailable(false);
+                    }
+                    
                 } catch (err) {
                     console.error("Error fetching tickets:", err);
                     alert("No tickets found!");
