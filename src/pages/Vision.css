@@ -34,4 +34,7 @@
         top: 0rem;
         margin-bottom: 5rem;
     }
+    .secondSectionVision h3{
+        display: none;
+    }
 }

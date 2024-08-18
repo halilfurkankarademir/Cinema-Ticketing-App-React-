@@ -41,8 +41,6 @@
     }
 
     .secondSectionUpcoming h3 {
-        left: 0.5rem; /* Sol boşluğu daha da küçültme */
-        font-size: 1rem; /* Yazı boyutunu daha da küçültme */
-        text-align: center; /* Metin ortalama */
+        display: none;
     }
 }
