@@ -1,33 +1,34 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import { Wheel } from "react-custom-roulette";
+import './Wheel.css'
 
 const WheelSpin = () => {
     const data = [
         {
             option: "Free Movie Ticket",
-            style: { backgroundColor: "green", textColor: "black", fontSize:'15' },
+            style: { backgroundColor: "#FF007A", textColor: "black", fontSize:'15' },
         },
 
         {
             option: "10% Discount",
-            style: { backgroundColor: "white", textColor: "black",fontSize:'15' },
+            style: { backgroundColor: "#0095FF", textColor: "black",fontSize:'15' },
         },
         {
             option: "Snack Combo",
-            style: { backgroundColor: "gray", textColor: "black" ,fontSize:'15'},
+            style: { backgroundColor: "#A682FF", textColor: "black" ,fontSize:'15'},
         },
         {
             option: "25% Discount",
-            style: { backgroundColor: "white", textColor: "black" ,fontSize:'15'},
+            style: { backgroundColor: "#0095FF", textColor: "black" ,fontSize:'15'},
         },
         {
             option: "Movie Merchandise",
-            style: { backgroundColor: "gray", textColor: "black",fontSize:'15' },
+            style: { backgroundColor: "#FF007A", textColor: "black",fontSize:'15' },
         },
         {
             option: "50% Discount",
-            style: { backgroundColor: "white", textColor: "black",fontSize:'15' },
+            style: { backgroundColor: "#A682FF", textColor: "black",fontSize:'15' },
         },
     ];
 
@@ -41,7 +42,7 @@ const WheelSpin = () => {
     };
 
     return (
-        <div>
+        <div> 
             <Navbar />
             <div className="container-fluid">
                 <button className="btn btn-dark" onClick={startSpin}>Start Spin</button>
@@ -49,7 +50,7 @@ const WheelSpin = () => {
                     mustStartSpinning={mustSpin}
                     prizeNumber={prizeNumber}
                     data={data}
-                    backgroundColors={["#3e3e3e", "#df3428"]}
+                    backgroundColors={["#0095FF", "#0095FF"]}
                     textColors={["#ffffff"]}
                     onStopSpinning={() => setMustSpin(false)}
                 />
