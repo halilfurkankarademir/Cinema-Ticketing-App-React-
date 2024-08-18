@@ -6,7 +6,7 @@ import { doPasswordChange, doPasswordReset, doSignOut } from "../../firebase/aut
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
 import "./Profile.css";
-import Tickets from "./Tickets";
+
 
 const Profile = () => {
     const { currentUser, userLoggedIn } = useAuth();

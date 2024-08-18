@@ -14,6 +14,7 @@ import MovieDetail from "./pages/MovieDetail";
 import RateMovie from "./pages/rate/RateMovie";
 import Login from "./components/auth/Login";
 import Register from "../src/components/auth/Register";
+import ForgotPassword from "../src/components/auth/ForgotPassword"
 import Profile from "./pages/profile/Profile";
 import Tickets from "./pages/profile/Tickets";
 import Dashboard from "./pages/Admin/Dashboard";
@@ -51,6 +52,7 @@ const Wrapper = () => {
                 <Route path="/paymentcomplete" element={<PaymentComplete />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/forgot" element={<ForgotPassword />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/tickets" element={<Tickets />} />
                 <Route path="/admin" element={<Dashboard />} />

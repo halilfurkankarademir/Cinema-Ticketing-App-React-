@@ -5,7 +5,8 @@ import { doCreateUserWithEmailAndPassword } from '../../firebase/auth';
 import toast, { Toaster } from 'react-hot-toast';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import './Register.css'; // Import the new CSS file
+import Navbar from '../Navbar';
+import './Register.css'; 
 
 const Register = () => {
     const navigate = useNavigate();
@@ -43,7 +44,7 @@ const Register = () => {
                     const user = userCredential.user;
                     await createUserProfile(user);
                     toast.success('Registration successful!');
-                    navigate('/');
+                    navigate('/profile');
                 } catch (error) {
                     toast.error('Registration failed. Please try again.');
                     console.error('Error registering new user:', error);
@@ -59,7 +60,7 @@ const Register = () => {
     return (
         <>
             {userLoggedIn && (<Navigate to={'/'} replace={true} />)}
-
+            <Navbar></Navbar>
             <main className="register-container">
                 <div className="register-wrapper">
                     <div className="register-header">
@@ -111,11 +112,11 @@ const Register = () => {
                         <button
                             type="submit"
                             disabled={isRegistering}
-                            className={`register-submit-button ${isRegistering ? 'disabled' : ''}`}
+                            className={`register-submit-button btn btn-dark ${isRegistering ? 'disabled' : ''}`}
                         >
                             {isRegistering ? 'Signing Up...' : 'Sign Up'}
                         </button>
-                        <div className="register-signup-link">
+                        <div className="register-signup-link" style={{fontSize:'0.8rem'}}>
                             Already have an account? {' '}
                             <Link to={'/login'} className="register-signup-link">Login</Link>
                         </div>

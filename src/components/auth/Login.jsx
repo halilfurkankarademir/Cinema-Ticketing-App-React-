@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Navigate, Link } from "react-router-dom";
 import { doSignInWithEmailAndPassword, doSignInWithGoogle } from "../../firebase/auth";
 import { useAuth } from "../../context/auth";
+import Navbar from "../Navbar";
 import './Login.css';
 
 const Login = () => {
@@ -25,6 +26,7 @@ const Login = () => {
     return (
         <div>
             {userLoggedIn && (<Navigate to={'/'} replace={true} />)}
+            <Navbar></Navbar>
             <main className="login-container">
                 <div className="login-wrapper">
                     <div className="login-header">
@@ -59,13 +61,16 @@ const Login = () => {
                         <button
                             type="submit"
                             disabled={isSigningIn}
-                            className={`login-submit-button ${isSigningIn ? 'disabled' : ''}`}
+                            className={`login-submit-button btn btn-dark ${isSigningIn ? 'disabled' : ''}`}
                         >
                             {isSigningIn ? 'Signing In...' : 'Sign In'}
                         </button>
-                        <div className="register-signup-link">
+                        <div className="register-signup-link" style={{fontSize:'0.8rem'}}>
                             Don't you have an account? {' '}
                             <Link to={'/register'} className="register-signup-link">Register</Link>
+                        </div>
+                        <div className="register-signup-link" style={{fontSize:'0.8rem'}}>
+                            <Link to={'/forgot'} className="register-signup-link text-white">Forgot Password?</Link>
                         </div>
                     </form>
                 </div>
