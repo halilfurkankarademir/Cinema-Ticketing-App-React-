@@ -14,7 +14,8 @@ const Card = ({ title, img, movieId , type}) => {
         <div className="card" onClick={handleClick}>
             <img src={img} className="card-img-top" alt={title} />
             <div className="card-body">
-                <h3 className="card-title" style={{fontWeight:'600'}} >{title}</h3>
+                {/* <h3 className="card-title" style={{fontWeight:'600'}} >{title}</h3> */}
+                <h6>{title}</h6>
                 <p><i class="bi bi-camera-reels-fill"></i> {type}</p>
             </div>
         </div>
