@@ -16,3 +16,25 @@
 .profile-button2{
     margin-left: 16.8rem;
 }
+
+@media only screen and (max-width: 600px) {
+    .profile-form{
+        position: relative;
+        width: 90%;
+        max-width: 90%;
+        height: 70vh;
+        bottom: 2rem;
+        height: auto;
+    }
+    .profile-button{
+        width: 100%;
+        font-size: .8rem;
+        margin-bottom: 1rem;
+    }
+    .profile-button2{
+        width: 100%;
+        font-size: .8rem;
+        position: relative;
+        margin: 0;
+    }
+}

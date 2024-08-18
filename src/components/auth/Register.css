@@ -101,3 +101,15 @@
 .register-signup-link a:hover {
     text-decoration: underline;
 }
+
+@media only screen and (max-width: 600px) {
+    .register-container{
+        position: relative;
+        width: 80%;
+        left: 10%;
+        bottom: 3rem;
+    }
+    .register-form-input{
+        width: 100%;
+    }
+}

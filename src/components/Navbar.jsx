@@ -108,9 +108,14 @@ const Navbar = () => {
               
                 {
                     userLoggedIn && (
+                        <>
+                        <Link to="/tickets" onClick={handleLinkClick}>
+                        My Tickets
+                        </Link>
                         <Link to="/profile" onClick={handleLinkClick}>
                         Profile
                         </Link>
+                        </>
                     )
                 }
                
