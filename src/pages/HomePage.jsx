@@ -180,7 +180,7 @@ const HomePage = () => {
                             src={Popcorn}
                             alt=""
                             style={{ width: "25rem", marginLeft: "2rem" }}
-                            className="cardpng"
+                            className="cardpng text-center"
                         />
                     </div>
                 </div>

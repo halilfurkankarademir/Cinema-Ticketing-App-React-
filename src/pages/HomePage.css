@@ -33,19 +33,16 @@
     }
     .homepage-container .secondSection{
         position: relative;
-        bottom: 5rem;
+        bottom: 0rem;
     }
 
     .homepage-container .secondSection h3{
         position: relative;
         left: 3rem;
     }
-    .pre-loader{
-        display: none;
-    }
     .visionSection{
         position: relative;
-        bottom: 7rem;
+        bottom: 0rem;
     }
     .visionSection span{
         font-size: 0.8rem;
@@ -55,7 +52,7 @@
     }
     .comingSection{
         position: relative;
-        bottom: 7rem;   
+        bottom: 0rem;   
     }
     .comingSection span{
         font-size: 0.8rem;
@@ -65,14 +62,14 @@
     }
     .campaignSection{
         position: relative;
-        bottom: 4rem;
+        bottom: 0rem;
     }
     .campaignSection p{
         font-size: 0.8rem;
     }
     .cardpng{
         position: relative;
-        width: 15rem !important;
+        width: 10rem !important;
     }
     .slick-prev {
         left: 10px; 
