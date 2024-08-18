@@ -1,8 +1,8 @@
 @media only screen and (max-width: 600px){
 .card{
-    background-color: #FF007A;
+    background-color: var(--pink) ;
     color: whitesmoke;
-    width: 12rem !important;
+    width: 15rem !important;
     font-size: 0.7rem;
     outline: none;
     border: none;
@@ -12,10 +12,6 @@
     margin-bottom: 1.5rem; 
     overflow: hidden;
     cursor: pointer;
-}
-.card:hover  .card-img-top{
-    transform: scale(1.05);
-    opacity: 0.8;
 }
 .card-title{
     font-size: 1rem;
@@ -35,14 +31,15 @@
     object-fit: cover;
     transition: all 0.2s ease-in-out;
 }
-.viewMovie{
-    display: none;
+.comingCard{
+    background-color: #FF007A;
 }
+
 
 }
 @media only screen and (min-width: 768px){
 .card{
-    background-color: #715aff;
+    background-color: var(--purple);
     color: whitesmoke;
     width: 18rem !important;
     font-size: 0.7rem;

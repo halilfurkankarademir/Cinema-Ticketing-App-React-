@@ -2,7 +2,7 @@
     .navbar {
         position: relative;
         right: 0rem;
-        background-color: #171a1d !important;
+        background-color: var(--dark-gray) !important;
         z-index: 8;
         bottom: 1rem;
         color: whitesmoke;
@@ -50,11 +50,6 @@
         bottom: 3rem;
         transition: all 0.2s ease-in-out;
         cursor: pointer;
-    }
-    .menu a:hover {
-        transform: scale(1.1);
-        text-decoration: none;
-        color: #ff007a;
     }
     .Navmenu {
         display: none;

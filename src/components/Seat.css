@@ -17,19 +17,19 @@
 }
 
 .seatDesign.selected {
-    background-color: #0095FF;
+    background-color: var(--blue);
     color: #121212;
 }
 
 .seatDesign.reserved {
-    background-color: #FF007A;
+    background-color: var(--pink);
     color: whitesmoke;
     cursor: not-allowed;
 }
 
 /* Hover efekti */
 .seatDesign:hover:not(.reserved) {
-    background-color: #0095FF !important;
+    background-color: var(--blue) !important;
 }
 
 /* Büyük ekranlar için (768px üstü) */

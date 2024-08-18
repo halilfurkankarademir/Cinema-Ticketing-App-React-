@@ -123,8 +123,12 @@ li {
 }
 
 .seatsAll {
-    position: relative;
-    left: 28rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Otomatik olarak sütun sayısını ayarlar */
+    gap: 0px; /* Kısmi boşluklar için */
+    justify-content: center; /* Ortalamak için */
+    padding: 0px;
+    left: 30%;
 }
 
 .titleSelect{
@@ -151,12 +155,14 @@ li {
     .selectSeatAll{
         position: relative;
         bottom: 32rem;
+        height: 100vh;
     }
     .seatsAll {
         position: relative;
-        left: 15.3rem;
+        left: 75%;
         bottom: 10rem;
-        width: 110% !important;
+        max-width: 110% !important;
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
     }
     .scene {
         position: relative;
@@ -169,22 +175,16 @@ li {
     .select-date-time {
         position: relative;
         left: 16rem;
-        top: 45rem;
-        width: 70%;
+        top: 100%;
+        max-width: 100%;
+        width: 80%;
+        font-size: .8rem;
         height: 60vh;
     }
     .buyTicket {
-        background-color: #0095ff;
-        outline: none;
-        border: none;
-        color: white;
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        position: absolute;
-        top: 20.5rem;
-        left: 4.8rem;
-        width: 25vw;
-        font-size: 1rem;
+       width: auto;
+       font-size: .8rem;
+       left: 35%;
     }
     .custom-datepicker {
         background-color: #ff3999;
@@ -207,7 +207,7 @@ li {
     }
     .seatInfoIcons{
         position: relative;
-        left: 17.5rem;
+        left: 80%;
         top: -6rem !important;
     }
     .chooseSeat{

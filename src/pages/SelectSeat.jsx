@@ -299,19 +299,13 @@ const SeatSelection = () => {
                 </div>
                 <h5>
                     <p
-                        style={{ color: "#55c1ff", fontSize: "2rem" }}
+                        style={{ color: "#55c1ff"}}
                         className="titleSelect"
                     >
                         {movieName}
                     </p>
                 </h5>
                 <br />
-                <h5
-                    style={{ position: "relative", right: "", bottom: "9rem" }}
-                    className="chooseSeat"
-                >
-                    Choose seat
-                </h5>
                 <div
                     style={{
                         display: "flex",

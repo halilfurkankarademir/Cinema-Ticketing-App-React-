@@ -98,6 +98,22 @@ const Navbar = () => {
                 <Link to="/contact" onClick={handleLinkClick}>
                     Contact
                 </Link>
+                {
+                    !userLoggedIn && (  
+                        <Link to="/login" onClick={handleLinkClick}>
+                        Login
+                        </Link>
+                    )
+                }
+              
+                {
+                    userLoggedIn && (
+                        <Link to="/profile" onClick={handleLinkClick}>
+                        Profile
+                        </Link>
+                    )
+                }
+               
             </div>
         </div>
     );

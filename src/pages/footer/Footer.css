@@ -3,7 +3,7 @@
     position: relative;
     bottom: 0;
     width: 100%;
-    background-color: #171a1d;
+    background-color: var(--dark-gray);
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -34,6 +34,13 @@
     color: #ffffff;
 }
 
+.footer-logos a:active {
+    color: #ffffff;
+}
+.footer-logos a:link {
+    color: #ffffff;
+}
+
 /* Orta ekranlar için (600px - 768px) */
 @media only screen and (max-width: 768px) {
     .footer-container {
@@ -47,7 +54,7 @@
 @media only screen and (max-width: 600px) {
     .footer-container {
         height: 8rem;
-        width: 110%;
+        width: 100%;
     }
     .footer-container p{
         font-size: 0.5rem;

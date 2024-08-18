@@ -1,13 +1,13 @@
 @media only screen and (max-width: 600px){
 .card{
-    background-color: #715aff !important;
+    background-color: var(--purple) !important;
     color: whitesmoke;
-    max-width: 15rem !important;
-    height: 20rem;
+    max-width: 15rem;
+    height: auto;
     outline: none;
     border: none;
     position: relative;
-    top: 2rem;
+    top: 0rem;
     left: 1rem !important;
     margin-bottom: 2rem !important;
     margin: 0;
@@ -16,7 +16,11 @@
 }
 
 .card-title{
-    font-size: 1rem;
+    font-size: 1rem !important;
+    margin: 0;
+    padding: 0s;
+    z-index: 200;
+    position: relative;
 }
 
 .btn-light{
@@ -29,18 +33,16 @@
 
 .card-img-top{
     width: auto;
-    height: 14rem !important;
+    height: 80% !important;
     object-fit: cover;
     transition: all 0.2s ease-in-out;
 }
-.viewMovie{
-    display: none;
-}
+
 
 }
 @media only screen and (min-width: 768px){
 .card{
-    background-color: #715aff;
+    background-color:var(--purple) ;
     color: whitesmoke;
     width: 18rem !important;
     font-size: 0.7rem;
