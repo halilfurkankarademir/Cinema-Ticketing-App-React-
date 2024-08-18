@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
-import { firestore, collection, getDocs } from "../firebase/firebase";
+import { firestore, collection, getDocs,query,where, addDoc } from "../firebase/firebase";
 import { useParams, useNavigate } from "react-router-dom";
 import "./MovieDetail.css";
 import gsap from "gsap";
 import CardOthers from "../components/CardOthers";
 import Slider from "react-slick";
 import { MdFamilyRestroom } from "react-icons/md";
-
+import { MdOutlineFavorite } from "react-icons/md";
+import { useAuth } from "../context/auth";
+import toast, { Toaster } from 'react-hot-toast';
 
 const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
     const [movies, setMovies] = useState(null);
     const [comments, setComments] = useState([]);
     const [ratingMovie, setRatingMovie] = useState(0);
+    const [isFavorite,setIsFavorite] = useState(false);
     const { id } = useParams();
     const navigate = useNavigate();
+    const {currentUser} = useAuth();
 
     document.title = "CineWave | Movie Details";
 
@@ -30,32 +34,31 @@ const MovieDetail = () => {
         autoplaySpeed: 8000,
         responsive: [
             {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 3,
-                infinite: true,
-                dots: true
-              }
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true,
+                },
             },
             {
-              breakpoint: 600,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                initialSlide: 2
-              }
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2,
+                },
             },
             {
-              breakpoint: 480,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
-            }
-          ]
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
-
 
     const avgRating = () => {
         let totalRating = 0;
@@ -86,7 +89,7 @@ const MovieDetail = () => {
                 console.error("Error fetching movies: ", error);
             }
         };
-        
+
         const fetchMovie = async () => {
             try {
                 const moviesCollection = collection(firestore, "movies");
@@ -164,10 +167,56 @@ const MovieDetail = () => {
             iframe.src = movie.trailer;
         }
     };
+    const addFavorites = async () => {
+        if (!movie) {
+            return; 
+        }
+    
+        try {
+            const favoritesCollectionRef = collection(firestore, "users", currentUser.uid, "favorites");
+            const q = query(favoritesCollectionRef, where("movieName", "==", movie.title));
+            const querySnapshot = await getDocs(q);
+    
+            if (querySnapshot.empty) {
+                await addDoc(favoritesCollectionRef, {
+                    movieId: movie.id,
+                    movieName: movie.title,
+                    movieImage: movie.imageUrl,
+                });
+                toast.success("Movie added to favorites successfully!");
+            } else {
+                setIsFavorite(true);
+                toast.error("This movie is already in your favorites.");
+            }
+        } catch (error) {
+            console.error("Error adding movie to favorites: ", error);
+        }
+    }
+
+    useEffect(() => {
+        const fetchFavoriteStatus = async () => {
+            if (!movie || !currentUser) return;
+    
+            try {
+                const favoritesCollectionRef = collection(firestore, "users", currentUser.uid, "favorites");
+                const q = query(favoritesCollectionRef, where("movieName", "==", movie.title));
+                const querySnapshot = await getDocs(q);
+    
+                setIsFavorite(!querySnapshot.empty); 
+            } catch (error) {
+                console.error("Error fetching favorite status: ", error);
+            }
+        };
+    
+        fetchFavoriteStatus();
+    }, [currentUser, movie]);
 
     if (!movie) {
         return <p>Loading...</p>;
     }
+
+
+    console.log(isFavorite);
 
     const redicertRate = () => {
         navigate(`/rate/${id}`);
@@ -199,7 +248,10 @@ const MovieDetail = () => {
                             </div>
                         </div>
                         <section className="movie-desc2">
-                            <h2 style={{ color: "#55c1ff" }}>{movie.title}</h2>
+                            <h2 style={{ color: "#55c1ff" }}>
+                                {movie.title}{" "}
+                               
+                            </h2>
                             <p style={{ fontWeight: "300" }}>
                                 {movie.description}
                             </p>
@@ -215,17 +267,13 @@ const MovieDetail = () => {
                                 <i className="bi bi-people-fill"></i>&nbsp;{" "}
                                 {movie.cast}
                             </p>
-                            <p
-                                style={{ fontWeight: "300", cursor: "pointer" }}
-                            >
+                            <p style={{ fontWeight: "300", cursor: "pointer" }}>
                                 <i className="bi bi-translate"></i>&nbsp;{" "}
                                 {movie.languages}
                             </p>
-                            <p
-                            >
+                            <p>
                                 <MdFamilyRestroom />
-                                &nbsp;{" "}
-                                {movie.agelimit}
+                                &nbsp; {movie.agelimit}
                             </p>
                             <p
                                 style={{ fontWeight: "300", cursor: "pointer" }}
@@ -247,9 +295,23 @@ const MovieDetail = () => {
                                 <i className="bi bi-play-circle-fill"></i> Watch
                                 Trailer
                             </button>
+                            <button
+                                     className={`btn favorite-button ${isFavorite ? "favorite-active" : "favorite-inactive"}`}
+                                    onClick={()=>addFavorites()}
+                                >
+                                    <MdOutlineFavorite></MdOutlineFavorite>
+                                </button>
                         </section>
                         <section className="others-section">
-                            <h5 style={{ color: "#55c1ff", marginBottom:'1rem' }}><i class="bi bi-collection-play"></i>&nbsp; Now playing</h5>
+                            <h5
+                                style={{
+                                    color: "#55c1ff",
+                                    marginBottom: "1rem",
+                                }}
+                            >
+                                <i class="bi bi-collection-play"></i>&nbsp; Now
+                                playing
+                            </h5>
                             <Slider {...settings}>
                                 {movies.map((movie) => (
                                     <div className="card-slide" key={movie.id}>
@@ -276,6 +338,10 @@ const MovieDetail = () => {
                     </div>
                 </div>
             )}
+             <Toaster
+                position="top-center"
+                reverseOrder={true}
+            />
         </div>
     );
 };

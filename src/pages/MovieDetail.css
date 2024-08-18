@@ -72,7 +72,7 @@
     margin-left: 5%;
 }
 .buyTicketBtn {
-    width: 40%;
+    width: 25%;
     height: 5vh;
     font-weight: 600 !important;
     margin-right: 2rem;
@@ -125,8 +125,22 @@
     display: none;
 }
 .trailer-button {
-    width: 50%;
+    width: 25%;
     /* margin-left: 2rem; */
+}
+.favorite-button{
+    position: relative;
+    left: 38%;
+    width: 5%;
+    font-size: 2rem;
+    color: var(--blue);
+}
+.favorite-active {
+    color: var(--blue); /* Favorilerdeyken renk mavi */
+}
+
+.favorite-inactive {
+    color: white; /* Favorilerde değilken renk pembe */
 }
 
 @media only screen and (max-width: 768px) {
