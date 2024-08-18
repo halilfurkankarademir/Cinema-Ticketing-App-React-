@@ -33,25 +33,25 @@ const Tickets = () => {
         <div>
             <Navbar />
             <div className='container-fluid justify-content-center align-content-center'>
-                <h3>My Tickets</h3>
                 <div className='table-responsive ticketTable'>
+                    <h3>My Tickets</h3>
                     <table className='table'>
                         <thead>
                             <tr>
-                                <th style={{backgroundColor:''}}>Movie</th>
-                                <th>Showtime</th>
-                                <th>Seats</th>
-                                <th>Date</th>
+                                <th style={{backgroundColor:'#171a1d',color:'#0095ff'}}>Movie</th>
+                                <th style={{backgroundColor:'#171a1d',color:'#0095ff'}}>Showtime</th>
+                                <th style={{backgroundColor:'#171a1d',color:'#0095ff'}}>Seats</th>
+                                <th style={{backgroundColor:'#171a1d',color:'#0095ff'}}>Date</th>
                             </tr>
                         </thead>
                         <tbody>
                             {tickets.length > 0 ? (
                                 tickets.map((ticket) => (
                                     <tr key={ticket.id}>
-                                        <td>{ticket.movieName}</td>
-                                        <td>{ticket.showTime}</td>
-                                        <td>{ticket.seats.join(", ")}</td>
-                                        <td>{ticket.date}</td>
+                                        <td style={{backgroundColor:'#171a1d',color:'white'}}>{ticket.movieName}</td>
+                                        <td style={{backgroundColor:'#171a1d',color:'white'}}>{ticket.showTime}</td>
+                                        <td style={{backgroundColor:'#171a1d',color:'white'}}>{ticket.seats.join(", ")}</td>
+                                        <td style={{backgroundColor:'#171a1d',color:'white'}}>{ticket.date}</td>
                                     </tr>
                                 ))
                             ) : (
