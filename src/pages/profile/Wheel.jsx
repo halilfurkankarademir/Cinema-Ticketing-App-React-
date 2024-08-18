@@ -77,6 +77,7 @@ const WheelSpin = () => {
     const { currentUser, userLoggedIn } = useAuth();
     const navigate = useNavigate();
     const [tickets, setTickets] = useState([]);
+    const [prize, setPrize] = useState();
     const [isAvailable, setIsAvailable] = useState(false);
     const [spinCount,setSpinCount] = useState(0);
 
@@ -124,10 +125,10 @@ const WheelSpin = () => {
             setPrizeNumber(newPrizeNumber);
             setMustSpin(true);
             setSpinCount(prev=>prev+1);
+            
         }
        
     };
-
 
 
     const alertPrize = () => {
@@ -137,7 +138,7 @@ const WheelSpin = () => {
         } else {
             toast.success(`You won: ${prize} !`);
         }
-
+        setPrize(prize)
         setMustSpin(false);
     };
 
