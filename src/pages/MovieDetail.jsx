@@ -241,9 +241,8 @@ const MovieDetail = () => {
                                 Buy Ticket
                             </button>
                             <button
-                                className="btn btn-dark buyTicketBtn"
+                                className="btn btn-dark trailer-button"
                                 onClick={handleTrailer}
-                                style={{ marginLeft: "1rem", width: "50%" }}
                             >
                                 <i className="bi bi-play-circle-fill"></i> Watch
                                 Trailer

@@ -40,7 +40,7 @@
     z-index: 1;
     position: relative;
     top: 10rem;
-    left: 8.5rem;
+    left: 32rem;
     background-color: #171a1d;
     border-radius: 10px;
     padding: 1.5rem;
@@ -59,7 +59,7 @@
     z-index: 1;
     position: relative;
     top: 10rem;
-    left: 8.5rem;
+    left: 15rem;
     background-color: #171a1d;
     border-radius: 10px;
     padding: 2rem;
@@ -75,6 +75,7 @@
     width: 40%;
     height: 5vh;
     font-weight: 600 !important;
+    margin-right: 2rem;
 }
 
 .trailer-embed {
@@ -133,6 +134,10 @@
     backdrop-filter: blur(3.3px);
     -webkit-backdrop-filter: blur(3.3px);
     display: none;
+}
+.trailer-button{
+    width: 50%;
+    /* margin-left: 2rem; */
 }
 
 @media only screen and (max-width: 768px) {
@@ -248,5 +253,9 @@
         right: 0;
         position: absolute;
         z-index: 0;
+    }
+    .trailer-button{
+        width: 100%;
+        margin-top: 1.5rem;
     }
 }
