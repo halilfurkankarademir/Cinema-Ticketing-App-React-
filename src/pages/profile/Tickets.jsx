@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import { useAuth } from '../../context/auth';
-import { firestore, collection, getDocs, doc, deleteDoc } from '../../firebase/firebase';
+import { firestore, collection, getDocs, query, where,doc,deleteDoc } from '../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import './Tickets.css';
@@ -15,11 +15,13 @@ const Tickets = () => {
         if (!userLoggedIn) {
             navigate('/login');
         }
+
         const fetchTickets = async () => {
             if (currentUser) {
                 try {
-                    const ticketsCollection = collection(firestore, "users", currentUser.uid, "tickets");
-                    const ticketsSnapshot = await getDocs(ticketsCollection);
+                    const reservationsCollection = collection(firestore, "reservations");
+                    const q = query(reservationsCollection, where("email", "==", currentUser.email));
+                    const ticketsSnapshot = await getDocs(q);
                     const ticketsList = ticketsSnapshot.docs.map((doc) => {
                         const data = doc.data();
                         return {
@@ -28,7 +30,7 @@ const Tickets = () => {
                             timestamp: data.timestamp,
                         };
                     });
-                  
+
                     setTickets(ticketsList);
                 } catch (err) {
                     console.error('Error fetching tickets:', err);
@@ -44,7 +46,7 @@ const Tickets = () => {
         try {
             const now = new Date().getTime();
             if (timestamp > now) {
-                const ticketDocRef = doc(firestore, "users", currentUser.uid, "tickets", ticketId);
+                const ticketDocRef = doc(firestore, "reservations", ticketId);
                 await deleteDoc(ticketDocRef);
                 setTickets(tickets.filter(ticket => ticket.id !== ticketId));
                 toast.success('Ticket cancelled successfully!');
