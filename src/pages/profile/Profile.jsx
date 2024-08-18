@@ -162,13 +162,6 @@ const Profile = () => {
                         Reset Password
                     </button>
                     <button
-                        className="btn btn-dark profile-button"
-                        type="button"
-                        onClick={redirectTickets}
-                    >
-                        My Tickets
-                    </button>
-                    <button
                         className="btn btn-danger profile-button2"
                         type="button"
                         onClick={signOutFunc}

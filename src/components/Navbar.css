@@ -104,14 +104,14 @@
     }
     .bi-person-fill {
         position: relative;
-        left: 10rem;
+        left: 5rem;
         font-size: 1.3rem;
     }
     .adminButton {
         position: relative;
         font-size: 1.2rem;
         bottom: 0rem;
-        right: 2rem !important;
+        right: 7rem !important;
         outline: none;
         background: none;
     }
@@ -143,5 +143,9 @@
         position: relative;
         right: 3rem;
         
+    }
+    .ticket-icon{
+        position: relative;
+        left: 5rem;
     }
 }

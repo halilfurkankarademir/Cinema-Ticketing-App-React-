@@ -5,6 +5,8 @@ import { useAuth } from "../context/auth";
 import { doSignOut } from "../firebase/auth";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { IoTicketSharp } from "react-icons/io5";
+
 
 const Navbar = () => {
     useGSAP(() => {
@@ -68,6 +70,11 @@ const Navbar = () => {
                 </Link>
                 <Link to="/contact">
                     Contact
+                </Link>
+                <Link to="/tickets">
+                
+                    <IoTicketSharp style={{fontSize:'1.5rem'}} className="ticket-icon"/>
+
                 </Link>
                 <Link to="/profile">
                     <i className="bi bi-person-fill"></i>
