@@ -126,7 +126,6 @@
 }
 .trailer-button {
     width: 25%;
-    /* margin-left: 2rem; */
 }
 .favorite-button{
     position: relative;
@@ -135,17 +134,20 @@
     font-size: 2rem;
     color: var(--blue);
 }
+.favorite-button:hover{
+    color: var(--pink);
+}
 .favorite-active {
-    color: var(--blue); /* Favorilerdeyken renk mavi */
+    color: var(--pink); 
 }
 
 .favorite-inactive {
-    color: white; /* Favorilerde değilken renk pembe */
+    color: white; 
 }
 
 @media only screen and (max-width: 768px) {
     .movie-detail {
-        flex-direction: column; /* Dikey hizalama */
+        flex-direction: column; 
         padding: 10px;
         gap: 10px;
     }
