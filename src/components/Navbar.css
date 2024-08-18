@@ -145,4 +145,8 @@
         position: relative;
         left: 11.5rem;
     }
+    .spinner-icon{
+        position: relative;
+        left: 3rem;
+    }
 }

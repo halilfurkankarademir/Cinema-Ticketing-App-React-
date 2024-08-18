@@ -30,6 +30,10 @@ const WheelSpin = () => {
             option: "50% Discount",
             style: { backgroundColor: "#A682FF", textColor: "black",fontSize:'15' },
         },
+        {
+            option: "Not this time :(",
+            style: { backgroundColor: "#0095FF", textColor: "black",fontSize:'15' },
+        },
     ];
 
     const [mustSpin, setMustSpin] = useState(false);
@@ -44,8 +48,7 @@ const WheelSpin = () => {
     return (
         <div> 
             <Navbar />
-            <div className="container-fluid">
-                <button className="btn btn-dark" onClick={startSpin}>Start Spin</button>
+            <div className="container-fluid spinner-section">
                 <Wheel
                     mustStartSpinning={mustSpin}
                     prizeNumber={prizeNumber}
@@ -54,6 +57,7 @@ const WheelSpin = () => {
                     textColors={["#ffffff"]}
                     onStopSpinning={() => setMustSpin(false)}
                 />
+                <button className="btn btn-dark mt-2" onClick={startSpin}>Start Spin</button>
             </div>
         </div>
     );

@@ -6,6 +6,8 @@ import { doSignOut } from "../firebase/auth";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { IoTicketSharp } from "react-icons/io5";
+import { PiSpinnerBallFill } from "react-icons/pi";
+
 
 const Navbar = () => {
     useGSAP(() => {
@@ -59,12 +61,20 @@ const Navbar = () => {
                 <Link to="/contact">Contact</Link>
                 <Link>
                     {userLoggedIn && (
+                        <>
                         <Link to="/tickets">
                             <IoTicketSharp
                                 style={{ fontSize: "1.2rem" }}
                                 className="ticket-icon"
                             />
                         </Link>
+                        <Link to="/wheel">
+                            <PiSpinnerBallFill
+                                style={{ fontSize: "1.2rem" }}
+                                className="spinner-icon"
+                            />
+                        </Link>
+                        </>
                     )}
                 </Link>
                 <Link to="/profile">
