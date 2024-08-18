@@ -56,7 +56,7 @@ const Tickets = () => {
             <div className='container-fluid justify-content-center align-content-center'>
                 <div className='table-responsive ticketTable'>
                     <h3>My Tickets</h3>
-                    <table className='table table-borderless'>
+                    <table className='table table-striped'>
                         <thead>
                             <tr>
                                 <th style={{backgroundColor:'transparent',color:'#0095ff'}}>Movie</th>

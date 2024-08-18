@@ -7,3 +7,6 @@
     flex-direction: column;
     margin-top: 2rem;
 }
+.wheel-custom .pointer {
+    transform: scale(0.5); /* Pointer'ı küçültmek için ölçeklendirme */
+}
