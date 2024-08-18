@@ -184,7 +184,7 @@ const WheelSpin = () => {
                 {
                     !isAvailable && (
                         <>
-                        <h5 style={{fontWeight:'400'}}><i class="bi bi-info-square"></i> You don't have the spin rights right now.</h5>
+                        <h5 style={{fontWeight:'400'}}><i class="bi bi-info-square"></i> You don't have any spin rights at the moment..</h5>
                         </>
                     )
                 }
