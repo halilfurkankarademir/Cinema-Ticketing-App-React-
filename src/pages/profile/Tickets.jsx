@@ -7,12 +7,12 @@ import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 
 const Tickets = () => {
-    const { currentUser , userLoggedIn} = useAuth();
+    const { currentUser, userLoggedIn } = useAuth();
     const [tickets, setTickets] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(!userLoggedIn){
+        if (!userLoggedIn) {
             navigate('/login');
         }
         const fetchTickets = async () => {
@@ -20,27 +20,37 @@ const Tickets = () => {
                 try {
                     const ticketsCollection = collection(firestore, "users", currentUser.uid, "tickets");
                     const ticketsSnapshot = await getDocs(ticketsCollection);
-                    const ticketsList = ticketsSnapshot.docs.map((doc) => ({
-                        ...doc.data(),
-                        id: doc.id,
-                    }));
+                    const ticketsList = ticketsSnapshot.docs.map((doc) => {
+                        const data = doc.data();
+                        return {
+                            ...data,
+                            id: doc.id,
+                            timestamp: data.timestamp,
+                        };
+                    });
+                  
                     setTickets(ticketsList);
                 } catch (err) {
                     console.error('Error fetching tickets:', err);
-                    alert('No tickets found!');
+                    toast.error('No tickets found!');
                 }
             }
         };
 
         fetchTickets();
-    }, [currentUser]);
+    }, [currentUser, userLoggedIn, navigate]);
 
-    const deleteTicket = async (ticketId) => {
+    const deleteTicket = async (ticketId, timestamp) => {
         try {
-            const ticketDocRef = doc(firestore, "users", currentUser.uid, "tickets", ticketId);
-            await deleteDoc(ticketDocRef);
-            setTickets(tickets.filter(ticket => ticket.id !== ticketId));
-            toast.success('Ticket cancelled successfully!');
+            const now = new Date().getTime();
+            if (timestamp > now) {
+                const ticketDocRef = doc(firestore, "users", currentUser.uid, "tickets", ticketId);
+                await deleteDoc(ticketDocRef);
+                setTickets(tickets.filter(ticket => ticket.id !== ticketId));
+                toast.success('Ticket cancelled successfully!');
+            } else {
+                toast.error('Ticket date expired!');
+            }
         } catch (err) {
             console.error('Error deleting ticket:', err);
             toast.error('Error cancelling ticket.');
@@ -74,7 +84,7 @@ const Tickets = () => {
                                         <td style={{backgroundColor:'transparent',color:'white'}}>
                                             <button 
                                                 className='btn btn-danger btn-sm'
-                                                onClick={() => deleteTicket(ticket.id)}
+                                                onClick={() => deleteTicket(ticket.id, ticket.timestamp)}
                                             >
                                                 Cancel
                                             </button>

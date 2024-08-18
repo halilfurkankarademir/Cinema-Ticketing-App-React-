@@ -189,7 +189,7 @@ const Payment = () => {
         await updateSoldTicketCount();
         await updateTotalSoldTickets();
         reserveSeats(movieName,showTime,selectedSeats,formattedDate);
-        addTicketToUser(movieName,showTime,selectedSeats,formattedDate);
+        addTicketToUser(movieName,showTime,selectedSeats,formattedDate,selectedDate.getTime());
 
         navigate("/paymentcomplete", {
             state: {
@@ -223,7 +223,9 @@ const Payment = () => {
         }
     };
 
-    const addTicketToUser = async (movieName, showtime, seats, date) => {
+
+    
+    const addTicketToUser = async (movieName, showtime, seats, date,timestamp) => {
         if (!currentUser) {
             console.error("No current user found");
             return;
@@ -234,7 +236,8 @@ const Payment = () => {
                 seats: seats,
                 movieName: movieName,
                 showTime: showtime,
-                date: date
+                date: date,
+                timestamp,
             });
             console.log("Ticket added with ID:", ticketRef.id);
         } catch (error) {
