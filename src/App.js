@@ -17,6 +17,7 @@ import Register from "../src/components/auth/Register";
 import ForgotPassword from "../src/components/auth/ForgotPassword"
 import Profile from "./pages/profile/Profile";
 import Tickets from "./pages/profile/Tickets";
+import Wheel from '../src/pages/profile/Wheel'
 import Dashboard from "./pages/Admin/Dashboard";
 import ManageMovies from "./pages/Admin/ManageMovies";
 import ManageRes from "./pages/Admin/managereservations/ManageRes";
@@ -55,6 +56,7 @@ const Wrapper = () => {
                 <Route path="/forgot" element={<ForgotPassword />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/tickets" element={<Tickets />} />
+                <Route path="/wheel" element={<Wheel />} />
                 <Route path="/admin" element={<Dashboard />} />
                 <Route path="/admin/addmovie" element={<AddMovie />} />
                 <Route path="/admin/manage" element={<ManageMovies />} />

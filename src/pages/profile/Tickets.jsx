@@ -3,12 +3,21 @@ import Navbar from '../../components/Navbar';
 import { useAuth } from '../../context/auth';
 import { firestore, collection, getDocs, doc, deleteDoc } from '../../firebase/firebase';
 import './Tickets.css';
+import { useNavigate } from 'react-router-dom';
 
 const Tickets = () => {
-    const { currentUser } = useAuth();
+    const { currentUser , userLoggedIn} = useAuth();
     const [tickets, setTickets] = useState([]);
+    const navigate = useNavigate();
+
+    
+
+
 
     useEffect(() => {
+        if(!userLoggedIn){
+            navigate('/login');
+        }
         const fetchTickets = async () => {
             if (currentUser) {
                 try {
