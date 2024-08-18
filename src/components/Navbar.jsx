@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { useAuth } from "../context/auth";
 import { doSignOut } from "../firebase/auth";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { IoTicketSharp } from "react-icons/io5";
-
 
 const Navbar = () => {
     useGSAP(() => {
@@ -21,7 +20,7 @@ const Navbar = () => {
             duration: 2,
         });
     }, []);
-    
+
     const [toggleSidebar, setToggleSidebar] = useState(false);
 
     const { currentUser, userLoggedIn, isAdmin } = useAuth();
@@ -41,12 +40,9 @@ const Navbar = () => {
         await doSignOut();
     };
 
-    const redicert = () =>{
-        navigate('/');
-    }
-
-    
-
+    const redicert = () => {
+        navigate("/");
+    };
 
     return (
         <div>
@@ -56,39 +52,33 @@ const Navbar = () => {
                 </div>
                 <i className="bi bi-list" onClick={showMenu}></i>
             </div>
-            <div
-                className={`container-fluid Navmenu`}
-            >
-                <Link to="/">
-                    Homepage
-                </Link>
-                <Link to="/vision">
-                    Vision Movies
-                </Link>
-                <Link to="/soon">
-                    Coming Soon
-                </Link>
-                <Link to="/contact">
-                    Contact
-                </Link>
-                <Link to="/tickets">
-                
-                    <IoTicketSharp style={{fontSize:'1.5rem'}} className="ticket-icon"/>
-
+            <div className={`container-fluid Navmenu`}>
+                <Link to="/">Homepage</Link>
+                <Link to="/vision">Vision Movies</Link>
+                <Link to="/soon">Coming Soon</Link>
+                <Link to="/contact">Contact</Link>
+                <Link>
+                    {userLoggedIn && (
+                        <Link to="/tickets">
+                            <IoTicketSharp
+                                style={{ fontSize: "1.2rem" }}
+                                className="ticket-icon"
+                            />
+                        </Link>
+                    )}
                 </Link>
                 <Link to="/profile">
                     <i className="bi bi-person-fill"></i>
                 </Link>
-                {
-                    userLoggedIn && isAdmin && (
-                        <Link to='/admin' className="adminButton" title="Admin panel">
-                           <i className="bi bi-gear-fill"></i>
-                        </Link>
-                    )
-                }
-                
-                
-
+                {userLoggedIn && isAdmin && (
+                    <Link
+                        to="/admin"
+                        className="adminButton"
+                        title="Admin panel"
+                    >
+                        <i className="bi bi-gear-fill"></i>
+                    </Link>
+                )}
             </div>
             <div
                 className={`container-fluid menu ${
