@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import { useAuth } from '../../context/auth';
 import { firestore, collection, getDocs, doc, deleteDoc } from '../../firebase/firebase';
-import './Tickets.css';
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import './Tickets.css';
 
 const Tickets = () => {
     const { currentUser, userLoggedIn } = useAuth();
