@@ -155,7 +155,7 @@ const Profile = () => {
                         {loading ? "Saving..." : "Save Changes"}
                     </button>
                     <button
-                        className="btn btn-dark profile-button"
+                        className="btn btn-dark profile-button3"
                         type="button"
                         onClick={handlePasswordReset}
                     >

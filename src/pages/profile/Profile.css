@@ -14,7 +14,11 @@
     margin-right: 2rem;
 }
 .profile-button2{
-    margin-left: 16.8rem;
+    margin-left: 18rem;
+}
+.profile-button3{
+    position: relative;
+    left: 15rem;
 }
 
 @media only screen and (max-width: 600px) {
