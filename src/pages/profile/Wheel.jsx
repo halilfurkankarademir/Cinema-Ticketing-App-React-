@@ -78,6 +78,7 @@ const WheelSpin = () => {
     const navigate = useNavigate();
     const [tickets, setTickets] = useState([]);
     const [isAvailable, setIsAvailable] = useState(false);
+    const [spinCount,setSpinCount] = useState(0);
 
     useEffect(() => {
         if (!userLoggedIn) {
@@ -109,16 +110,25 @@ const WheelSpin = () => {
         fetchTickets();
     }, [currentUser]);
 
-    
 
     const [mustSpin, setMustSpin] = useState(false);
     const [prizeNumber, setPrizeNumber] = useState(0);
 
     const startSpin = () => {
-        const newPrizeNumber = Math.floor(Math.random() * data.length);
-        setPrizeNumber(newPrizeNumber);
-        setMustSpin(true);
+        if(spinCount>=1){
+            toast.error('You can only spin one time!')
+            return;
+        }
+        else{
+            const newPrizeNumber = Math.floor(Math.random() * data.length);
+            setPrizeNumber(newPrizeNumber);
+            setMustSpin(true);
+            setSpinCount(prev=>prev+1);
+        }
+       
     };
+
+
 
     const alertPrize = () => {
         const prize = data[prizeNumber].option;
