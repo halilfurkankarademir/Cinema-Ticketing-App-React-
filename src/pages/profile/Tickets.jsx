@@ -4,15 +4,12 @@ import { useAuth } from '../../context/auth';
 import { firestore, collection, getDocs, doc, deleteDoc } from '../../firebase/firebase';
 import './Tickets.css';
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Tickets = () => {
     const { currentUser , userLoggedIn} = useAuth();
     const [tickets, setTickets] = useState([]);
     const navigate = useNavigate();
-
-    
-
-
 
     useEffect(() => {
         if(!userLoggedIn){
@@ -43,10 +40,10 @@ const Tickets = () => {
             const ticketDocRef = doc(firestore, "users", currentUser.uid, "tickets", ticketId);
             await deleteDoc(ticketDocRef);
             setTickets(tickets.filter(ticket => ticket.id !== ticketId));
-            alert('Ticket cancelled successfully!');
+            toast.success('Ticket cancelled successfully!');
         } catch (err) {
             console.error('Error deleting ticket:', err);
-            alert('Error cancelling ticket.');
+            toast.error('Error cancelling ticket.');
         }
     };
 
@@ -93,6 +90,10 @@ const Tickets = () => {
                     </table>
                 </div>
             </div>
+            <Toaster
+                position="top-center"
+                reverseOrder={true}
+            />
         </div>
     );
 };
