@@ -158,22 +158,22 @@
     }
     .Navmenu a {
         position: relative;
-        right: 4rem;
-          
+        right: 10rem;
+        margin-right: 3rem;
     }
     .brand h2{
         top: 1.9rem;
     }
     .bi-person-fill {
-        left: 45rem;
+        left: 32rem;
     }
     .ticket-icon{
         
-        left: 7rem;
+        left: 14rem;
     }
     .spinner-icon{
        
-        left: -2rem;
+        left: 7rem;
     }
 }
 @media only screen and (min-width:1400px){
@@ -185,7 +185,7 @@
     .Navmenu a {
         position: relative;
         right: 4.5rem;
-          
+        margin-right: 5rem;
     }
     .brand h2{
         top: 1.9rem;

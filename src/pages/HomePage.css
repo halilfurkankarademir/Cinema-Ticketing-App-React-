@@ -70,7 +70,7 @@
     }
     .cardpng{
         position: relative;
-        width: 10rem !important;
+        width: 10rem ;
         left: 2rem;
     }
     .slick-prev {
@@ -163,7 +163,7 @@
 
     .cardpng {
         position: relative;
-        width: 12rem !important;
+        width: 12rem ;
         left: 1.5rem;
     }
 
@@ -273,12 +273,51 @@
 
 }
 
+@media only screen and (min-width:992px) {
+    .homepage-container{
+        height: auto;
+    }
+    .learnMore{
+        top: 50rem;
+    }
+}
+@media only screen and (min-width:1200px) {
+    .homepage-container{
+        height: auto;
+    }
+    .learnMore{
+        top: 50rem;
+        left: 50rem;
+    }
+    .visionSection span{
+        left: 47rem;
+    }
+    .comingSection span{
+        left: 47rem;
+    }
+}
+@media only screen and (min-width:1400px) {
+    .homepage-container{
+        height: auto;
+    }
+    .learnMore{
+        top: 50rem;
+        left: 60rem;
+    }
+    .visionSection span{
+        left: 58rem;
+    }
+    .comingSection span{
+        left: 58rem;
+    }
+}
 @media only screen and (min-width:1536px) {
     .homepage-container{
         height: auto;
     }
     .learnMore{
         top: 50rem;
+        left: 60rem;
     }
 }
 @media only screen and (min-width:1920px){
@@ -289,6 +328,9 @@
         left: 58rem;
     }
     .cardpng{
-        width: 25rem !important;
+        width: 25rem;
+    }
+    .learnMore{
+        left: 70rem;
     }
 }
