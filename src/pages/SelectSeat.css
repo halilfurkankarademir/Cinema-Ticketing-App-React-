@@ -105,7 +105,6 @@ li {
     top: 20rem;
     width: 20%;
     height: 55vh;
-    opacity: 0.8;
 }
 
 .custom-select {
@@ -150,42 +149,55 @@ li {
     height: 110vh;
   }
 
+  @media only screen and (max-width: 600px) {
+    .selectSeatAll {
+        position: absolute;
+        bottom: 5rem;
+        height: auto;
+        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
-@media only screen and (max-width: 600px) {
-    .selectSeatAll{
-        position: relative;
-        bottom: 32rem;
-        height: 100vh;
-    }
     .seatsAll {
-        position: relative;
-        left: 75%;
+        position: absolute;
+        left: 50%;
         bottom: 10rem;
-        max-width: 110% !important;
+        max-width: 90% !important;
         grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        transform: translateX(-50%);
     }
+
     .scene {
-        position: relative;
+        position: absolute;
         width: 70%;
         height: 0.2rem;
-        top: -9rem;
-        left: 19.5rem;
+        top: -1rem;
+        font-size: .8rem;
+        left: 50%;
         background-color: #a682ff;
+        transform: translateX(-50%);
     }
+
     .select-date-time {
-        position: relative;
-        left: 16rem;
-        top: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
         max-width: 100%;
         width: 80%;
-        font-size: .8rem;
+        font-size: 0.8rem;
         height: 60vh;
+        transform: translateX(-50%);
     }
+
     .buyTicket {
-       width: auto;
-       font-size: .8rem;
-       left: 35%;
+        position: absolute;
+        width: auto;
+        font-size: 0.8rem;
+        left: 50%;
+        transform: translateX(-50%);
     }
+
     .custom-datepicker {
         background-color: #ff3999;
         color: white;
@@ -199,59 +211,46 @@ li {
         padding: 0.5rem;
         margin-bottom: 1rem;
         margin-top: 0.5rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
     }
-    .titleSelect{
-        position: relative;
-        left: 16rem;
-        bottom: 8rem;
+
+    .titleSelect {
+        position: absolute;
+        left: 50%;
+        font-size: 1rem;
+        width: 100%;
+        bottom: 25rem;
+        transform: translateX(-50%);
+        text-align: center;
     }
-    .seatInfoIcons{
-        position: relative;
-        left: 80%;
-        top: -6rem !important;
+
+    .seatInfoIcons {
+        position: absolute;
+        font-size: .8rem;
+        left: 50%;
+        top: -4rem !important;
+        max-width: 90%;
+        transform: translateX(-50%);
     }
-    .chooseSeat{
-        position: relative;
-        left: 16rem;
+
+    .chooseSeat {
+        position: absolute;
+        left: 50%;
         top: -10rem;
+        transform: translateX(-50%);
     }
-    .selectedSeat {
-        background-color: #0095ff;
-        width: 1rem;
-        height: 1rem;
-        border-radius: 0.3rem;
-        color: white;
-        margin-right: 0.6rem;
-        margin-left: 0.6rem;
-    }
-    .selectP{
-        font-size: 0.8rem;
-    }
-    .emptyP{
-        font-size: 0.8rem;
-    }
-    .reservedP{
-        font-size: 0.8rem;
-    }
-    .reservedSeat {
-        background-color: #ff3999;
-        width: 1rem;
-        height: 1rem;
-        border-radius: 0.3rem;
-        color: white;
-        margin-right: 0.6rem;
-        margin-left: 0.6rem;
-    }
+
+    .selectedSeat,
+    .reservedSeat,
     .emptySeat {
-        background-color: #9e9d9c;
         width: 1rem;
         height: 1rem;
         border-radius: 0.3rem;
         color: white;
-        margin-right: 0.6rem;
-        margin-left: 0.6rem;
+        margin: 0 0.6rem;
     }
-    
 }
 @media only screen and (min-width: 1200px){
    .titleSelect{

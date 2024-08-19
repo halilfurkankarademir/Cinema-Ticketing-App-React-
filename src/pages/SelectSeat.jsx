@@ -339,7 +339,7 @@ const SeatSelection = () => {
                 </div>
             </div>
             <Toaster position="top-center"></Toaster>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };
