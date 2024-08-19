@@ -37,6 +37,15 @@ const HomePage = () => {
               }
             },
             {
+              breakpoint: 1201,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
               breakpoint: 600,
               settings: {
                 slidesToShow: 2,
