@@ -298,6 +298,9 @@
     .comingSection span{
         left: 47rem;
     }
+    .cardpng{
+        left: 16rem;
+    }
 }
 @media only screen and (min-width:1400px) {
     .homepage-container{
@@ -313,6 +316,9 @@
     .comingSection span{
         left: 58rem;
     }
+    .cardpng{
+        left: 22rem;
+    }
 }
 @media only screen and (min-width:1536px) {
     .homepage-container{
@@ -321,6 +327,9 @@
     .learnMore{
         top: 50rem;
         left: 60rem;
+    }
+    .cardpng{
+        left: 22rem;
     }
 }
 @media only screen and (min-width:1920px){
