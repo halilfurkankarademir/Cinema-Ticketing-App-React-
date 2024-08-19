@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    height: auto;
 }
 .profile-form{
     margin-top: 5rem;
@@ -24,9 +24,9 @@
 @media only screen and (max-width: 600px) {
     .profile-form{
         position: relative;
-        width: 90%;
+        width: 100%;
         max-width: 90%;
-        height: 70vh;
+        height: 100vh !important;
         bottom: 2rem;
         height: auto;
     }
@@ -40,5 +40,14 @@
         font-size: .8rem;
         position: relative;
         margin: 0;
+        margin-top: 2rem;
+    }
+    .profile-button3{
+        width: 100%;
+        font-size: .8rem;
+        position: relative;
+        margin: 0;
+        left: 0;
+        margin-top: 1rem;
     }
 }

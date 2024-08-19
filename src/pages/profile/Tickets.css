@@ -4,3 +4,15 @@
     width: 80%;
     left: 10%;
 }
+@media only screen and (max-width: 600px){
+    .ticketTable{
+        padding: 0;
+        font-size: 0.7rem;
+        width: 90%;
+        left: 5%;
+        
+    }
+    .ticketTable h3{
+        font-size: small;
+    }
+}
