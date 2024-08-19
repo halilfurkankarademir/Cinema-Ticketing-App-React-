@@ -85,3 +85,118 @@ small {
         bottom: 11rem;
     }
 }
+
+@media only screen and (min-width: 768px){
+    .payment-container main{
+        width: 80%;
+        margin-top: 3rem;
+    }
+    .exp-date input, .cvv input {
+        position: relative;
+        width: 215%;
+        left: 8rem; 
+    }
+    .cvv input{
+        position: relative;
+        left: 0rem;
+    }
+    .exp-date label{
+        position: relative;
+        left: 8rem;
+    }
+}
+@media only screen and (min-width: 992px){
+    .payment-container main{
+        width: 80%;
+        margin-top: 3rem;
+    }
+    .exp-date input, .cvv input {
+        position: relative;
+        width: 215%;
+        left: 5rem; 
+    }
+    .cvv input{
+        position: relative;
+        left: 0rem;
+    }
+    .exp-date label{
+        position: relative;
+        left: 5rem;
+    }
+}
+@media only screen and (min-width: 1200px){
+    .payment-container main{
+        width: 80%;
+        margin-top: 3rem;
+    }
+    .exp-date input, .cvv input {
+        position: relative;
+        width: 215%;
+        left: 3rem; 
+    }
+    .cvv input{
+        position: relative;
+        left: 0rem;
+    }
+    .exp-date label{
+        position: relative;
+        left: 3rem;
+    }
+}
+@media only screen and (min-width: 1400px){
+    .payment-container main{
+        width: 80%;
+        margin-top: 3rem;
+    }
+    .exp-date input, .cvv input {
+        position: relative;
+        width: 215%;
+        left: 1rem; 
+    }
+    .cvv input{
+        position: relative;
+        left: 0rem;
+    }
+    .exp-date label{
+        position: relative;
+        left: 1.2rem;
+    }
+}
+@media only screen and (min-width: 1536px){
+    .payment-container main{
+        width: 90%;
+        margin-top: 3rem;
+    }
+    .exp-date input, .cvv input {
+        position: relative;
+        width: 215%;
+        left: 0rem; 
+    }
+    .cvv input{
+        position: relative;
+        left: 0rem;
+    }
+    .exp-date label{
+        position: relative;
+        left: 0;
+    }
+}
+@media only screen and (min-width: 1920px){
+    .payment-container main{
+        width: 100%;
+        margin-top: 3rem;
+    }
+    .exp-date input, .cvv input {
+        position: relative;
+        width: 215%;
+        left: 0rem; 
+    }
+    .cvv input{
+        position: relative;
+        left: 0rem;
+    }
+    .exp-date label{
+        position: relative;
+        left: 0;
+    }
+}
