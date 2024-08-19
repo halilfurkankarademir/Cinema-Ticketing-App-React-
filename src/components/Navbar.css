@@ -150,3 +150,50 @@
         left: 3rem;
     }
 }
+@media only screen and (min-width: 1024px) and (max-width: 1536px) {
+    .Navmenu {
+        position: fixed;
+        top: 4rem;
+        left: 30rem;
+    }
+    .Navmenu a {
+        position: relative;
+        right: 3rem;   
+    }
+    .brand h2{
+        top: 1.9rem;
+    }
+}
+@media only screen and (min-width:1536px) {
+    .Navmenu {
+        position: fixed;
+        top: 4.5rem;
+        left: 30rem;
+    }
+    .Navmenu a {
+        position: relative;
+        right: 3rem;   
+    }
+    .brand h2{
+        top: 2.5rem;
+    }
+}
+@media only screen and (min-width:1920px) {
+    .Navmenu {
+        position: fixed;
+        top: 4.5rem;
+        left: 30rem;
+    }
+    .Navmenu a {
+        position: relative;
+        left: 9rem;   
+    }
+    .brand h2{
+        top: 2.5rem;
+    }
+    .bi-person-fill {
+        position: fixed;
+        left: 76rem;
+        font-size: 1.3rem;
+    }
+}

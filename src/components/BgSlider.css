@@ -63,3 +63,14 @@
   }
   
 }
+@media only screen and (min-width:1536px) {
+    .slide-text{
+        top: 16rem;
+    }
+}
+@media only screen and (min-width:1920px){
+    .hero-slider{
+        width: 150%;
+        left: -20rem;
+    }
+}

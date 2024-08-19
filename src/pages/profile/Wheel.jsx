@@ -123,12 +123,6 @@ const WheelSpin = () => {
                         id: doc.id,
                     }));
                     setTickets(ticketsList);
-                    const ticketCount = ticketsList.length;
-                    // Her 5 bilet için 1 spin hakkı
-                    const requiredSpinCount = Math.floor(ticketCount / 5);
-                    setSpinCount(requiredSpinCount);
-                    setIsAvailable(requiredSpinCount > 0);
-                    setCanSpin(ticketCount >= (spinCount * 5));
                 } catch (err) {
                     console.error("Error fetching tickets:", err);
                     alert("No tickets found!");
