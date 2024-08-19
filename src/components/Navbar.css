@@ -117,7 +117,7 @@
 @media only screen and (min-width: 992px) {
     .navbar {
         position: fixed;
-        right: 10rem;
+        right: 6rem;
         width: 80vw;
         z-index: 8;
         top: 2rem;
@@ -138,16 +138,19 @@
     }
     .Navmenu a {
         position: relative;
-        right: 3rem;
-        
+        right: 12rem;
+        margin-right: 2rem;
     }
     .ticket-icon{
         position: relative;
-        left: 11.5rem;
+        left: 14rem;
     }
     .spinner-icon{
         position: relative;
-        left: 3rem;
+        left: 9rem;
+    }
+    .bi-person-fill {
+        left: 24rem;
     }
 }
 @media only screen and (min-width:1200px){
