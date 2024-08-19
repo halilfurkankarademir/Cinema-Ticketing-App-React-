@@ -43,6 +43,7 @@
     .visionSection{
         position: relative;
         bottom: 0rem;
+        /* margin-left: -1rem; */
     }
     .visionSection span{
         font-size: 0.8rem;
