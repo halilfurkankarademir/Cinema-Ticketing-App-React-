@@ -18,9 +18,9 @@
     margin-top: 18rem;
 }
 
-li {
+/* li {
     list-style: none;
-}
+} */
 
 .selected-seats-container {
     position: relative;
@@ -253,24 +253,90 @@ li {
         margin: 0 0.6rem;
     }
 }
+@media only screen and (min-width: 768px){
+   
+}
+@media only screen and (min-width: 992px){
+   
+}
 @media only screen and (min-width: 1200px){
-   .titleSelect{
-    position: relative;
-    right: 12rem;
-    bottom: 8rem;
+   
+}
+@media only screen and (min-width: 1400px){
+    .selectSeatAll{
+        bottom: 35rem;
+       }
+        .seatsAll{
+        position: relative;
+        left: 28rem;
+       }
+       .scene{
+        left: 32rem;
+       }
+       .seatInfoIcons{
+        left: 35rem;
+        top: 4rem;
+       }
+       .select-date-time{
+        top: 30rem;
+       }
+       .custom-datepicker{
+        width: 63%;
+       }
+       .buyTicket{
+        width: auto;
+        left: 6.5rem;
+       }
+}
+@media only screen and (min-width: 1536px){
+    .selectSeatAll{
+        bottom: 35rem;
+       }
+        .seatsAll{
+        position: relative;
+        left: 28rem;
+       }
+       .scene{
+        left: 32rem;
+       }
+       .seatInfoIcons{
+        left: 35rem;
+        top: 4rem;
+       }
+       .select-date-time{
+        top: 30rem;
+       }
+       .custom-datepicker{
+        width: 63%;
+       }
+       .buyTicket{
+        width: auto;
+        left: 6.5rem;
+       }
+}
+@media only screen and (min-width: 1920px){
+   .selectSeatAll{
+    bottom: 35rem;
    }
-   .seatsAll{
+    .seatsAll{
     position: relative;
-    bottom: 8rem;
+    left: 40rem;
    }
    .scene{
-    position: relative;
-    top: -6.25rem;
-    left: 32rem;
-    width: 30rem;
+    left: 41rem;
    }
    .seatInfoIcons{
-    position: relative;
-    top: -3.125rem;
-}
+    left: 48rem;
+    top: 4rem;
+   }
+   .select-date-time{
+    top: 30rem;
+   }
+   .custom-datepicker{
+    width: 80%;
+   }
+   .buyTicket{
+    width: auto;
+    left: 9rem;
+   }
 }
