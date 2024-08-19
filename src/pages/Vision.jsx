@@ -36,13 +36,7 @@ const OnLive = () => {
         <div>
             <Navbar />
             <div className="container-fluid secondSectionVision">
-                <h3
-                    style={{
-                        position: "relative",
-                        left: "2rem",
-                        
-                    }}
-                >
+                <h3>
                    <i className="bi bi-stars"></i> Vision Movies 
                 </h3>
                 <div className="row">

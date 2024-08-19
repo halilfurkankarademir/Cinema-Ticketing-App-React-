@@ -168,12 +168,12 @@
     }
 
     .slick-prev {
-        left: 12px;
+        left: -1rem;
         z-index: 1;
     }
 
     .slick-next {
-        right: 12px;
+        right: -1rem;
     }
 
     .slick-prev:before,
