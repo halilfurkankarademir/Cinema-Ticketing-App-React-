@@ -51,3 +51,34 @@
         margin-top: 1rem;
     }
 }
+
+@media only screen and (min-width: 768px){
+    .profile-form{
+        width: 90%;  
+    }
+}
+@media only screen and (min-width: 992px){
+    .profile-form{
+        width: 80%;
+    }
+}
+@media only screen and (min-width: 1200px){
+    .profile-form{
+        width: 65%;
+    }
+}
+@media only screen and (min-width: 1400px){
+    .profile-form{
+        width: 60%;
+    }
+}
+@media only screen and (min-width: 1536px){
+    .profile-form{
+        width: 50%;
+    }
+}
+@media only screen and (min-width: 1920px){
+    .profile-form{
+        width: 50%;
+    }
+}
