@@ -281,3 +281,14 @@
         top: 50rem;
     }
 }
+@media only screen and (min-width:1920px){
+    .visionSection span{
+        left: 58rem;
+    }
+    .comingSection span{
+        left: 58rem;
+    }
+    .cardpng{
+        width: 25rem !important;
+    }
+}
