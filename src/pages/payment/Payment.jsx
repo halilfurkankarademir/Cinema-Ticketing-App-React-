@@ -441,7 +441,7 @@ const Payment = () => {
 
                                 <hr className="my-4" />
                                 <button
-                                    className="w-100 btn btn-dark btn-lg"
+                                    className="w-100 btn btn-dark btn-lg .compelete-button"
                                     type="submit"
                                     onClick={handleComplete}
                                 >

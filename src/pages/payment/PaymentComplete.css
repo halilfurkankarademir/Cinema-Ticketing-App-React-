@@ -16,7 +16,8 @@
 /* Responsive Design */
 @media only screen and (max-width: 600px) {
     .payment-complete-page {
-        width: 100%; /* Genişliği küçük ekranlarda artır */
+        max-width: 100%; 
+        width: 85%;
         height: auto; /* Yüksekliği otomatik olarak ayarla */
         position: relative;
         bottom: 8rem;
@@ -27,4 +28,5 @@
         margin-right: 0; /* Margin'i kaldır */
         margin-bottom: 1rem; /* Alt boşluk ekle */
     }
+   
 }

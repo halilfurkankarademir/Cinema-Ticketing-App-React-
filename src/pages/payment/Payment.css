@@ -61,6 +61,9 @@ small {
 
 /* Responsive Design */
 @media only screen and (max-width: 600px) {
+    .payment-container{
+        max-width: 90%;
+    }
     .exp-date {
         position: relative;
         right: 0; /* Sağa kaymayı kaldır */
@@ -68,10 +71,11 @@ small {
     .exp-date input, .cvv input {
         width: 100%; /* Genişlikleri tam genişlik yap */
     }
-    .compelete-button {
+    .btn-dark {
         width: 100%; /* Butonun genişliği tam genişlik olsun */
         left: 0; /* Soldan sıfırla */
-        bottom: 1rem; /* Butonu biraz yukarı al */
+        bottom: 1rem;
+        font-size: .8rem; /* Butonu biraz yukarı al */
     }
     .ticket-details {
         top: 0; /* Yukarı kaydırmayı kaldır */

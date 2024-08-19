@@ -85,7 +85,7 @@ const Tickets = () => {
                                         <td style={{backgroundColor:'transparent',color:'white'}}>{ticket.date}</td>
                                         <td style={{backgroundColor:'transparent',color:'white'}}>
                                             <button 
-                                                className='btn btn-danger btn-sm'
+                                                className='btn btn-danger btn-sm danger-button'
                                                 onClick={() => deleteTicket(ticket.id, ticket.timestamp)}
                                             >
                                                 Cancel
