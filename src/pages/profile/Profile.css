@@ -35,7 +35,7 @@
         font-size: .8rem;
         margin-bottom: 1rem;
     }
-    .profile-button2{
+    .signOutButton{
         width: 100%;
         font-size: .8rem;
         position: relative;
@@ -56,29 +56,77 @@
     .profile-form{
         width: 90%;  
     }
+    .profile-button2{
+        position: relative;
+        left: 12.6rem;
+    }
+    .profile-button3{
+        position: relative;
+        left: 28rem;
+    }
 }
 @media only screen and (min-width: 992px){
     .profile-form{
         width: 80%;
+    }
+    .profile-button2{
+        position: relative;
+        left: 2rem;
+    }
+    .profile-button3{
+        position: relative;
+        left: 17rem;
     }
 }
 @media only screen and (min-width: 1200px){
     .profile-form{
         width: 65%;
     }
+    .profile-button2{
+        position: relative;
+        left: 1rem;
+    }
+    .profile-button3{
+        position: relative;
+        left: 15rem;
+    }
 }
 @media only screen and (min-width: 1400px){
     .profile-form{
         width: 60%;
+    }
+    .profile-button2{
+        position: relative;
+        left: 5rem;
+    }
+    .profile-button3{
+        position: relative;
+        left: 20rem;
     }
 }
 @media only screen and (min-width: 1536px){
     .profile-form{
         width: 50%;
     }
+    .profile-button2{
+        position: relative;
+        left: .8rem;
+    }
+    .profile-button3{
+        position: relative;
+        left: 15rem;
+    }
 }
 @media only screen and (min-width: 1920px){
     .profile-form{
         width: 50%;
+    }
+    .profile-button2{
+        position: relative;
+        left: 12.6rem;
+    }
+    .profile-button3{
+        position: relative;
+        left: 28rem;
     }
 }
