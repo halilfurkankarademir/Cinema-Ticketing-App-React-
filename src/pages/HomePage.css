@@ -47,7 +47,7 @@
     .visionSection span{
         font-size: 0.8rem;
         position: relative;
-        left: 3rem;
+        left: 3crem;
 
     }
     .comingSection{
@@ -70,6 +70,7 @@
     .cardpng{
         position: relative;
         width: 10rem !important;
+        left: 2rem;
     }
     .slick-prev {
         left: 10px; 
