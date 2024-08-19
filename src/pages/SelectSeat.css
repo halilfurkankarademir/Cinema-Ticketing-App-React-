@@ -257,10 +257,65 @@
    
 }
 @media only screen and (min-width: 992px){
-   
+    .selectSeatAll{
+        bottom: 35rem;
+        right: 25rem;
+       }
+        .seatsAll{
+        position: relative;
+        left: 28rem;
+       }
+       .scene{
+        left: 38rem;
+       }
+       .seatInfoIcons{
+        left: 35.5rem;
+        top: 4rem;
+       }
+       .select-date-time{
+        top: 30rem;
+       }
+       .custom-datepicker{
+        width: 55%;
+       }
+       .buyTicket{
+        width: auto;
+        left: 3.2rem;
+        top: 22rem;
+       }
+       .titleSelect{
+        left: 17rem;
+       }
 }
 @media only screen and (min-width: 1200px){
-   
+    .selectSeatAll{
+        bottom: 35rem;
+        right: 20rem;
+       }
+        .seatsAll{
+        position: relative;
+        left: 28rem;
+       }
+       .scene{
+        left: 36rem;
+       }
+       .seatInfoIcons{
+        left: 35.5rem;
+        top: 4rem;
+       }
+       .select-date-time{
+        top: 30rem;
+       }
+       .custom-datepicker{
+        width: 55%;
+       }
+       .buyTicket{
+        width: auto;
+        left: 4.5rem;
+       }
+       .titleSelect{
+        left: 11rem;
+       }
 }
 @media only screen and (min-width: 1400px){
     .selectSeatAll{
@@ -294,6 +349,7 @@
 @media only screen and (min-width: 1536px){
     .selectSeatAll{
         bottom: 35rem;
+        right: 18rem;
        }
         .seatsAll{
         position: relative;
@@ -315,6 +371,9 @@
        .buyTicket{
         width: auto;
         left: 6.5rem;
+       }
+       .titleSelect{
+        left: 0rem;
        }
 }
 @media only screen and (min-width: 1920px){
@@ -341,5 +400,8 @@
    .buyTicket{
     width: auto;
     left: 9rem;
+   }
+   .titleSelect{
+    left: 0rem;
    }
 }
