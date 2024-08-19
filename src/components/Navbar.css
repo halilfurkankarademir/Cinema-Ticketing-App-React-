@@ -210,7 +210,7 @@
 @media only screen and (min-width:1536px) {
     .Navmenu {
         position: fixed;
-        top: 4rem;
+        top: 3.5rem;
         left: 30rem;
     }
     .Navmenu a {
@@ -218,7 +218,7 @@
         right: 1rem;   
     }
     .brand h2{
-        top: 2rem;
+        top: 1.5rem;
     }
     .bi-person-fill {
         left: 52rem;

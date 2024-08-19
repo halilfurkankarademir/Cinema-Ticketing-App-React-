@@ -1,4 +1,4 @@
-/* Büyük ekranlar için (768px üstü) */
+
 
 .movieDetailSection {
     width: 100%;
@@ -202,7 +202,7 @@
     }
 }
 
-/* Küçük ekranlar için (600px altı) */
+
 @media (max-width: 600px) {
     .movie-title {
         top: 2rem;
@@ -275,5 +275,67 @@
     }
     .trailer-section{
         height: 120vh;
+    }
+}
+@media only screen and (min-width:992px){
+    .movie-desc2{
+        left: 7rem;
+    }
+    .others-section{
+        left: 6rem;
+    }
+    .trailer-button{
+        width: auto;
+    }
+    .buyTicketBtn{
+        width: auto;
+        height: auto;
+    }
+    .favorite-button{
+        left: 20%;
+    }
+}
+@media only screen and (min-width:1200px){
+    .movie-desc2{
+        left: 8rem;
+    }
+    .others-section{
+        left: 7rem;
+    }
+    .favorite-button{
+        left: 30%;
+    }
+}
+@media only screen and (min-width:1400px){
+    .movie-desc2{
+        left: 9rem;
+    }
+    .others-section{
+        left: 8.2rem;
+    }
+    .favorite-button{
+        left: 45%;
+    }
+}
+@media only screen and (min-width:1536px){
+    .movie-desc2{
+        left: 10rem;
+    }
+    .others-section{
+        left: 9.5rem;
+    }
+    .favorite-button{
+        left: 50%;
+    }
+}
+@media only screen and (min-width:1920px){
+    .movie-desc2{
+        left: 12rem;
+    }
+    .others-section{
+        left: 12rem;
+    }
+    .favorite-button{
+        left: 60%;
     }
 }
