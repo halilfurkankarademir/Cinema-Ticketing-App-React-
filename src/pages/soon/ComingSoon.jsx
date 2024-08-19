@@ -41,7 +41,7 @@ const ComingSoon = () => {
                 <h3><i className="bi bi-hourglass-split"></i> Upcoming Movies </h3>
                 <div className="row">
                     {movies.map((movie) => (
-                        <div className="col-md-3" key={movie.id}>
+                        <div className="col-md-4" key={movie.id}>
                             <CardComing
                                 title={movie.title}
                                 desc={movie.description}
