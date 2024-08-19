@@ -47,36 +47,36 @@
 
 
 @media only screen and (min-width: 768px){
-    .secondSectionVision h3{
+    .secondSectionUpcoming h3{
         left: 1rem;
     }
 }
 @media only screen and (min-width: 992px){
-    .secondSectionVision h3{
+    .secondSectionUpcoming h3{
         position: relative;
         left: 1rem;
     }
 }
 @media only screen and (min-width: 1200px){
-    .secondSectionVision h3{
+    .secondSectionUpcoming h3{
         position: relative;
         left: 3rem;
     }
 }
 @media only screen and (min-width: 1400px){
-    .secondSectionVision h3{
+    .secondSectionUpcoming h3{
         position: relative;
         left: 5rem;
     }
 }
 @media only screen and (min-width: 1536px){
-    .secondSectionVision h3{
+    .secondSectionUpcoming h3{
         position: relative;
         left: 6rem;
     }
 }
 @media only screen and (min-width: 1920px){
-    .secondSectionVision h3{
+    .secondSectionUpcoming h3{
         position: relative;
         left: 10rem;
     }
