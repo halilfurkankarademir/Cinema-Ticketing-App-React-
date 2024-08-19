@@ -127,6 +127,9 @@
 .trailer-button {
     width: 25%;
 }
+.trailer-button:hover{
+    color: #32a9ff !important;
+}
 .favorite-button{
     position: relative;
     left: 38%;
@@ -256,6 +259,7 @@
         width: 100%;
         margin-top: 1.5rem;
     }
+    
     .trailer-embed {
         position: relative;
         padding-bottom: 56.25%; /* 16:9 aspect ratio (divide 9 by 16 = 0.5625) */
