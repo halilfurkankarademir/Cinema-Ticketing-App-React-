@@ -9,8 +9,14 @@ import {
     firestore,
     collection,
     getDocs,
+    query,
+    where,
+    addDoc,
+    setDoc,
     doc,
-    deleteDoc,
+    updateDoc,
+    increment,
+    getDoc
 } from "../../firebase/firebase";
 import "./Wheel.css";
 
@@ -77,36 +83,52 @@ const WheelSpin = () => {
     const { currentUser, userLoggedIn } = useAuth();
     const navigate = useNavigate();
     const [tickets, setTickets] = useState([]);
-    const [prize, setPrize] = useState();
+    const [coupons, setCoupons] = useState([]);
+    const [canSpin, setCanSpin] = useState(false);
     const [isAvailable, setIsAvailable] = useState(false);
-    const [spinCount,setSpinCount] = useState(0);
+    const [spinCount, setSpinCount] = useState(0);
 
     useEffect(() => {
         if (!userLoggedIn) {
             navigate("/login");
         }
+
+        const fetchSpinCount = async () => {
+            if (currentUser) {
+                try {
+                    const userDocRef = doc(firestore, "users", currentUser.uid);
+                    const userDoc = await getDoc(userDocRef);
+                    if (userDoc.exists()) {
+                        const data = userDoc.data();
+                        setSpinCount(data.spinCount || 0);
+                        setCanSpin(data.canSpin !== false);
+                    }
+                } catch (err) {
+                    console.error("Error fetching spin count:", err);
+                }
+            }
+        };
+
         const fetchTickets = async () => {
             if (currentUser) {
                 try {
-                    const ticketsCollection = collection(
-                        firestore,
-                        "users",
-                        currentUser.uid,
-                        "tickets"
+                    const reservationsCollection = collection(firestore, "reservations");
+                    const q = query(
+                        reservationsCollection,
+                        where("email", "==", currentUser.email)
                     );
-                    const ticketsSnapshot = await getDocs(ticketsCollection);
+                    const ticketsSnapshot = await getDocs(q);
                     const ticketsList = ticketsSnapshot.docs.map((doc) => ({
                         ...doc.data(),
                         id: doc.id,
                     }));
                     setTickets(ticketsList);
-                    if(tickets.length!==0){
-                        setIsAvailable(ticketsList.length % 5 === 0) ;
-                    }
-                    else{
-                        setIsAvailable(false);
-                    }
-                    
+                    const ticketCount = ticketsList.length;
+                    // Her 5 bilet için 1 spin hakkı
+                    const requiredSpinCount = Math.floor(ticketCount / 5);
+                    setSpinCount(requiredSpinCount);
+                    setIsAvailable(requiredSpinCount > 0);
+                    setCanSpin(ticketCount >= (spinCount * 5));
                 } catch (err) {
                     console.error("Error fetching tickets:", err);
                     alert("No tickets found!");
@@ -114,50 +136,77 @@ const WheelSpin = () => {
             }
         };
 
+        fetchSpinCount();
         fetchTickets();
-    }, [currentUser]);
+    }, [currentUser, userLoggedIn, navigate]);
 
+    const addCoupon = async (newCoupon) => {
+        try {
+            await addDoc(
+                collection(firestore, "users", currentUser.uid, "coupons"),
+                { coupon: newCoupon }
+            );
+
+            const userDocRef = doc(firestore, "users", currentUser.uid);
+            await setDoc(userDocRef, { canSpin: canSpin }, { merge: true });
+        } catch (err) {
+            console.error("Error adding coupon:", err);
+        }
+    };
+
+    const incrementSpinCount = async (userId) => {
+        try {
+            const userDocRef = doc(firestore, "users", userId);
+            await updateDoc(userDocRef, {
+                spinCount: increment(1),
+            });
+            console.log("Spin count incremented successfully.");
+        } catch (err) {
+            console.error("Error incrementing spin count:", err);
+        }
+    };
 
     const [mustSpin, setMustSpin] = useState(false);
     const [prizeNumber, setPrizeNumber] = useState(0);
 
-    const startSpin = () => {
-        if(spinCount>=1){
-            toast.error('You can only spin one time!')
+    const startSpin = async () => {
+        if (!canSpin) {
+            toast.error("You don't have enough tickets to spin!");
             return;
         }
-        else{
-            const newPrizeNumber = Math.floor(Math.random() * data.length);
-            setPrizeNumber(newPrizeNumber);
-            setMustSpin(true);
-            setSpinCount(prev=>prev+1);
-            
-        }
-       
-    };
 
+        const newPrizeNumber = Math.floor(Math.random() * data.length);
+        setPrizeNumber(newPrizeNumber);
+        setMustSpin(true);
+        setCanSpin(false);
+
+        try {
+            await incrementSpinCount(currentUser.uid);
+        } catch (err) {
+            console.error("Error starting spin:", err);
+        }
+    };
 
     const alertPrize = () => {
         const prize = data[prizeNumber].option;
         if (prize === "Not this time :(") {
-            toast.error("You couldn't won any prize :(");
+            toast.error("You couldn't win any prize :(");
         } else {
+            setCoupons((prev) => [...prev, prize]);
+            addCoupon(prize);
             toast.success(`You won: ${prize} !`);
         }
-        setPrize(prize)
         setMustSpin(false);
     };
-
 
     return (
         <div>
             <Navbar />
             <div className="container-fluid spinner-section">
-               
-                {isAvailable && (
+                {isAvailable ? (
                     <>
                         <h2>
-                        <PiSpinnerBallFill></PiSpinnerBallFill> Lucky Spin
+                            <PiSpinnerBallFill /> Lucky Spin
                         </h2>
                         <Wheel
                             mustStartSpinning={mustSpin}
@@ -180,14 +229,11 @@ const WheelSpin = () => {
                             Start Spin
                         </button>
                     </>
+                ) : (
+                    <h5 style={{ fontWeight: "400" }}>
+                        <i className="bi bi-info-square"></i> You don't have any spin rights at the moment.
+                    </h5>
                 )}
-                {
-                    !isAvailable && (
-                        <>
-                        <h5 style={{fontWeight:'400'}}><i class="bi bi-info-square"></i> You don't have any spin rights at the moment.</h5>
-                        </>
-                    )
-                }
             </div>
             <Toaster position="top-center" reverseOrder={true} />
         </div>
