@@ -271,7 +271,7 @@
         left: 28rem;
        }
        .scene{
-        left: 32rem;
+        left: 34rem;
        }
        .seatInfoIcons{
         left: 35rem;
@@ -281,11 +281,14 @@
         top: 30rem;
        }
        .custom-datepicker{
-        width: 63%;
+        width: 58%;
        }
        .buyTicket{
         width: auto;
-        left: 6.5rem;
+        left: 5.8rem;
+       }
+       .titleSelect{
+        left: 4rem;
        }
 }
 @media only screen and (min-width: 1536px){
