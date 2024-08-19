@@ -224,7 +224,7 @@
     }
     .Navmenu a {
         position: relative;
-        left: 9rem;   
+        left: 11rem;   
     }
     .brand h2{
         top: 2rem;
@@ -234,4 +234,5 @@
         left: 76rem;
         font-size: 1.3rem;
     }
+    
 }
