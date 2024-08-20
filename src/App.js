@@ -21,6 +21,7 @@ import Wheel from '../src/pages/profile/Wheel'
 import Dashboard from "./pages/Admin/Dashboard";
 import ManageMovies from "./pages/Admin/ManageMovies";
 import ManageRes from "./pages/Admin/managereservations/ManageRes";
+import AddTheater from "./pages/Admin/addtheater/AddTheater";
 import AddMovie from "./pages/Admin/AddMovie";
 import EditMovie from "./pages/Admin/EditMovie";
 import Upcoming from "./pages/Admin/Upcoming";
@@ -63,6 +64,7 @@ const Wrapper = () => {
                 <Route path="/admin/managecomments" element={<ManageComments />} />
                 <Route path="/admin/reservations" element={<ManageRes />} />
                 <Route path="/admin/upcoming" element={<Upcoming />} />
+                <Route path="/admin/addtheater" element={<AddTheater/>} />
                 <Route path="/edit-movie/:id" element={<EditMovie />} />
                 <Route path="/mobile" element={<Mobile />} />
             </Routes>
