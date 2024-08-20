@@ -34,3 +34,52 @@
     letter-spacing: -2px;
     cursor: pointer;
 }
+@media only screen and (min-width:768px) {
+    
+}
+@media only screen and (min-width:992px) {
+    .NavmenuAdmin{
+       
+        left: 0rem;
+        font-size: .8rem;
+    }
+    .signOutButton{
+        left: 22rem;
+        font-size: .8rem;
+    }
+}
+@media only screen and (min-width:1200px) {
+    .NavmenuAdmin{
+        font-size: 1rem;
+        left: 2rem;
+    }
+    .signOutButton{
+        left: 27rem;
+        font-size: 1rem;
+    }
+}
+@media only screen and (min-width:1400px) {
+    .NavmenuAdmin{
+      
+        left: 10rem;
+    }
+    .signOutButton{
+        left: 30rem;
+    }
+}
+@media only screen and (min-width:1536px) {
+    .NavmenuAdmin{
+        left: 15rem;
+    }
+    .signOutButton{
+        left: 32rem;
+    }
+}
+@media only screen and (min-width:1920px) {
+    .NavmenuAdmin{
+        left: 25rem;
+    }
+    .signOutButton{
+        left: 42rem;
+    }
+}

@@ -88,6 +88,8 @@ const WheelSpin = () => {
     const [isAvailable, setIsAvailable] = useState(true);
     const [spinCount, setSpinCount] = useState(0);
     const [spinRights, setSpinRights] = useState(0);
+    const [calculatedSpinRights,setCalculatedSpinRights] = useState(0);
+
 
     useEffect(() => {
         if (!userLoggedIn) {
@@ -124,10 +126,14 @@ const WheelSpin = () => {
                         id: doc.id,
                     }));
                     setTickets(ticketsList);
-                    
-                    const calculatedSpinRights = Math.floor(ticketsList.length / 5)-spinCount;
-                    {
+        
+                    const totalRights = Math.floor(ticketsList.length / 5);
+                    const calculatedSpinRights = totalRights - spinCount;
+
+                    if (calculatedSpinRights > 0) {
+                        setCalculatedSpinRights(calculatedSpinRights);
                         setSpinRights(calculatedSpinRights);
+        
                         await updateDoc(doc(firestore, "users", currentUser.uid), {
                             spinRights: calculatedSpinRights,
                         });
@@ -159,19 +165,24 @@ const WheelSpin = () => {
     const incrementSpinCount = async (userId) => {
         try {
             const userDocRef = doc(firestore, "users", userId);
+            
             await updateDoc(userDocRef, {
                 spinCount: increment(1),
                 spinRights: increment(-1),
             });
-            setSpinCount(prevCount => prevCount + 1);
-            setSpinRights(prevCount => prevCount - 1);
-
+    
+            const updatedUserDoc = await getDoc(userDocRef);
+            if (updatedUserDoc.exists()) {
+                const data = updatedUserDoc.data();
+                setSpinCount(data.spinCount || 0);
+                setSpinRights(data.spinRights || 0);
+            }
+    
             console.log("Spin count incremented successfully.");
         } catch (err) {
             console.error("Error incrementing spin count:", err);
         }
     };
-
     const [mustSpin, setMustSpin] = useState(false);
     const [prizeNumber, setPrizeNumber] = useState(0);
 
@@ -228,7 +239,7 @@ const WheelSpin = () => {
                                 },
                             }}
                         />
-                        <p>You have {spinRights} spin right.</p>
+                        <p>You have {calculatedSpinRights} spin right.</p>
                         <button
                             className="btn btn-dark mt-2"
                             onClick={startSpin}
