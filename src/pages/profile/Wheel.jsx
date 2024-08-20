@@ -87,14 +87,14 @@ const WheelSpin = () => {
     const [canSpin, setCanSpin] = useState(false);
     const [isAvailable, setIsAvailable] = useState(true);
     const [spinCount, setSpinCount] = useState(0);
-    const [spinRights,setSpinRights] = useState(0);
+    const [spinRights, setSpinRights] = useState(0);
 
     useEffect(() => {
         if (!userLoggedIn) {
             navigate("/login");
         }
 
-        const fetchSpinCount = async () => {
+        const fetchUserData = async () => {
             if (currentUser) {
                 try {
                     const userDocRef = doc(firestore, "users", currentUser.uid);
@@ -102,10 +102,10 @@ const WheelSpin = () => {
                     if (userDoc.exists()) {
                         const data = userDoc.data();
                         setSpinCount(data.spinCount || 0);
-                        console.log(spinCount);
+                        setSpinRights(data.spinRights || 0);
                     }
                 } catch (err) {
-                    console.error("Error fetching spin count:", err);
+                    console.error("Error fetching user data:", err);
                 }
             }
         };
@@ -124,14 +124,23 @@ const WheelSpin = () => {
                         id: doc.id,
                     }));
                     setTickets(ticketsList);
+
+                    // Update spin rights based on the number of tickets
+                    const calculatedSpinRights = Math.floor(ticketsList.length / 5);
+                    if (calculatedSpinRights > spinRights) {
+                        setSpinRights(calculatedSpinRights);
+                        await updateDoc(doc(firestore, "users", currentUser.uid), {
+                            spinRights: calculatedSpinRights,
+                        });
+                    }
                 } catch (err) {
                     console.error("Error fetching tickets:", err);
                     alert("No tickets found!");
                 }
             }
         };
-        setSpinRights(Math.floor(tickets.length/5))
-        fetchSpinCount();
+
+        fetchUserData();
         fetchTickets();
     }, [currentUser, userLoggedIn, navigate]);
 
@@ -154,11 +163,11 @@ const WheelSpin = () => {
             const userDocRef = doc(firestore, "users", userId);
             await updateDoc(userDocRef, {
                 spinCount: increment(1),
+                spinRights: increment(-1),
             });
             setSpinCount(prevCount => prevCount + 1);
             setSpinRights(prevCount => prevCount - 1);
-            
-            console.log(spinCount);
+
             console.log("Spin count incremented successfully.");
         } catch (err) {
             console.error("Error incrementing spin count:", err);
@@ -169,14 +178,8 @@ const WheelSpin = () => {
     const [prizeNumber, setPrizeNumber] = useState(0);
 
     const startSpin = async () => {
-
-        
-        const canSpinNow = tickets.length >= (spinCount + 1) * 5
-        //If customer has 5n tickets and if customer has more than spincount*5 , customer can spin
-        //For example he spinned for 2 times and he needs 15+ tickets for third time
-
-        if (!canSpinNow) {
-            toast.error("You don't have enough tickets to spin!");
+        if (spinRights <= 0) {
+            toast.error("You don't have enough spin rights!");
             return;
         }
 
