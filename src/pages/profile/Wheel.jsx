@@ -101,7 +101,7 @@ const WheelSpin = () => {
                     if (userDoc.exists()) {
                         const data = userDoc.data();
                         setSpinCount(data.spinCount || 0);
-                        setCanSpin(data.canSpin !== false);
+                        console.log(spinCount);
                     }
                 } catch (err) {
                     console.error("Error fetching spin count:", err);
@@ -129,7 +129,6 @@ const WheelSpin = () => {
                 }
             }
         };
-
         fetchSpinCount();
         fetchTickets();
     }, [currentUser, userLoggedIn, navigate]);
@@ -154,6 +153,8 @@ const WheelSpin = () => {
             await updateDoc(userDocRef, {
                 spinCount: increment(1),
             });
+            setSpinCount(prevCount => prevCount + 1);
+            console.log(spinCount);
             console.log("Spin count incremented successfully.");
         } catch (err) {
             console.error("Error incrementing spin count:", err);
@@ -164,7 +165,13 @@ const WheelSpin = () => {
     const [prizeNumber, setPrizeNumber] = useState(0);
 
     const startSpin = async () => {
-        if (!canSpin) {
+
+        
+        const canSpinNow = tickets.length >= (spinCount + 1) * 5
+        //If customer has 5n tickets and if customer has more than spincount*5 , customer can spin
+        //For example he spinned for 2 times and he needs 15+ tickets for third time
+
+        if (!canSpinNow) {
             toast.error("You don't have enough tickets to spin!");
             return;
         }
