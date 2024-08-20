@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Card from "../components/Card";
 import Footer from "./footer/Footer";
 import { firestore, collection, getDocs } from "../firebase/firebase";
+import gsap from "gsap";
 import "./Vision.css";
 
 const OnLive = () => {
@@ -11,7 +12,13 @@ const OnLive = () => {
     window.onload = function() {
         window.scrollTo(0, 0);
     };
-
+    useEffect(() => {
+        gsap.fromTo(".secondSectionVision", 
+            { opacity: 0 },  
+            { opacity: 1, ease: "power4.inOut", duration: 1, delay:.5 }  
+        );
+        
+    }, []);
 
     useEffect(() => {
 

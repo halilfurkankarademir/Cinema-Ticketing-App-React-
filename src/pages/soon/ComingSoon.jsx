@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../footer/Footer'
 import CardComing from "../../components/cardcoming/CardComing"
-import { ScrollRestoration } from 'react-router-dom'
+import gsap from 'gsap'
 import { firestore, collection, getDocs } from "../../firebase/firebase";
 import { useEffect, useState } from 'react';
 import './ComingSoon.css'
@@ -31,6 +31,13 @@ const ComingSoon = () => {
         fetchMovies();
     }, []);
     
+    useEffect(() => {
+        gsap.fromTo(".secondSectionUpcoming", 
+            { opacity: 0 },  
+            { opacity: 1, ease: "power4.inOut", duration: 1, delay:.5 }  
+        );
+        
+    }, []);
   
     return (
     <div>
