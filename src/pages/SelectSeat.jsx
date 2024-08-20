@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "./footer/Footer";
 import toast, { Toaster } from "react-hot-toast";
 import "./SelectSeat.css";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where,doc,getDoc } from "firebase/firestore";
 import { firestore } from "../firebase/firebase";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -27,7 +27,7 @@ const SeatSelection = () => {
 
     useEffect(() => {
         const fetchReservations = async () => {
-            if (!movieName || !showTime) return;
+            if (!movieName || !showTime || !formattedDate) return;
 
             const resRef = collection(firestore, "reservations");
             const q = query(
@@ -72,7 +72,31 @@ const SeatSelection = () => {
             }
         };
         fetchMovie();
-    }, [movieName]);
+    }, [id]);
+
+    useEffect(() => {
+        const fetchSeats = async () => {
+            try {
+                
+                const theaterDocRef = doc(firestore, "theaters", "1");
+                const theaterDoc = await getDoc(theaterDocRef);
+        
+                if (theaterDoc.exists()) {
+                   
+                    const theaterData = theaterDoc.data();
+                    
+                    const theaterSeats = theaterData.seats || [];
+                    console.log("Seats:", theaterSeats);
+                    setSeats(theaterSeats);
+                } else {
+                    console.log("No such document!");
+                }
+            } catch (error) {
+                console.error("Error fetching seats: ", error);
+            }
+        };
+        fetchSeats();
+    }, [id, selectedDate, showTime, reservedSeats]);
 
     useEffect(() => {
         const formatted = selectedDate
@@ -84,103 +108,6 @@ const SeatSelection = () => {
             : "";
         setFormattedDate(formatted);
     }, [selectedDate]);
-
-    useEffect(() => {
-        const initializeSeats = () => {
-            const allSeats = [
-                { number: "A1", isReserved: false },
-                { number: "A2", isReserved: false },
-                { number: "A3", isReserved: false },
-                { number: "A4", isReserved: false },
-                { number: "A5", isReserved: false },
-                { number: "A6", isReserved: false },
-                { number: "A7", isReserved: false },
-                { number: "A8", isReserved: false },
-                { number: "A9", isReserved: false },
-                { number: "A10", isReserved: false },
-                { number: "A11", isReserved: false },
-                { number: "A12", isReserved: false },
-                { number: "A13", isReserved: false },
-                { number: "A14", isReserved: false },
-                { number: "A15", isReserved: false },
-
-                { number: "B1", isReserved: false },
-                { number: "B2", isReserved: false },
-                { number: "B3", isReserved: false },
-                { number: "B4", isReserved: false },
-                { number: "B5", isReserved: false },
-                { number: "B6", isReserved: false },
-                { number: "B7", isReserved: false },
-                { number: "B8", isReserved: false },
-                { number: "B9", isReserved: false },
-                { number: "B10", isReserved: false },
-                { number: "B11", isReserved: false },
-                { number: "B12", isReserved: false },
-                { number: "B13", isReserved: false },
-                { number: "B14", isReserved: false },
-                { number: "B15", isReserved: false },
-
-                { number: "C1", isReserved: false },
-                { number: "C2", isReserved: false },
-                { number: "C3", isReserved: false },
-                { number: "C4", isReserved: false },
-                { number: "C5", isReserved: false },
-                { number: "C6", isReserved: false },
-                { number: "C7", isReserved: false },
-                { number: "C8", isReserved: false },
-                { number: "C9", isReserved: false },
-                { number: "C10", isReserved: false },
-                { number: "C11", isReserved: false },
-                { number: "C12", isReserved: false },
-                { number: "C13", isReserved: false },
-                { number: "C14", isReserved: false },
-                { number: "C15", isReserved: false },
-
-                { number: "D1", isReserved: false },
-                { number: "D2", isReserved: false },
-                { number: "D3", isReserved: false },
-                { number: "D4", isReserved: false },
-                { number: "D5", isReserved: false },
-                { number: "D6", isReserved: false },
-                { number: "D7", isReserved: false },
-                { number: "D8", isReserved: false },
-                { number: "D9", isReserved: false },
-                { number: "D10", isReserved: false },
-                { number: "D11", isReserved: false },
-                { number: "D12", isReserved: false },
-                { number: "D13", isReserved: false },
-                { number: "D14", isReserved: false },
-                { number: "D15", isReserved: false },
-
-                { number: "E1", isReserved: false },
-                { number: "E2", isReserved: false },
-                { number: "E3", isReserved: false },
-                { number: "E4", isReserved: false },
-                { number: "E5", isReserved: false },
-                { number: "E6", isReserved: false },
-                { number: "E7", isReserved: false },
-                { number: "E8", isReserved: false },
-                { number: "E9", isReserved: false },
-                { number: "E10", isReserved: false },
-                { number: "E11", isReserved: false },
-                { number: "E12", isReserved: false },
-                { number: "E13", isReserved: false },
-                { number: "E14", isReserved: false },
-                { number: "E15", isReserved: false },
-            ];
-
-            const updatedSeats = allSeats.map((seat) => {
-                if (reservedSeats.includes(seat.number)) {
-                    seat.isReserved = true;
-                }
-                return seat;
-            });
-
-            setSeats(updatedSeats);
-        };
-
-        initializeSeats();
-    }, [reservedSeats]);
 
     const handleSeatClick = (seatNumber) => {
         if (selectedDate !== null && showTime !== "") {
@@ -231,10 +158,6 @@ const SeatSelection = () => {
     };
 
     const handleDateChange = (date) => {
-        if (date >= currentDate) {
-            alert("Doğru");
-        }
-        console.log(currentDate);
         setSelectedDate(date);
     };
 

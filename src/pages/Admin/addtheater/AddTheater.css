@@ -1,0 +1,11 @@
+.addTheaterAll{
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.addSeatForm{
+    width: 80%;
+    background-color: #171a1d !important;
+}
