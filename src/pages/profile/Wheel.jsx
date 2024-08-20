@@ -125,9 +125,9 @@ const WheelSpin = () => {
                     }));
                     setTickets(ticketsList);
 
-                    // Update spin rights based on the number of tickets
-                    const calculatedSpinRights = Math.floor(ticketsList.length / 5);
-                    if (calculatedSpinRights > spinRights) {
+                    
+                    const calculatedSpinRights = Math.floor((ticketsList.length / 5)-spinCount);
+                    {
                         setSpinRights(calculatedSpinRights);
                         await updateDoc(doc(firestore, "users", currentUser.uid), {
                             spinRights: calculatedSpinRights,
