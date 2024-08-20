@@ -178,6 +178,7 @@ const RateMovie = () => {
                         <p>No comments yet.</p>
                     )}
                 </div>
+             
             </div>
             <Footer />
         </div>
