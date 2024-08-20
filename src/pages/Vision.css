@@ -3,6 +3,7 @@
     position: relative;
     margin-bottom: 10rem; /* Alt boşluk ekleme */
     margin-top: 10rem;
+    width: 90%;
 }
 
 /* Orta ekranlar için (600px - 768px) */

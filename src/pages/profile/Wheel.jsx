@@ -87,6 +87,7 @@ const WheelSpin = () => {
     const [canSpin, setCanSpin] = useState(false);
     const [isAvailable, setIsAvailable] = useState(true);
     const [spinCount, setSpinCount] = useState(0);
+    const [spinRights,setSpinRights] = useState(0);
 
     useEffect(() => {
         if (!userLoggedIn) {
@@ -129,6 +130,7 @@ const WheelSpin = () => {
                 }
             }
         };
+        setSpinRights(Math.floor(tickets.length/5))
         fetchSpinCount();
         fetchTickets();
     }, [currentUser, userLoggedIn, navigate]);
@@ -154,6 +156,8 @@ const WheelSpin = () => {
                 spinCount: increment(1),
             });
             setSpinCount(prevCount => prevCount + 1);
+            setSpinRights(prevCount => prevCount - 1);
+            
             console.log(spinCount);
             console.log("Spin count incremented successfully.");
         } catch (err) {
@@ -223,6 +227,7 @@ const WheelSpin = () => {
                                 },
                             }}
                         />
+                        <p>You have {spinRights} spin right.</p>
                         <button
                             className="btn btn-dark mt-2"
                             onClick={startSpin}
