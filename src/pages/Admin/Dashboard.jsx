@@ -11,6 +11,7 @@ import {
 import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../../context/auth";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -124,6 +125,9 @@ const Dashboard = () => {
             <AdminNav />
             <br /> <br /> <br /> <br /> <br /> <br />
             <h1 className="admin-dashboard-text">Admin Dashboard</h1>
+            <Link to="/admin/addtheater">
+                    Add Theater
+            </Link>
             <div className="container mt-4">
                 <div className="row">
                     <div className="col chart-card">

@@ -25,6 +25,7 @@ const AdminPanel = () => {
     const [date, setDate] = useState('');
     const [agelimit,setAgeLimit] = useState('');
     const [trailer, setTrailer] = useState('');
+    const [theaterNo, setTheaterNo] = useState('');
 
 
     
@@ -52,6 +53,7 @@ const AdminPanel = () => {
                 date,
                 trailer,
                 agelimit,
+                theaterNo,
                 createdAt: new Date()
             });
 
@@ -68,6 +70,7 @@ const AdminPanel = () => {
             setLanguages('');
             setHighImage('');
             setAgeLimit('');
+            setTheaterNo('');
         } catch (e) {
             console.error("Error adding document: ", e);
             toast.error('Failed to add movie');
@@ -206,6 +209,16 @@ const AdminPanel = () => {
                             type="text"
                             value={trailer}
                             onChange={(e) => setTrailer(e.target.value)}
+                            className="bg-dark text-white border-0"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="trailer">Theater Number:</label>
+                        <input
+                            id="theaterNo"
+                            type="text"
+                            value={theaterNo}
+                            onChange={(e) => setTheaterNo(e.target.value)}
                             className="bg-dark text-white border-0"
                         />
                     </div>

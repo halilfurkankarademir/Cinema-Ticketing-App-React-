@@ -15,6 +15,7 @@ const SeatSelection = () => {
     const navigate = useNavigate();
     const { movieName, img } = location.state || {};
     const [seats, setSeats] = useState([]);
+    const [selectedMovie,setSelectedMovie] = useState('');
     const [reservedSeats, setReservedSeats] = useState([]);
     const [selectedSeats, setSelectedSeats] = useState([]);
     const [showTime, setShowTime] = useState("");
@@ -59,7 +60,7 @@ const SeatSelection = () => {
                 const selectedMovie = movieList.find(
                     (movie) => movie.id === id
                 );
-
+                setSelectedMovie(selectedMovie);
                 if (selectedMovie) {
                     if (selectedMovie.seances) {
                         setSessions(selectedMovie.seances);
@@ -74,17 +75,18 @@ const SeatSelection = () => {
         fetchMovie();
     }, [id]);
 
+    console.log(selectedMovie.theaterNo);
+
     useEffect(() => {
+        if (!selectedMovie || !selectedMovie.theaterNo) return;
+        
         const fetchSeats = async () => {
             try {
-                
-                const theaterDocRef = doc(firestore, "theaters", "1");
+                const theaterDocRef = doc(firestore, "theaters", selectedMovie.theaterNo);
                 const theaterDoc = await getDoc(theaterDocRef);
         
                 if (theaterDoc.exists()) {
-                   
                     const theaterData = theaterDoc.data();
-                    
                     const theaterSeats = theaterData.seats || [];
                     console.log("Seats:", theaterSeats);
                     setSeats(theaterSeats);
@@ -96,7 +98,7 @@ const SeatSelection = () => {
             }
         };
         fetchSeats();
-    }, [id, selectedDate, showTime, reservedSeats]);
+    }, [selectedMovie]);
 
     useEffect(() => {
         const formatted = selectedDate

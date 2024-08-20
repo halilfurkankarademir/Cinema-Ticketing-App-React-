@@ -94,6 +94,7 @@
     padding: 0.6rem;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
+    
 }
 .custom-datepicker::placeholder {
     color: rgb(255, 255, 255);
@@ -119,15 +120,15 @@
     border-radius: 0.5rem;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
-    z-index: 10;
     position: relative;
+    z-index: 1;
 }
 
 .seatsAll {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Otomatik olarak sütun sayısını ayarlar */
-    gap: 0px; /* Kısmi boşluklar için */
-    justify-content: center; /* Ortalamak için */
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 0px; 
+    justify-content: center; 
     padding: 0px;
     left: 30%;
 }
@@ -150,6 +151,7 @@
     object-fit: cover;
     height: 110vh;
   }
+
 
   @media only screen and (max-width: 600px) {
     .selectSeatAll {
@@ -376,6 +378,7 @@
        .titleSelect{
         left: 0rem;
        }
+       
 }
 @media only screen and (min-width: 1920px){
    .selectSeatAll{

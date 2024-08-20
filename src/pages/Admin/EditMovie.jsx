@@ -21,6 +21,7 @@ const EditMovie = () => {
     const [date, setDate] = useState("");
     const [agelimit,setAgeLimit] = useState('');
     const [trailer, setTrailer] = useState("");
+    const [theaterNo, setTheaterNo] = useState("");
     const {userLoggedIn , isAdmin } = useAuth();
 
     if (!userLoggedIn || !isAdmin) {
@@ -47,6 +48,7 @@ const EditMovie = () => {
                     setDate(movieData.date);
                     setTrailer(movieData.trailer);
                     setAgeLimit(movieData.agelimit);
+                    setTheaterNo(movieData.theaterNo);
                 }
             } catch (error) {
                 console.error("Error fetching movie: ", error);
@@ -72,7 +74,8 @@ const EditMovie = () => {
                 type,
                 date,
                 trailer,
-                agelimit
+                agelimit,
+                theaterNo
             });
             navigate("/admin/manage");
         } catch (error) {
@@ -209,6 +212,16 @@ const EditMovie = () => {
                             type="text"
                             value={trailer}
                             onChange={(e) => setTrailer(e.target.value)}
+                            className="bg-dark border-0 text-white"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="trailer">Theater Number:</label>
+                        <input
+                            id="trailer"
+                            type="text"
+                            value={theaterNo}
+                            onChange={(e) => setTheaterNo(e.target.value)}
                             className="bg-dark border-0 text-white"
                         />
                     </div>

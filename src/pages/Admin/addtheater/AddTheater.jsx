@@ -1,14 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import AdminNav from '../AdminNav';
-import { firestore, doc, setDoc, arrayUnion } from "../../../firebase/firebase";
-import './AddTheater.css';
+import AdminNav from "../AdminNav";
+import {
+    firestore,
+    doc,
+    setDoc,
+    arrayUnion,
+    updateDoc,
+    arrayRemove,
+    getDoc,
+} from "../../../firebase/firebase";
+import "./AddTheater.css";
 
 const AddSeatForm = () => {
     const [theaterNo, setTheaterNo] = useState("");
     const [seatNumber, setSeatNumber] = useState("");
+    const [seats, setSeats] = useState([]);
 
-    const handleSubmit = async (e) => {
+    useEffect(() => {
+        // Fetch seats for the selected theater
+        const fetchSeats = async () => {
+            if (theaterNo) {
+                const theaterDocRef = doc(firestore, "theaters", theaterNo);
+                const docSnapshot = await getDoc(theaterDocRef);
+
+                if (docSnapshot.exists()) {
+                    const data = docSnapshot.data();
+                    setSeats(data.seats || []);
+                } else {
+                    setSeats([]);
+                }
+            }
+        };
+
+        fetchSeats();
+    }, [theaterNo]);
+
+    const handleAddSeat = async (e) => {
         e.preventDefault();
 
         if (!theaterNo || !seatNumber) {
@@ -21,16 +49,52 @@ const AddSeatForm = () => {
         try {
             const theaterDocRef = doc(firestore, "theaters", theaterNo);
 
-            await setDoc(theaterDocRef, {
-                seats: arrayUnion(newSeat)
-            }, { merge: true });
+            await setDoc(
+                theaterDocRef,
+                {
+                    seats: arrayUnion(newSeat),
+                },
+                { merge: true }
+            );
 
             toast.success("Seat added successfully!");
-            setTheaterNo("");
             setSeatNumber("");
+            // Refresh seats list after adding
+            const docSnapshot = await getDoc(theaterDocRef);
+            if (docSnapshot.exists()) {
+                const data = docSnapshot.data();
+                setSeats(data.seats || []);
+            }
         } catch (error) {
             console.error("Error adding seat: ", error);
             toast.error("Error adding seat!");
+        }
+    };
+
+    const handleDeleteSeat = async () => {
+        if (!theaterNo || !seatNumber) {
+            toast.error("Please fill in the theater number and seat number!");
+            return;
+        }
+
+        try {
+            const theaterDocRef = doc(firestore, "theaters", theaterNo);
+
+            await updateDoc(theaterDocRef, {
+                seats: arrayRemove({ number: seatNumber, isReserved: false }),
+            });
+
+            toast.success("Seat removed successfully!");
+            setSeatNumber("");
+        
+            const docSnapshot = await getDoc(theaterDocRef);
+            if (docSnapshot.exists()) {
+                const data = docSnapshot.data();
+                setSeats(data.seats || []);
+            }
+        } catch (error) {
+            console.error("Error removing seat: ", error);
+            toast.error("Error removing seat!");
         }
     };
 
@@ -40,8 +104,8 @@ const AddSeatForm = () => {
                 <Toaster position="top-center" />
                 <AdminNav />
                 <div className="form-container bg-dark text-white addSeatForm">
-                    <h2 style={{ color: "#0095FF" }}>Add a New Seat</h2>
-                    <form onSubmit={handleSubmit} className="seat-form">
+                    <h2 style={{ color: "#0095FF" }}>Manage Seats</h2>
+                    <form onSubmit={handleAddSeat} className="seat-form">
                         <div className="form-group">
                             <label htmlFor="theaterNo">Theater Number:</label>
                             <input
@@ -66,6 +130,14 @@ const AddSeatForm = () => {
                         </div>
                         <button type="submit" className="btn btn-dark">
                             Add Seat
+                        </button>
+                        <button
+                            type="button" 
+                            onClick={handleDeleteSeat}
+                            className="btn btn-danger"
+                            style={{marginLeft:'2rem'}}
+                        >
+                            Delete Seat
                         </button>
                     </form>
                 </div>

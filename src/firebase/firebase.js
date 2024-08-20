@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, setDoc, increment, getDoc , query, where,arrayUnion} from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, setDoc, increment, getDoc , query, where,arrayUnion,arrayRemove} from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
@@ -30,4 +30,4 @@ const uploadImage = async (file) => {
     }
 };
 
-export { auth, firestore, storage, uploadImage, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, setDoc, increment, getDoc,query,where,arrayUnion };
+export { auth, firestore, storage, uploadImage, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, setDoc, increment, getDoc,query,where,arrayUnion,arrayRemove };
