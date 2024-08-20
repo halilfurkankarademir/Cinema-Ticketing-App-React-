@@ -54,21 +54,81 @@
     margin-top: 1rem;
 }
 
-@media only screen and(min-width:768px) {
-    
+@media only screen and (min-width:768px) {
+    .bi-ticket{
+        left: 8rem;
+    }
+    .bi-film{
+        left: 8rem;
+    }
+    .bi-bank{
+        left: 8rem;
+    }
+    .admin-dashboard-text{
+        position: relative;
+        font-size: 1rem;
+        left: 4rem;
+    }
 }
-@media only screen and(min-width:992px) {
-    
+@media only screen and (min-width:992px) {
+    .bi-ticket{
+        left: 14rem;
+    }
+    .bi-film{
+        left: 14rem;
+    }
+    .bi-bank{
+        left: 14rem;
+    }
+    .admin-dashboard-text{
+        position: relative;
+        font-size: 1.5rem;
+        left: 3rem;
+    }
 }
-@media only screen and(min-width:1200px) {
-    
+@media only screen and (min-width:1200px) {
+    .bi-ticket{
+        left: 17rem;
+    }
+    .bi-film{
+        left: 17rem;
+    }
+    .bi-bank{
+        left: 17rem;
+    }
+    .admin-dashboard-text{
+        position: relative;
+        font-size: 1.5rem;
+        left: 4rem;
+    }
 }
-@media only screen and(min-width:1400px) {
-    
+@media only screen and (min-width:1400px) {
+    .bi-ticket{
+        left: 20rem;
+    }
+    .bi-film{
+        left: 20rem;
+    }
+    .bi-bank{
+        left: 20rem;
+    }
+    .admin-dashboard-text{
+        position: relative;
+        font-size: 1.5rem;
+        left: 4rem;
+    }
 }
-@media only screen and(min-width:1536px) {
-    
+@media only screen and (min-width:1536px) {
+    .admin-dashboard-text{
+        position: relative;
+        font-size: 1.5rem;
+        left: 8rem;
+    }
 }
-@media only screen and(min-width:1920px) {
-    
+@media only screen and (min-width:1920px) {
+    .admin-dashboard-text{
+        position: relative;
+        font-size: 1.5rem;
+        left: 21rem;
+    }
 }
