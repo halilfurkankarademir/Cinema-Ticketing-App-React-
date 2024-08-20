@@ -124,9 +124,8 @@ const WheelSpin = () => {
                         id: doc.id,
                     }));
                     setTickets(ticketsList);
-
                     
-                    const calculatedSpinRights = Math.floor((ticketsList.length / 5)-spinCount);
+                    const calculatedSpinRights = Math.floor(ticketsList.length / 5)-spinCount;
                     {
                         setSpinRights(calculatedSpinRights);
                         await updateDoc(doc(firestore, "users", currentUser.uid), {
@@ -134,8 +133,7 @@ const WheelSpin = () => {
                         });
                     }
                 } catch (err) {
-                    console.error("Error fetching tickets:", err);
-                    alert("No tickets found!");
+                    toast.error("No tickets found!");
                 }
             }
         };
