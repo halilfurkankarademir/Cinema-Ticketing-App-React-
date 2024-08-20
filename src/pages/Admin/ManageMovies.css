@@ -98,21 +98,51 @@
     position: relative;
     left: 2rem;
 }
-@media only screen and(min-width:768px) {
-    
+@media only screen and (min-width:768px) {
+    .btnAddMovie{
+        left: 22rem;
+    }
+    .btnAddUpcomingMovie{
+        left: 25rem;
+    }
 }
-@media only screen and(min-width:992px) {
-    
+@media only screen and (min-width:992px) {
+    .btnAddMovie{
+        left: 38rem;
+    }
+    .btnAddUpcomingMovie{
+        left: 40rem;
+    }
 }
-@media only screen and(min-width:1200px) {
-    
+@media only screen and (min-width:1200px) {
+    .btnAddMovie{
+        left: 50rem;
+    }
+    .btnAddUpcomingMovie{
+        left: 52rem;
+    }
 }
-@media only screen and(min-width:1400px) {
-    
+@media only screen and (min-width:1400px) {
+    .btnAddMovie{
+        left: 62rem;
+    }
+    .btnAddUpcomingMovie{
+        left: 65rem;
+    }
 }
-@media only screen and(min-width:1536px) {
-    
+@media only screen and (min-width:1536px) {
+    .btnAddMovie{
+        left: 70rem;
+    }
+    .btnAddUpcomingMovie{
+        left: 72rem;
+    }
 }
-@media only screen and(min-width:1920px) {
-    
+@media only screen and (min-width:1920px) {
+    .btnAddMovie{
+        left: 90rem;
+    }
+    .btnAddUpcomingMovie{
+        left: 95rem;
+    }
 }
