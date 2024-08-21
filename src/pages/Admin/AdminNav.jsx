@@ -14,7 +14,7 @@ const Navbar = () => {
     }
 
     function logo(){
-        navigate('/');
+        navigate('/admin');
     }
     return (
         <div>
