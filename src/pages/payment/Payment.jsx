@@ -41,7 +41,8 @@ const Payment = () => {
         ticketCount,
         auditorium,
         selectedSeats,
-        selectedDate
+        selectedDate,
+        theaterNo
     } = location.state || {};
 
 
@@ -201,7 +202,8 @@ const Payment = () => {
                 selectedSeats,
                 firstname,
                 lastname,
-                formattedDate
+                formattedDate,
+                theaterNo
             },
         });
     };
@@ -265,9 +267,9 @@ const Payment = () => {
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between lh-sm bg-dark" style={{color:'#0095FF'}}>
                                     <div>
-                                        <h6 className="my-0">Ticket Count</h6>
+                                        <h6 className="my-0">Theater Number</h6>
                                         <small className="">
-                                            {`${ticketCount}`}
+                                            {`${theaterNo}`}
                                         </small>
                                     </div>
                                 </li>

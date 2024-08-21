@@ -17,17 +17,10 @@ const PaymentComplete = () => {
         selectedSeats,
         firstname,
         lastname,
-        formattedDate
+        formattedDate,
+        theaterNo
     } = location.state || {};
 
-    const toastShownRef = useRef(false);
-
-    useEffect(() => {
-        if (!toastShownRef.current) {
-            toast.success("Payment complete!");
-            toastShownRef.current = true;
-        }
-    }, []);
 
     console.log(formattedDate);
 
@@ -75,7 +68,7 @@ const PaymentComplete = () => {
                             <h6 className="my-0" style={{ color: "#0095FF" }}>
                                 Showtime
                             </h6>
-                            <small className="">{`${formattedDate} | ${showTime}`}</small>
+                            <small className="">{`${formattedDate} | ${showTime} | Theater ${theaterNo}`}</small>
                         </div>
                     </li>
                     <li className="list-group-item d-flex justify-content-between lh-sm bg-dark text-white">
@@ -102,7 +95,7 @@ const PaymentComplete = () => {
                                     maxWidth: "100%",
                                     width: "100%",
                                 }}
-                                value={`${orderNo}\n${firstname} ${lastname}\n${movieName}\n${formattedDate} | ${showTime}\n${selectedSeats}`}
+                                value={`${orderNo}\n${firstname} ${lastname}\n${movieName}\n${formattedDate} | ${showTime} | Theater ${theaterNo}\n${selectedSeats}`}
                                 viewBox={`0 0 256 256`}
                             />
                         </div>
@@ -118,6 +111,7 @@ const PaymentComplete = () => {
                             showTime={showTime}
                             date={formattedDate}
                             selectedSeats={selectedSeats}
+                            theaterNo={theaterNo}
                         />
                     }
                     fileName="ticket_details.pdf"

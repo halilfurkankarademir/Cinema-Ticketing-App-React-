@@ -57,6 +57,7 @@ const TicketPDF = ({
     showTime,
     date,
     selectedSeats,
+    theaterNo,
 }) => (
     <Document>
         <Page size="A4" style={styles.page}>
@@ -73,7 +74,7 @@ const TicketPDF = ({
                     <Text style={styles.text}>{movieName}</Text>
 
                     <Text style={styles.heading}>Showtime</Text>
-                    <Text style={styles.text}>{`${date} | ${showTime}`}</Text>
+                    <Text style={styles.text}>{`${date} | ${showTime} | ${theaterNo}`}</Text>
 
                     <Text style={styles.heading}>Seats</Text>
                     <Text style={styles.text}>{selectedSeats.join(", ")}</Text>

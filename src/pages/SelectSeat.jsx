@@ -3,11 +3,11 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Seat from "../components/Seat";
 import Navbar from "../components/Navbar";
 import toast, { Toaster } from "react-hot-toast";
-import "./SelectSeat.css";
 import { collection, getDocs, query, where,doc,getDoc } from "firebase/firestore";
 import { firestore } from "../firebase/firebase";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "./SelectSeat.css";
 
 const SeatSelection = () => {
     const location = useLocation();
@@ -22,8 +22,11 @@ const SeatSelection = () => {
     const [selectedDate, setSelectedDate] = useState(null);
     const [ticketCount, setTicketCount] = useState(0);
     const [sessions, setSessions] = useState([]);
+    const [theaterNo,setTheaterNo] = useState("");
     const currentDate = new Date().toDateString();
     const { id } = useParams();
+
+
 
 
     useEffect(() => {
@@ -83,7 +86,7 @@ const SeatSelection = () => {
             try {
                 const theaterDocRef = doc(firestore, "theaters", selectedMovie.theaterNo);
                 const theaterDoc = await getDoc(theaterDocRef);
-
+                setTheaterNo(selectedMovie.theaterNo);
                 if (theaterDoc.exists()) {
                     const theaterData = theaterDoc.data();
                     const theaterSeats = theaterData.seats || [];
@@ -116,6 +119,8 @@ const SeatSelection = () => {
             : "";
         setFormattedDate(formatted);
     }, [selectedDate]);
+
+    
 
     const handleSeatClick = (seatNumber) => {
         if (selectedDate !== null && showTime !== "") {
@@ -158,6 +163,8 @@ const SeatSelection = () => {
                     ticketCount,
                     selectedSeats,
                     selectedDate,
+                    theaterNo
+                    
                 },
             });
         } else {
