@@ -403,6 +403,8 @@
    }
    .buyTicket{
     width: auto;
+    top: 0;
+    
     left: 9rem;
    }
    .titleSelect{

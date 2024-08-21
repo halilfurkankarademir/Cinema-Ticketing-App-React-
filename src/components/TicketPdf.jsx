@@ -74,7 +74,7 @@ const TicketPDF = ({
                     <Text style={styles.text}>{movieName}</Text>
 
                     <Text style={styles.heading}>Showtime</Text>
-                    <Text style={styles.text}>{`${date} | ${showTime} | ${theaterNo}`}</Text>
+                    <Text style={styles.text}>{`${date} | ${showTime} | Theater ${theaterNo}`}</Text>
 
                     <Text style={styles.heading}>Seats</Text>
                     <Text style={styles.text}>{selectedSeats.join(", ")}</Text>
