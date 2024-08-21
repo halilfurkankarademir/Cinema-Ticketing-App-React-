@@ -26,11 +26,11 @@ const Navbar = () => {
             <div
                 className={`container-fluid NavmenuAdmin`}
             >
-                <Link to="/admin">
-                    Dashboard
-                </Link>
                 <Link to="/admin/manage">
                     Manage Movies
+                </Link>
+                <Link to="/admin/addtheater">
+                    Theaters
                 </Link>
                 <Link to="/admin/managecomments">
                     Comments
