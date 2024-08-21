@@ -85,7 +85,7 @@ const WheelSpin = () => {
     const [tickets, setTickets] = useState([]);
     const [coupons, setCoupons] = useState([]);
     const [canSpin, setCanSpin] = useState(false);
-    const [isAvailable, setIsAvailable] = useState(true);
+    const [isAvailable, setIsAvailable] = useState(false);
     const [spinCount, setSpinCount] = useState(0);
     const [spinRights, setSpinRights] = useState(0);
     const [calculatedSpinRights,setCalculatedSpinRights] = useState(0);
