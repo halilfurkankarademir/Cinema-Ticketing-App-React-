@@ -196,6 +196,7 @@ const WheelSpin = () => {
         setPrizeNumber(newPrizeNumber);
         setMustSpin(true);
         setCanSpin(false);
+        setCalculatedSpinRights(prev=>prev-1);
 
         try {
             await incrementSpinCount(currentUser.uid);
