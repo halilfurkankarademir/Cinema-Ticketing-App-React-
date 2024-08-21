@@ -139,7 +139,7 @@
     .Navmenu a {
         position: relative;
         right: 12rem;
-        margin-right: 2rem;
+        /* margin-right: 2rem; */
     }
     .ticket-icon{
         position: relative;
@@ -221,7 +221,13 @@
         top: 1.5rem;
     }
     .bi-person-fill {
-        left: 52rem;
+        left: 53rem;
+    }
+    .ticket-icon{
+        left: 8.5rem;
+    }
+    .spinner-icon{
+        left: 0;
     }
 }
 @media only screen and (min-width:1920px) {

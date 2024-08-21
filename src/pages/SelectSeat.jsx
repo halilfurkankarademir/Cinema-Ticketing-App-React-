@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Seat from "../components/Seat";
 import Navbar from "../components/Navbar";
-import Footer from "./footer/Footer";
 import toast, { Toaster } from "react-hot-toast";
 import "./SelectSeat.css";
 import { collection, getDocs, query, where,doc,getDoc } from "firebase/firestore";
@@ -25,6 +24,7 @@ const SeatSelection = () => {
     const [sessions, setSessions] = useState([]);
     const currentDate = new Date().toDateString();
     const { id } = useParams();
+
 
     useEffect(() => {
         const fetchReservations = async () => {
@@ -75,7 +75,6 @@ const SeatSelection = () => {
         fetchMovie();
     }, [id]);
 
-    console.log(selectedMovie.theaterNo);
 
     useEffect(() => {
         if (!selectedMovie || !selectedMovie.theaterNo) return;
@@ -84,12 +83,18 @@ const SeatSelection = () => {
             try {
                 const theaterDocRef = doc(firestore, "theaters", selectedMovie.theaterNo);
                 const theaterDoc = await getDoc(theaterDocRef);
-        
+
                 if (theaterDoc.exists()) {
                     const theaterData = theaterDoc.data();
                     const theaterSeats = theaterData.seats || [];
-                    console.log("Seats:", theaterSeats);
-                    setSeats(theaterSeats);
+
+                    const updatedSeats = theaterSeats.map((seat) => ({
+                        ...seat,
+                        isReserved: reservedSeats.includes(seat.number),
+                    }));
+
+                    console.log("Seats:", updatedSeats);
+                    setSeats(updatedSeats);
                 } else {
                     console.log("No such document!");
                 }
@@ -97,6 +102,7 @@ const SeatSelection = () => {
                 console.error("Error fetching seats: ", error);
             }
         };
+
         fetchSeats();
     }, [selectedMovie]);
 
