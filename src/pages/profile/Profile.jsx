@@ -13,6 +13,7 @@ const Profile = () => {
     const [firstname, setFirstName] = useState("");
     const [lastname, setLastName] = useState("");
     const [tel, setTel] = useState("");
+    const [balance,setBalance] = useState(0);
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -35,6 +36,7 @@ const Profile = () => {
                     setFirstName(data.firstname || "");
                     setLastName(data.lastname || "");
                     setTel(data.tel || "");
+                    setBalance(data.balance || "0");
                 } else {
                     console.error("No such document!");
                 }
@@ -146,6 +148,14 @@ const Profile = () => {
                         className="form-control mb-4 bg-dark text-white border-0"
                         value={tel}
                         onChange={(e) => setTel(e.target.value)}
+                    />
+                    <label htmlFor="balance" className="mb-2">Balance</label>
+                    <input
+                        type="text"
+                        name="balance"
+                        className="form-control mb-4 bg-dark text-white border-0"
+                        value={`$ ${balance}`}
+                        disabled
                     />
                     <button
                         className="btn btn-dark profile-button"

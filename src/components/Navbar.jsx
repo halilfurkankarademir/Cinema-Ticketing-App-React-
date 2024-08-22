@@ -29,6 +29,7 @@ const Navbar = () => {
 
     const navigate = useNavigate();
 
+    
     const showMenu = (e) => {
         e.preventDefault();
         setToggleSidebar((prev) => !prev);
