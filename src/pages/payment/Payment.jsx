@@ -115,7 +115,6 @@ const Payment = () => {
                 const reserved = [];
                 qSnapshot.forEach((doc) => {
                     const data = doc.data();
-                    console.log(data.seats);
                     if (data && data.seats) {
                         reserved.push(...data.seats);
                     }
@@ -128,6 +127,7 @@ const Payment = () => {
     
         fetchReservations();
     }, [movieName, showTime, formattedDate]);
+
 
     useEffect(() => {
         setOrderNo(generateOrderNumber());
@@ -208,8 +208,18 @@ const Payment = () => {
         }
     };
 
+    console.log(selectedSeats);
+
     const handleComplete = async (e) => {
         e.preventDefault();
+
+        const isDuplicateReservation = selectedSeats.every(seat => reservedSeats.includes(seat));
+
+        if(isDuplicateReservation){
+            toast.error("This ticket's already sold")
+            return;
+
+        }
 
         const form = e.target.closest("form");
         if (form.checkValidity() === false) {
