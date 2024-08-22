@@ -207,8 +207,25 @@ const Payment = () => {
             console.error("Error updating total sold tickets: ", e);
         }
     };
+    const updateBalance = async () => {
+        
+        const willBeAdd = calculateTotalPrice(
+            ticketCount,
+            ticketType) * 0.03;
 
-    console.log(selectedSeats);
+        try {
+            const docRef = doc(firestore, "users", currentUser.uid);
+            await setDoc(
+                docRef,
+                {
+                    balance: increment(willBeAdd),
+                },
+                { merge: true }
+            );
+        } catch (e) {
+            console.error("Error updating balance: ", e);
+        }
+    };
 
     const handleComplete = async (e) => {
         e.preventDefault();
@@ -228,6 +245,7 @@ const Payment = () => {
             return;
         }
 
+        await updateBalance();
         await updateData();
         await updateSoldTicketCount();
         await updateTotalSoldTickets();
