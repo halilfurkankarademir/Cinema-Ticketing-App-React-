@@ -107,7 +107,7 @@ const SeatSelection = () => {
         };
 
         fetchSeats();
-    }, [selectedMovie]);
+    }, [selectedMovie,reservedSeats]);
 
     useEffect(() => {
         const formatted = selectedDate
