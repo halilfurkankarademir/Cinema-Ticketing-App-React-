@@ -156,6 +156,7 @@ const HomePage = () => {
                                     movieId={movie.id}
                                     type={movie.type}
                                     agelimit={movie.agelimit}
+                                    duration={movie.duration}
                                 />
                             </div>
                         ))}

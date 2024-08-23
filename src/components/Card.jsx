@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { MdFamilyRestroom } from "react-icons/md";
 import "./Card.css";
 
-const Card = ({ title, img, movieId , type}) => {
+const Card = ({ title, img, movieId , type,duration}) => {
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -17,6 +17,7 @@ const Card = ({ title, img, movieId , type}) => {
                 {/* <h3 className="card-title" style={{fontWeight:'600'}} >{title}</h3> */}
                 <h6>{title}</h6>
                 <p><i class="bi bi-camera-reels-fill"></i> {type}</p>
+                <p><i class="bi bi-clock"></i> {duration}</p>
             </div>
         </div>
     );
