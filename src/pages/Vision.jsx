@@ -12,7 +12,14 @@ const OnLive = () => {
 
     const [modalIsOpen, setModalIsOpen] = useState(true);
 
-    const closeModal = () => setModalIsOpen(false);
+    const [isClosedAdModal, setIsClosedAdModal] = useState(
+        JSON.parse(localStorage.getItem('isClosedAdModal')) || false
+    );
+    
+    const closeModal = () => {
+        localStorage.setItem('isClosedAdModal', JSON.stringify(true));
+        setIsClosedAdModal(true);
+    };
 
     window.onload = function() {
         window.scrollTo(0, 0);
@@ -46,7 +53,9 @@ const OnLive = () => {
 
     return (
         <div>
-            <Modal
+            {
+                !isClosedAdModal && (
+                    <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 style={{
@@ -76,16 +85,22 @@ const OnLive = () => {
                         border: "none",
                         fontSize: "24px",
                         cursor: "pointer",
+                        color:'white',
                     }}
                 >
                     &times;
                 </button>
                 <img
-                    src="https://i.imghippo.com/files/F0Ipz1724375670.jpg"
+                    src="https://i.imghippo.com/files/g34SJ1724376215.jpg"
                     alt="Kampanya Fotoğrafı"
-                    style={{ width: "50%", height: "auto" }}
+                    style={{ width: "100%", height: "auto" }}
                 />
             </Modal>
+                )
+                    
+                
+            }
+            
             <Navbar />
             <div className="container-fluid secondSectionVision">
                 <h3>
