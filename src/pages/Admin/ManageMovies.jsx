@@ -70,6 +70,10 @@ const AdminPanel = () => {
     }
 
     const deleteMovie = async (id, isUpcoming) => {
+        
+        const isConfirmed = window.confirm("Are you sure you want to delete this movie?");
+        if (!isConfirmed) return;
+        
         try {
             const collectionName = isUpcoming ? "upcoming" : "movies";
             await deleteDoc(doc(firestore, collectionName, id));
@@ -80,9 +84,9 @@ const AdminPanel = () => {
             } else {
                 setMovies(movies.filter((movie) => movie.id !== id));
             }
-            toast.error("Movie Deleted!");
+            toast.success("Movie Deleted!");
         } catch (error) {
-            console.error("Error deleting movie: ", error);
+           toast.error("Error deleting movie: ", error);
         }
     };
 
