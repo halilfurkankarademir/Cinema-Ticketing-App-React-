@@ -75,10 +75,18 @@
     color: whitesmoke;
     display: none;
 }
-.card:hover .viewMovie{
+.card:hover .coming-trailer{
     display: block;
+    transition: all 0.5s ease-in-out;
 }
 .comingCard{
     background-color: #FF007A;
 }
+}
+.coming-trailer{
+    position: absolute;
+    bottom: 17rem;
+    left: 5rem;
+    font-size: 1rem;
+    display: none;
 }

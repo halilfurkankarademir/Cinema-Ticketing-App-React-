@@ -12,14 +12,13 @@ import Modal from "react-modal";
 import Popcorn from "../assets/popcorn.png";
 import "./HomePage.css";
 
-
-
+Modal.setAppElement("#root");
 
 const HomePage = () => {
-    
-
     const [movies, setMovies] = useState([]);
     const [upcoming, setUpcoming] = useState([]);
+    const [selectedTrailer, setSelectedTrailer] = useState(null);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const navigate = useNavigate();
 
@@ -124,6 +123,19 @@ const HomePage = () => {
         navigate("/soon");
     };
 
+    const [videoVisible, setVideoVisible] = useState(false);
+
+    const openVideo = (trailerUrl) => {
+        setSelectedTrailer(trailerUrl);
+        setVideoVisible(true);
+    };
+
+    const closeVideo = () => {
+        setVideoVisible(false);
+        setSelectedTrailer(null);
+    };
+
+
     return (
         <div>
             <Navbar />
@@ -179,6 +191,8 @@ const HomePage = () => {
                                     movieId={upcoming.id}
                                     date={upcoming.date}
                                     type={upcoming.type}
+                                    trailer={upcoming.trailerUrl}
+                                    openModal={openVideo}
                                 />
                             </div>
                         ))}
@@ -209,7 +223,22 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
-            <Footer></Footer>
+            {selectedTrailer && (
+                    <div className="video-player-overlay" onClick={closeVideo}>
+                        <div className="video-player">
+                            <iframe
+                                width="100%"
+                                height="480"
+                                src={selectedTrailer}
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                            ></iframe>
+                        </div>
+                    </div>
+                )}
+            <Footer />
         </div>
     );
 };

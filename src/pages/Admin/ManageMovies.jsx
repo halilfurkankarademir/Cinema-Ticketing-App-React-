@@ -69,24 +69,21 @@ const AdminPanel = () => {
         navigate("/");
     }
 
-    const deleteMovie = async (id, isUpcoming) => {
-        
+    const deleteMovie = async (id, isUpcoming = false) => {
         const isConfirmed = window.confirm("Are you sure you want to delete this movie?");
         if (!isConfirmed) return;
-        
+    
         try {
             const collectionName = isUpcoming ? "upcoming" : "movies";
             await deleteDoc(doc(firestore, collectionName, id));
             if (isUpcoming) {
-                setUpcomingMovies(
-                    upcomingMovies.filter((movie) => movie.id !== id)
-                );
+                setUpcomingMovies(upcomingMovies.filter((movie) => movie.id !== id));
             } else {
                 setMovies(movies.filter((movie) => movie.id !== id));
             }
             toast.success("Movie Deleted!");
         } catch (error) {
-           toast.error("Error deleting movie: ", error);
+            toast.error("Error deleting movie: " + error.message);
         }
     };
 
@@ -175,7 +172,7 @@ const AdminPanel = () => {
                                     <td className="text-white" style={{backgroundColor:'#171a1d'}}>{movie.type}</td>
                                     <td className="text-white" style={{backgroundColor:'#171a1d'}}>{movie.date}</td>
                                     <td className="text-white" style={{backgroundColor:'#171a1d'}}>
-                                        <button className="btn btn-danger" onClick={()=>deleteMovie(movie.id)}>Delete</button>
+                                        <button className="btn btn-danger" onClick={()=>deleteMovie(movie.id ,true)}>Delete</button>
                                     </td>
                                     
                                 </tr>

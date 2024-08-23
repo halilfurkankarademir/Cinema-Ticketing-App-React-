@@ -15,6 +15,7 @@ const AdminPanel = () => {
     const [image, setImage] = useState("");
     const [type, setType] = useState("");
     const [date, setDate] = useState("");
+    const [trailer,setTrailer] = useState("");
 
     function signOut() {
         doSignOut();
@@ -36,12 +37,14 @@ const AdminPanel = () => {
                 imageUrl: image,
                 type: type,
                 date: formattedDate,
+                trailerUrl : trailer,
             });
             toast.success("Movie Added");
             setTitle("");
             setImage("");
             setType("");
             setDate("");
+            setTrailer("");
         } catch (e) {
             console.error("Error adding document: ", e);
         }
@@ -98,6 +101,16 @@ const AdminPanel = () => {
                                 type="date"
                                 value={date}
                                 onChange={(e) => setDate(e.target.value)}
+                                className="bg-dark text-white border-0"
+                                style={{ colorScheme: "dark" }}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="trailer">Trailer:</label>
+                            <input
+                                type="text"
+                                value={trailer}
+                                onChange={(e) => setTrailer(e.target.value)}
                                 className="bg-dark text-white border-0"
                                 style={{ colorScheme: "dark" }}
                             />
