@@ -8,10 +8,16 @@ import gsap from "gsap";
 import { firestore, collection, getDocs } from "../firebase/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
+import Modal from "react-modal";
 import Popcorn from "../assets/popcorn.png";
 import "./HomePage.css";
 
+
+
+
 const HomePage = () => {
+    
+
     const [movies, setMovies] = useState([]);
     const [upcoming, setUpcoming] = useState([]);
 
@@ -28,45 +34,46 @@ const HomePage = () => {
         autoplaySpeed: 10000,
         responsive: [
             {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                infinite: true,
-                dots: true
-              }
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true,
+                },
             },
             {
-              breakpoint: 1201,
-              settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                infinite: true,
-                dots: true
-              }
+                breakpoint: 1201,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true,
+                },
             },
             {
-              breakpoint: 600,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                initialSlide: 2
-              }
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2,
+                },
             },
             {
-              breakpoint: 480,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
-            }
-          ]
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
 
     useEffect(() => {
-        gsap.fromTo(".learnMore", 
-            { opacity: 0 },  
-            { opacity: 1, ease: "power4.inOut", duration: 1 }  
+        gsap.fromTo(
+            ".learnMore",
+            { opacity: 0 },
+            { opacity: 1, ease: "power4.inOut", duration: 1 }
         );
     }, []);
 
@@ -110,12 +117,12 @@ const HomePage = () => {
         fetchMovies();
     }, []);
 
-    const redirectVision = () =>{
-        navigate("/vision")
-    }
-    const redirectComing = () =>{
-        navigate("/soon")
-    }
+    const redirectVision = () => {
+        navigate("/vision");
+    };
+    const redirectComing = () => {
+        navigate("/soon");
+    };
 
     return (
         <div>
@@ -132,52 +139,59 @@ const HomePage = () => {
                         <BgSliderMobile />
                     </Link>
                 </div>
-                <div className="container-fluid visionSection"> 
-                <h2>
-                    <i className="bi bi-stars"></i> Vision Movies{" "}
-                    <span className="seeAll" onClick={redirectVision}>See all ➤</span>{" "}
-                </h2>
-                <Slider {...settings}>
-                    {movies.map((movie) => (
-                        <div className="card-slide" key={movie.id}>
-                            <Card
-                                title={movie.title}
-                                desc={movie.description}
-                                img={movie.imageUrl}
-                                movieId={movie.id}
-                                type={movie.type}
-                                agelimit={movie.agelimit}
-                            />
-                        </div>
-                    ))}
-                </Slider>
+                <div className="container-fluid visionSection">
+                    <h2>
+                        <i className="bi bi-stars"></i> Vision Movies{" "}
+                        <span className="seeAll" onClick={redirectVision}>
+                            See all ➤
+                        </span>{" "}
+                    </h2>
+                    <Slider {...settings}>
+                        {movies.map((movie) => (
+                            <div className="card-slide" key={movie.id}>
+                                <Card
+                                    title={movie.title}
+                                    desc={movie.description}
+                                    img={movie.imageUrl}
+                                    movieId={movie.id}
+                                    type={movie.type}
+                                    agelimit={movie.agelimit}
+                                />
+                            </div>
+                        ))}
+                    </Slider>
                 </div>
                 <br /> <br />
                 <div className="container-fluid comingSection">
-                <h2>
-                    <i className="bi bi-hourglass-split"></i> Coming Soon{" "}
-                    <span className="seeAll" onClick={redirectComing}>See all ➤</span>{" "}
-                </h2>
-                <Slider {...settings}>
-                    {upcoming.map((upcoming) => (
-                        <div className="card-slide" key={upcoming.id}>
-                            <CardComing
-                                title={upcoming.title}
-                                img={upcoming.imageUrl}
-                                movieId={upcoming.id}
-                                date={upcoming.date}
-                                type={upcoming.type}
-                            />
-                        </div>
-                    ))}
-                </Slider>
+                    <h2>
+                        <i className="bi bi-hourglass-split"></i> Coming Soon{" "}
+                        <span className="seeAll" onClick={redirectComing}>
+                            See all ➤
+                        </span>{" "}
+                    </h2>
+                    <Slider {...settings}>
+                        {upcoming.map((upcoming) => (
+                            <div className="card-slide" key={upcoming.id}>
+                                <CardComing
+                                    title={upcoming.title}
+                                    img={upcoming.imageUrl}
+                                    movieId={upcoming.id}
+                                    date={upcoming.date}
+                                    type={upcoming.type}
+                                />
+                            </div>
+                        ))}
+                    </Slider>
                 </div>
                 <div className="container-fluid campaignSection mt-5">
                     <h2>
                         <i className="bi bi-tag"></i> Campaigns{" "}
                     </h2>
                     <br />
-                    <div className="form-container campaignForm" style={{backgroundColor:'#171a1d'}}>
+                    <div
+                        className="form-container campaignForm"
+                        style={{ backgroundColor: "#171a1d" }}
+                    >
                         <h4>Get 10% off with CineWave Card at the buffet!</h4>
                         <p style={{ color: "lightgray" }}>
                             Great news for movie lovers! Enjoy more of your

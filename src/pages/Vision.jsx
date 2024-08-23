@@ -4,10 +4,15 @@ import Card from "../components/Card";
 import Footer from "./footer/Footer";
 import { firestore, collection, getDocs } from "../firebase/firebase";
 import gsap from "gsap";
+import Modal from 'react-modal';
 import "./Vision.css";
 
 const OnLive = () => {
     const [movies, setMovies] = useState([]);
+
+    const [modalIsOpen, setModalIsOpen] = useState(true);
+
+    const closeModal = () => setModalIsOpen(false);
 
     window.onload = function() {
         window.scrollTo(0, 0);
@@ -41,6 +46,46 @@ const OnLive = () => {
 
     return (
         <div>
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={{
+                    content: {
+                        top: "50%",
+                        left: "50%",
+                        right: "auto",
+                        bottom: "auto",
+                        transform: "translate(-50%, -50%)",
+                        width: "100%",
+                        maxWidth: "640px",
+                        border: "none",
+                        padding: "0",
+                    },
+                    overlay: {
+                        backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    },
+                }}
+            >
+                <button
+                    onClick={closeModal}
+                    style={{
+                        position: "absolute",
+                        top: "10px",
+                        right: "10px",
+                        background: "transparent",
+                        border: "none",
+                        fontSize: "24px",
+                        cursor: "pointer",
+                    }}
+                >
+                    &times;
+                </button>
+                <img
+                    src="https://i.imghippo.com/files/F0Ipz1724375670.jpg"
+                    alt="Kampanya Fotoğrafı"
+                    style={{ width: "50%", height: "auto" }}
+                />
+            </Modal>
             <Navbar />
             <div className="container-fluid secondSectionVision">
                 <h3>
