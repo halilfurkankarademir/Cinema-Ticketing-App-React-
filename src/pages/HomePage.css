@@ -1,3 +1,111 @@
+.homepage-container {
+    width: 100%;
+    height: 400vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    bottom: 5.5rem;
+    opacity: 1;
+}
+.homepage-content {
+    position: relative;
+    z-index: 2;
+}
+
+.learnMore {
+    position: relative;
+    width: 15vw;
+    padding: 0.3rem;
+    right: 1rem;
+    background-color: #715aff;
+    color: whitesmoke;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    top: 45rem;
+    left: 62rem;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.learnMore:hover{
+    background-color: #121212;
+    transform: scale(1.1);
+}
+.pre-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #121212;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: #d9d9d9;
+    z-index: 10000;
+}
+.pre-loader h1{
+    font-size: 3rem !important;
+    letter-spacing: -2px;
+    margin-top: 1rem ;
+}
+
+.cardHomepage{
+    position: relative;
+    right: 4rem !important;
+}
+.homepage-container .secondSection h3{
+    position: relative;
+    right: 2rem;
+}
+.campaignForm{
+    height: 70vh;
+    padding: 3rem !important;
+    margin-top: 1rem;
+}
+.cardpng{
+    position: relative;
+    left: 7rem;
+    width: 20rem;
+    transition: all 0.5s ease-in-out;
+}
+.cardpng:hover{
+   transform: skew(1deg);
+   transform: scale(1.05);
+   filter: drop-shadow(10px 0px 10px #202020);
+}
+.seeAll{
+    position: relative;
+    font-size: 1rem;
+    left: 57rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.video-player-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.video-player {
+    position: relative;
+    width: 80%;
+    max-width: 840px;
+    padding: 20px;
+    border-radius: 8px;
+}
 @media only screen and (max-width: 600px) {
     .homepage-container {
         width: 100%;
@@ -204,114 +312,7 @@
 
 @media only screen and (min-width: 768px) {
     
-    .homepage-container {
-        width: 100%;
-        height: 400vh;
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        bottom: 5.5rem;
-        opacity: 1;
-    }
-    .homepage-content {
-        position: relative;
-        z-index: 2;
-    }
-
-    .learnMore {
-        position: relative;
-        width: 15vw;
-        padding: 0.3rem;
-        right: 1rem;
-        background-color: #715aff;
-        color: whitesmoke;
-        border-radius: 10px;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        top: 45rem;
-        left: 62rem;
-        font-size: 1rem;
-        font-weight: 600;
-        transition: all 0.3s ease-in-out;
-        opacity: 0;
-    }
-
-    .learnMore:hover{
-        background-color: #121212;
-        transform: scale(1.1);
-    }
-    .pre-loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: #121212;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        color: #d9d9d9;
-        z-index: 10000;
-    }
-    .pre-loader h1{
-        font-size: 3rem !important;
-        letter-spacing: -2px;
-        margin-top: 1rem ;
-    }
-
-    .cardHomepage{
-        position: relative;
-        right: 4rem !important;
-    }
-    .homepage-container .secondSection h3{
-        position: relative;
-        right: 2rem;
-    }
-    .campaignForm{
-        height: 70vh;
-        padding: 3rem !important;
-        margin-top: 1rem;
-    }
-    .cardpng{
-        position: relative;
-        left: 7rem;
-        width: 20rem;
-        transition: all 0.5s ease-in-out;
-    }
-    .cardpng:hover{
-       transform: skew(1deg);
-       transform: scale(1.05);
-       filter: drop-shadow(10px 0px 10px #202020);
-    }
-    .seeAll{
-        position: relative;
-        font-size: 1rem;
-        left: 57rem;
-        font-weight: 400;
-        cursor: pointer;
-    }
-
-    .video-player-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 100;
-    }
     
-    .video-player {
-        position: relative;
-        width: 80%;
-        max-width: 840px;
-        padding: 20px;
-        border-radius: 8px;
-    }
 }
 
 @media only screen and (min-width:992px) {
@@ -320,6 +321,7 @@
     }
     .learnMore{
         top: 50rem;
+        width: 15rem;
     }
     .cardpng{
         left: 10rem;
@@ -353,6 +355,7 @@
     .learnMore{
         top: 50rem;
         left: 50rem;
+        width: 15rem;
     }
     .visionSection span{
         left: 47rem;
@@ -392,6 +395,7 @@
     .learnMore{
         top: 50rem;
         left: 60rem;
+        width: 15rem;
     }
     .visionSection span{
         left: 58rem;
@@ -431,6 +435,7 @@
     .learnMore{
         top: 45rem;
         left: 60rem;
+        width: 15rem;
     }
     .cardpng{
         width: 25rem;
