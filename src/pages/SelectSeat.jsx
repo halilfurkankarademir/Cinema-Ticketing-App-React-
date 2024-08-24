@@ -227,9 +227,9 @@ const SeatSelection = () => {
                             </p>
                         )}
                     </div>
-                    <h6>Total Fee</h6>
-                    <p style={{ fontWeight: "500", color: "#FF3999" }}>
-                        ${ticketCount > 0 ? 10 * ticketCount : 0}
+                    <h6>Theater Number</h6>
+                    <p style={{ fontWeight: "700", color: "#FF3999" }}>
+                        {selectedMovie.theaterNo}
                     </p>
                     <button className="buyTicket" onClick={handlePayment}>
                         Continue
