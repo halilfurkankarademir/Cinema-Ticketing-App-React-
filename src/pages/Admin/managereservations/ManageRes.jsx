@@ -8,6 +8,8 @@ import {
     getDocs,
     deleteDoc,
     doc,
+    updateDoc,
+    increment
 } from "../../../firebase/firebase";
 import toast, { Toaster } from "react-hot-toast";
 import AdminNav from "../AdminNav";
@@ -41,9 +43,23 @@ const ManageRes = () => {
         }
     }, [userLoggedIn, navigate]);
 
-    const handleDelete = async (reservationId) => {
+    const handleDelete = async (reservationId,seatsCount) => {
         try {
             await deleteDoc(doc(firestore, "reservations", reservationId));
+            const revDocRef = doc(firestore, "datas", "totalRevenueDocId");
+            
+            await updateDoc(revDocRef, {
+                totalRevenue: increment(-seatsCount * 10),
+            });
+            const ticketSoldDocRef = doc(
+                firestore,
+                "datas",
+                "totalSoldTicketsDocId"
+            );
+            await updateDoc(ticketSoldDocRef, {
+                totalSoldTicketCount: increment(-1),
+            });
+            
             setReservations(reservations.filter((res) => res.id !== reservationId));
             toast.success("Reservation canceled successfully!");
         } catch (error) {
@@ -91,7 +107,7 @@ const ManageRes = () => {
                                     <td className="text-white"  style={{backgroundColor:'#171a1d'}}>
                                         <button
                                             className="btn btn-danger"
-                                            onClick={() => handleDelete(reservation.id)}
+                                            onClick={() => handleDelete(reservation.id,reservation.seats.length)}
                                         >
                                             Cancel
                                         </button>
