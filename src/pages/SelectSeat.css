@@ -224,7 +224,7 @@
         left: 50%;
         font-size: 1rem;
         width: 100%;
-        bottom: 25rem;
+        bottom: 27rem;
         transform: translateX(-50%);
         text-align: center;
     }
@@ -403,8 +403,6 @@
    }
    .buyTicket{
     width: auto;
-    top: 0;
-    
     left: 9rem;
    }
    .titleSelect{

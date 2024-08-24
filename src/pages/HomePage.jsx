@@ -217,7 +217,7 @@ const HomePage = () => {
                         <img
                             src={Popcorn}
                             alt=""
-                            style={{ width: "25rem", marginLeft: "2rem" }}
+                            style={{ marginLeft: "2rem" }}
                             className="cardpng text-center"
                         />
                     </div>
