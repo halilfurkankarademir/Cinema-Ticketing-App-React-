@@ -1,3 +1,61 @@
+.navbar {
+    position: fixed;
+    right: 0rem;
+    width: 100vw;
+    z-index: 8;
+    bottom: 40.6rem;
+    color: whitesmoke;
+}
+
+.brand h2 {
+    position: fixed;
+    font-size: 1.5rem;
+    width: 8rem;
+    height: 4rem;
+    left: 2rem;
+    top: 1.5rem;
+    letter-spacing: -2px;
+    cursor: pointer;
+}
+.bi-list {
+    display: none;
+}
+.menu {
+    display: none;
+}
+.Navmenu {
+    position: fixed;
+    display: flex;
+    bottom: 42rem;
+    left: 26rem;
+    z-index: 11;
+}
+.Navmenu a {
+    justify-content: space-between;
+    margin-right: 5rem;
+    color: whitesmoke;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.Navmenu a:hover {
+    color: #ff3999;
+}
+.bi-person-fill {
+    position: fixed;
+    left: 52rem;
+    font-size: 1.3rem;
+}
+.adminButton {
+    position: relative;
+    font-size: 1.2rem;
+    bottom: 0rem;
+    right: 13.5rem !important;
+    outline: none;
+    background: none;
+}
+
+
 @media only screen and (max-width: 600px) {
     .navbar {
         position: relative;
