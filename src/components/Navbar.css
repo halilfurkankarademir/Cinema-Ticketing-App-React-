@@ -57,60 +57,59 @@
 }
 @media only screen and (min-width: 768px) {
     .navbar {
-        position: fixed;
+        position: relative;
         right: 0rem;
-        width: 100vw;
+        background-color: var(--dark-gray) !important;
         z-index: 8;
-        bottom: 40.6rem;
+        bottom: 1rem;
         color: whitesmoke;
+        width: 105vw;
     }
-   
     .brand h2 {
-        position: fixed;
+        position: relative;
         font-size: 1.5rem;
         width: 8rem;
         height: 4rem;
-        left: 2rem;
-        top: 1.5rem;
+        left: 1.5rem;
+        top: 1.8rem;
         letter-spacing: -2px;
-        cursor: pointer;
     }
     .bi-list {
-        display: none;
+        position: relative;
+        color: whitesmoke;
+        font-size: 2rem;
+        top: 0.4rem;
+        right: 2.5rem;
+        transition: all 0.3s ease-in-out;
+        display: flex;
+    }
+    .bi-list:hover {
+        transform: scale(1.1);
     }
     .menu {
+        width: 100%;
+        height: 100vh;
         display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+    }
+    .menu.active {
+        display: flex;
+    }
+    .menu a {
+        text-decoration: none;
+        color: #ffffff;
+        padding: 3%;
+        position: relative;
+        bottom: 3rem;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
     }
     .Navmenu {
-        position: fixed;
-        display: flex;
-        bottom: 42rem;
-        left: 26rem;
-        z-index: 11;
-    }
-    .Navmenu a {
-        justify-content: space-between;
-        margin-right: 5rem;
-        color: whitesmoke;
-        text-decoration: none;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-    }
-    .Navmenu a:hover {
-        color: #ff3999;
-    }
-    .bi-person-fill {
-        position: fixed;
-        left: 52rem;
-        font-size: 1.3rem;
-    }
-    .adminButton {
-        position: relative;
-        font-size: 1.2rem;
-        bottom: 0rem;
-        right: 13.5rem !important;
-        outline: none;
-        background: none;
+        display: none;
     }
 }
 
@@ -139,7 +138,7 @@
     .Navmenu a {
         position: relative;
         right: 12rem;
-        /* margin-right: 2rem; */
+        margin-right: 2rem;
     }
     .ticket-icon{
         position: relative;
