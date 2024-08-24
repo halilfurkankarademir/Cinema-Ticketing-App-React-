@@ -14,7 +14,7 @@ const Navbar = () => {
     }
 
     function logo(){
-        navigate('/admin');
+        navigate('/');
     }
     return (
         <div>
@@ -37,6 +37,9 @@ const Navbar = () => {
                 </Link>
                 <Link to="/admin/reservations">
                     Reservations
+                </Link>
+                <Link to="/admin">
+                    <i class="bi bi-graph-up-arrow"></i>
                 </Link>
                 <button onClick={signOut} className="btn btn-light signOutButton"><i class="bi bi-box-arrow-right"></i></button>
             </div>
