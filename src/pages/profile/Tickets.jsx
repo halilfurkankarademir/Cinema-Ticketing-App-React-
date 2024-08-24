@@ -96,7 +96,7 @@ const Tickets = () => {
                     "totalSoldTicketsDocId"
                 );
                 await updateDoc(ticketSoldDocRef, {
-                    totalSoldTicketCount: increment(-1),
+                    totalSoldTicketCount: increment(-seatsCount),
                 });
 
                 setTickets(tickets.filter((ticket) => ticket.id !== ticketId));

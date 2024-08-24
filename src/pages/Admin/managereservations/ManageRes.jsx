@@ -57,9 +57,9 @@ const ManageRes = () => {
                 "totalSoldTicketsDocId"
             );
             await updateDoc(ticketSoldDocRef, {
-                totalSoldTicketCount: increment(-1),
+                totalSoldTicketCount: increment(-seatsCount),
             });
-            
+
             setReservations(reservations.filter((res) => res.id !== reservationId));
             toast.success("Reservation canceled successfully!");
         } catch (error) {
