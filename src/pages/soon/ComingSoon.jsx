@@ -10,6 +10,8 @@ import './ComingSoon.css'
 const ComingSoon = () => {
     
     const [movies, setMovies] = useState([]);
+    const [selectedTrailer, setSelectedTrailer] = useState(null);
+    const [videoVisible, setVideoVisible] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -39,6 +41,21 @@ const ComingSoon = () => {
         
     }, []);
   
+
+
+    const openVideo = (trailerUrl) => {
+        setSelectedTrailer(trailerUrl);
+        setVideoVisible(true);
+    };
+
+    const closeVideo = () => {
+        setVideoVisible(false);
+        setSelectedTrailer(null);
+    };
+
+    console.log(movies);
+
+
     return (
     <div>
         <div>
@@ -54,12 +71,29 @@ const ComingSoon = () => {
                                 desc={movie.description}
                                 img={movie.imageUrl}
                                 movieId={movie.id} 
-                                date={movie.date} 
+                                date={movie.date}
+                                trailer={movie.trailerUrl}
+                                openModal={openVideo} 
                             />
                         </div>
                     ))}
                 </div>
             </div>
+            {selectedTrailer && (
+                    <div className="video-player-overlay" onClick={closeVideo}>
+                        <div className="video-player">
+                            <iframe
+                                width="100%"
+                                height="480"
+                                src={selectedTrailer}
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                            ></iframe>
+                        </div>
+                    </div>
+                )}
             <Footer></Footer>
         </div>
     </div>
