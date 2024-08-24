@@ -66,6 +66,7 @@ const Payment = () => {
     });
 
     useEffect(() => {
+        document.title = "CineWave | Payment";
         if (!loading && !error && movies) {
             if (movies.length > 0) {
                 setMovieId(movies[0].id);

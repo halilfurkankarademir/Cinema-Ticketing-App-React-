@@ -26,10 +26,11 @@ const SeatSelection = () => {
     const currentDate = new Date().toDateString();
     const { id } = useParams();
 
-
+    
 
 
     useEffect(() => {
+        document.title = "CineWave | Select Seat";
         const fetchReservations = async () => {
             if (!movieName || !showTime || !formattedDate) return;
 
