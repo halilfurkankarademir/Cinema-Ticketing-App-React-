@@ -9,7 +9,7 @@ import Slider from "react-slick";
 import { MdFamilyRestroom } from "react-icons/md";
 import { MdOutlineFavorite } from "react-icons/md";
 import { useAuth } from "../context/auth";
-import toast, { Toaster } from 'react-hot-toast';
+
 
 const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
@@ -183,10 +183,10 @@ const MovieDetail = () => {
                     movieName: movie.title,
                     movieImage: movie.imageUrl,
                 });
-                toast.success("You liked that movie!");
+                
             } else {
                 setIsFavorite(true);
-                toast.error("You've already liked that movie!");
+              
             }
         } catch (error) {
             console.error("Error adding movie to favorites: ", error);
@@ -338,10 +338,6 @@ const MovieDetail = () => {
                     </div>
                 </div>
             )}
-             <Toaster
-                position="top-center"
-                reverseOrder={true}
-            />
         </div>
     );
 };
