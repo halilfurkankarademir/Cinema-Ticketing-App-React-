@@ -11,7 +11,7 @@ const Card = ({ title, img, movieId, date, type, trailer, openModal }) => {
         <div className="card comingCard">
             <img src={img} className="card-img-top" alt={title} onClick={()=>openModal(trailer)}/>
             <div className="card-body">
-                <p className='coming-trailer'><i class="bi bi-play-circle"></i> Watch Trailer</p>
+                <p className='coming-trailer' onClick={()=>openModal(trailer)}><i class="bi bi-play-circle"></i> Watch Trailer</p>
                 <p className="card-title" style={{fontWeight:'600'}}>{title}</p>
                 <h6 className='vision-date' style={{fontSize:'0.8rem', fontWeight:'400'}}><i className="bi bi-calendar-date"></i> {date}</h6>
                 <h6 className='vision-date' style={{fontSize:'0.8rem',fontWeight:'400'}}>{type}</h6>
