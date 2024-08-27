@@ -1,7 +1,7 @@
 .card{
     background-color: var(--purple);
     color: whitesmoke;
-    width: 18rem !important;
+    width: 18rem ;
     font-size: 0.7rem;
     outline: none;
     border: none;
@@ -83,47 +83,6 @@
 
 }
 @media only screen and (min-width: 768px){
-.card{
-    background-color: var(--purple);
-    color: whitesmoke;
-    width: 18rem;
-    font-size: 0.7rem;
-    outline: none;
-    border: none;
-    position: relative;
-    top: 2rem;
-    right: 0rem;
-    margin-bottom: 4rem !important; 
-    overflow: hidden;
-    cursor: pointer;
-}
-.card:hover  .card-img-top{
-    transform: scale(1.05);
-    opacity: 0.5;
-}
-.card-title{
-    font-size: 1rem;
-}
-
-.card-img-top{
-    width: auto;
-    height: 50vh;
-    object-fit: cover;
-    transition: all 0.2s ease-in-out;
-}
-.viewMovie{
-    position: absolute;
-    top: 11rem;
-    left: 6.5rem;
-    font-weight: 400;
-    font-size: 1rem;
-    color: whitesmoke;
-    display: none;
-}
-.card:hover .coming-trailer{
-    display: block;
-    transition: all 0.5s ease-in-out;
-}
 .comingCard{
     background-color: #FF007A;
 }

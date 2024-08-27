@@ -36,12 +36,12 @@
 
 
 }
-/* @media only screen and (min-width: 768px){
+@media only screen and (min-width: 768px){
 .card{
     background-color:var(--purple) ;
     color: whitesmoke;
-    width: 10rem !important;
-    height: 70vh;
+    width: 12rem !important;
+    height: 80vh;
     font-size: 0.7rem;
     outline: none;
     border: none;
@@ -63,7 +63,7 @@
 
 .card-img-top{
     width: auto !important;
-    height: 25rem !important;
+    height: 48vh !important;
     object-fit: cover;
     transition: all 0.2s ease-in-out;
 }
@@ -101,29 +101,34 @@
     transform: scale(1.1);
 }
 
-} */
+}
 @media only screen and (min-width: 992px){
     .card{
         height: auto;
+        width: 15rem !important;
     }
 }
 @media only screen and (min-width: 1200px){
     .card{
         height: auto;
+        width: 17rem !important;
     }
 }
 @media only screen and (min-width: 1400px){
     .card{
         height: auto;
+        width: 18rem !important;
     }
 }
 @media only screen and (min-width: 1536px){
     .card{
         height: auto;
+        width: 18rem !important;
     }
 }
 @media only screen and (min-width: 1920px){
     .card{
         height: auto;
+        width: 18rem;
     }
 }

@@ -92,7 +92,7 @@ const OnLive = () => {
                 </button>
                 <img
                     src="https://i.imghippo.com/files/g34SJ1724376215.jpg"
-                    alt="Kampanya Fotoğrafı"
+                    alt="Campaign"
                     style={{ width: "100%", height: "auto" }}
                 />
             </Modal>
