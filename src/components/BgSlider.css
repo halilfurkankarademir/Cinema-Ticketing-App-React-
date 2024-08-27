@@ -56,11 +56,10 @@
     .slide-text {
       position: relative;
       left: 8rem;
-      top: 8rem;
+      top: 10rem;
       z-index: 5; 
       color: rgb(255, 255, 255);
       margin-bottom: -0.05rem;
-      display: none;
   }
   
 }
