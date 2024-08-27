@@ -36,11 +36,11 @@
 
 
 }
-@media only screen and (min-width: 768px){
+/* @media only screen and (min-width: 768px){
 .card{
     background-color:var(--purple) ;
     color: whitesmoke;
-    width: 18rem !important;
+    width: 10rem !important;
     height: 70vh;
     font-size: 0.7rem;
     outline: none;
@@ -101,7 +101,7 @@
     transform: scale(1.1);
 }
 
-}
+} */
 @media only screen and (min-width: 992px){
     .card{
         height: auto;

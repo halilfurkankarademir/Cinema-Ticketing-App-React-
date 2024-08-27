@@ -44,7 +44,7 @@
 /* Orta ekranlar için (600px - 768px) */
 @media only screen and (max-width: 768px) {
     .footer-container {
-        height: 5rem;
+        height: 8rem;
         
     }
     
