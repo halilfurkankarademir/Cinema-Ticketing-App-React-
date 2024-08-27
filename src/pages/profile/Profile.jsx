@@ -22,6 +22,7 @@ const Profile = () => {
         if (!userLoggedIn) {
             navigate("/login");
         }
+        document.title = "CineWave | My Profile"
     }, [userLoggedIn, navigate]);
 
     useEffect(() => {

@@ -28,6 +28,8 @@ const Tickets = () => {
             navigate("/login");
         }
 
+        document.title = "CineWave | My Tickets"
+
         const fetchTickets = async () => {
             if (currentUser) {
                 try {

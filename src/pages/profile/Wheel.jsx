@@ -96,6 +96,8 @@ const WheelSpin = () => {
             navigate("/login");
         }
 
+        document.title = "CineWave | Lucky Spin"
+
         const fetchUserData = async () => {
             if (currentUser) {
                 try {
