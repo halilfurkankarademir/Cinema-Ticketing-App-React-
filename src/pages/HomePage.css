@@ -311,7 +311,21 @@
 }
 
 @media only screen and (min-width: 768px) {
-    
+    .learnMore{
+        left: 70%;
+        top: 25rem;
+        width: 30%;
+    }
+    .visionSection span{
+        left: 22rem;
+    }
+    .comingSection span{
+        left: 22rem;
+    }
+    .cardpng{
+        width: 30%;
+        left: 30%;
+    }
     
 }
 
