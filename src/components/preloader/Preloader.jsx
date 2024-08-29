@@ -7,8 +7,8 @@ const Preloader = () => {
     useEffect(() => {
         gsap.fromTo(
             ".pre-loader",
-            { opacity: 1 },
-            { opacity: 0, ease: "power4.inOut", duration: 1 , delay:1 }
+            { y: 0 },
+            { y: "100%", ease: "power4.inOut", duration: 1.5 , delay:1 }
         );
     }, []);
 
