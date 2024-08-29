@@ -5,6 +5,7 @@ import CardComing from "../../components/cardcoming/CardComing"
 import gsap from 'gsap'
 import { firestore, collection, getDocs } from "../../firebase/firebase";
 import { useEffect, useState } from 'react';
+import Preloader from '../../components/preloader/Preloader'
 import './ComingSoon.css'
 
 const ComingSoon = () => {
@@ -33,13 +34,6 @@ const ComingSoon = () => {
         fetchMovies();
     }, []);
     
-    useEffect(() => {
-        gsap.fromTo(".secondSectionUpcoming", 
-            { opacity: 0 },  
-            { opacity: 1, ease: "power4.inOut", duration: 1, delay:.5 }  
-        );
-        
-    }, []);
   
 
 
@@ -59,6 +53,7 @@ const ComingSoon = () => {
     return (
     <div>
         <div>
+            <Preloader/>
             <Navbar />
             <br /> <br /> <br /> <br /> <br /> <br />
             <div className="container-fluid secondSectionUpcoming">

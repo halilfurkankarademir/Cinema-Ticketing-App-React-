@@ -8,7 +8,7 @@ const Preloader = () => {
         gsap.fromTo(
             ".pre-loader",
             { y: 0 },
-            { y: "100%", ease: "power4.inOut", duration: 1.5 , delay:1 }
+            { y: "100%", ease: "power4.inOut", duration: 2 , delay:1 }
         );
     }, []);
 

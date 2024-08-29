@@ -32,6 +32,7 @@ import Contact from "./pages/contact/Contact";
 import Mobile from "./pages/Mobile";
 import ScrollToTop from "./components/ScrollToTop";
 
+
 const isMobileDevice = () => {
     return /Mobi|Android/i.test(navigator.userAgent);
 };
