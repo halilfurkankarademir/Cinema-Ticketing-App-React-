@@ -9,6 +9,7 @@ import Slider from "react-slick";
 import { MdFamilyRestroom } from "react-icons/md";
 import { MdOutlineFavorite } from "react-icons/md";
 import { useAuth } from "../context/auth";
+import Preloader from "../components/preloader/Preloader";
 
 
 const MovieDetail = () => {
@@ -212,7 +213,7 @@ const MovieDetail = () => {
     }, [currentUser, movie]);
 
     if (!movie) {
-        return <p>Loading...</p>;
+        return <Preloader></Preloader>;
     }
 
 

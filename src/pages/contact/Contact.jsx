@@ -3,11 +3,13 @@ import Footer from '../footer/Footer'
 import Navbar from '../../components/Navbar'
 import './Contact.css'
 import toast, { Toaster } from 'react-hot-toast';
+import Preloader from '../../components/preloader/Preloader';
 
 const Contact = () => {
   document.title = "CineWave | Contact"
   return (
     <div>
+        <Preloader></Preloader>
         <Navbar></Navbar>
         <div className='container-fluid contactForm'>
             <form action="" className='form-container w-100' style={{backgroundColor: "#171a1d"}}>
