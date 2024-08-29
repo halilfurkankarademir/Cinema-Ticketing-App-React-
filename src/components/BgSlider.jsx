@@ -28,6 +28,7 @@ const HeroSlider = () => {
             scale:1.2,
             ease: "power4.inOut",
             duration: 2,
+            delay:1
         });
     }, []);
     

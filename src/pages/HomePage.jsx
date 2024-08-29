@@ -9,6 +9,7 @@ import { firestore, collection, getDocs } from "../firebase/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import Modal from "react-modal";
+import Preloader from "../components/preloader/Preloader";
 import Popcorn from "../assets/popcorn.png";
 import "./HomePage.css";
 
@@ -147,6 +148,7 @@ const HomePage = () => {
 
     return (
         <div>
+            <Preloader/>
             <Navbar />
             <div className="container homepage-container">
                 <div className="homepage-content">
