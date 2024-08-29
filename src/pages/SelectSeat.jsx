@@ -6,6 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { collection, getDocs, query, where,doc,getDoc } from "firebase/firestore";
 import { firestore } from "../firebase/firebase";
 import DatePicker from "react-datepicker";
+import Preloader from "../components/preloader/Preloader"
 import "react-datepicker/dist/react-datepicker.css";
 import "./SelectSeat.css";
 
@@ -183,6 +184,7 @@ const SeatSelection = () => {
 
     return (
         <div>
+            <Preloader></Preloader>
             <Navbar />
             <img src={img} alt="" className="highQualityImg2" />
             <div className="container-fluid selectSeatAll">

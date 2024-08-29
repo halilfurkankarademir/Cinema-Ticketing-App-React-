@@ -12,6 +12,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../../context/auth";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Preloader from "../../components/preloader/Preloader";
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -121,6 +122,7 @@ const Dashboard = () => {
 
     return (
         <div>
+            <Preloader></Preloader>
             <Toaster position="top-center" />
             <AdminNav />
             <br /> <br /> <br /> <br /> <br /> <br />
