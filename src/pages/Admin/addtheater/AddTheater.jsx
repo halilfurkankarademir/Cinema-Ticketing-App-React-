@@ -100,9 +100,9 @@ const AddSeatForm = () => {
 
     return (
         <div>
+             <Toaster position="top-center" />
+            <AdminNav />
             <div className="addTheaterAll">
-                <Toaster position="top-center" />
-                <AdminNav />
                 <div className="form-container bg-dark text-white addSeatForm">
                     <h2 style={{ color: "#0095FF" }}>Manage Seats</h2>
                     <form onSubmit={handleAddSeat} className="seat-form">

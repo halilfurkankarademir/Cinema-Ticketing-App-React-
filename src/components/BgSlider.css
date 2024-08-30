@@ -66,15 +66,19 @@
 @media only screen and (min-width:992px){
     .hero-slider{
         position: relative;
-        top: -4rem;
+        top: -10rem;
         right: 16rem;
     }
+   
     .slide-text{
         left: 22rem;
         top: 16rem;
     }
 }
 @media only screen and (min-width:1200px) {
+    .hero-slider{
+        top: -10rem;
+    }
     .slide-text{
         top: 16rem;
         left: 22rem;
@@ -90,6 +94,7 @@
     .hero-slider{
         width: 160%;
         left: -25rem;
+        top: -10rem;
     }
     .slide-text{
         top: 16rem;

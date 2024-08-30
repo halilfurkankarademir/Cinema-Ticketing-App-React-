@@ -94,7 +94,7 @@ const AdminPanel = () => {
     return (
         <div>
             <AdminNav></AdminNav>
-            <br /> <br /> <br /> <br /> <br /> <br />
+            <br />
             <div className="admin-panel">
                 <Toaster position="top-center"></Toaster>
                 <Link to="/admin/addmovie" className="btn btn-light btnAddMovie">
@@ -146,6 +146,7 @@ const AdminPanel = () => {
                         </tbody>
                     </table>
                 </div>
+                <br /> <br /> <br /> <br />
                 <div className="container-fluid secondSectionManageMovies">
                     <h3>Upcoming Movies</h3>
                     <table className="table table-striped">
@@ -167,6 +168,9 @@ const AdminPanel = () => {
                                             src={movie.imageUrl}
                                             alt={movie.title}
                                             className="movie-image"
+                                            style={{
+                                                width:'100px'
+                                            }}
                                         />
                                     </td>
                                     <td className="text-white" style={{backgroundColor:'#171a1d'}}>{movie.type}</td>

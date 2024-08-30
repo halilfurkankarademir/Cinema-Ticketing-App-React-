@@ -4,11 +4,10 @@
     align-items: center;
     justify-content: center;
     display: flex;
+    
 }
 .addSeatForm{
+    margin-bottom: 10rem;
     width: 80%;
     background-color: #171a1d !important;
-}
-.seats-table{
-    margin-top: 100rem;
 }

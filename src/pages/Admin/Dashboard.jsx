@@ -125,7 +125,7 @@ const Dashboard = () => {
             <Preloader></Preloader>
             <Toaster position="top-center" />
             <AdminNav />
-            <br /> <br /> <br /> <br /> <br /> <br />
+            <br />
             <h1 className="admin-dashboard-text">Admin Dashboard</h1>
             <div className="container mt-4">
                 <div className="row">

@@ -1,5 +1,5 @@
 .NavmenuAdmin {
-    position: fixed;
+    position: relative;
     display: flex;
     top: 2.4rem;
     left: 12rem;
@@ -7,7 +7,7 @@
 }
 .NavmenuAdmin a {
     position: relative;
-    top: 1.2rem;
+    bottom: 3.5rem;
     left: 20rem;
     justify-content: space-between;
     margin-right: 2rem;
@@ -22,7 +22,7 @@
 .signOutButton {
     position: relative;
     left: 33rem;
-    top: 1rem;
+    bottom: 4rem;
 }
 .brandAdmin h2 {
     position: relative;
