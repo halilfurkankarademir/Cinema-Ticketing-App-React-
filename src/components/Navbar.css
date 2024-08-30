@@ -1,14 +1,13 @@
 .navbar {
-    position: fixed;
+    position: relative;
     right: 0rem;
     width: 100vw;
     z-index: 8;
     bottom: 40.6rem;
     color: whitesmoke;
 }
-
 .brand h2 {
-    position: fixed;
+    position: relative;
     font-size: 1.5rem;
     width: 8rem;
     height: 4rem;
@@ -24,9 +23,9 @@
     display: none;
 }
 .Navmenu {
-    position: fixed;
+    position: relative;
     display: flex;
-    bottom: 42rem;
+    bottom: 48rem;
     left: 26rem;
     z-index: 11;
 }
@@ -42,7 +41,7 @@
     color: #ff3999;
 }
 .bi-person-fill {
-    position: fixed;
+    position: absolute;
     left: 52rem;
     font-size: 1.3rem;
 }
@@ -122,16 +121,18 @@
         bottom: 1rem;
         color: whitesmoke;
         width: 105vw;
+        left: 0;
     }
 }
 
 @media only screen and (min-width: 992px) {
     .navbar {
-        position: fixed;
+        position: relative;
         right: 6rem;
         width: 80vw;
         z-index: 8;
         top: 2rem;
+        left: 10%;
         color: whitesmoke;
         height: 10vh;
         border-radius: 1rem;
@@ -143,7 +144,7 @@
         -webkit-backdrop-filter: blur(5px);
     }
     .Navmenu {
-        position: fixed;
+        position: relative;
         top: 3.6rem;
         left: 28rem;
     }
@@ -151,17 +152,21 @@
         position: relative;
         right: 12rem;
         margin-right: 2rem;
+        bottom: 4.8rem;
     }
     .ticket-icon{
         position: relative;
-        left: 14rem;
+        left: 14.2rem;
+        top: 4.8rem;
     }
     .spinner-icon{
         position: relative;
         left: 9rem;
+        top: 4.8rem;
     }
     .bi-person-fill {
-        left: 24rem;
+        top: 0;
+        left: -4rem;
     }
 }
 @media only screen and (min-width:1200px){
@@ -169,98 +174,117 @@
         left: 10%;
     }
     .Navmenu {
-        position: fixed;
-        top: 4rem;
-        left: 30rem;
-    }
-    .Navmenu a {
         position: relative;
-        right: 10rem;
-        margin-right: 3rem;
-    }
-    .brand h2{
-        top: 1.9rem;
-    }
-    .bi-person-fill {
-        left: 32rem;
-    }
-    .ticket-icon{
-        
-        left: 14rem;
-    }
-    .spinner-icon{
-       
-        left: 7rem;
-    }
-}
-@media only screen and (min-width:1400px){
-    .Navmenu {
-        position: fixed;
-        top: 4rem;
-        left: 30rem;
-    }
-    .Navmenu a {
-        position: relative;
-        right: 4.5rem;
-        margin-right: 5rem;
-    }
-    .brand h2{
-        top: 1.9rem;
-    }
-    .bi-person-fill {
-        left: 45rem;
-    }
-    .ticket-icon{
-        left: 7rem;
-    }
-    .spinner-icon{
-       
-        left: -2rem;
-    }
-}
-@media only screen and (min-width:1536px) {
-    .Navmenu {
-        position: fixed;
         top: 3.5rem;
         left: 30rem;
     }
     .Navmenu a {
         position: relative;
-        right: 1rem;   
+        right: 5rem;
+        bottom: 5rem;   
     }
     .brand h2{
-        top: 1.5rem;
+        top: 1.3rem;
     }
     .bi-person-fill {
-        left: 53rem;
+        top: 0rem;
+        left: -2rem;
     }
     .ticket-icon{
-        left: 8.5rem;
+        top: 5rem;
+        left: 9rem;
     }
     .spinner-icon{
-        left: 0;
+        top: 5rem;
+        left: 3rem;
+    }
+}
+@media only screen and (min-width:1400px){
+    .navbar{
+        left: 10%;
+    }
+    .Navmenu {
+        position: relative;
+        top: 3.5rem;
+        left: 30rem;
+    }
+    .Navmenu a {
+        position: relative;
+        right: 1rem;
+        bottom: 5rem;   
+    }
+    .brand h2{
+        top: 1.3rem;
+    }
+    .bi-person-fill {
+        top: 0rem;
+        left: 5rem;
+    }
+    .ticket-icon{
+        top: 5rem;
+        left: 12rem;
+    }
+    .spinner-icon{
+        top: 5rem;
+        left: 6rem;
+    }
+}
+@media only screen and (min-width:1536px) {
+    .navbar{
+        left: 10%;
+    }
+    .Navmenu {
+        position: relative;
+        top: 3.5rem;
+        left: 30rem;
+    }
+    .Navmenu a {
+        position: relative;
+        right: 1rem;
+        bottom: 4.5rem;   
+    }
+    .brand h2{
+        top: 1rem;
+    }
+    .bi-person-fill {
+        top: 0rem;
+        left: 10rem;
+    }
+    .ticket-icon{
+        top: 4.5rem;
+        left: 16rem;
+    }
+    .spinner-icon{
+        top: 4.5rem;
+        left: 10rem;
     }
 }
 @media only screen and (min-width:1920px) {
+    .navbar{
+        left: 10%;
+    }
     .Navmenu {
-        position: fixed;
+        position: relative;
         top:4rem;
         left: 30rem;
     }
     .Navmenu a {
         position: relative;
-        left: 10rem;   
+        left: 10rem;
+        bottom: 5.5rem;   
     }
     .brand h2{
-        top: 2rem;
+        top: 1.3rem;
     }
     .bi-person-fill {
-        left: 75rem;
+        left: 20rem;
     }
     .ticket-icon{
-        left: 8.5rem;
+        top: 5.5rem;
+        left: 15rem;
     }
     .spinner-icon{
-        left: 0rem;
+        top: 5.5rem;
+        left: 8rem;
     }
 }
