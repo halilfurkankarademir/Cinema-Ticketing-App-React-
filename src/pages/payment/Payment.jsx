@@ -311,7 +311,7 @@ const Payment = () => {
         <div>
             <Toaster position="top-center"></Toaster>
             <Navbar />
-            <br /> <br /> <br /> <br /> <br /> 
+            <br /> <br /> 
             <div className="container-fluid payment-container">
                 <main>
                     <div className="py-5">

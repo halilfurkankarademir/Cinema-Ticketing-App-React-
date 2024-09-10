@@ -9,7 +9,7 @@
 
 .selectSeatAll {
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     position: relative;
     text-align: center;
     align-items: center;
@@ -94,7 +94,6 @@
     padding: 0.6rem;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
-    
 }
 .custom-datepicker::placeholder {
     color: rgb(255, 255, 255);
@@ -125,13 +124,13 @@
 .seatsAll {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    gap: 0px; 
-    justify-content: center; 
+    gap: 0px;
+    justify-content: center;
     padding: 0px;
     left: 30%;
 }
 
-.titleSelect{
+.titleSelect {
     position: relative;
     left: 0rem;
 }
@@ -147,11 +146,10 @@
     opacity: 0.1;
     filter: blur(1px);
     object-fit: cover;
-    height: 110vh;
-  }
+    height: 120vh;
+}
 
-
-  @media only screen and (max-width: 991px) {
+@media only screen and (max-width: 991px) {
     .selectSeatAll {
         position: absolute;
         bottom: 5rem;
@@ -175,7 +173,7 @@
         width: 70%;
         height: 0.2rem;
         top: -1rem;
-        font-size: .8rem;
+        font-size: 0.8rem;
         left: 50%;
         background-color: #a682ff;
         transform: translateX(-50%);
@@ -231,7 +229,7 @@
 
     .seatInfoIcons {
         position: absolute;
-        font-size: .8rem;
+        font-size: 0.8rem;
         left: 50%;
         top: -4rem !important;
         max-width: 90%;
@@ -255,157 +253,155 @@
         margin: 0 0.6rem;
     }
 }
-@media only screen and (min-width: 768px){
-   
+@media only screen and (min-width: 768px) {
 }
-@media only screen and (min-width: 992px){
-    .selectSeatAll{
-        bottom: 35rem;
+@media only screen and (min-width: 992px) {
+    .selectSeatAll {
+        bottom: 40rem;
         right: 25rem;
-       }
-        .seatsAll{
+    }
+    .seatsAll {
         position: relative;
         left: 28rem;
-       }
-       .scene{
+    }
+    .scene {
         left: 38rem;
-       }
-       .seatInfoIcons{
+    }
+    .seatInfoIcons {
         left: 35.5rem;
         top: 4rem;
-       }
-       .select-date-time{
+    }
+    .select-date-time {
         top: 30rem;
-       }
-       .custom-datepicker{
+    }
+    .custom-datepicker {
         width: 55%;
-       }
-       .buyTicket{
+    }
+    .buyTicket {
         width: auto;
         left: 3.2rem;
-       }
-       .titleSelect{
+    }
+    .titleSelect {
         left: 17rem;
-       }
+    }
 }
-@media only screen and (min-width: 1200px){
-    .selectSeatAll{
-        bottom: 35rem;
+@media only screen and (min-width: 1200px) {
+    .selectSeatAll {
+        bottom: 40rem;
         right: 20rem;
-       }
-        .seatsAll{
+    }
+    .seatsAll {
         position: relative;
         left: 28rem;
-       }
-       .scene{
+    }
+    .scene {
         left: 36rem;
-       }
-       .seatInfoIcons{
+    }
+    .seatInfoIcons {
         left: 35.5rem;
         top: 4rem;
-       }
-       .select-date-time{
+    }
+    .select-date-time {
         top: 30rem;
-       }
-       .custom-datepicker{
+    }
+    .custom-datepicker {
         width: 55%;
-       }
-       .buyTicket{
+    }
+    .buyTicket {
         width: auto;
         left: 4.5rem;
-       }
-       .titleSelect{
+    }
+    .titleSelect {
         left: 11rem;
-       }
+    }
 }
-@media only screen and (min-width: 1400px){
-    .selectSeatAll{
-        bottom: 35rem;
-       }
-        .seatsAll{
+@media only screen and (min-width: 1400px) {
+    .selectSeatAll {
+        bottom: 40rem;
+    }
+    .seatsAll {
         position: relative;
         left: 28rem;
-       }
-       .scene{
+    }
+    .scene {
         left: 34rem;
-       }
-       .seatInfoIcons{
+    }
+    .seatInfoIcons {
         left: 35rem;
         top: 4rem;
-       }
-       .select-date-time{
+    }
+    .select-date-time {
         top: 30rem;
-       }
-       .custom-datepicker{
+    }
+    .custom-datepicker {
         width: 58%;
-       }
-       .buyTicket{
+    }
+    .buyTicket {
         width: auto;
         left: 5.8rem;
-       }
-       .titleSelect{
+    }
+    .titleSelect {
         left: 4rem;
-       }
+    }
 }
-@media only screen and (min-width: 1536px){
-    .selectSeatAll{
-        bottom: 35rem;
+@media only screen and (min-width: 1536px) {
+    .selectSeatAll {
+        bottom: 40rem;
         right: 18rem;
-       }
-        .seatsAll{
+    }
+    .seatsAll {
         position: relative;
         left: 28rem;
-       }
-       .scene{
+    }
+    .scene {
         left: 32rem;
-       }
-       .seatInfoIcons{
+    }
+    .seatInfoIcons {
         left: 35rem;
         top: 4rem;
-       }
-       .select-date-time{
+    }
+    .select-date-time {
         top: 30rem;
-       }
-       .custom-datepicker{
+    }
+    .custom-datepicker {
         width: 63%;
         z-index: 50;
         position: relative;
-       }
-       .buyTicket{
+    }
+    .buyTicket {
         width: auto;
         left: 6.5rem;
-       }
-       .titleSelect{
+    }
+    .titleSelect {
         left: 0rem;
-       }
-       
+    }
 }
-@media only screen and (min-width: 1920px){
-   .selectSeatAll{
-    bottom: 35rem;
-   }
-    .seatsAll{
-    position: relative;
-    left: 40rem;
-   }
-   .scene{
-    left: 41rem;
-   }
-   .seatInfoIcons{
-    left: 48rem;
-    top: 4rem;
-   }
-   .select-date-time{
-    top: 30rem;
-   }
-   .custom-datepicker{
-    width: 80%;
-   }
-   .buyTicket{
-    width: auto;
-    left: 9rem;
-   }
-   .titleSelect{
-    left: 0rem;
-   }
+@media only screen and (min-width: 1920px) {
+    .selectSeatAll {
+        bottom: 40rem;
+    }
+    .seatsAll {
+        position: relative;
+        left: 40rem;
+    }
+    .scene {
+        left: 41rem;
+    }
+    .seatInfoIcons {
+        left: 48rem;
+        top: 4rem;
+    }
+    .select-date-time {
+        top: 30rem;
+    }
+    .custom-datepicker {
+        width: 80%;
+    }
+    .buyTicket {
+        width: auto;
+        left: 9rem;
+    }
+    .titleSelect {
+        left: 0rem;
+    }
 }

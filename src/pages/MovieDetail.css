@@ -1,8 +1,7 @@
 
-
 .movieDetailSection {
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     margin: 0;
     padding: 0;
 }
@@ -39,7 +38,7 @@
     height: auto;
     z-index: 1;
     position: relative;
-    top: 10rem;
+    top: 5rem;
     left: 8.5rem;
     background-color: var(--dark-gray);
     border-radius: 10px;
@@ -58,7 +57,7 @@
     height: auto;
     z-index: 1;
     position: relative;
-    top: 10rem;
+    top: 5rem;
     left: 8.5rem;
     background-color: #171a1d;
     border-radius: 10px;

@@ -132,7 +132,7 @@ const RateMovie = () => {
         <div>
             <Toaster position="top-center"></Toaster>
             <Navbar />
-            <br /> <br /> <br /> <br /> <br /> 
+            <br /> <br /> 
             <div className="container-fluid rate-section">
                 <div className="stars d-flex">
                     {[...Array(5)].map((_, index) => (
