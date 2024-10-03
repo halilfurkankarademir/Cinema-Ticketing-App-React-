@@ -36,7 +36,7 @@ const AddSeatForm = () => {
         fetchSeats();
     }, [theaterNo]);
 
-    const handleAddSeat = async (e) => {
+    const handleAddSeat = async (e) => {//Add new seats to theater using firebase  
         e.preventDefault();
 
         if (!theaterNo || !seatNumber) {
@@ -71,7 +71,7 @@ const AddSeatForm = () => {
         }
     };
 
-    const handleDeleteSeat = async () => {
+    const handleDeleteSeat = async () => { //Delete inputted seat
         if (!theaterNo || !seatNumber) {
             toast.error("Please fill in the theater number and seat number!");
             return;

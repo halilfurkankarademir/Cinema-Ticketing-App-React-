@@ -13,11 +13,11 @@ const OnLive = () => {
 
     const [modalIsOpen, setModalIsOpen] = useState(true);
 
-    const [isClosedAdModal, setIsClosedAdModal] = useState(
+    const [isClosedAdModal, setIsClosedAdModal] = useState( //Modal state
         JSON.parse(localStorage.getItem('isClosedAdModal')) || false
     );
     
-    const closeModal = () => {
+    const closeModal = () => {//Hide modal permanently if clicked close button
         localStorage.setItem('isClosedAdModal', JSON.stringify(true));
         setIsClosedAdModal(true);
     };

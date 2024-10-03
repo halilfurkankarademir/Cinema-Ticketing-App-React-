@@ -25,7 +25,7 @@ const Payment = () => {
     const date = new Date().toDateString();
     const location = useLocation();
     const navigate = useNavigate();
-    const [orderNo, setOrderNo] = useState("");
+    const [orderNo, setOrderNo] = useState(""); //Unique order no for each ticket
     const [name, setName] = useState("");
     const [totalRevenue, setTotalRevenue] = useState(0);
     const [totalSoldTickets, setTotalSoldTickets] = useState(0);
@@ -45,7 +45,7 @@ const Payment = () => {
         selectedSeats,
         selectedDate,
         theaterNo,
-    } = location.state || {};
+    } = location.state || {}; //Get some variables using useLocation.state method
 
     const formattedDate = selectedDate
         ? new Date(selectedDate).toLocaleDateString("en-US", {
@@ -57,7 +57,7 @@ const Payment = () => {
 
     const calculateTotalPrice = (ticketCount, ticketType) => {
         return 10 * ticketCount;
-    };
+    };//Return total ticket fee.
 
     const movieRef = collection(firestore, "movies");
     const movieQuery = query(movieRef, where("title", "==", movieName));
@@ -77,7 +77,7 @@ const Payment = () => {
     }, [movies, loading, error]);
 
     useEffect(() => {
-        const fetchUserData = async () => {
+        const fetchUserData = async () => {//Get user information if user is logged in 
             if (!currentUser) return;
 
             try {
@@ -102,12 +102,12 @@ const Payment = () => {
     }, [currentUser]);
 
     useEffect(() => {
-        const fetchReservations = async () => {
+        const fetchReservations = async () => {//Fetch reservations 
             try {
                 const resRef = collection(firestore, "reservations");
                 const q = query(
                     resRef,
-                    where("movieName", "==", movieName),
+                    where("movieName", "==", movieName),//Only show movies when name, time and date are equal to selected
                     where("showTime", "==", showTime),
                     where("date", "==", formattedDate)
                 );
@@ -136,7 +136,7 @@ const Payment = () => {
         fetchTotalSoldTickets();
     }, []);
 
-    const fetchTotalRevenue = async () => {
+    const fetchTotalRevenue = async () => {//Get total revenue
         try {
             const docRef = doc(firestore, "datas", "totalRevenueDocId");
             const docSnap = await getDoc(docRef);
@@ -151,7 +151,7 @@ const Payment = () => {
         }
     };
 
-    const fetchTotalSoldTickets = async () => {
+    const fetchTotalSoldTickets = async () => {//Get total sold ticket count
         try {
             const docRef = doc(firestore, "datas", "totalSoldTicketsDocId");
             const docSnap = await getDoc(docRef);
@@ -166,7 +166,7 @@ const Payment = () => {
         }
     };
 
-    const updateData = async () => {
+    const updateData = async () => {//Increase datas like total revenue if payment completed
         try {
             const docRef = doc(firestore, "datas", "totalRevenueDocId");
             await setDoc(
@@ -183,7 +183,7 @@ const Payment = () => {
         }
     };
 
-    const updateSoldTicketCount = async () => {
+    const updateSoldTicketCount = async () => {//Increase datas like total sold tickets countif payment completed
         try {
             const movieRef = doc(firestore, "movies", movieId);
             await updateDoc(movieRef, {
@@ -208,7 +208,7 @@ const Payment = () => {
             console.error("Error updating total sold tickets: ", e);
         }
     };
-    const updateBalance = async () => {
+    const updateBalance = async () => {//Update gift balance if payment completed
         
         const willBeAdd = calculateTotalPrice(
             ticketCount,
@@ -231,7 +231,7 @@ const Payment = () => {
     const handleComplete = async (e) => {
         e.preventDefault();
 
-        const isDuplicateReservation = selectedSeats.every(seat => reservedSeats.includes(seat));
+        const isDuplicateReservation = selectedSeats.every(seat => reservedSeats.includes(seat));//Check if seats have already reserved
 
         if(isDuplicateReservation){
             toast.error("This ticket's already sold")
@@ -258,7 +258,7 @@ const Payment = () => {
             selectedDate.getTime()
         );
 
-        navigate("/paymentcomplete", {
+        navigate("/paymentcomplete", {//Send states and navigate to payment complete page
             state: {
                 movieName,
                 showTime,
@@ -275,7 +275,7 @@ const Payment = () => {
         });
     };
 
-    const reserveSeats = async (
+    const reserveSeats = async (//Reserve seats in firebase
         movieName,
         showtime,
         seats,
@@ -300,7 +300,7 @@ const Payment = () => {
         }
     };
 
-    const generateOrderNumber = () => {
+    const generateOrderNumber = () => {//Random order no 
         const now = new Date();
         const timestamp = now.getTime();
         const randomNum = Math.floor(Math.random() * 1000);

@@ -28,7 +28,7 @@ const Dashboard = () => {
     const { userLoggedIn, currentUser,isAdmin} = useAuth();
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchData = async () => { //Get all dashboard datas like revenues, ticket counts and homepage carousel info 
             if (!userLoggedIn || !isAdmin) {
                 navigate('/login');
                 return;
@@ -72,7 +72,7 @@ const Dashboard = () => {
         fetchData();
     }, [userLoggedIn, currentUser, role, navigate]);
 
-    const addCarousel = async (e) => {
+    const addCarousel = async (e) => {//Add new carousel info into firebase
         e.preventDefault();
         const customId = "carouselDocId";
         if (images.every(img => img !== "") &&

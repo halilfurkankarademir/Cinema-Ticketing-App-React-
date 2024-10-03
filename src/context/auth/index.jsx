@@ -9,9 +9,9 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-    const [currentUser, setCurrentUser] = useState(null);
+    const [currentUser, setCurrentUser] = useState(null); //User tokens 
     const [userLoggedIn, setUserLoggedIn] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(false); 
+    const [isAdmin, setIsAdmin] = useState(false);  //Check if user role is admin
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {

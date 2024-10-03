@@ -5,8 +5,6 @@ import "./CardComing.css";
 const Card = ({ title, img, movieId, date, type, trailer, openModal }) => {
     const navigate = useNavigate();
 
-    console.log(trailer);
-
     return (
         <div className="card comingCard">
             <img src={img} className="card-img-top" alt={title} onClick={()=>openModal(trailer)}/>

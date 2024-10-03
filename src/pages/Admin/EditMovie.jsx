@@ -30,7 +30,7 @@ const EditMovie = () => {
 
 
     useEffect(() => {
-        const fetchMovie = async () => {
+        const fetchMovie = async () => {//Get movie datas to edit
             try {
                 const movieDocRef = doc(firestore, "movies", id);
                 const movieSnap = await getDoc(movieDocRef);
@@ -57,7 +57,7 @@ const EditMovie = () => {
         fetchMovie();
     }, [id]);
 
-    const handleUpdate = async (e) => {
+    const handleUpdate = async (e) => {//Save changes
         e.preventDefault();
         const seanceArray = seance.split(",").map((s) => s.trim());
 

@@ -30,7 +30,7 @@ const AdminPanel = () => {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
-            });
+            });//Format date object into normal date
 
             await addDoc(collection(firestore, "upcoming"), {
                 title: title,

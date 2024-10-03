@@ -59,7 +59,7 @@ const Tickets = () => {
             }
         };
 
-        const fetchDatas = async () => {
+        const fetchDatas = async () => {//Get datas.
             try {
                 const reservationsCollection = collection(firestore, "datas");
                 const dataSnap = await getDocs(reservationsCollection);
@@ -81,23 +81,23 @@ const Tickets = () => {
 
     console.log(tickets);
 
-    const deleteTicket = async (ticketId, timestamp, seatsCount) => {
+    const deleteTicket = async (ticketId, timestamp, seatsCount) => {//Cancel ticket
         try {
             const now = new Date().getTime();
-            if (timestamp > now) {
+            if (timestamp > now) {//If ticket isn't expired cancel it
                 const ticketDocRef = doc(firestore, "reservations", ticketId);
                 await deleteDoc(ticketDocRef);
 
                 const revDocRef = doc(firestore, "datas", "totalRevenueDocId");
                 await updateDoc(revDocRef, {
-                    totalRevenue: increment(-seatsCount * 10),
+                    totalRevenue: increment(-seatsCount * 10),//Reduce total revenue by the number of canceled tickets
                 });
                 const ticketSoldDocRef = doc(
                     firestore,
                     "datas",
                     "totalSoldTicketsDocId"
                 );
-                await updateDoc(ticketSoldDocRef, {
+                await updateDoc(ticketSoldDocRef, {//Reduce total sold tickets count by the number of canceled tickets
                     totalSoldTicketCount: increment(-seatsCount),
                 });
 

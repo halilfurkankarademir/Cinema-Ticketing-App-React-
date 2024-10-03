@@ -35,7 +35,7 @@ const SeatSelection = () => {
         const fetchReservations = async () => {
             if (!movieName || !showTime || !formattedDate) return;
 
-            const resRef = collection(firestore, "reservations");
+            const resRef = collection(firestore, "reservations");//Fetch reservations for selected date and movie
             const q = query(
                 resRef,
                 where("movieName", "==", movieName),
@@ -84,7 +84,7 @@ const SeatSelection = () => {
     useEffect(() => {
         if (!selectedMovie || !selectedMovie.theaterNo) return;
         
-        const fetchSeats = async () => {
+        const fetchSeats = async () => {//Get seats 
             try {
                 const theaterDocRef = doc(firestore, "theaters", selectedMovie.theaterNo);
                 const theaterDoc = await getDoc(theaterDocRef);
@@ -124,7 +124,7 @@ const SeatSelection = () => {
 
     
 
-    const handleSeatClick = (seatNumber) => {
+    const handleSeatClick = (seatNumber) => {//Set seat's state selected
         if (selectedDate !== null && showTime !== "") {
             setSelectedSeats((prevSelectedSeats) => {
                 const newSelectedSeats = prevSelectedSeats.includes(seatNumber)
@@ -138,7 +138,7 @@ const SeatSelection = () => {
         }
     };
 
-    const handlePayment = () => {
+    const handlePayment = () => {//Navigate payment if there's no problem
         if (
             selectedSeats.length > 0 &&
             showTime !== "" &&

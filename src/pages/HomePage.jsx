@@ -23,7 +23,7 @@ const HomePage = () => {
 
     const navigate = useNavigate();
 
-    const settings = {
+    const settings = {//Slick carousel settings
         infinite: true,
         speed: 1000,
         slidesToShow: 4,
@@ -133,14 +133,14 @@ const HomePage = () => {
         navigate("/soon");
     };
 
-    const [videoVisible, setVideoVisible] = useState(false);
+    const [videoVisible, setVideoVisible] = useState(false);//Trailer visible state
 
-    const openVideo = (trailerUrl) => {
+    const openVideo = (trailerUrl) => {//Open trailer
         setSelectedTrailer(trailerUrl);
         setVideoVisible(true);
     };
 
-    const closeVideo = () => {
+    const closeVideo = () => {//Close trailer
         setVideoVisible(false);
         setSelectedTrailer(null);
     };

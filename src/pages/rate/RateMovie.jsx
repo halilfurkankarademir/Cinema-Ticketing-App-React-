@@ -33,7 +33,7 @@ const RateMovie = () => {
             }
         });
 
-        const fetchMovie = async () => {
+        const fetchMovie = async () => {//Get movie data
             try {
                 const moviesCollection = collection(firestore, "movies");
                 const movieSnapshot = await getDocs(moviesCollection);
@@ -57,7 +57,7 @@ const RateMovie = () => {
             }
         };
 
-        const fetchComments = async () => {
+        const fetchComments = async () => {//Get comments
             try {
                 const commentsCollection = collection(firestore, "ratings");
                 const commentSnapshot = await getDocs(commentsCollection);
@@ -88,7 +88,7 @@ const RateMovie = () => {
         setRating(number);
     };
 
-    const addComment = async (e) => {
+    const addComment = async (e) => {//Add comments 
         e.preventDefault();
         
         if (!movie) {

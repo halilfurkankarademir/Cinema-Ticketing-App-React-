@@ -23,9 +23,9 @@ const Navbar = () => {
         });
     }, []);
 
-    const [toggleSidebar, setToggleSidebar] = useState(false);
+    const [toggleSidebar, setToggleSidebar] = useState(false); //Show menu property for mobile devices.
 
-    const { currentUser, userLoggedIn, isAdmin } = useAuth();
+    const { currentUser, userLoggedIn, isAdmin } = useAuth(); 
 
     const navigate = useNavigate();
 
@@ -35,7 +35,7 @@ const Navbar = () => {
         setToggleSidebar((prev) => !prev);
     };
 
-    const handleLinkClick = () => {
+    const handleLinkClick = () => { // If user clicks the link hide sidebar.
         setToggleSidebar(false);
     };
 
@@ -43,14 +43,14 @@ const Navbar = () => {
         await doSignOut();
     };
 
-    const redicert = () => {
+    const redicertHomepage = () => {
         navigate("/");
     };
 
     return (
         <div>
             <div className="navbar bg-transparent navbarAll">
-                <div className="brand" onClick={redicert}>
+                <div className="brand" onClick={redicertHomepage}>
                     <h2>CineWave</h2>
                 </div>
                 <i className="bi bi-list" onClick={showMenu}></i>

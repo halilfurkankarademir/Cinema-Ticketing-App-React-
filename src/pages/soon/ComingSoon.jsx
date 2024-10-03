@@ -37,12 +37,12 @@ const ComingSoon = () => {
   
 
 
-    const openVideo = (trailerUrl) => {
+    const openVideo = (trailerUrl) => {//Open trailer 
         setSelectedTrailer(trailerUrl);
         setVideoVisible(true);
     };
 
-    const closeVideo = () => {
+    const closeVideo = () => {//Close trailer
         setVideoVisible(false);
         setSelectedTrailer(null);
     };

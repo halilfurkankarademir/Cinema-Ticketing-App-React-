@@ -37,7 +37,7 @@ const AdminPanel = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        const seanceArray = seance.split(',').map(s => s.trim());
+        const seanceArray = seance.split(',').map(s => s.trim());//Split showtimes by comma
 
         try {
             const docRef = await addDoc(collection(firestore, "movies"), {

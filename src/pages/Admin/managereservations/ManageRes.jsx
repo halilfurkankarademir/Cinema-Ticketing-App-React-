@@ -24,7 +24,7 @@ const ManageRes = () => {
         if (!userLoggedIn || !isAdmin) {
             navigate("/login");
         } else {
-            const fetchReservations = async () => {
+            const fetchReservations = async () => {//Get reservations data and set it into the state 
                 try {
                     const resCollection = collection(firestore, "reservations");
                     const resSnapshot = await getDocs(resCollection);
@@ -43,7 +43,7 @@ const ManageRes = () => {
         }
     }, [userLoggedIn, navigate]);
 
-    const handleDelete = async (reservationId,seatsCount) => {
+    const handleDelete = async (reservationId,seatsCount) => {//Delete selected reservation
         try {
             await deleteDoc(doc(firestore, "reservations", reservationId));
             const revDocRef = doc(firestore, "datas", "totalRevenueDocId");

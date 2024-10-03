@@ -14,17 +14,17 @@ import Preloader from "../components/preloader/Preloader";
 
 const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
-    const [movies, setMovies] = useState(null);
+    const [movies, setMovies] = useState(null);//Other movies for now playing section
     const [comments, setComments] = useState([]);
     const [ratingMovie, setRatingMovie] = useState(0);
-    const [isFavorite,setIsFavorite] = useState(false);
+    const [isFavorite,setIsFavorite] = useState(false);//Is user's favorite state
     const { id } = useParams();
     const navigate = useNavigate();
     const {currentUser} = useAuth();
 
     document.title = "CineWave | Movie Details";
 
-    const settings = {
+    const settings = {//Carousel for now playing section
         infinite: true,
         speed: 1000,
         slidesToShow: 1,
@@ -61,7 +61,7 @@ const MovieDetail = () => {
         ],
     };
 
-    const avgRating = () => {
+    const avgRating = () => {//Get avg rating using simple calculation (all ratings / comment count)
         let totalRating = 0;
         let numberOfRatings = comments.length;
 
@@ -77,7 +77,7 @@ const MovieDetail = () => {
     };
 
     useEffect(() => {
-        const fetchMovies = async () => {
+        const fetchMovies = async () => {//Movies for now playing 
             try {
                 const moviesCollection = collection(firestore, "movies");
                 const movieSnapshot = await getDocs(moviesCollection);
@@ -91,7 +91,7 @@ const MovieDetail = () => {
             }
         };
 
-        const fetchMovie = async () => {
+        const fetchMovie = async () => {//Selected movie
             try {
                 const moviesCollection = collection(firestore, "movies");
                 const movieSnapshot = await getDocs(moviesCollection);
@@ -145,7 +145,7 @@ const MovieDetail = () => {
         });
     }, [movie]);
 
-    const handleBuyTicket = () => {
+    const handleBuyTicket = () => {//Navigate to seat selection if buy button clicked
         navigate(`/select-seat/${id}`, {
             state: {
                 movieName: movie.title,
@@ -154,7 +154,7 @@ const MovieDetail = () => {
         });
     };
 
-    const handleTrailer = () => {
+    const handleTrailer = () => {//Open trailer
         const trailer = document.getElementById("trailerSection");
         trailer.style.display = "flex";
     };
@@ -168,7 +168,7 @@ const MovieDetail = () => {
             iframe.src = movie.trailer;
         }
     };
-    const addFavorites = async () => {
+    const addFavorites = async () => {//Add favorites section if heart clicked
         if (!movie) {
             return; 
         }
@@ -195,7 +195,7 @@ const MovieDetail = () => {
     }
 
     useEffect(() => {
-        const fetchFavoriteStatus = async () => {
+        const fetchFavoriteStatus = async () => {//Check if is favorite movie
             if (!movie || !currentUser) return;
     
             try {
@@ -215,9 +215,6 @@ const MovieDetail = () => {
     if (!movie) {
         return <Preloader></Preloader>;
     }
-
-
-    console.log(isFavorite);
 
     const redicertRate = () => {
         navigate(`/rate/${id}`);

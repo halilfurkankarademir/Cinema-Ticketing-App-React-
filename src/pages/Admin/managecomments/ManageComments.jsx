@@ -22,7 +22,7 @@ const ManageComments = () => {
         if (!userLoggedIn || !isAdmin) {
             navigate("/login");
         } else {
-            const fetchComments = async () => {
+            const fetchComments = async () => { //Get comments from firebase
                 try {
                     const commentsCollection = collection(firestore, "ratings");
                     const commentsSnapshot = await getDocs(commentsCollection);
@@ -41,10 +41,10 @@ const ManageComments = () => {
         }
     }, [userLoggedIn, navigate]);
 
-    const handleDelete = async (id) => {
+    const handleDelete = async (id) => {//Delete selected comment
         try {
             await deleteDoc(doc(firestore, "ratings", id));
-            setComments(comments.filter((comment) => comment.id !== id));
+            setComments(comments.filter((comment) => comment.id !== id)); //Set new comments list which is not equal to deleted ones
             toast.success("Comment deleted successfully!");
         } catch (error) {
             console.error("Error deleting comment: ", error);

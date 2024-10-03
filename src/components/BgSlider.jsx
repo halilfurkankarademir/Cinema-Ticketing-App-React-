@@ -6,12 +6,12 @@ import { useGSAP } from "@gsap/react";
 import "./BgSlider.css";
 
 const HeroSlider = () => {
-    const [images, setImages] = useState([]);
-    const [titles, setTitles] = useState([]);
-    const [types, setTypes] = useState([]);
-    const [durations, setDurations] = useState([]);
+    const [images, setImages] = useState([]);   // Image url's for background slider
+    const [titles, setTitles] = useState([]);   // Titles for background slider
+    const [types, setTypes] = useState([]);     // Movie types for background slider
+    const [durations, setDurations] = useState([]); // Movie durations for background slider
 
-    const settings = {
+    const settings = { //Slick carousel settings
         infinite: true,
         speed: 1500,
         slidesToShow: 1,
@@ -20,9 +20,10 @@ const HeroSlider = () => {
         autoplaySpeed: 4000,
         pauseOnHover: false,
         arrows:false,
-        
     };
-    useGSAP(() => {
+
+
+    useGSAP(() => { 
         gsap.from(".hero-slider", {
             opacity: 0,
             scale:1.2,
@@ -34,7 +35,7 @@ const HeroSlider = () => {
     
 
     useEffect(() => {
-        const fetchImages = async () => {
+        const fetchImages = async () => { //Get image infos from firebase
             try {
                 const imgRef = doc(firestore, "carouselimages", "carouselDocId");
                 const imgSnap = await getDoc(imgRef);

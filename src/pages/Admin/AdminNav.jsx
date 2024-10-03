@@ -13,7 +13,7 @@ const Navbar = () => {
         navigate('/');
     }
 
-    function logo(){
+    function logo(){//Navigate to homepage when logo clicked
         navigate('/');
     }
     return (

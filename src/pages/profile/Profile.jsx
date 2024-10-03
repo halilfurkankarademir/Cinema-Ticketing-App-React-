@@ -26,7 +26,7 @@ const Profile = () => {
     }, [userLoggedIn, navigate]);
 
     useEffect(() => {
-        const fetchUserData = async () => {
+        const fetchUserData = async () => {//Get user datas and set into states
             if (!currentUser) return;
 
             try {
@@ -56,7 +56,7 @@ const Profile = () => {
     }
 
 
-    const handlePasswordReset = async () => {
+    const handlePasswordReset = async () => {//Do password reset using firebase auth
         if (!currentUser || !currentUser.email) return;
 
         try {
@@ -76,7 +76,7 @@ const Profile = () => {
         }
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => {//Save changes
         e.preventDefault();
         setLoading(true);
         try {

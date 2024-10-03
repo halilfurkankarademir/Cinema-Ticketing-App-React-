@@ -23,7 +23,7 @@ const AdminPanel = () => {
         if (!userLoggedIn) {
             navigate("/login");
         } else {
-            const fetchMovies = async () => {
+            const fetchMovies = async () => {//Get movies list
                 try {
                     const moviesCollection = collection(firestore, "movies");
                     const movieSnapshot = await getDocs(moviesCollection);
@@ -37,7 +37,7 @@ const AdminPanel = () => {
                 }
             };
 
-            const fetchUpcomingMovies = async () => {
+            const fetchUpcomingMovies = async () => {//Get upcoming movies list
                 try {
                     const upcomingMoviesCollection = collection(
                         firestore,
@@ -69,7 +69,7 @@ const AdminPanel = () => {
         navigate("/");
     }
 
-    const deleteMovie = async (id, isUpcoming = false) => {
+    const deleteMovie = async (id, isUpcoming = false) => {//Delete selected movie
         const isConfirmed = window.confirm("Are you sure you want to delete this movie?");
         if (!isConfirmed) return;
     

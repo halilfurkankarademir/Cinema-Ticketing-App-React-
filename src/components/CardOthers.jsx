@@ -5,7 +5,7 @@ import "./Card.css";
 const Card = ({ title, img, movieId }) => {
     const navigate = useNavigate();
 
-    const handleClick = () => {
+    const handleClick = () => { //Navigate specific movie detail page with movie id  
         navigate(`/movie/${movieId}`);
     };
 
